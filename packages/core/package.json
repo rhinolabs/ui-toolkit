@@ -7,7 +7,10 @@
 	"types": "./dist/index.d.ts",
 	"type": "module",
 	"scripts": {
+		"dev": "vite",
 		"build": "tsc",
+		"cosmos": "cosmos",
+		"cosmos-export": "cosmos-export",
 		"lint": "biome format && biome lint",
 		"lint:fix": "biome format --write && biome lint --fix"
 	},
@@ -49,8 +52,6 @@
 		"react-hook-form": "^7.54.2",
 		"react-resizable-panels": "^2.1.7",
 		"sonner": "^1.7.1",
-		"tailwind-merge": "^1.14.0",
-		"tailwindcss-animate": "^1.0.7",
 		"zod": "^3.24.1"
 	},
 	"devDependencies": {
@@ -58,10 +59,17 @@
 		"@types/node": "^22.10.5",
 		"@types/react": "catalog:",
 		"@types/react-dom": "^18.3.1",
-		"autoprefixer": "^10.4.14",
-		"postcss": "^8.4.22",
+		"@vitejs/plugin-react": "^4.3.4",
+		"autoprefixer": "^10.4.20",
+		"postcss": "^8.4.49",
+		"react-cosmos": "^6.2.3",
+		"react-cosmos-core": "^6.2.0",
+		"react-cosmos-plugin-vite": "^6.2.0",
 		"react-dom": "catalog:",
-		"tailwindcss": "^3.3.2",
-		"typescript": "catalog:"
+		"tailwindcss": "^3.4.17",
+		"tailwind-merge": "^2.6.0",
+		"tailwindcss-animate": "^1.0.7",
+		"typescript": "catalog:",
+		"vite": "^6.0.7"
 	}
 }

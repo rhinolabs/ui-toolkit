@@ -1,5 +1,5 @@
 const App = () => {
-	return <p>Test your component here</p>;
+	return <h1 className="text-3xl">Test your component here</h1>;
 };
 
 export default App;
