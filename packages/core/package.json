@@ -8,7 +8,7 @@
 	"type": "module",
 	"scripts": {
 		"dev": "vite",
-		"build": "tsc",
+		"build": "tsc --project tsconfig.build.json",
 		"cosmos": "cosmos",
 		"cosmos-export": "cosmos-export",
 		"lint": "biome format && biome lint",
