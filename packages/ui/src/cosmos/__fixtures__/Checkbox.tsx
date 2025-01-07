@@ -2,10 +2,7 @@ import { Checkbox } from "@/components/ui/checkbox";
 import { useFixtureInput } from "react-cosmos/client";
 
 function CheckboxExamples() {
-	const [label] = useFixtureInput(
-		"Label",
-		"Accept terms and conditions",
-	);
+	const [label] = useFixtureInput("Label", "Accept terms and conditions");
 	const [done, setDone] = useFixtureInput("Accept", false);
 	const [disable] = useFixtureInput("Disable", false);
 
