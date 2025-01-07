@@ -4,7 +4,7 @@
 - [What is @rhino-ui](#what-is-rhino-ui)
 - [Why @rhino-ui?](#why-rhino-ui)
 - [@rhino-ui Packages](#rhino-ui-packages)
-  - [Core](#core)
+  - [UI](#ui)
   - [Hooks](#hooks)
 - [How to Contribute](#how-to-contribute)
 - [How to Raise an Issue](#how-to-raise-an-issue)
@@ -20,7 +20,7 @@ Here are a few reasons why @rhino-ui stands out:
 
 - **Eliminate Repetition**: @rhino-ui reduces the need to write the same boilerplate code over and over, saving time and reducing potential errors.
 
-- **Simplicity**: The core components and hooks are designed to be intuitive and easy to use, allowing you to focus on creating unique user experiences rather than dealing with complex setup.
+- **Simplicity**: The UI components and hooks are designed to be intuitive and easy to use, allowing you to focus on creating unique user experiences rather than dealing with complex setup.
 
 - **Efficiency**: With @rhino-ui, you can significantly reduce development time. The libraries provide a comprehensive set of tools that work seamlessly together, streamlining the development process from concept to deployment.
 
@@ -28,12 +28,12 @@ Here are a few reasons why @rhino-ui stands out:
 
 @rhino-ui offers two packages:
 
-- [Core](https://github.com/rhinolabs/rhino-ui/tree/main/packages/core)
+- [UI](https://github.com/rhinolabs/rhino-ui/tree/main/packages/ui)
 - [Hooks](https://github.com/rhinolabs/rhino-ui/tree/main/packages/hooks)
 
-#### Core
+#### UI
 
-The Core package `@rhino-ui/core` is a React component library built on top of [shadcn/ui](https://ui.shadcn.com/). It offers a wide range of reusable UI components that eliminate the need for repetitive boilerplate code, accelerating frontend development while maintaining consistency and quality across applications.
+The UI package `@rhino-ui/ui` is a React component library built on top of [shadcn/ui](https://ui.shadcn.com/). It offers a wide range of reusable UI components that eliminate the need for repetitive boilerplate code, accelerating frontend development while maintaining consistency and quality across applications.
 
 #### Hooks
 

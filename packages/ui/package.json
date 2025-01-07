@@ -1,5 +1,5 @@
 {
-	"name": "@rhino-ui/core",
+	"name": "@rhino-ui/ui",
 	"version": "1.0.0",
 	"description": "Component library collection for @rhino-ui",
 	"main": "./dist/index.js",
