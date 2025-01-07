@@ -3,13 +3,12 @@
 	"version": "1.0.0",
 	"description": "Component library collection for @rhino-ui",
 	"main": "./dist/index.js",
-	"module": "./dist/index.mjs",
 	"types": "./dist/index.d.ts",
-	"type": "module",
 	"scripts": {
-		"dev": "vite",
+		"dev": "rspack serve",
+		"dev:cosmos": "MODE=cosmos rspack serve",
 		"build": "tsc --project tsconfig.build.json",
-		"cosmos": "cosmos",
+		"cosmos": "cosmos --expose-imports src/cosmos/cosmos.imports.ts",
 		"cosmos-export": "cosmos-export",
 		"lint": "biome format && biome lint",
 		"lint:fix": "biome format --write && biome lint --fix"
@@ -56,20 +55,24 @@
 	},
 	"devDependencies": {
 		"@biomejs/biome": "catalog:",
+		"@rspack/cli": "^1.1.8",
+		"@rspack/core": "^1.1.8",
+		"@rspack/plugin-react-refresh": "1.0.0",
 		"@types/node": "^22.10.5",
 		"@types/react": "catalog:",
 		"@types/react-dom": "^18.3.1",
-		"@vitejs/plugin-react": "^4.3.4",
 		"autoprefixer": "^10.4.20",
 		"postcss": "^8.4.49",
+		"postcss-loader": "^8.1.1",
 		"react-cosmos": "^6.2.3",
 		"react-cosmos-core": "^6.2.0",
-		"react-cosmos-plugin-vite": "^6.2.0",
+		"react-cosmos-dom": "^6.2.0",
 		"react-dom": "catalog:",
-		"tailwindcss": "^3.4.17",
+		"react-refresh": "^0.14.0",
 		"tailwind-merge": "^2.6.0",
+		"tailwindcss": "^3.4.17",
 		"tailwindcss-animate": "^1.0.7",
-		"typescript": "catalog:",
-		"vite": "^6.0.7"
+		"ts-node": "^10.9.2",
+		"typescript": "catalog:"
 	}
 }
