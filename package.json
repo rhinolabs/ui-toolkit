@@ -1,7 +1,7 @@
 {
-	"name": "@rhino-ui/monorepo",
+	"name": "@rhinolabs/ui-toolkit",
 	"version": "1.0.0",
-	"description": "",
+	"description": "An open-source collection of frontend libraries for eliminating repetitive boilerplate in UI development",
 	"main": "index.js",
 	"type": "module",
 	"scripts": {
