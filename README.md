@@ -1,51 +1,51 @@
-# @rhino-ui
+# Rhinolabs UI Toolkit
 
 ## Table of Contents
-- [What is @rhino-ui](#what-is-rhino-ui)
-- [Why @rhino-ui?](#why-rhino-ui)
-- [@rhino-ui Packages](#rhino-ui-packages)
-  - [UI](#ui)
-  - [Hooks](#hooks)
+- [What is Rhinolabs UI Toolkit](#what-is-rhinolabs-ui-toolkit)
+- [Why Rhinolabs UI Toolkit?](#why-rhinolabs-ui-toolkit)
+- [Packages](#packages)
+  - [UI Components](#ui-components)
+  - [React Hooks](#react-hooks)
 - [How to Contribute](#how-to-contribute)
 - [How to Raise an Issue](#how-to-raise-an-issue)
 - [License](#license)
 
-### What is @rhino-ui
+### What is Rhinolabs UI Toolkit
 
-[@rhino-ui](https://github.com/rhinolabs/rhino-ui) is an open-source collection of frontend libraries born from the need to eliminate repetitive boilerplate when creating UI interfaces. By providing a set of ready-to-use components and hooks, it helps developers streamline their workflow, reduce redundancy, and focus on building unique user experiences.
+[Rhinolabs UI Toolkit](https://github.com/rhinolabs/ui-toolkit) is an open-source collection of frontend libraries born from the need to eliminate repetitive boilerplate when creating UI interfaces. By providing a set of ready-to-use components and hooks, it helps developers streamline their workflow, reduce redundancy, and focus on building unique user experiences.
 
-### Why @rhino-ui?
+### Why Rhinolabs UI Toolkit?
 
-Here are a few reasons why @rhino-ui stands out:
+Here are a few reasons why Rhinolabs UI Toolkit stands out:
 
-- **Eliminate Repetition**: @rhino-ui reduces the need to write the same boilerplate code over and over, saving time and reducing potential errors.
+- **Eliminate Repetition**: Our toolkit reduces the need to write the same boilerplate code over and over, saving time and reducing potential errors.
 
-- **Simplicity**: The UI components and hooks are designed to be intuitive and easy to use, allowing you to focus on creating unique user experiences rather than dealing with complex setup.
+- **Simplicity**: The components and hooks are designed to be intuitive and easy to use, allowing you to focus on creating unique user experiences rather than dealing with complex setup.
 
-- **Efficiency**: With @rhino-ui, you can significantly reduce development time. The libraries provide a comprehensive set of tools that work seamlessly together, streamlining the development process from concept to deployment.
+- **Efficiency**: With Rhinolabs UI Toolkit, you can significantly reduce development time. The libraries provide a comprehensive set of tools that work seamlessly together, streamlining the development process from concept to deployment.
 
-### @rhino-ui Packages
+### Packages
 
-@rhino-ui offers two packages:
+Rhinolabs UI Toolkit offers two packages:
 
-- [UI](https://github.com/rhinolabs/rhino-ui/tree/main/packages/ui)
-- [Hooks](https://github.com/rhinolabs/rhino-ui/tree/main/packages/hooks)
+- [@rhinolabs/ui](https://github.com/rhinolabs/ui-toolkit/tree/main/packages/ui)
+- [@rhinolabs/react-hooks](https://github.com/rhinolabs/ui-toolkit/tree/main/packages/hooks)
 
-#### UI
+#### UI Components
 
-The UI package `@rhino-ui/ui` is a React component library built on top of [shadcn/ui](https://ui.shadcn.com/). It offers a wide range of reusable UI components that eliminate the need for repetitive boilerplate code, accelerating frontend development while maintaining consistency and quality across applications.
+The UI package `@rhinolabs/ui` is a React component library built on top of [shadcn/ui](https://ui.shadcn.com/). It offers a wide range of reusable UI components that eliminate the need for repetitive boilerplate code, accelerating frontend development while maintaining consistency and quality across applications.
 
-#### Hooks
+#### React Hooks
 
-The Hooks package `@rhino-ui/hooks` provides a collection of reusable React hooks that simplify state management and side effects in your applications, further reducing repetitive code and streamlining your development process.
+The React Hooks package `@rhinolabs/react-hooks` provides a collection of reusable React hooks that simplify state management and side effects in your applications, further reducing repetitive code and streamlining your development process.
 
 ### How to Contribute
 
-Contributions to @rhino-ui are welcome! ✅
+Contributions to Rhinolabs UI Toolkit are welcome! ✅
 
-@rhino-ui uses pnpm—a performant npm package manager integrated into its `pnpm workspace`. This optimizes package installation and dependency management. To install `pnpm`, follow this [guide](https://pnpm.io/installation).
+Our toolkit uses pnpm—a performant npm package manager integrated into its `pnpm workspace`. This optimizes package installation and dependency management. To install `pnpm`, follow this [guide](https://pnpm.io/installation).
 
-Whether you're fixing a bug or adding a new feature, please see our [Contributing Guidelines](https://github.com/rhinolabs/rhino-ui/blob/main/CODE_OF_CONDUCT.md) for details on how to contribute to @rhino-ui and participate in our community.
+Whether you're fixing a bug or adding a new feature, please see our [Contributing Guidelines](https://github.com/rhinolabs/ui-toolkit/blob/main/CODE_OF_CONDUCT.md) for details on how to contribute and participate in our community.
 
 ### How to Raise an Issue
 
@@ -58,4 +58,4 @@ When raising an issue:
 
 ### License
 
-@rhino-ui is licensed under the [MIT License](https://github.com/rhinolabs/rhino-ui/blob/main/LICENSE)
+Rhinolabs UI Toolkit is licensed under the [MIT License](https://github.com/rhinolabs/ui-toolkit/blob/main/LICENSE)

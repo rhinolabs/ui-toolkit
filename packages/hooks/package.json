@@ -1,7 +1,7 @@
 {
-	"name": "@rhino-ui/hooks",
+	"name": "@rhinolabs/react-hooks",
 	"version": "1.0.0",
-	"description": "React hooks collection for @rhino-ui",
+	"description": "Collection of React hooks for state management and side effects",
 	"main": "./dist/index.js",
 	"types": "./dist/index.d.ts",
 	"type": "module",
