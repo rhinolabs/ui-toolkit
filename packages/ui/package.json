@@ -1,7 +1,7 @@
 {
-	"name": "@rhino-ui/ui",
+	"name": "@rhinolabs/ui",
 	"version": "1.0.0",
-	"description": "Component library collection for @rhino-ui",
+	"description": "Modern and accessible React components built on shadcn/ui",
 	"main": "./dist/index.js",
 	"types": "./dist/index.d.ts",
 	"scripts": {
