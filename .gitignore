@@ -33,3 +33,6 @@ yarn-error.log*
 .vscode
 .idea
 .fleet
+
+# Cosmos Tree
+cosmos.imports.ts
