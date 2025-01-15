@@ -14,7 +14,13 @@
 		"plugins": [{ "transform": "typescript-transform-paths" }]
 	},
 	"include": ["src/**/*"],
-	"exclude": ["node_modules", "dist", "src/cosmos", "src/App.tsx", "src/main.tsx"],
+	"exclude": [
+		"node_modules",
+		"dist",
+		"src/cosmos",
+		"src/App.tsx",
+		"src/main.tsx"
+	],
 	"ts-node": {
 		"require": ["tsconfig-paths/register"]
 	}

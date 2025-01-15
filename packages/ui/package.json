@@ -5,9 +5,7 @@
 	"main": "./dist/index.js",
 	"module": "dist/index.js",
 	"types": "./dist/index.d.ts",
-	"files": [
-		"dist/"
-	],
+	"files": ["dist/"],
 	"scripts": {
 		"dev": "rspack serve",
 		"dev:cosmos": "MODE=cosmos rspack serve",
