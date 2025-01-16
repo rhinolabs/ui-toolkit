@@ -63,7 +63,7 @@
 		"@biomejs/biome": "catalog:",
 		"@rspack/cli": "^1.1.8",
 		"@rspack/core": "^1.1.8",
-		"@rspack/plugin-react-refresh": "1.0.0",
+		"@rspack/plugin-react-refresh": "1.0.1",
 		"@types/node": "^22.10.5",
 		"@types/react": "catalog:",
 		"@types/react-dom": "^18.3.1",
