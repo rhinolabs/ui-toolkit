@@ -3,11 +3,13 @@
 	"version": "1.0.0",
 	"description": "Modern and accessible React components built on shadcn/ui",
 	"main": "./dist/index.js",
+	"module": "dist/index.js",
 	"types": "./dist/index.d.ts",
+	"files": ["dist/"],
 	"scripts": {
 		"dev": "rspack serve",
 		"dev:cosmos": "MODE=cosmos rspack serve",
-		"build": "tsc --project tsconfig.build.json",
+		"build": "tspc --project tsconfig.build.json",
 		"cosmos": "cosmos --expose-imports src/cosmos/cosmos.imports.ts",
 		"cosmos-export": "cosmos-export",
 		"lint": "biome format && biome lint",
@@ -49,11 +51,12 @@
 		"date-fns": "^4.1.0",
 		"lucide-react": "^0.469.0",
 		"next-themes": "^0.4.4",
-		"react": "catalog:",
 		"react-day-picker": "8.10.1",
 		"react-hook-form": "^7.54.2",
 		"react-resizable-panels": "^2.1.7",
 		"sonner": "^1.7.1",
+		"tailwindcss-animate": "^1.0.7",
+		"tailwind-merge": "^2.6.0",
 		"zod": "^3.24.1"
 	},
 	"devDependencies": {
@@ -67,7 +70,7 @@
 		"autoprefixer": "^10.4.20",
 		"postcss": "^8.4.49",
 		"postcss-loader": "^8.1.1",
-		"react": "catalog",
+		"react": "catalog:",
 		"react-cosmos": "^6.2.3",
 		"react-cosmos-core": "^6.2.0",
 		"react-cosmos-dom": "^6.2.0",
@@ -77,6 +80,13 @@
 		"tailwindcss": "^3.4.17",
 		"tailwindcss-animate": "^1.0.7",
 		"ts-node": "^10.9.2",
-		"typescript": "catalog:"
+		"ts-patch": "^3.3.0",
+		"tsconfig-paths": "^4.2.0",
+		"typescript": "catalog:",
+		"typescript-transform-paths": "^3.5.3"
+	},
+	"peerDependencies": {
+		"react": "catalog:",
+		"react-dom": "catalog:"
 	}
 }
