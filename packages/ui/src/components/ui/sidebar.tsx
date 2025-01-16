@@ -3,13 +3,15 @@ import { Slot } from "@radix-ui/react-slot";
 import { type VariantProps, cva } from "class-variance-authority";
 import { PanelLeft } from "lucide-react";
 
-import { useIsMobile } from "@/components/hooks/use-mobile";
+import { useWindowSize } from "@rhinolabs/react-hooks";
+
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Separator } from "@/components/ui/separator";
 import { Sheet, SheetContent } from "@/components/ui/sheet";
 import { Skeleton } from "@/components/ui/skeleton";
+
 import {
 	Tooltip,
 	TooltipContent,
@@ -65,7 +67,7 @@ const SidebarProvider = React.forwardRef<
 		},
 		ref,
 	) => {
-		const isMobile = useIsMobile();
+		const { isMobile } = useWindowSize();
 		const [openMobile, setOpenMobile] = React.useState(false);
 
 		// This is the internal state of the sidebar.

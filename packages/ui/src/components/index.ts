@@ -32,6 +32,3 @@ export * from "./ui/textarea";
 export * from "./ui/toggle-group";
 export * from "./ui/toggle";
 export * from "./ui/tooltip";
-
-// Hooks
-export * from "./hooks/use-mobile";

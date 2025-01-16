@@ -16,7 +16,9 @@ export const useWindowSize = (): WindowSize => {
 		width: window.innerWidth,
 		height: window.innerHeight,
 		isMobile: window.innerWidth < MOBILE_BREAKPOINT,
-		isTablet: window.innerWidth >= MOBILE_BREAKPOINT && window.innerWidth < TABLET_BREAKPOINT,
+		isTablet:
+			window.innerWidth >= MOBILE_BREAKPOINT &&
+			window.innerWidth < TABLET_BREAKPOINT,
 		isDesktop: window.innerWidth >= TABLET_BREAKPOINT,
 	});
 
