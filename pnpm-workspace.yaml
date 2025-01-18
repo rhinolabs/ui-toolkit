@@ -4,6 +4,7 @@ packages:
 catalog:
   typescript: ^5.7.2
   "@biomejs/biome": ^1.9.4
-  react: ^18.3.1
-  "@types/react": ^18.3.13
-  react-dom: ^18.3.1
+  react: ^19.0.0
+  "@types/react": ^19.0.0
+  react-dom: ^19.0.0
+  "@types/react-dom": ^19.0.0
