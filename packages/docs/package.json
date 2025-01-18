@@ -6,7 +6,7 @@
 	"scripts": {
 		"build": "next build",
 		"dev": "next dev",
-		"postbuild": "pagefind --site .next/server/app --output-path public/_pagefind",
+		"postbuild": "pagefind --site .next/server/app --output-path out/_pagefind",
 		"start": "next start",
 		"lint": "biome format && biome lint",
 		"lint:fix": "biome format --write && biome lint --fix"
@@ -26,6 +26,7 @@
 		"react-dom": "catalog:"
 	},
 	"devDependencies": {
-		"@biomejs/biome": "catalog:"
+		"@biomejs/biome": "catalog:",
+		"pagefind": "^1.3.0"
 	}
 }
