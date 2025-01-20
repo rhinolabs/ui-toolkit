@@ -69,7 +69,7 @@
 		"@types/react": "catalog:",
 		"@types/react-dom": "^18.3.1",
 		"autoprefixer": "^10.4.20",
-		"postcss": "^8.4.49",
+		"postcss": "^8.5.1",
 		"postcss-loader": "^8.1.1",
 		"react": "catalog:",
 		"react-cosmos": "^6.2.3",
