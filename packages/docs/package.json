@@ -20,7 +20,7 @@
 	"license": "ISC",
 	"dependencies": {
 		"next": "^15.1.5",
-		"nextra": "^4.0.3",
+		"nextra": "^4.0.4",
 		"nextra-theme-docs": "^4.0.4",
 		"react": "catalog:",
 		"react-dom": "catalog:"
