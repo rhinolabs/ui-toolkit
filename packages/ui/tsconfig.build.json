@@ -7,11 +7,6 @@
 		"declaration": true,
 		"declarationMap": true,
 		"noEmit": false,
-		"baseUrl": ".",
-		"paths": {
-			"@/*": ["./src/*"]
-		},
-		"plugins": [{ "transform": "typescript-transform-paths" }]
 	},
 	"include": ["src/**/*"],
 	"exclude": [
@@ -20,8 +15,5 @@
 		"src/cosmos",
 		"src/App.tsx",
 		"src/main.tsx"
-	],
-	"ts-node": {
-		"require": ["tsconfig-paths/register"]
-	}
+	]
 }

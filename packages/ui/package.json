@@ -9,7 +9,8 @@
 	"scripts": {
 		"dev": "rspack serve",
 		"dev:cosmos": "MODE=cosmos rspack serve",
-		"build": "tspc --project tsconfig.build.json",
+		"build": "tsc -p tsconfig.build.json",
+		"postbuild": "resolve-tspaths -p tsconfig.build.json",
 		"cosmos": "cosmos --expose-imports src/cosmos/cosmos.imports.ts",
 		"cosmos-export": "cosmos-export",
 		"lint": "biome format && biome lint",
@@ -55,8 +56,8 @@
 		"react-hook-form": "^7.54.2",
 		"react-resizable-panels": "^2.1.7",
 		"sonner": "^1.7.2",
-		"tailwindcss-animate": "^1.0.7",
 		"tailwind-merge": "^2.6.0",
+		"tailwindcss-animate": "^1.0.7",
 		"zod": "^3.24.1",
 		"@rhinolabs/react-hooks": "workspace:"
 	},
@@ -77,14 +78,13 @@
 		"react-cosmos-dom": "^6.2.0",
 		"react-dom": "catalog:",
 		"react-refresh": "^0.16.0",
+		"resolve-tspaths": "^0.8.23",
 		"tailwind-merge": "^2.6.0",
 		"tailwindcss": "^3.4.17",
 		"tailwindcss-animate": "^1.0.7",
 		"ts-node": "^10.9.2",
 		"ts-patch": "^3.3.0",
-		"tsconfig-paths": "^4.2.0",
-		"typescript": "catalog:",
-		"typescript-transform-paths": "^3.5.3"
+		"typescript": "catalog:"
 	},
 	"peerDependencies": {
 		"react": "catalog:",
