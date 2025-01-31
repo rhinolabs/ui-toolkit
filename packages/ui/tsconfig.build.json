@@ -6,7 +6,7 @@
 		"resolveJsonModule": false,
 		"declaration": true,
 		"declarationMap": true,
-		"noEmit": false,
+		"noEmit": false
 	},
 	"include": ["src/**/*"],
 	"exclude": [
