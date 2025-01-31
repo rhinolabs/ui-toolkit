@@ -2,6 +2,7 @@
 	"name": "@rhinolabs/ui",
 	"version": "1.0.0",
 	"description": "Modern and accessible React components built on shadcn/ui",
+	"type": "module",
 	"main": "./dist/index.js",
 	"module": "dist/index.js",
 	"types": "./dist/index.d.ts",
