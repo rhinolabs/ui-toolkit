@@ -1,0 +1,43 @@
+# useArray
+
+A powerful hook for managing array state in React components. It provides a set of utility functions to handle common array operations while maintaining immutability.
+
+## Parameters
+
+- `initialArray`: `T[]` - The initial array value. Can be an array of any type (numbers, strings, objects, etc.).
+
+## Returns
+
+- `array`: `T[]` - The current array state.
+- `set`: `(value: T[]) => void` - Replace the entire array with a new one.
+- `push`: `(element: T) => void` - Add an element to the end of the array.
+- `filter`: `(callback: (element: T) => boolean) => void` - Filter array elements based on a condition.
+- `update`: `(index: number, newElement: T) => void` - Update an element at a specific index.
+- `remove`: `(index: number) => void` - Remove an element at a specific index.
+- `clear`: `() => void` - Remove all elements from the array.
+
+## Basic Usage
+
+```typescript
+import { useArray } from '@rhinolabs/hooks';
+
+function NumberList() {
+  const { array, push, remove } = useArray<number>([1, 2, 3]);
+
+  return (
+    <div>
+      <p>Numbers: {array.join(', ')}</p>
+      <button onClick={() => push(array.length + 1)}>Add Next Number</button>
+      <button onClick={() => remove(array.length - 1)}>Remove Last</button>
+    </div>
+  );
+}
+```
+
+## Notes
+
+- All operations maintain array immutability
+- The hook is type-safe and supports TypeScript generics
+- Array indices are zero-based
+- Operations like `update` and `remove` silently fail if the index is out of bounds
+- The `filter` method permanently modifies the array state (unlike Array.prototype.filter)

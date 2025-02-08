@@ -1,0 +1,54 @@
+# useAsync
+
+A hook for managing asynchronous operations in React components. It provides loading, error, and success states along with the data from the async operation.
+
+## Parameters
+
+This hook doesn't take any initial parameters.
+
+## Returns
+
+- `execute`: `(asyncFunction: () => Promise<T>) => Promise<T>` - Function to run the async operation
+- `data`: `T | null` - The result of the async operation if successful
+- `isLoading`: `boolean` - Whether the async operation is in progress
+- `error`: `Error | null` - Error object if the operation failed
+- `isSuccess`: `boolean` - Whether the operation completed successfully
+
+## Basic Usage
+
+```typescript
+import { useAsync } from '@rhinolabs/hooks';
+
+function UserProfile() {
+  const { execute, data, isLoading, error } = useAsync<User>();
+
+  const fetchUser = async () => {
+    const response = await fetch('https://api.example.com/user');
+    return response.json();
+  };
+
+  return (
+    <div>
+      <button onClick={() => execute(fetchUser)} disabled={isLoading}>
+        {isLoading ? 'Loading...' : 'Fetch User'}
+      </button>
+      
+      {error && <div>Error: {error.message}</div>}
+      {data && (
+        <div>
+          <h2>{data.name}</h2>
+          <p>{data.email}</p>
+        </div>
+      )}
+    </div>
+  );
+}
+```
+
+## Notes
+
+- The hook manages all common async states (loading, error, success)
+- Execute function is memoized and won't change between renders
+- Error handling is automatic - throws are captured and stored in error state
+- Initial state has null data and error, false loading and success
+- Can be used with any async function that returns a Promise

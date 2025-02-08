@@ -1,0 +1,53 @@
+# useWindowSize
+
+A hook that tracks window dimensions and provides responsive breakpoint information. Perfect for implementing responsive layouts, conditional rendering based on screen size, and dynamic UI adjustments.
+
+## Parameters
+
+This hook doesn't take any parameters.
+
+## Returns
+
+- `width`: `number` - Current window width in pixels
+- `height`: `number` - Current window height in pixels
+- `isMobile`: `boolean` - True if width < 768px
+- `isTablet`: `boolean` - True if width >= 768px and < 1024px
+- `isDesktop`: `boolean` - True if width >= 1024px
+
+## Basic Usage
+
+```typescript
+import { useWindowSize } from '@rhinolabs/hooks';
+
+function ResponsiveComponent() {
+  const { width, height, isMobile, isTablet, isDesktop } = useWindowSize();
+
+  return (
+    <div>
+      <div>
+        Dimensions: {width}x{height}px
+      </div>
+      
+      {isMobile && (
+        <div>Mobile Layout</div>
+      )}
+      
+      {isTablet && (
+        <div>Tablet Layout</div>
+      )}
+      
+      {isDesktop && (
+        <div>Desktop Layout</div>
+      )}
+    </div>
+  );
+}
+```
+
+## Notes
+
+- Implements real-time window dimension tracking with efficient resize handling
+- Provides standardized breakpoints for responsive design (mobile: &lt;768px, tablet: 768-1023px, desktop: &ge;1024px)
+- Ensures type safety with strongly-typed return values
+- Manages event listeners with automatic cleanup
+- Supports server-side rendering with safe initialization

@@ -1,0 +1,50 @@
+# useDebounce
+
+A hook that delays updating a value until a specified time has passed since the last change. Perfect for search inputs, form validation, or any scenario where you want to limit the frequency of updates.
+
+## Parameters
+
+- `value`: `T` - The value to debounce (can be any type)
+- `delay`: `number` - The delay in milliseconds
+
+## Returns
+
+- `T` - The debounced value
+
+## Basic Usage
+
+```typescript
+import { useDebounce } from '@rhinolabs/hooks';
+
+function SearchInput() {
+  const [searchTerm, setSearchTerm] = useState('');
+  const debouncedSearch = useDebounce(searchTerm, 500);
+
+  useEffect(() => {
+    // Only search when debouncedSearch changes
+    if (debouncedSearch) {
+      searchAPI(debouncedSearch);
+    }
+  }, [debouncedSearch]);
+
+  return (
+    <input
+      type="text"
+      value={searchTerm}
+      onChange={(e) => setSearchTerm(e.target.value)}
+      placeholder="Search..."
+    />
+  );
+}
+```
+
+## Notes
+
+- Generic type support
+- Cleans up timeouts
+- Prevents rapid updates
+- Performance optimization
+- Type-safe implementation
+- Customizable delay
+- Memory efficient
+- Real-time state tracking

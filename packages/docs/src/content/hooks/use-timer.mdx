@@ -1,0 +1,67 @@
+# useTimer
+
+A hook that provides countdown timer functionality with pause, play, and reset controls. Perfect for implementing countdowns, timeouts, and time-based features.
+
+## Parameters
+
+- `startTime`: `string` - Initial time in format "DD:HH:MM:SS"
+
+## Returns
+
+- `current`: `string` - Current time in "DD:HH:MM:SS" format
+- `isPaused`: `boolean` - Whether the timer is paused
+- `isOver`: `boolean` - Whether the timer has finished
+- `currentDays`: `number` - Current days remaining
+- `currentHours`: `number` - Current hours remaining
+- `currentMinutes`: `number` - Current minutes remaining
+- `currentSeconds`: `number` - Current seconds remaining
+- `elapsedSeconds`: `number` - Total seconds elapsed
+- `remainingSeconds`: `number` - Total seconds remaining
+- `pause`: `() => void` - Function to pause the timer
+- `play`: `() => void` - Function to start/resume the timer
+- `reset`: `() => void` - Function to reset to initial time
+- `togglePause`: `() => void` - Function to toggle pause state
+
+## Basic Usage
+
+```typescript
+import { useTimer } from '@rhinolabs/hooks';
+
+function Countdown() {
+  const { 
+    current,
+    isPaused,
+    isOver,
+    togglePause,
+    reset 
+  } = useTimer('00:01:30:00'); // 1 hour 30 minutes
+
+  return (
+    <div>
+      <h2>Time Remaining: {current}</h2>
+      
+      <button onClick={togglePause}>
+        {isPaused ? 'Resume' : 'Pause'}
+      </button>
+      
+      <button onClick={reset}>
+        Reset Timer
+      </button>
+
+      {isOver && (
+        <div>Time's up!</div>
+      )}
+    </div>
+  );
+}
+```
+
+## Notes
+
+- Accepts time in "DD:HH:MM:SS" format
+- Updates every second
+- Provides formatted and parsed time values
+- Includes pause/play/reset controls
+- Tracks elapsed and remaining time
+- Handles timer completion
+- Auto-cleanup on unmount

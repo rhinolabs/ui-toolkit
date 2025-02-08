@@ -1,0 +1,80 @@
+# useInput
+
+A hook that manages input field state and change handling. Perfect for creating controlled form inputs with minimal boilerplate and type safety.
+
+## Parameters
+
+- `initialValue`: `T` - Initial value for the input (generic type)
+
+## Returns
+
+- `inputValue`: `T` - Current input value
+- `onInputChange`: `(event: React.ChangeEvent<HTMLInputElement>) => void` - Change event handler
+
+## Basic Usage
+
+```typescript
+import { useInput } from '@rhinolabs/hooks';
+
+function FormField() {
+  const { inputValue, onInputChange } = useInput<string>('');
+
+  return (
+    <div>
+      <input
+        type="text"
+        value={inputValue}
+        onChange={onInputChange}
+        placeholder="Enter text..."
+      />
+      
+      <p>Current value: {inputValue}</p>
+    </div>
+  );
+}
+```
+
+## Type-Safe Example
+
+```typescript
+interface User {
+  name: string;
+  age: number;
+}
+
+function UserForm() {
+  const nameInput = useInput<string>('');
+  const ageInput = useInput<number>(0);
+
+  const handleSubmit = () => {
+    const user: User = {
+      name: nameInput.inputValue,
+      age: ageInput.inputValue
+    };
+    // Process user data...
+  };
+
+  return (
+    <form onSubmit={handleSubmit}>
+      <input
+        type="text"
+        value={nameInput.inputValue}
+        onChange={nameInput.onInputChange}
+      />
+      <input
+        type="number"
+        value={ageInput.inputValue}
+        onChange={ageInput.onInputChange}
+      />
+    </form>
+  );
+}
+```
+
+## Notes
+
+- Implements controlled input pattern with generic type support
+- Provides type-safe value and event handling
+- Manages input state with automatic event processing
+- Integrates seamlessly with React form components
+- Handles React event types with proper TypeScript definitions

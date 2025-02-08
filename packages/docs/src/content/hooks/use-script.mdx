@@ -1,0 +1,45 @@
+# useScript
+
+A hook that dynamically loads external JavaScript files and tracks their loading state. Perfect for loading third-party libraries, analytics scripts, or any external JavaScript resources.
+
+## Parameters
+
+- `url`: `string` - URL of the script to load
+
+## Returns
+
+- `loading`: `boolean` - Whether the script is currently loading
+- `error`: `string | null` - Error message if script loading failed
+
+## Basic Usage
+
+```typescript
+import { useScript } from '@rhinolabs/hooks';
+
+function GoogleMapsComponent() {
+  const { loading, error } = useScript(
+    'https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY'
+  );
+
+  if (loading) return <div>Loading Maps...</div>;
+  if (error) return <div>Error loading Maps: {error}</div>;
+
+  return (
+    <div>
+      {/* Google Maps component code */}
+      <div id="map" style={{ width: '100%', height: '400px' }} />
+    </div>
+  );
+}
+```
+
+## Notes
+
+- Automatically handles script cleanup
+- Loads scripts asynchronously
+- Tracks loading state
+- Provides error handling
+- Removes script on unmount
+- Supports URL updates
+- Safe DOM manipulation
+- Prevents duplicate loading

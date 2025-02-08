@@ -1,0 +1,51 @@
+# useOutsideClick
+
+A hook that detects clicks outside of a specified element. Perfect for implementing dropdown menus, modal dialogs, or any component that needs to close when clicking outside.
+
+## Parameters
+
+- `ref`: `MutableRefObject<HTMLElement | null>` - Reference to the element to monitor
+- `fn`: `() => void` - Callback function to execute when a click outside occurs
+
+## Basic Usage
+
+```typescript
+import { useOutsideClick } from '@rhinolabs/hooks';
+import { useRef, useState } from 'react';
+
+function Dropdown() {
+  const [isOpen, setIsOpen] = useState(false);
+  const dropdownRef = useRef<HTMLDivElement>(null);
+
+  useOutsideClick(dropdownRef, () => {
+    if (isOpen) setIsOpen(false);
+  });
+
+  return (
+    <div ref={dropdownRef}>
+      <button onClick={() => setIsOpen(!isOpen)}>
+        Toggle Dropdown
+      </button>
+      
+      {isOpen && (
+        <div className="dropdown-menu">
+          <a href="#">Option 1</a>
+          <a href="#">Option 2</a>
+          <a href="#">Option 3</a>
+        </div>
+      )}
+    </div>
+  );
+}
+```
+
+## Notes
+
+- Uses event delegation
+- Handles cleanup automatically
+- Type-safe ref handling
+- Efficient event binding
+- Supports nested elements
+- Ignores clicks inside
+- DOM-based detection
+- No unnecessary re-renders

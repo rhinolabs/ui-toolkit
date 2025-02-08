@@ -1,0 +1,49 @@
+# useHover
+
+A hook that detects when an element is being hovered over. Perfect for implementing hover effects, tooltips, or any interaction that depends on mouse hover state.
+
+## Parameters
+
+- `ref`: `RefObject<HTMLElement>` - Reference to the element to monitor for hover
+
+## Returns
+
+- `boolean` - True when the element is being hovered over, false otherwise
+
+## Basic Usage
+
+```typescript
+import { useHover } from '@rhinolabs/hooks';
+import { useRef } from 'react';
+
+function HoverCard() {
+  const cardRef = useRef<HTMLDivElement>(null);
+  const isHovered = useHover(cardRef);
+
+  return (
+    <div
+      ref={cardRef}
+      style={{
+        padding: '20px',
+        backgroundColor: isHovered ? '#f0f0f0' : 'white',
+        transition: 'background-color 0.2s'
+      }}
+    >
+      <h3>Hover Me!</h3>
+      {isHovered && (
+        <div className="tooltip">
+          Additional information shown on hover
+        </div>
+      )}
+    </div>
+  );
+}
+```
+
+## Notes
+
+- Uses mouseenter/mouseleave events with cross-browser support
+- Implements type-safe ref handling with automatic cleanup
+- Provides real-time state updates with boolean return value
+- Optimizes performance with efficient event binding
+- Prevents unnecessary re-renders through proper memoization
