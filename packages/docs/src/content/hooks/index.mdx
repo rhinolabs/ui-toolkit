@@ -72,38 +72,10 @@ yarn add @rhinolabs/hooks
 ### Utilities
 - `useRandomColor` - Random color generation
 
-## Usage Example
-
-```tsx
-import { useArray } from "@rhinolabs/hooks";
-
-function TodoList() {
-  const { array: todos, push, remove, update } = useArray([
-    "Learn React",
-    "Build something awesome"
-  ]);
-
-  return (
-    <div>
-      <button onClick={() => push("New todo")}>Add Todo</button>
-      
-      {todos.map((todo, index) => (
-        <div key={index}>
-          {todo}
-          <button onClick={() => remove(index)}>Delete</button>
-          <button onClick={() => update(index, "Updated todo")}>Update</button>
-        </div>
-      ))}
-    </div>
-  );
-}
-```
-
 ## Benefits
 
 - **Type Safety**: Full TypeScript support with comprehensive type definitions
 - **Tree Shakeable**: Only import what you need, keeping your bundle size minimal
 - **Well Tested**: Thoroughly tested hooks for production use
 - **Zero Dependencies**: No external runtime dependencies
-- **SSR Compatible**: Works seamlessly with Server-Side Rendering
 - **Easy to Use**: Simple, consistent API across all hooks
