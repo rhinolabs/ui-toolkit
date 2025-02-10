@@ -2,10 +2,12 @@
 	"name": "@rhinolabs/react-hooks",
 	"version": "1.0.0",
 	"description": "Collection of React hooks for state management and side effects",
+	"type": "module",
 	"main": "./dist/index.js",
 	"module": "dist/index.js",
 	"types": "./dist/index.d.ts",
 	"files": ["dist/"],
+	"sideEffects": false,
 	"scripts": {
 		"build": "tsc",
 		"lint": "biome format && biome lint",
