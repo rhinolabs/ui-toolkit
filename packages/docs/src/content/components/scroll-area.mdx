@@ -1,0 +1,101 @@
+---
+title: Scroll Area
+description: 'A custom scrollable container with visual scrollbars.'
+---
+
+import { ScrollArea } from "@rhinolabs/ui"
+
+# Scroll Area
+
+A custom scrollable container that provides a consistent scrolling experience across different browsers and platforms.
+
+## Usage
+
+```tsx
+import { ScrollArea } from "@rhinolabs/ui"
+
+export default function ScrollAreaDemo() {
+  return (
+    <ScrollArea className="h-[200px] w-[350px] rounded-md border p-4">
+      <div>
+        <h4 className="mb-4 text-sm font-medium leading-none">Tags</h4>
+        {Array.from({ length: 50 }).map((_, i) => (
+          <div key={i} className="text-sm">Tag {i + 1}</div>
+        ))}
+      </div>
+    </ScrollArea>
+  )
+}
+```
+
+## Examples
+
+### Basic Scroll Area
+
+A simple scrollable container with custom styling.
+
+```tsx
+<ScrollArea className="h-[200px] w-[350px] rounded-md border p-4">
+  <div className="space-y-4">
+    <h4 className="text-sm font-medium leading-none">Notifications</h4>
+    {Array.from({ length: 20 }).map((_, i) => (
+      <div key={i} className="flex items-center gap-4">
+        <div className="h-8 w-8 rounded-full bg-muted" />
+        <div className="space-y-1">
+          <p className="text-sm">Notification {i + 1}</p>
+          <p className="text-sm text-muted-foreground">
+            This is a notification message.
+          </p>
+        </div>
+      </div>
+    ))}
+  </div>
+</ScrollArea>
+```
+
+### Horizontal Scrolling
+
+A scroll area with horizontal scrolling.
+
+```tsx
+<ScrollArea className="w-96 whitespace-nowrap rounded-md border">
+  <div className="flex w-max space-x-4 p-4">
+    {Array.from({ length: 50 }).map((_, i) => (
+      <div
+        key={i}
+        className="w-[150px] shrink-0 rounded-md border p-4"
+      >
+        <div className="text-sm">Item {i + 1}</div>
+      </div>
+    ))}
+  </div>
+</ScrollArea>
+```
+
+## Props
+
+### ScrollArea
+
+| Prop | Type | Description |
+|------|------|-------------|
+| `type` | `"auto" \| "always" \| "scroll" \| "hover"` | Scrollbar visibility behavior |
+| `scrollHideDelay` | `number` | Delay in ms before scrollbar hides |
+| `dir` | `"ltr" \| "rtl"` | Text direction |
+
+The ScrollArea component also accepts all standard HTML div attributes.
+
+## Design Considerations
+
+- Set appropriate container dimensions
+- Handle content overflow gracefully
+- Consider scrollbar visibility
+- Maintain consistent styling
+- Support touch interactions
+
+## Accessibility
+
+- Supports keyboard navigation
+- Maintains focus management
+- Provides visual feedback
+- Handles touch gestures
+- Supports screen readers

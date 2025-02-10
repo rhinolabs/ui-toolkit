@@ -1,0 +1,110 @@
+---
+title: Button
+description: 'An interactive button component with multiple variants and sizes.'
+---
+
+import { Button } from "@rhinolabs/ui"
+
+# Button
+
+A versatile button component that supports different styles, sizes, and behaviors.
+
+## Usage
+
+```tsx
+import { Button } from "@rhinolabs/ui"
+
+export default function ButtonDemo() {
+  return (
+    <Button variant="default" size="default">
+      Click me
+    </Button>
+  )
+}
+```
+
+## Examples
+
+### Variants
+
+Buttons come in different variants to suit different contexts.
+
+```tsx
+<div className="flex flex-wrap gap-4">
+  <Button variant="default">Default</Button>
+  <Button variant="destructive">Destructive</Button>
+  <Button variant="outline">Outline</Button>
+  <Button variant="secondary">Secondary</Button>
+  <Button variant="ghost">Ghost</Button>
+  <Button variant="link">Link</Button>
+</div>
+```
+
+### Sizes
+
+Buttons are available in different sizes to fit your design needs.
+
+```tsx
+<div className="flex flex-wrap items-center gap-4">
+  <Button size="sm">Small</Button>
+  <Button size="default">Default</Button>
+  <Button size="lg">Large</Button>
+  <Button size="icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M5 12h14" />
+      <path d="M12 5l7 7-7 7" />
+    </svg>
+  </Button>
+</div>
+```
+
+### With Icons
+
+Buttons can include icons alongside text.
+
+```tsx
+<div className="flex flex-wrap gap-4">
+  <Button>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+      <polyline points="7 10 12 15 17 10" />
+      <line x1="12" y1="15" x2="12" y2="3" />
+    </svg>
+    Download
+  </Button>
+  <Button variant="outline">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+    </svg>
+    Toggle Theme
+  </Button>
+</div>
+```
+
+## Props
+
+### Root Props
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `variant` | `"default" \| "destructive" \| "outline" \| "secondary" \| "ghost" \| "link"` | `"default"` | The visual style of the button |
+| `size` | `"default" \| "sm" \| "lg" \| "icon"` | `"default"` | The size of the button |
+| `asChild` | `boolean` | `false` | Whether to render as a child component |
+
+The button component also accepts all standard HTML button attributes.
+
+## Design Considerations
+
+- Use appropriate variants to match button importance
+- Use destructive variant for dangerous actions
+- Keep button text clear and action-oriented
+- Maintain consistent sizing within context
+- Include icons when they add meaning
+
+## Accessibility
+
+- Supports keyboard navigation
+- Includes proper ARIA attributes
+- Maintains focus states
+- Provides clear visual feedback
+- Handles disabled states correctly

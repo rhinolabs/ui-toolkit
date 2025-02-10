@@ -1,0 +1,136 @@
+---
+title: Table
+description: 'A responsive table component for displaying tabular data.'
+---
+
+import { Table, TableHeader, TableBody, TableFooter, TableHead, TableRow, TableCell, TableCaption } from "@rhinolabs/ui"
+
+# Table
+
+A collection of components for displaying data in a tabular format.
+
+## Usage
+
+```tsx
+import { Table, TableHeader, TableBody, TableFooter, TableHead, TableRow, TableCell, TableCaption } from "@rhinolabs/ui"
+
+export default function TableDemo() {
+  return (
+    <Table>
+      <TableCaption>A list of your recent invoices.</TableCaption>
+      <TableHeader>
+        <TableRow>
+          <TableHead>Invoice</TableHead>
+          <TableHead>Status</TableHead>
+          <TableHead>Method</TableHead>
+          <TableHead className="text-right">Amount</TableHead>
+        </TableRow>
+      </TableHeader>
+      <TableBody>
+        <TableRow>
+          <TableCell>INV001</TableCell>
+          <TableCell>Paid</TableCell>
+          <TableCell>Credit Card</TableCell>
+          <TableCell className="text-right">$250.00</TableCell>
+        </TableRow>
+      </TableBody>
+    </Table>
+  )
+}
+```
+
+## Examples
+
+### Basic Table
+
+A simple data table with headers.
+
+```tsx
+<Table>
+  <TableHeader>
+    <TableRow>
+      <TableHead>Name</TableHead>
+      <TableHead>Email</TableHead>
+      <TableHead>Role</TableHead>
+    </TableRow>
+  </TableHeader>
+  <TableBody>
+    <TableRow>
+      <TableCell>John Doe</TableCell>
+      <TableCell>john@example.com</TableCell>
+      <TableCell>Admin</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>Jane Smith</TableCell>
+      <TableCell>jane@example.com</TableCell>
+      <TableCell>User</TableCell>
+    </TableRow>
+  </TableBody>
+</Table>
+```
+
+### With Footer
+
+Table with summary footer.
+
+```tsx
+<Table>
+  <TableHeader>
+    <TableRow>
+      <TableHead>Item</TableHead>
+      <TableHead>Quantity</TableHead>
+      <TableHead className="text-right">Price</TableHead>
+    </TableRow>
+  </TableHeader>
+  <TableBody>
+    <TableRow>
+      <TableCell>Product A</TableCell>
+      <TableCell>2</TableCell>
+      <TableCell className="text-right">$100.00</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>Product B</TableCell>
+      <TableCell>1</TableCell>
+      <TableCell className="text-right">$75.00</TableCell>
+    </TableRow>
+  </TableBody>
+  <TableFooter>
+    <TableRow>
+      <TableCell colSpan={2}>Total</TableCell>
+      <TableCell className="text-right">$175.00</TableCell>
+    </TableRow>
+  </TableFooter>
+</Table>
+```
+
+## Props
+
+All table components accept their respective HTML table element attributes.
+
+### Table
+
+| Prop | Type | Description |
+|------|------|-------------|
+| `className` | `string` | Additional CSS classes |
+
+### TableRow
+
+| Prop | Type | Description |
+|------|------|-------------|
+| `data-state` | `"selected"` | Selected state styling |
+
+## Design Considerations
+
+- Use consistent column widths
+- Align content appropriately
+- Handle responsive layouts
+- Show loading states
+- Consider empty states
+
+## Accessibility
+
+- Uses semantic markup
+- Provides column headers
+- Maintains data relationships
+- Supports keyboard navigation
+- Handles screen readers

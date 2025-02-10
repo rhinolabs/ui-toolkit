@@ -1,0 +1,140 @@
+---
+title: Tabs
+description: 'A set of layered sections of content that display one panel at a time.'
+---
+
+import { Tabs, TabsList, TabsTrigger, TabsContent } from "@rhinolabs/ui"
+
+# Tabs
+
+A set of layered sections of content that are displayed one at a time.
+
+## Usage
+
+```tsx
+import { Tabs, TabsList, TabsTrigger, TabsContent } from "@rhinolabs/ui"
+
+export default function TabsDemo() {
+  return (
+    <Tabs defaultValue="account">
+      <TabsList>
+        <TabsTrigger value="account">Account</TabsTrigger>
+        <TabsTrigger value="password">Password</TabsTrigger>
+      </TabsList>
+      <TabsContent value="account">
+        Account settings content
+      </TabsContent>
+      <TabsContent value="password">
+        Password settings content
+      </TabsContent>
+    </Tabs>
+  )
+}
+```
+
+## Examples
+
+### Basic Tabs
+
+Simple tabbed interface.
+
+```tsx
+<Tabs defaultValue="music">
+  <TabsList>
+    <TabsTrigger value="music">Music</TabsTrigger>
+    <TabsTrigger value="podcasts">Podcasts</TabsTrigger>
+    <TabsTrigger value="audiobooks">Audiobooks</TabsTrigger>
+  </TabsList>
+  <TabsContent value="music">
+    <p className="text-sm text-muted-foreground">
+      Listen to your favorite music tracks and albums.
+    </p>
+  </TabsContent>
+  <TabsContent value="podcasts">
+    <p className="text-sm text-muted-foreground">
+      Catch up on the latest podcast episodes.
+    </p>
+  </TabsContent>
+  <TabsContent value="audiobooks">
+    <p className="text-sm text-muted-foreground">
+      Explore our collection of audiobooks.
+    </p>
+  </TabsContent>
+</Tabs>
+```
+
+### With Forms
+
+Tabs containing form elements.
+
+```tsx
+<Tabs defaultValue="account">
+  <TabsList>
+    <TabsTrigger value="account">Account</TabsTrigger>
+    <TabsTrigger value="preferences">Preferences</TabsTrigger>
+  </TabsList>
+  <TabsContent value="account">
+    <div className="space-y-4">
+      <div>
+        <label>Name</label>
+        <input type="text" />
+      </div>
+      <div>
+        <label>Email</label>
+        <input type="email" />
+      </div>
+    </div>
+  </TabsContent>
+  <TabsContent value="preferences">
+    <div className="space-y-4">
+      <div>
+        <label>Language</label>
+        <select>
+          <option>English</option>
+          <option>Spanish</option>
+        </select>
+      </div>
+      <div>
+        <label>Theme</label>
+        <select>
+          <option>Light</option>
+          <option>Dark</option>
+        </select>
+      </div>
+    </div>
+  </TabsContent>
+</Tabs>
+```
+
+## Props
+
+### Tabs
+
+| Prop | Type | Description |
+|------|------|-------------|
+| `defaultValue` | `string` | The initial active tab |
+| `value` | `string` | The controlled value |
+| `onValueChange` | `(value: string) => void` | Value change handler |
+
+### TabsTrigger
+
+| Prop | Type | Description |
+|------|------|-------------|
+| `value` | `string` | The value of the tab |
+| `disabled` | `boolean` | Whether the tab is disabled |
+
+## Design Considerations
+
+- Use clear tab labels
+- Maintain consistent content
+- Consider mobile layouts
+- Show active states clearly
+- Handle loading states
+
+## Accessibility
+
+- Supports keyboard navigation
+- Maintains focus management
+- Provides ARIA labels
+- Handles tab roles
+- Announces selection changes

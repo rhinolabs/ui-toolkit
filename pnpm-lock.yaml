@@ -31,6 +31,9 @@ importers:
 
   packages/docs:
     dependencies:
+      '@rhinolabs/ui':
+        specifier: 'workspace:'
+        version: link:../ui
       next:
         specifier: ^15.1.5
         version: 15.1.6(react-dom@19.0.0(react@19.0.0))(react@19.0.0)

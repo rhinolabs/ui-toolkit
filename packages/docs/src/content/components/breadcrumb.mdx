@@ -1,0 +1,115 @@
+---
+title: Breadcrumb
+description: 'A navigation component that helps users track their location within a hierarchy.'
+---
+
+import { Breadcrumb, BreadcrumbList, BreadcrumbItem, BreadcrumbLink, BreadcrumbPage, BreadcrumbSeparator, BreadcrumbEllipsis } from "@rhinolabs/ui"
+
+# Breadcrumb
+
+A navigation component that shows the user's current location in a hierarchical structure.
+
+## Usage
+
+```tsx
+import { 
+  Breadcrumb,
+  BreadcrumbList,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbPage,
+  BreadcrumbSeparator
+} from "@rhinolabs/ui"
+
+export default function BreadcrumbDemo() {
+  return (
+    <Breadcrumb>
+      <BreadcrumbList>
+        <BreadcrumbItem>
+          <BreadcrumbLink href="/">Home</BreadcrumbLink>
+        </BreadcrumbItem>
+        <BreadcrumbSeparator />
+        <BreadcrumbItem>
+          <BreadcrumbLink href="/docs">Docs</BreadcrumbLink>
+        </BreadcrumbItem>
+        <BreadcrumbSeparator />
+        <BreadcrumbItem>
+          <BreadcrumbPage>Components</BreadcrumbPage>
+        </BreadcrumbItem>
+      </BreadcrumbList>
+    </Breadcrumb>
+  )
+}
+```
+
+## Examples
+
+### With Ellipsis
+
+For long navigation paths, use ellipsis to save space.
+
+```tsx
+<Breadcrumb>
+  <BreadcrumbList>
+    <BreadcrumbItem>
+      <BreadcrumbLink href="/">Home</BreadcrumbLink>
+    </BreadcrumbItem>
+    <BreadcrumbSeparator />
+    <BreadcrumbItem>
+      <BreadcrumbEllipsis />
+    </BreadcrumbItem>
+    <BreadcrumbSeparator />
+    <BreadcrumbItem>
+      <BreadcrumbLink href="/docs/components">Components</BreadcrumbLink>
+    </BreadcrumbItem>
+    <BreadcrumbSeparator />
+    <BreadcrumbItem>
+      <BreadcrumbPage>Breadcrumb</BreadcrumbPage>
+    </BreadcrumbItem>
+  </BreadcrumbList>
+</Breadcrumb>
+```
+
+### Custom Separator
+
+Use custom separators to match your design.
+
+```tsx
+<Breadcrumb separator="›">
+  <BreadcrumbList>
+    <BreadcrumbItem>
+      <BreadcrumbLink href="/">Home</BreadcrumbLink>
+    </BreadcrumbItem>
+    <BreadcrumbSeparator />
+    <BreadcrumbItem>
+      <BreadcrumbPage>Settings</BreadcrumbPage>
+    </BreadcrumbItem>
+  </BreadcrumbList>
+</Breadcrumb>
+```
+
+## Props
+
+### Breadcrumb Props
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `separator` | `ReactNode` | `<ChevronRight />` | Custom separator between items |
+
+All subcomponents accept standard HTML attributes for their respective elements.
+
+## Design Considerations
+
+- Keep navigation paths clear and logical
+- Use ellipsis for long paths on mobile
+- Maintain consistent styling across pages
+- Use clear and concise labels
+- Consider the visual hierarchy
+
+## Accessibility
+
+- Uses semantic navigation markup
+- Provides clear current page indication
+- Maintains keyboard navigation support
+- Includes proper ARIA attributes
+- Ensures screen reader compatibility

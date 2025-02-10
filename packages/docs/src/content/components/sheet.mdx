@@ -1,0 +1,143 @@
+---
+title: Sheet
+description: 'A sliding panel that enters from the edge of the screen.'
+---
+
+import { Sheet, SheetTrigger, SheetContent, SheetHeader, SheetFooter, SheetTitle, SheetDescription } from "@rhinolabs/ui"
+import { Button } from "@rhinolabs/ui"
+
+# Sheet
+
+A panel that slides out from the edge of the screen, useful for displaying additional content or forms.
+
+## Usage
+
+```tsx
+import { Sheet, SheetTrigger, SheetContent, SheetHeader, SheetTitle, SheetDescription, SheetFooter } from "@rhinolabs/ui"
+
+export default function SheetDemo() {
+  return (
+    <Sheet>
+      <SheetTrigger>Open Sheet</SheetTrigger>
+      <SheetContent>
+        <SheetHeader>
+          <SheetTitle>Edit Profile</SheetTitle>
+          <SheetDescription>
+            Make changes to your profile here.
+          </SheetDescription>
+        </SheetHeader>
+        <div className="grid gap-4 py-4">
+          <div className="grid grid-cols-4 items-center gap-4">
+            <label htmlFor="name">Name</label>
+            <input id="name" className="col-span-3" />
+          </div>
+        </div>
+        <SheetFooter>
+          <Button type="submit">Save changes</Button>
+        </SheetFooter>
+      </SheetContent>
+    </Sheet>
+  )
+}
+```
+
+## Examples
+
+### Side Variants
+
+Sheet panels can slide in from different sides.
+
+```tsx
+<div className="grid grid-cols-2 gap-2">
+  <Sheet>
+    <SheetTrigger asChild>
+      <Button variant="outline">Left Sheet</Button>
+    </SheetTrigger>
+    <SheetContent side="left">
+      <SheetHeader>
+        <SheetTitle>Left Panel</SheetTitle>
+        <SheetDescription>
+          This panel slides in from the left.
+        </SheetDescription>
+      </SheetHeader>
+    </SheetContent>
+  </Sheet>
+  <Sheet>
+    <SheetTrigger asChild>
+      <Button variant="outline">Top Sheet</Button>
+    </SheetTrigger>
+    <SheetContent side="top">
+      <SheetHeader>
+        <SheetTitle>Top Panel</SheetTitle>
+        <SheetDescription>
+          This panel slides in from the top.
+        </SheetDescription>
+      </SheetHeader>
+    </SheetContent>
+  </Sheet>
+</div>
+```
+
+### With Form
+
+Sheet containing a form.
+
+```tsx
+<Sheet>
+  <SheetTrigger asChild>
+    <Button>Edit Settings</Button>
+  </SheetTrigger>
+  <SheetContent>
+    <SheetHeader>
+      <SheetTitle>Settings</SheetTitle>
+      <SheetDescription>
+        Configure your preferences.
+      </SheetDescription>
+    </SheetHeader>
+    <form className="grid gap-4 py-4">
+      <div className="grid grid-cols-4 items-center gap-4">
+        <label htmlFor="theme">Theme</label>
+        <select id="theme" className="col-span-3">
+          <option>Light</option>
+          <option>Dark</option>
+        </select>
+      </div>
+      <div className="grid grid-cols-4 items-center gap-4">
+        <label htmlFor="email">Email</label>
+        <input id="email" type="email" className="col-span-3" />
+      </div>
+    </form>
+    <SheetFooter>
+      <Button type="submit">Save changes</Button>
+    </SheetFooter>
+  </SheetContent>
+</Sheet>
+```
+
+## Props
+
+### SheetContent
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `side` | `"top" \| "right" \| "bottom" \| "left"` | `"right"` | Side the sheet appears from |
+| `onOpenAutoFocus` | `(event: Event) => void` | - | Focus event handler when sheet opens |
+| `onCloseAutoFocus` | `(event: Event) => void` | - | Focus event handler when sheet closes |
+
+All components accept their respective Radix UI Dialog primitive props.
+
+## Design Considerations
+
+- Choose appropriate side
+- Maintain content hierarchy
+- Consider mobile viewports
+- Handle form submissions
+- Provide clear actions
+
+## Accessibility
+
+- Manages focus states
+- Supports keyboard navigation
+- Provides ARIA labels
+- Handles escape key
+- Traps focus within sheet

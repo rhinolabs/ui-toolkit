@@ -1,0 +1,98 @@
+---
+title: Calendar
+description: 'A date picker component with flexible selection modes and styling options.'
+---
+
+import { Calendar } from "@rhinolabs/ui"
+
+# Calendar
+
+A date picker component that allows users to select dates or date ranges.
+
+## Usage
+
+```tsx
+import { Calendar } from "@rhinolabs/ui"
+
+export default function CalendarDemo() {
+  return (
+    <Calendar
+      mode="single"
+      selected={new Date()}
+      onSelect={(date) => console.log(date)}
+      className="rounded-md border"
+    />
+  )
+}
+```
+
+## Examples
+
+### Single Date Selection
+
+Basic calendar for selecting a single date.
+
+```tsx
+<Calendar
+  mode="single"
+  selected={new Date()}
+  onSelect={(date) => console.log(date)}
+  className="rounded-md border"
+/>
+```
+
+### Date Range Selection
+
+Calendar configured for selecting a date range.
+
+```tsx
+<Calendar
+  mode="range"
+  selected={{
+    from: new Date(2024, 0, 1),
+    to: new Date(2024, 0, 5)
+  }}
+  onSelect={(range) => console.log(range)}
+  className="rounded-md border"
+/>
+```
+
+### With Outside Days
+
+Calendar showing days from previous/next months.
+
+```tsx
+<Calendar
+  mode="single"
+  selected={new Date()}
+  showOutsideDays
+  className="rounded-md border"
+/>
+```
+
+## Props
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `mode` | `"single" \| "range" \| "multiple"` | `"single"` | Selection mode |
+| `selected` | `Date \| { from: Date, to: Date }` | - | Selected date(s) |
+| `showOutsideDays` | `boolean` | `true` | Show days from previous/next months |
+| `onSelect` | `(date: Date \| { from: Date, to: Date }) => void` | - | Selection callback |
+
+The Calendar component extends all props from react-day-picker's DayPicker component.
+
+## Design Considerations
+
+- Use appropriate date formatting for your locale
+- Provide clear visual feedback for selected dates
+- Consider mobile-friendly touch targets
+- Maintain consistent styling with your theme
+- Handle disabled dates appropriately
+
+## Accessibility
+
+- Supports keyboard navigation
+- Provides ARIA labels for dates
+- Maintains focus management
+- Announces date changes
+- Handles screen reader announcements

@@ -1,0 +1,111 @@
+---
+title: Alert
+description: 'Displays important messages and feedback to users.'
+---
+
+import { Alert, AlertTitle, AlertDescription } from "@rhinolabs/ui"
+
+# Alert
+
+A component for displaying important messages, warnings, or feedback to users.
+
+## Usage
+
+```tsx
+import { Alert, AlertTitle, AlertDescription } from "@rhinolabs/ui"
+
+export default function AlertDemo() {
+  return (
+    <Alert>
+      <AlertTitle>Heads up!</AlertTitle>
+      <AlertDescription>
+        You can add components to your app using the cli.
+      </AlertDescription>
+    </Alert>
+  )
+}
+```
+
+## Examples
+
+### Variants
+
+Alerts come in different variants to suit different contexts.
+
+```tsx
+<div className="flex flex-col gap-4">
+  <Alert>
+    <AlertTitle>Default Alert</AlertTitle>
+    <AlertDescription>
+      This is a default alert - check it out!
+    </AlertDescription>
+  </Alert>
+
+  <Alert variant="destructive">
+    <AlertTitle>Error Alert</AlertTitle>
+    <AlertDescription>
+      Something went wrong! Please try again.
+    </AlertDescription>
+  </Alert>
+</div>
+```
+
+### With Icons
+
+Alerts can include icons to enhance their visibility and meaning.
+
+```tsx
+<Alert>
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    className="h-4 w-4"
+  >
+    <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z" />
+    <line x1="12" y1="9" x2="12" y2="13" />
+    <line x1="12" y1="17" x2="12.01" y2="17" />
+  </svg>
+  <AlertTitle>Warning</AlertTitle>
+  <AlertDescription>
+    Your session is about to expire. Please save your work.
+  </AlertDescription>
+</Alert>
+```
+
+## Props
+
+### Alert Props
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `variant` | `"default" \| "destructive"` | `"default"` | The visual style of the alert |
+
+The Alert component also accepts all standard HTML div attributes.
+
+### AlertTitle Props
+
+The AlertTitle component accepts all standard HTML h5 attributes.
+
+### AlertDescription Props
+
+The AlertDescription component accepts all standard HTML div attributes.
+
+## Design Considerations
+
+- Use appropriate variants for message importance
+- Keep messages clear and concise
+- Include relevant icons when needed
+- Use title for main message and description for details
+- Maintain consistent spacing
+
+## Accessibility
+
+- Uses semantic `role="alert"` attribute
+- Maintains proper heading hierarchy
+- Ensures readable content structure
+- Provides clear visual distinction

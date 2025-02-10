@@ -23,7 +23,8 @@
 		"nextra": "^4.0.4",
 		"nextra-theme-docs": "^4.0.4",
 		"react": "catalog:",
-		"react-dom": "catalog:"
+		"react-dom": "catalog:",
+		"@rhinolabs/ui": "workspace:"
 	},
 	"devDependencies": {
 		"@biomejs/biome": "catalog:",
