@@ -1,0 +1,88 @@
+name: NPM Publish
+
+on:
+  push:
+    tags:
+      - 'ui-v*'
+      - 'hooks-v*'
+
+jobs:
+  publish-ui:
+    if: startsWith(github.ref, 'refs/tags/ui-v')
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20.x'
+          registry-url: 'https://registry.npmjs.org'
+          
+      - uses: pnpm/action-setup@v2
+        with:
+          version: 9
+          
+      - name: Get version from tag
+        id: get_version
+        run: echo "VERSION=${GITHUB_REF#refs/tags/ui-v}" >> $GITHUB_OUTPUT
+          
+      - name: Update package version
+        run: |
+          cd packages/ui
+          npm version ${{ steps.get_version.outputs.VERSION }} --no-git-tag-version
+
+      - uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "Bump version to ${{ steps.get_version.outputs.VERSION }}"
+          file_pattern: 'packages/ui/package.json'
+          
+      - name: Install dependencies
+        run: pnpm install
+        
+      - name: Build UI package
+        run: pnpm --filter @rhinolabs/ui build
+        
+      - name: Publish UI package
+        run: cd packages/ui && npm publish --access public
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+  publish-hooks:
+    if: startsWith(github.ref, 'refs/tags/hooks-v')
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20.x'
+          registry-url: 'https://registry.npmjs.org'
+          
+      - uses: pnpm/action-setup@v2
+        with:
+          version: 9
+          
+      - name: Get version from tag
+        id: get_version
+        run: echo "VERSION=${GITHUB_REF#refs/tags/hooks-v}" >> $GITHUB_OUTPUT
+          
+      - name: Update package version
+        run: |
+          cd packages/hooks
+          npm version ${{ steps.get_version.outputs.VERSION }} --no-git-tag-version
+
+      - uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "Bump version to ${{ steps.get_version.outputs.VERSION }}"
+          file_pattern: 'packages/hooks/package.json'
+          
+      - name: Install dependencies
+        run: pnpm install
+        
+      - name: Build Hooks package
+        run: pnpm --filter @rhinolabs/hooks build
+        
+      - name: Publish Hooks package
+        run: cd packages/hooks && npm publish --access public
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
