@@ -1,5 +1,4 @@
-name-template: 'ui-v$RESOLVED_VERSION'
-tag-template: 'ui-v$RESOLVED_VERSION'
+name-template: 'ui'
 
 template: |
   ## What's Changed

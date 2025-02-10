@@ -1,5 +1,4 @@
-name-template: 'docs-v$RESOLVED_VERSION'
-tag-template: 'docs-v$RESOLVED_VERSION'
+name-template: 'docs'
 
 template: |
   ## What's Changed
