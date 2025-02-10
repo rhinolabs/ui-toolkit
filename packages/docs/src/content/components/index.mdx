@@ -8,6 +8,36 @@ description: 'Pre-built components that you can use to build your user interface
 
 Our component library provides a comprehensive set of modern, accessible, and highly customizable UI components built with React and Tailwind CSS. These components are designed to help you create robust and consistent user interfaces with minimal effort while following best practices in web development.
 
+## Installation
+
+Install the UI components package via your package manager:
+
+```bash
+# npm
+npm install @rhinolabs/ui
+
+# pnpm
+pnpm add @rhinolabs/ui
+
+# yarn
+yarn add @rhinolabs/ui
+```
+
+Then you can import and use any component in your React application:
+
+```tsx
+import { Button, Input, Card } from "@rhinolabs/ui"
+
+export default function App() {
+  return (
+    <Card>
+      <Input placeholder="Enter your name" />
+      <Button>Submit</Button>
+    </Card>
+  )
+}
+```
+
 ## Component Categories
 
 ### User Input
