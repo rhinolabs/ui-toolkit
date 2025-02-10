@@ -1,6 +1,5 @@
 name-template: 'ui-v$RESOLVED_VERSION'
 tag-template: 'ui-v$RESOLVED_VERSION'
-version-template: '$MAJOR.$MINOR.$PATCH'
 
 template: |
   ## What's Changed

@@ -1,6 +1,5 @@
 name-template: 'hooks-v$RESOLVED_VERSION'
 tag-template: 'hooks-v$RESOLVED_VERSION'
-version-template: '$MAJOR.$MINOR.$PATCH'
 
 template: |
   ## What's Changed
