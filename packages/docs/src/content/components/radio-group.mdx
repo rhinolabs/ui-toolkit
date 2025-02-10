@@ -1,0 +1,121 @@
+---
+title: Radio Group
+description: 'A set of radio buttons for selecting a single option from a list.'
+---
+
+import { RadioGroup, RadioGroupItem } from "@rhinolabs/ui"
+import { Label } from "@rhinolabs/ui"
+
+# Radio Group
+
+A group of radio buttons where only one option can be selected at a time.
+
+## Usage
+
+```tsx
+import { RadioGroup, RadioGroupItem } from "@rhinolabs/ui"
+import { Label } from "@rhinolabs/ui"
+
+export default function RadioGroupDemo() {
+  return (
+    <RadioGroup defaultValue="option-one">
+      <div className="flex items-center space-x-2">
+        <RadioGroupItem value="option-one" id="option-one" />
+        <Label htmlFor="option-one">Option One</Label>
+      </div>
+      <div className="flex items-center space-x-2">
+        <RadioGroupItem value="option-two" id="option-two" />
+        <Label htmlFor="option-two">Option Two</Label>
+      </div>
+    </RadioGroup>
+  )
+}
+```
+
+## Examples
+
+### Basic Radio Group
+
+A simple group of radio buttons.
+
+```tsx
+<RadioGroup defaultValue="comfortable">
+  <div className="flex flex-col space-y-2">
+    <div className="flex items-center space-x-2">
+      <RadioGroupItem value="default" id="default" />
+      <Label htmlFor="default">Default</Label>
+    </div>
+    <div className="flex items-center space-x-2">
+      <RadioGroupItem value="comfortable" id="comfortable" />
+      <Label htmlFor="comfortable">Comfortable</Label>
+    </div>
+    <div className="flex items-center space-x-2">
+      <RadioGroupItem value="compact" id="compact" />
+      <Label htmlFor="compact">Compact</Label>
+    </div>
+  </div>
+</RadioGroup>
+```
+
+### With Descriptions
+
+Radio buttons with additional description text.
+
+```tsx
+<RadioGroup defaultValue="card">
+  <div className="flex flex-col space-y-4">
+    <div className="flex items-start space-x-3">
+      <RadioGroupItem value="card" id="card" />
+      <div>
+        <Label htmlFor="card">Card Payment</Label>
+        <p className="text-sm text-muted-foreground">
+          Pay with your credit or debit card.
+        </p>
+      </div>
+    </div>
+    <div className="flex items-start space-x-3">
+      <RadioGroupItem value="paypal" id="paypal" />
+      <div>
+        <Label htmlFor="paypal">PayPal</Label>
+        <p className="text-sm text-muted-foreground">
+          Pay with your PayPal account.
+        </p>
+      </div>
+    </div>
+  </div>
+</RadioGroup>
+```
+
+## Props
+
+### RadioGroup
+
+| Prop | Type | Description |
+|------|------|-------------|
+| `value` | `string` | The controlled value |
+| `defaultValue` | `string` | The default value |
+| `onValueChange` | `(value: string) => void` | Value change callback |
+| `disabled` | `boolean` | Whether the group is disabled |
+
+### RadioGroupItem
+
+| Prop | Type | Description |
+|------|------|-------------|
+| `value` | `string` | The value of the radio item |
+| `disabled` | `boolean` | Whether the item is disabled |
+
+## Design Considerations
+
+- Group related options logically
+- Provide clear labels
+- Use consistent spacing
+- Consider mobile touch targets
+- Include descriptive text when needed
+
+## Accessibility
+
+- Supports keyboard navigation
+- Maintains focus states
+- Uses semantic markup
+- Provides ARIA labels
+- Handles disabled states

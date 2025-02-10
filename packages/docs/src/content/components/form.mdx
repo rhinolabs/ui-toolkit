@@ -1,0 +1,168 @@
+---
+title: Form
+description: 'Building forms with validation using React Hook Form.'
+---
+
+import { Form, FormItem, FormLabel, FormControl, FormDescription, FormMessage, FormField } from "@rhinolabs/ui"
+
+# Form
+
+A collection of form components that work seamlessly with React Hook Form.
+
+## Usage
+
+```tsx
+import { useForm } from "react-hook-form"
+import { Form, FormField, FormItem, FormLabel, FormControl, FormDescription, FormMessage } from "@rhinolabs/ui"
+
+export default function FormDemo() {
+  const form = useForm()
+  
+  return (
+    <Form {...form}>
+      <form onSubmit={form.handleSubmit(console.log)}>
+        <FormField
+          control={form.control}
+          name="username"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>Username</FormLabel>
+              <FormControl>
+                <input {...field} />
+              </FormControl>
+              <FormDescription>
+                Enter your username.
+              </FormDescription>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+      </form>
+    </Form>
+  )
+}
+```
+
+## Examples
+
+### Basic Form
+
+A simple form with validation.
+
+```tsx
+import { useForm } from "react-hook-form"
+import * as z from "zod"
+import { zodResolver } from "@hookform/resolvers/zod"
+
+const formSchema = z.object({
+  username: z.string().min(2).max(50),
+  email: z.string().email(),
+})
+
+function BasicForm() {
+  const form = useForm<z.infer<typeof formSchema>>({
+    resolver: zodResolver(formSchema),
+  })
+
+  return (
+    <Form {...form}>
+      <form onSubmit={form.handleSubmit(console.log)} className="space-y-4">
+        <FormField
+          control={form.control}
+          name="username"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>Username</FormLabel>
+              <FormControl>
+                <input {...field} />
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+        <FormField
+          control={form.control}
+          name="email"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>Email</FormLabel>
+              <FormControl>
+                <input type="email" {...field} />
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+        <button type="submit">Submit</button>
+      </form>
+    </Form>
+  )
+}
+```
+
+### With Custom Controls
+
+Form with custom form controls.
+
+```tsx
+<Form {...form}>
+  <form onSubmit={form.handleSubmit(console.log)}>
+    <FormField
+      control={form.control}
+      name="notifications"
+      render={({ field }) => (
+        <FormItem className="flex flex-row items-start space-x-3 space-y-0">
+          <FormControl>
+            <Checkbox
+              checked={field.value}
+              onCheckedChange={field.onChange}
+            />
+          </FormControl>
+          <div className="space-y-1 leading-none">
+            <FormLabel>
+              Email notifications
+            </FormLabel>
+            <FormDescription>
+              Receive emails about your account activity.
+            </FormDescription>
+          </div>
+        </FormItem>
+      )}
+    />
+  </form>
+</Form>
+```
+
+## Props
+
+### FormField
+
+| Prop | Type | Description |
+|------|------|-------------|
+| `control` | `Control` | Form control from React Hook Form |
+| `name` | `string` | Field name |
+| `render` | `({ field }) => ReactNode` | Render function for the field |
+
+### FormItem
+
+Accepts all standard div HTML attributes.
+
+### FormLabel
+
+Accepts all standard label HTML attributes.
+
+## Design Considerations
+
+- Group related fields logically
+- Provide clear validation feedback
+- Use consistent field layouts
+- Include helpful descriptions
+- Show error states clearly
+
+## Accessibility
+
+- Uses semantic form markup
+- Provides error messages
+- Links labels with controls
+- Maintains keyboard navigation
+- Announces form validation

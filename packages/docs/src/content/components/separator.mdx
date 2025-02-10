@@ -1,0 +1,92 @@
+ ---
+title: Separator
+description: 'A visual divider between content with support for vertical and horizontal orientations.'
+---
+
+import { Separator } from "@rhinolabs/ui"
+
+# Separator
+
+A visual divider that separates content with support for horizontal and vertical orientations.
+
+## Usage
+
+```tsx
+import { Separator } from "@rhinolabs/ui"
+
+export default function SeparatorDemo() {
+  return (
+    <div>
+      <div className="space-y-1">
+        <h4 className="text-sm font-medium leading-none">Radix UI</h4>
+        <p className="text-sm text-muted-foreground">An open-source UI component library.</p>
+      </div>
+      <Separator className="my-4" />
+      <div className="flex h-5 items-center space-x-4 text-sm">
+        <div>Blog</div>
+        <Separator orientation="vertical" />
+        <div>Docs</div>
+        <Separator orientation="vertical" />
+        <div>Source</div>
+      </div>
+    </div>
+  )
+}
+```
+
+## Examples
+
+### Horizontal Separator
+
+A basic horizontal divider.
+
+```tsx
+<div>
+  <h4 className="text-sm font-medium">Account Settings</h4>
+  <Separator className="my-4" />
+  <div className="space-y-4">
+    <div>Profile</div>
+    <div>Billing</div>
+    <div>Notifications</div>
+  </div>
+</div>
+```
+
+### Vertical Separator
+
+A vertical divider for inline content.
+
+```tsx
+<div className="flex h-5 items-center space-x-4">
+  <div className="text-sm">Settings</div>
+  <Separator orientation="vertical" />
+  <div className="text-sm">Privacy</div>
+  <Separator orientation="vertical" />
+  <div className="text-sm">Help</div>
+</div>
+```
+
+## Props
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `orientation` | `"horizontal" \| "vertical"` | `"horizontal"` | The orientation of the separator |
+| `decorative` | `boolean` | `true` | Whether the separator is purely decorative |
+
+The Separator component also accepts all standard HTML div attributes.
+
+## Design Considerations
+
+- Use consistent spacing
+- Choose appropriate orientation
+- Maintain visual hierarchy
+- Consider content context
+- Keep styling minimal
+
+## Accessibility
+
+- Uses semantic markup
+- Supports screen readers
+- Provides visual separation
+- Maintains readability
+- Handles decorative state

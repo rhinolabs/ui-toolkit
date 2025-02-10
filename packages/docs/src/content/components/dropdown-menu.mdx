@@ -1,0 +1,118 @@
+---
+title: Dropdown Menu
+description: 'A menu displayed by clicking on a trigger element.'
+---
+
+import { DropdownMenu, DropdownMenuTrigger, DropdownMenuContent, DropdownMenuItem, DropdownMenuCheckboxItem, DropdownMenuRadioItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuShortcut, DropdownMenuGroup, DropdownMenuSub, DropdownMenuSubContent, DropdownMenuSubTrigger, DropdownMenuRadioGroup } from "@rhinolabs/ui"
+import { Button } from "@rhinolabs/ui"
+
+# Dropdown Menu
+
+A menu that appears when clicking on a trigger element, displaying a list of options.
+
+## Usage
+
+```tsx
+import { DropdownMenu, DropdownMenuTrigger, DropdownMenuContent, DropdownMenuItem } from "@rhinolabs/ui"
+
+export default function DropdownMenuDemo() {
+  return (
+    <DropdownMenu>
+      <DropdownMenuTrigger>Open Menu</DropdownMenuTrigger>
+      <DropdownMenuContent>
+        <DropdownMenuItem>Profile</DropdownMenuItem>
+        <DropdownMenuItem>Settings</DropdownMenuItem>
+        <DropdownMenuItem>Logout</DropdownMenuItem>
+      </DropdownMenuContent>
+    </DropdownMenu>
+  )
+}
+```
+
+## Examples
+
+### With Submenus
+
+Dropdown menu with nested options.
+
+```tsx
+<DropdownMenu>
+  <DropdownMenuTrigger asChild>
+    <Button>Options</Button>
+  </DropdownMenuTrigger>
+  <DropdownMenuContent>
+    <DropdownMenuLabel>My Account</DropdownMenuLabel>
+    <DropdownMenuSeparator />
+    <DropdownMenuItem>Profile</DropdownMenuItem>
+    <DropdownMenuItem>Billing</DropdownMenuItem>
+    <DropdownMenuSeparator />
+    <DropdownMenuSub>
+      <DropdownMenuSubTrigger>More</DropdownMenuSubTrigger>
+      <DropdownMenuSubContent>
+        <DropdownMenuItem>Settings</DropdownMenuItem>
+        <DropdownMenuItem>Help</DropdownMenuItem>
+      </DropdownMenuSubContent>
+    </DropdownMenuSub>
+  </DropdownMenuContent>
+</DropdownMenu>
+```
+
+### With Checkboxes and Radio Items
+
+Dropdown menu with selectable options.
+
+```tsx
+<DropdownMenu>
+  <DropdownMenuTrigger asChild>
+    <Button>View Options</Button>
+  </DropdownMenuTrigger>
+  <DropdownMenuContent>
+    <DropdownMenuCheckboxItem checked>Show Toolbar</DropdownMenuCheckboxItem>
+    <DropdownMenuCheckboxItem>Show Statusbar</DropdownMenuCheckboxItem>
+    <DropdownMenuSeparator />
+    <DropdownMenuRadioGroup value="pedro">
+      <DropdownMenuLabel>Theme</DropdownMenuLabel>
+      <DropdownMenuRadioItem value="light">Light</DropdownMenuRadioItem>
+      <DropdownMenuRadioItem value="dark">Dark</DropdownMenuRadioItem>
+      <DropdownMenuRadioItem value="system">System</DropdownMenuRadioItem>
+    </DropdownMenuRadioGroup>
+  </DropdownMenuContent>
+</DropdownMenu>
+```
+
+## Props
+
+### DropdownMenu
+
+The root component that accepts all standard div attributes.
+
+### DropdownMenuItem
+
+| Prop | Type | Description |
+|------|------|-------------|
+| `inset` | `boolean` | Whether to inset the item content |
+| `disabled` | `boolean` | Whether the item is disabled |
+| `onSelect` | `(event: Event) => void` | Selection callback |
+
+### DropdownMenuCheckboxItem
+
+| Prop | Type | Description |
+|------|------|-------------|
+| `checked` | `boolean` | The checked state |
+| `onCheckedChange` | `(checked: boolean) => void` | Checked state change callback |
+
+## Design Considerations
+
+- Group related items logically
+- Use separators to organize content
+- Keep menu items concise
+- Include visual indicators
+- Consider mobile interactions
+
+## Accessibility
+
+- Supports keyboard navigation
+- Manages focus states
+- Provides ARIA labels
+- Handles screen readers
+- Supports keyboard shortcuts

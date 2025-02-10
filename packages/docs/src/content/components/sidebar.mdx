@@ -1,0 +1,136 @@
+---
+title: Sidebar
+description: 'A responsive navigation sidebar with collapsible states and mobile support.'
+---
+
+import { SidebarProvider, Sidebar, SidebarTrigger, SidebarContent, SidebarHeader, SidebarFooter, SidebarGroup, SidebarGroupLabel, SidebarMenu, SidebarMenuItem, SidebarMenuButton } from "@rhinolabs/ui"
+
+# Sidebar
+
+A responsive navigation component that supports collapsible states, mobile views, and keyboard shortcuts.
+
+## Usage
+
+```tsx
+import { SidebarProvider, Sidebar, SidebarContent, SidebarHeader, SidebarMenu, SidebarMenuItem, SidebarMenuButton } from "@rhinolabs/ui"
+
+export default function SidebarDemo() {
+  return (
+    <SidebarProvider>
+      <Sidebar>
+        <SidebarHeader>
+          <h2 className="px-2 text-lg font-semibold">My App</h2>
+        </SidebarHeader>
+        <SidebarContent>
+          <SidebarMenu>
+            <SidebarMenuItem>
+              <SidebarMenuButton>Dashboard</SidebarMenuButton>
+            </SidebarMenuItem>
+            <SidebarMenuItem>
+              <SidebarMenuButton>Settings</SidebarMenuButton>
+            </SidebarMenuItem>
+          </SidebarMenu>
+        </SidebarContent>
+      </Sidebar>
+    </SidebarProvider>
+  )
+}
+```
+
+## Examples
+
+### With Groups
+
+Sidebar with grouped navigation items.
+
+```tsx
+<SidebarProvider>
+  <Sidebar>
+    <SidebarContent>
+      <SidebarGroup>
+        <SidebarGroupLabel>Main Navigation</SidebarGroupLabel>
+        <SidebarMenu>
+          <SidebarMenuItem>
+            <SidebarMenuButton>Home</SidebarMenuButton>
+          </SidebarMenuItem>
+          <SidebarMenuItem>
+            <SidebarMenuButton>Profile</SidebarMenuButton>
+          </SidebarMenuItem>
+        </SidebarMenu>
+      </SidebarGroup>
+      <SidebarGroup>
+        <SidebarGroupLabel>Settings</SidebarGroupLabel>
+        <SidebarMenu>
+          <SidebarMenuItem>
+            <SidebarMenuButton>Account</SidebarMenuButton>
+          </SidebarMenuItem>
+          <SidebarMenuItem>
+            <SidebarMenuButton>Preferences</SidebarMenuButton>
+          </SidebarMenuItem>
+        </SidebarMenu>
+      </SidebarGroup>
+    </SidebarContent>
+  </Sidebar>
+</SidebarProvider>
+```
+
+### With Variants
+
+Different sidebar variants.
+
+```tsx
+<SidebarProvider>
+  <Sidebar variant="floating" collapsible="icon">
+    <SidebarContent>
+      <SidebarMenu>
+        <SidebarMenuItem>
+          <SidebarMenuButton tooltip="Dashboard">
+            <HomeIcon />
+            <span>Dashboard</span>
+          </SidebarMenuButton>
+        </SidebarMenuItem>
+        <SidebarMenuItem>
+          <SidebarMenuButton tooltip="Settings">
+            <SettingsIcon />
+            <span>Settings</span>
+          </SidebarMenuButton>
+        </SidebarMenuItem>
+      </SidebarMenu>
+    </SidebarContent>
+  </Sidebar>
+</SidebarProvider>
+```
+
+## Props
+
+### Sidebar
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `variant` | `"sidebar" \| "floating" \| "inset"` | `"sidebar"` | Visual variant |
+| `side` | `"left" \| "right"` | `"left"` | Side placement |
+| `collapsible` | `"offcanvas" \| "icon" \| "none"` | `"offcanvas"` | Collapse behavior |
+
+### SidebarProvider
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `defaultOpen` | `boolean` | `true` | Initial open state |
+| `open` | `boolean` | - | Controlled open state |
+| `onOpenChange` | `(open: boolean) => void` | - | Open state change handler |
+
+## Design Considerations
+
+- Choose appropriate variant
+- Consider mobile experience
+- Organize navigation logically
+- Use clear visual hierarchy
+- Handle responsive states
+
+## Accessibility
+
+- Supports keyboard shortcuts
+- Maintains focus management
+- Provides ARIA labels
+- Handles screen readers
+- Supports mobile interactions

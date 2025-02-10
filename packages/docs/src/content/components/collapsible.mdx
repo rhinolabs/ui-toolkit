@@ -1,0 +1,124 @@
+---
+title: Collapsible
+description: 'An interactive component that expands/collapses to reveal/hide content.'
+---
+
+import { Collapsible, CollapsibleTrigger, CollapsibleContent } from "@rhinolabs/ui"
+
+# Collapsible
+
+A component that allows content to be expanded or collapsed with smooth animations.
+
+## Usage
+
+```tsx
+import { Collapsible, CollapsibleTrigger, CollapsibleContent } from "@rhinolabs/ui"
+
+export default function CollapsibleDemo() {
+  return (
+    <Collapsible>
+      <CollapsibleTrigger>Toggle content</CollapsibleTrigger>
+      <CollapsibleContent>
+        <p>This content can be expanded or collapsed.</p>
+      </CollapsibleContent>
+    </Collapsible>
+  )
+}
+```
+
+## Examples
+
+### Basic Collapsible
+
+A simple expandable section.
+
+```tsx
+<Collapsible>
+  <CollapsibleTrigger className="flex items-center">
+    <span>Click to expand</span>
+    <svg className="w-4 h-4 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+    </svg>
+  </CollapsibleTrigger>
+  <CollapsibleContent className="p-4">
+    <p>This is the expandable content area.</p>
+  </CollapsibleContent>
+</Collapsible>
+```
+
+### Controlled State
+
+Managing the open state programmatically.
+
+```tsx
+import { useState } from "react"
+
+function ControlledCollapsible() {
+  const [isOpen, setIsOpen] = useState(false)
+
+  return (
+    <Collapsible open={isOpen} onOpenChange={setIsOpen}>
+      <CollapsibleTrigger>
+        {isOpen ? "Close" : "Open"} Settings
+      </CollapsibleTrigger>
+      <CollapsibleContent>
+        <div className="p-4">
+          <h4>Settings Panel</h4>
+          <p>Configure your preferences here.</p>
+        </div>
+      </CollapsibleContent>
+    </Collapsible>
+  )
+}
+```
+
+### With Custom Animation
+
+Adding custom transition effects.
+
+```tsx
+<Collapsible>
+  <CollapsibleTrigger>Expand</CollapsibleTrigger>
+  <CollapsibleContent className="transition-all duration-300 ease-in-out">
+    <div className="p-4 space-y-2">
+      <h3>Section Title</h3>
+      <p>Content with smooth animation.</p>
+    </div>
+  </CollapsibleContent>
+</Collapsible>
+```
+
+## Props
+
+### Collapsible
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `defaultOpen` | `boolean` | `false` | The initial open state |
+| `open` | `boolean` | - | Controlled open state |
+| `onOpenChange` | `(open: boolean) => void` | - | Callback when open state changes |
+| `disabled` | `boolean` | `false` | Whether the collapsible is disabled |
+
+### CollapsibleTrigger
+
+Accepts all button HTML attributes.
+
+### CollapsibleContent
+
+Accepts all div HTML attributes.
+
+## Design Considerations
+
+- Use clear trigger labels
+- Provide visual indicators for state
+- Consider animation timing
+- Maintain content hierarchy
+- Use consistent styling
+
+## Accessibility
+
+- Supports keyboard navigation
+- Uses ARIA expanded state
+- Maintains focus management
+- Provides clear state indicators
+- Handles screen reader announcements
