@@ -1,0 +1,43 @@
+references:
+  - main
+
+# UI Release Config
+ui-config: &ui-config
+  name-template: 'ui-v$RESOLVED_VERSION'
+  tag-template: 'ui-v$RESOLVED_VERSION'
+  include-paths:
+    - 'packages/ui/**'
+  template: |
+    ## UI Changes
+    $CHANGES
+
+# Hooks Release Config  
+hooks-config: &hooks-config
+  name-template: 'hooks-v$RESOLVED_VERSION'
+  tag-template: 'hooks-v$RESOLVED_VERSION'
+  include-paths:
+    - 'packages/hooks/**'
+  template: |
+    ## Hooks Changes
+    $CHANGES
+
+# Docs Release Config
+docs-config: &docs-config
+  name-template: 'docs-v$RESOLVED_VERSION'
+  tag-template: 'docs-v$RESOLVED_VERSION'
+  include-paths:
+    - 'packages/docs/**'
+  template: |
+    ## Documentation Changes
+    $CHANGES
+
+# Use YAML anchors to reference configs
+template: |
+  # UI Release
+  <<: *ui-config
+  
+  # Hooks Release
+  <<: *hooks-config
+  
+  # Docs Release
+  <<: *docs-config
