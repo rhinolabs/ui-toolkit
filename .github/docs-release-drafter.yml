@@ -1,0 +1,15 @@
+name-template: 'docs-v$RESOLVED_VERSION'
+tag-template: 'docs-v$RESOLVED_VERSION'
+version-template: '$MAJOR.$MINOR.$PATCH'
+
+change-template: '- $TITLE @$AUTHOR (#$NUMBER)'
+
+template: |
+  ## What's Changed
+  $CHANGES
+
+include-paths:
+  - 'packages/docs/**'
+
+version-resolver:
+  default: patch

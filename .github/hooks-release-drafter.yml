@@ -1,0 +1,15 @@
+name-template: 'hooks-v$RESOLVED_VERSION'
+tag-template: 'hooks-v$RESOLVED_VERSION'
+version-template: '$MAJOR.$MINOR.$PATCH'
+
+change-template: '- $TITLE @$AUTHOR (#$NUMBER)'
+
+template: |
+  ## What's Changed
+  $CHANGES
+
+include-paths:
+  - 'packages/hooks/**'
+
+version-resolver:
+  default: patch

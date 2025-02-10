@@ -1,0 +1,15 @@
+name-template: 'ui-v$RESOLVED_VERSION'
+tag-template: 'ui-v$RESOLVED_VERSION'
+version-template: '$MAJOR.$MINOR.$PATCH'
+
+change-template: '- $TITLE @$AUTHOR (#$NUMBER)'
+
+template: |
+  ## What's Changed
+  $CHANGES
+
+include-paths:
+  - 'packages/ui/**'
+
+version-resolver:
+  default: patch

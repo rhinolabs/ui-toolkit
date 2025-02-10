@@ -6,9 +6,29 @@ on:
       - main
 
 jobs:
-  update_releases:
+  update_ui_release:
     runs-on: ubuntu-latest
     steps:
       - uses: release-drafter/release-drafter@v6
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          config-name: ui-release-drafter.yml
+
+  update_hooks_release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: release-drafter/release-drafter@v6
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          config-name: hooks-release-drafter.yml
+
+  update_docs_release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: release-drafter/release-drafter@v6
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          config-name: docs-release-drafter.yml
