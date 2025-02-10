@@ -1,0 +1,56 @@
+# useGeolocation
+
+A hook for accessing the user's geolocation through the browser's Geolocation API. It provides the current position along with loading and error states.
+
+## Parameters
+
+- `defaultPosition?`: `{ lat: number; lng: number } | null` - Optional default position value
+
+## Returns
+
+- `isLoading`: `boolean` - Whether the location is being fetched
+- `position`: `{ lat: number; lng: number } | null` - The current position or null
+- `error`: `string | null` - Error message if geolocation failed
+- `getPosition`: `() => void` - Function to request the current position
+
+## Usage
+
+```typescript
+import { useGeolocation } from '@rhinolabs/hooks';
+
+function LocationDisplay() {
+  const { isLoading, position, error, getPosition } = useGeolocation();
+
+  return (
+    <div>
+      <button onClick={getPosition} disabled={isLoading}>
+        {isLoading ? 'Getting location...' : 'Get My Location'}
+      </button>
+
+      {error && (
+        <div style={{ color: 'red' }}>
+          Error: {error}
+        </div>
+      )}
+
+      {position && (
+        <div>
+          Latitude: {position.lat}
+          <br />
+          Longitude: {position.lng}
+        </div>
+      )}
+    </div>
+  );
+}
+```
+
+## Notes
+
+- Uses the browser's Geolocation API
+- Handles permission and availability errors
+- Provides loading state during requests
+- Returns formatted coordinates
+- Supports default position value
+- Requires user permission
+- Checks for browser compatibility

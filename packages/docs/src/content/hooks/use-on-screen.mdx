@@ -1,0 +1,42 @@
+# useOnScreen
+
+A hook that tracks whether an element is visible within the viewport using the Intersection Observer API. Perfect for implementing infinite scroll, lazy loading, or visibility-based animations.
+
+## Parameters
+
+- `ref`: `RefObject<Element>` - Reference to the element to track
+- `rootMargin`: `string` - Optional margin around the root (viewport). Default is "0px"
+
+## Returns
+
+- `boolean` - Whether the element is currently intersecting with the viewport
+
+## Usage
+
+```typescript
+import { useOnScreen } from '@rhinolabs/hooks';
+import { useRef } from 'react';
+
+function LazyImage() {
+  const imageRef = useRef<HTMLImageElement>(null);
+  const isVisible = useOnScreen(imageRef, '50px');
+
+  return (
+    <img
+      ref={imageRef}
+      src={isVisible ? 'actual-image.jpg' : 'placeholder.jpg'}
+      alt="Lazy loaded image"
+    />
+  );
+}
+```
+
+## Notes
+
+- Uses Intersection Observer API
+- Automatically handles observer cleanup
+- Supports custom root margins
+- Perfect for lazy loading
+- Efficient viewport tracking
+- Updates state automatically
+- No scroll event listeners needed

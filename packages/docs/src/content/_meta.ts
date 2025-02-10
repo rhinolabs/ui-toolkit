@@ -1,7 +1,5 @@
 export default {
-	index: "",
+	index: "Introduction",
 	"get-started": "",
-	features: "",
-	themes: "",
-	advanced: "",
+	hooks: "",
 };

@@ -1,0 +1,85 @@
+# useAudio
+
+A hook that provides complete control over an HTML audio element. Perfect for implementing custom audio players with playback controls, volume management, and time tracking.
+
+## Parameters
+
+- `ref`: `RefObject<HTMLAudioElement>` - Reference to the audio element to control
+
+## Returns
+
+### State
+- `isPaused`: `boolean` - Whether the audio is currently paused
+- `isMuted`: `boolean` - Whether the audio is currently muted
+- `currentVolume`: `number` - Current volume (0-100)
+- `currentTime`: `number` - Current playback position in seconds
+
+### Playback Controls
+- `play`: `() => void` - Start playback
+- `pause`: `() => void` - Pause playback
+- `togglePause`: `() => void` - Toggle play/pause state
+
+### Volume Controls
+- `increaseVolume`: `(increase?: number) => void` - Increase volume by amount (default: 5)
+- `decreaseVolume`: `(decrease?: number) => void` - Decrease volume by amount (default: 5)
+- `mute`: `() => void` - Mute the audio
+- `unmute`: `() => void` - Unmute the audio
+- `toggleMute`: `() => void` - Toggle mute state
+
+### Time Controls
+- `forward`: `(increase?: number) => void` - Skip forward by seconds (default: 5)
+- `back`: `(decrease?: number) => void` - Skip backward by seconds (default: 5)
+
+## Usage
+
+```typescript
+import { useAudio } from '@rhinolabs/hooks';
+import { useRef } from 'react';
+
+function AudioPlayer() {
+  const audioRef = useRef<HTMLAudioElement>(null);
+  const {
+    isPaused,
+    isMuted,
+    currentVolume,
+    currentTime,
+    togglePause,
+    toggleMute,
+    forward,
+    back
+  } = useAudio(audioRef);
+
+  return (
+    <div>
+      <audio
+        ref={audioRef}
+        src="/path/to/audio.mp3"
+      />
+      
+      <div>
+        <button onClick={togglePause}>
+          {isPaused ? 'Play' : 'Pause'}
+        </button>
+        
+        <button onClick={toggleMute}>
+          {isMuted ? 'Unmute' : 'Mute'}
+        </button>
+        
+        <button onClick={() => back()}>-5s</button>
+        <button onClick={() => forward()}>+5s</button>
+        
+        <div>Volume: {currentVolume}%</div>
+        <div>Time: {currentTime}s</div>
+      </div>
+    </div>
+  );
+}
+```
+
+## Notes
+
+- Automatically syncs with audio element state and maintains state consistency
+- Handles event listeners with automatic cleanup on unmount
+- Provides granular volume control with safe boundaries
+- Supports precise time seeking and playback control
+- Real-time state updates for volume, time, and playback status

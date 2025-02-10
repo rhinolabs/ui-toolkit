@@ -1,0 +1,49 @@
+# useOffline
+
+A hook that detects whether the user's device is currently offline. Perfect for implementing offline-first functionality, network status indicators, and graceful degradation.
+
+## Parameters
+
+This hook doesn't take any parameters.
+
+## Returns
+
+- `boolean` - True if the device is offline, false if online
+
+## Usage
+
+```typescript
+import { useOffline } from '@rhinolabs/hooks';
+
+function NetworkAwareComponent() {
+  const isOffline = useOffline();
+
+  return (
+    <div>
+      <div className={`status-indicator ${isOffline ? 'offline' : 'online'}`} />
+      
+      {isOffline ? (
+        <div className="offline-message">
+          <h2>You're Offline</h2>
+          <p>Some features may be unavailable</p>
+        </div>
+      ) : (
+        <div className="content">
+          {/* Your online content here */}
+        </div>
+      )}
+    </div>
+  );
+}
+```
+
+## Notes
+
+- Uses browser online/offline events
+- Real-time status updates
+- Automatic event cleanup
+- Type-safe boolean return
+- Handles connection changes
+- Efficient state management
+- No polling required
+- Cross-browser support

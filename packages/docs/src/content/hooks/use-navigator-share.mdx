@@ -1,0 +1,60 @@
+# useNavigatorShare
+
+A hook that provides access to the Web Share API for sharing content on mobile and desktop devices. Perfect for implementing native share functionality in web applications.
+
+## Parameters
+
+This hook doesn't take any parameters.
+
+## Returns
+
+- `shareInNavigator`: `(data: ShareData) => Promise<void>` - Function to trigger the native share dialog
+
+### ShareData Interface
+
+```typescript
+interface ShareData {
+  title: string;      // Title of the content to share
+  text: string;       // Text description to share
+  url?: string;       // URL to share
+  files?: File[];     // Files to share (if supported)
+}
+```
+
+## Usage
+
+```typescript
+import { useNavigatorShare } from '@rhinolabs/hooks';
+
+function ShareButton() {
+  const { shareInNavigator } = useNavigatorShare();
+
+  const handleShare = async () => {
+    await shareInNavigator({
+      title: 'Check this out!',
+      text: 'This is an awesome article about React hooks',
+      url: window.location.href
+    });
+  };
+
+  return (
+    <button onClick={handleShare}>
+      Share this page
+    </button>
+  );
+}
+```
+
+## Notes
+
+- Uses Web Share API
+- Handles browser support checks
+- Provides error handling
+- Supports file sharing
+- Permission checking
+- Type-safe interface
+- Friendly error messages for:
+  - Permission denied
+  - Aborted sharing
+  - Browser not supported
+  - Invalid data types
