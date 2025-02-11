@@ -1,5 +1,9 @@
-name-template: '$PACKAGE-v$RESOLVED_VERSION'
-tag-template: '$PACKAGE-v$RESOLVED_VERSION'
+name-template: 'docs-v$RESOLVED_VERSION'
+tag-template: 'docs-v$RESOLVED_VERSION'
+
+include-paths:
+  - 'packages/docs/**'
+
 categories:
   - title: '🚀 Features'
     labels:
@@ -32,12 +36,11 @@ version-resolver:
   default: patch
 
 template: |
-  ## What's Changed in $PACKAGE 🛠
+  ## What's Changed in Documentation 🛠
   $CHANGES
   
   ## Contributors 👥
   $CONTRIBUTORS
 
 references:
-  - master
   - main

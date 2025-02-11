@@ -1,0 +1,46 @@
+name-template: 'hooks-v$RESOLVED_VERSION'
+tag-template: 'hooks-v$RESOLVED_VERSION'
+
+include-paths:
+  - 'packages/hooks/**'
+
+categories:
+  - title: '🚀 Features'
+    labels:
+      - 'enhancement'
+  - title: '🐛 Bug Fixes'
+    labels:
+      - 'bug'
+  - title: '🧰 Maintenance'
+    labels:
+      - 'chore'
+      - 'dependencies'
+  - title: '📚 Documentation'
+    labels:
+      - 'docs'
+  
+change-template: '- $TITLE @$AUTHOR (#$NUMBER)'
+
+version-resolver:
+  major:
+    labels:
+      - 'breaking'
+  minor:
+    labels:
+      - 'enhancement'
+  patch:
+    labels:
+      - 'bug'
+      - 'chore'
+      - 'dependencies'
+  default: patch
+
+template: |
+  ## What's Changed in React Hooks 🛠
+  $CHANGES
+  
+  ## Contributors 👥
+  $CONTRIBUTORS
+
+references:
+  - main
