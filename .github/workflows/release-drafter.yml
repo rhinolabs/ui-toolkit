@@ -17,17 +17,13 @@ jobs:
       contents: write
       pull-requests: write
     runs-on: ubuntu-latest
-    if: |
-      contains(github.event.pull_request.files.*.path, 'packages/ui/') ||
-      (github.event_name == 'push' && contains(github.event.head_commit.modified, 'packages/ui/'))
     steps:
       - name: Draft UI Release
         uses: release-drafter/release-drafter@v6
         with:
-          config-name: release-drafter.yml
+          config-name: release-drafter-ui.yml
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          PACKAGE: 'ui'
 
   # Hooks Package Release Draft
   update_hooks_release_draft:
@@ -36,17 +32,13 @@ jobs:
       contents: write
       pull-requests: write
     runs-on: ubuntu-latest
-    if: |
-      contains(github.event.pull_request.files.*.path, 'packages/hooks/') ||
-      (github.event_name == 'push' && contains(github.event.head_commit.modified, 'packages/hooks/'))
     steps:
       - name: Draft Hooks Release
         uses: release-drafter/release-drafter@v6
         with:
-          config-name: release-drafter.yml
+          config-name: release-drafter-hooks.yml
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          PACKAGE: 'hooks'
 
   # Docs Package Release Draft
   update_docs_release_draft:
@@ -55,14 +47,10 @@ jobs:
       contents: write
       pull-requests: write
     runs-on: ubuntu-latest
-    if: |
-      contains(github.event.pull_request.files.*.path, 'packages/docs/') ||
-      (github.event_name == 'push' && contains(github.event.head_commit.modified, 'packages/docs/'))
     steps:
       - name: Draft Docs Release
         uses: release-drafter/release-drafter@v6
         with:
-          config-name: release-drafter.yml
+          config-name: release-drafter-docs.yml
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          PACKAGE: 'docs'
