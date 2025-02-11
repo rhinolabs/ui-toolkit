@@ -1,0 +1,43 @@
+name-template: '$PACKAGE-v$RESOLVED_VERSION'
+tag-template: '$PACKAGE-v$RESOLVED_VERSION'
+categories:
+  - title: '🚀 Features'
+    labels:
+      - 'enhancement'
+  - title: '🐛 Bug Fixes'
+    labels:
+      - 'bug'
+  - title: '🧰 Maintenance'
+    labels:
+      - 'chore'
+      - 'dependencies'
+  - title: '📚 Documentation'
+    labels:
+      - 'docs'
+  
+change-template: '- $TITLE @$AUTHOR (#$NUMBER)'
+
+version-resolver:
+  major:
+    labels:
+      - 'breaking'
+  minor:
+    labels:
+      - 'enhancement'
+  patch:
+    labels:
+      - 'bug'
+      - 'chore'
+      - 'dependencies'
+  default: patch
+
+template: |
+  ## What's Changed in $PACKAGE 🛠
+  $CHANGES
+  
+  ## Contributors 👥
+  $CONTRIBUTORS
+
+references:
+  - master
+  - main
