@@ -1,31 +1,10 @@
-categories:
-  - title: "🚀 Feature"
-    labels:
-      - feature
-  - title: "🐛 Bug Fixes"
-    labels:
-      - bug
-  - title: "📖 Docs"
-    labels:
-      - documentation
-autolabeler:
-  - label: "feature"
-    branch:
-      - "/^feat/i"
-      - "/^feature/i"
-  - label: "bug"
-    branch:
-      - "/^fix/"
-  - label: "documentation"
-    branch:
-      - "/^docs/"
 version-resolver:
   major:
     labels:
-      - "major"
+      - "breaking"
   minor:
     labels:
-      - "feature"
+      - "enhancement"
   default: "patch"
 
 template: |
