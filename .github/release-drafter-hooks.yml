@@ -1,0 +1,6 @@
+_extends: ui-toolkit:.github/release-drafter-base.yml
+name-template: hooks@$RESOLVED_VERSION
+tag-template: hooks@$RESOLVED_VERSION
+tag-prefix: hooks@
+include-paths:
+  - "packages/hooks/"

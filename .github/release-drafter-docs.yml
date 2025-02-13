@@ -1,0 +1,6 @@
+_extends: ui-toolkit:.github/release-drafter-base.yml
+name-template: docs@$RESOLVED_VERSION
+tag-template: docs@$RESOLVED_VERSION
+tag-prefix: docs@
+include-paths:
+  - "packages/docs/"

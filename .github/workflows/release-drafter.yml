@@ -1,0 +1,33 @@
+name: Release Drafter
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    types: [opened, reopened, synchronize]
+jobs:
+  update_release_draft:
+    permissions:
+      contents: write
+      pull-requests: write
+    runs-on: ubuntu-latest
+    steps:
+      - name: Draft UI release
+        uses: release-drafter/release-drafter@v6
+        with:
+          config-name: release-drafter-ui.yml
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Draft hooks release
+        uses: release-drafter/release-drafter@v6
+        with:
+          config-name: release-drafter-hooks.yml
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Draft docs release
+        uses: release-drafter/release-drafter@v6
+        with:
+          config-name: release-drafter-docs.yml
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
