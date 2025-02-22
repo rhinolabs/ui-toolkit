@@ -22,56 +22,52 @@
 }
 
 @theme {
-	--color-background: hsl(var(--rhinolabs-background));
-	--color-foreground: hsl(var(--rhinolabs-foreground));
+	--color-background: hsl(var(--rui-background));
+	--color-foreground: hsl(var(--rui-foreground));
 
-	--color-card: hsl(var(--card));
-	--color-card-foreground: hsl(var(--card-foreground));
+	--color-card: hsl(var(--rui-card));
+	--color-card-foreground: hsl(var(--rui-card-foreground));
 
-	--color-popover: hsl(var(--popover));
-	--color-popover-foreground: hsl(var(--popover-foreground));
+	--color-popover: hsl(var(--rui-popover));
+	--color-popover-foreground: hsl(var(--rui-popover-foreground));
 
-	--color-primary: hsl(var(--primary));
-	--color-primary-foreground: hsl(var(--primary-foreground));
+	--color-primary: hsl(var(--rui-primary));
+	--color-primary-foreground: hsl(var(--rui-primary-foreground));
 
-	--color-secondary: hsl(var(--secondary));
-	--color-secondary-foreground: hsl(var(--secondary-foreground));
+	--color-secondary: hsl(var(--rui-secondary));
+	--color-secondary-foreground: hsl(var(--rui-secondary-foreground));
 
-	--color-muted: hsl(var(--muted));
-	--color-muted-foreground: hsl(var(--muted-foreground));
+	--color-muted: hsl(var(--rui-muted));
+	--color-muted-foreground: hsl(var(--rui-muted-foreground));
 
-	--color-accent: hsl(var(--accent));
-	--color-accent-foreground: hsl(var(--accent-foreground));
+	--color-accent: hsl(var(--rui-accent));
+	--color-accent-foreground: hsl(var(--rui-accent-foreground));
 
-	--color-destructive: hsl(var(--destructive));
-	--color-destructive-foreground: hsl(var(--destructive-foreground));
+	--color-destructive: hsl(var(--rui-destructive));
+	--color-destructive-foreground: hsl(var(--rui-destructive-foreground));
 
-	--color-border: hsl(var(--border));
-	--color-input: hsl(var(--input));
-	--color-ring: hsl(var(--ring));
+	--color-border: hsl(var(--rui-border));
+	--color-input: hsl(var(--rui-input));
+	--color-ring: hsl(var(--rui-ring));
 
-	--color-chart-1: hsl(var(--chart-1));
-	--color-chart-2: hsl(var(--chart-2));
-	--color-chart-3: hsl(var(--chart-3));
-	--color-chart-4: hsl(var(--chart-4));
-	--color-chart-5: hsl(var(--chart-5));
+	--color-chart-1: hsl(var(--rui-chart-1));
+	--color-chart-2: hsl(var(--rui-chart-2));
+	--color-chart-3: hsl(var(--rui-chart-3));
+	--color-chart-4: hsl(var(--rui-chart-4));
+	--color-chart-5: hsl(var(--rui-chart-5));
 
-	--color-sidebar: hsl(var(--rhinolabs-sidebar-background));
-	--color-sidebar-foreground: hsl(var(--rhinolabs-sidebar-foreground));
-	--color-sidebar-primary: hsl(var(--rhinolabs-sidebar-primary));
-	--color-sidebar-primary-foreground: hsl(
-		var(--rhinolabs-sidebar-primary-foreground)
-	);
-	--color-sidebar-accent: hsl(var(--rhinolabs-sidebar-accent));
-	--color-sidebar-accent-foreground: hsl(
-		var(--rhinolabs-sidebar-accent-foreground)
-	);
-	--color-sidebar-border: hsl(var(--rhinolabs-sidebar-border));
-	--color-sidebar-ring: hsl(var(--rhinolabs-sidebar-ring));
+	--color-sidebar: hsl(var(--rui-sidebar-background));
+	--color-sidebar-foreground: hsl(var(--rui-sidebar-foreground));
+	--color-sidebar-primary: hsl(var(--rui-sidebar-primary));
+	--color-sidebar-primary-foreground: hsl(var(--rui-sidebar-primary-foreground));
+	--color-sidebar-accent: hsl(var(--rui-sidebar-accent));
+	--color-sidebar-accent-foreground: hsl(var(--rui-sidebar-accent-foreground));
+	--color-sidebar-border: hsl(var(--rui-sidebar-border));
+	--color-sidebar-ring: hsl(var(--rui-sidebar-ring));
 
-	--radius-lg: var(--rhinolabs-radius);
-	--radius-md: calc(var(--rhinolabs-radius) - 2px);
-	--radius-sm: calc(var(--rhinolabs-radius) - 4px);
+	--radius-lg: var(--rui-radius);
+	--radius-md: calc(var(--rui-radius) - 2px);
+	--radius-sm: calc(var(--rui-radius) - 4px);
 
 	--animate-accordion-down: accordion-down 0.2s ease-out;
 	--animate-accordion-up: accordion-up 0.2s ease-out;
@@ -95,72 +91,72 @@
 }
 
 :root {
-	--rhinolabs-background: 0 0% 100%;
-	--rhinolabs-foreground: 0 0% 3.9%;
-	--card: 0 0% 100%;
-	--card-foreground: 0 0% 3.9%;
-	--popover: 0 0% 100%;
-	--popover-foreground: 0 0% 3.9%;
-	--primary: 0 0% 9%;
-	--primary-foreground: 0 0% 98%;
-	--secondary: 0 0% 96.1%;
-	--secondary-foreground: 0 0% 9%;
-	--muted: 0 0% 96.1%;
-	--muted-foreground: 0 0% 45.1%;
-	--accent: 0 0% 96.1%;
-	--accent-foreground: 0 0% 9%;
-	--destructive: 0 84.2% 60.2%;
-	--destructive-foreground: 0 0% 98%;
-	--border: 0 0% 89.8%;
-	--input: 0 0% 89.8%;
-	--ring: 0 0% 3.9%;
-	--chart-1: 12 76% 61%;
-	--chart-2: 173 58% 39%;
-	--chart-3: 197 37% 24%;
-	--chart-4: 43 74% 66%;
-	--chart-5: 27 87% 67%;
-	--rhinolabs-radius: 0.5rem;
-	--rhinolabs-sidebar-background: 0 0% 98%;
-	--rhinolabs-sidebar-foreground: 240 5.3% 26.1%;
-	--rhinolabs-sidebar-primary: 240 5.9% 10%;
-	--rhinolabs-sidebar-primary-foreground: 0 0% 98%;
-	--rhinolabs-sidebar-accent: 240 4.8% 95.9%;
-	--rhinolabs-sidebar-accent-foreground: 240 5.9% 10%;
-	--rhinolabs-sidebar-border: 220 13% 91%;
-	--rhinolabs-sidebar-ring: 217.2 91.2% 59.8%;
+	--rui-background: 0 0% 100%;
+	--rui-foreground: 0 0% 3.9%;
+	--rui-card: 0 0% 100%;
+	--rui-card-foreground: 0 0% 3.9%;
+	--rui-popover: 0 0% 100%;
+	--rui-popover-foreground: 0 0% 3.9%;
+	--rui-primary: 0 0% 9%;
+	--rui-primary-foreground: 0 0% 98%;
+	--rui-secondary: 0 0% 96.1%;
+	--rui-secondary-foreground: 0 0% 9%;
+	--rui-muted: 0 0% 96.1%;
+	--rui-muted-foreground: 0 0% 45.1%;
+	--rui-accent: 0 0% 96.1%;
+	--rui-accent-foreground: 0 0% 9%;
+	--rui-destructive: 0 84.2% 60.2%;
+	--rui-destructive-foreground: 0 0% 98%;
+	--rui-border: 0 0% 89.8%;
+	--rui-input: 0 0% 89.8%;
+	--rui-ring: 0 0% 3.9%;
+	--rui-chart-1: 12 76% 61%;
+	--rui-chart-2: 173 58% 39%;
+	--rui-chart-3: 197 37% 24%;
+	--rui-chart-4: 43 74% 66%;
+	--rui-chart-5: 27 87% 67%;
+	--rui-radius: 0.5rem;
+	--rui-sidebar-background: 0 0% 98%;
+	--rui-sidebar-foreground: 240 5.3% 26.1%;
+	--rui-sidebar-primary: 240 5.9% 10%;
+	--rui-sidebar-primary-foreground: 0 0% 98%;
+	--rui-sidebar-accent: 240 4.8% 95.9%;
+	--rui-sidebar-accent-foreground: 240 5.9% 10%;
+	--rui-sidebar-border: 220 13% 91%;
+	--rui-sidebar-ring: 217.2 91.2% 59.8%;
 }
 
 .dark {
-	--rhinolabs-background: 0 0% 3.9%;
-	--rhinolabs-foreground: 0 0% 98%;
-	--card: 0 0% 3.9%;
-	--card-foreground: 0 0% 98%;
-	--popover: 0 0% 3.9%;
-	--popover-foreground: 0 0% 98%;
-	--primary: 0 0% 98%;
-	--primary-foreground: 0 0% 9%;
-	--secondary: 0 0% 14.9%;
-	--secondary-foreground: 0 0% 98%;
-	--muted: 0 0% 14.9%;
-	--muted-foreground: 0 0% 63.9%;
-	--accent: 0 0% 14.9%;
-	--accent-foreground: 0 0% 98%;
-	--destructive: 0 62.8% 30.6%;
-	--destructive-foreground: 0 0% 98%;
-	--border: 0 0% 14.9%;
-	--input: 0 0% 14.9%;
-	--ring: 0 0% 83.1%;
-	--chart-1: 220 70% 50%;
-	--chart-2: 160 60% 45%;
-	--chart-3: 30 80% 55%;
-	--chart-4: 280 65% 60%;
-	--chart-5: 340 75% 55%;
-	--rhinolabs-sidebar-background: 240 5.9% 10%;
-	--rhinolabs-sidebar-foreground: 240 4.8% 95.9%;
-	--rhinolabs-sidebar-primary: 224.3 76.3% 48%;
-	--rhinolabs-sidebar-primary-foreground: 0 0% 100%;
-	--rhinolabs-sidebar-accent: 240 3.7% 15.9%;
-	--rhinolabs-sidebar-accent-foreground: 240 4.8% 95.9%;
-	--rhinolabs-sidebar-border: 240 3.7% 15.9%;
-	--rhinolabs-sidebar-ring: 217.2 91.2% 59.8%;
+	--rui-background: 0 0% 3.9%;
+	--rui-foreground: 0 0% 98%;
+	--rui-card: 0 0% 3.9%;
+	--rui-card-foreground: 0 0% 98%;
+	--rui-popover: 0 0% 3.9%;
+	--rui-popover-foreground: 0 0% 98%;
+	--rui-primary: 0 0% 98%;
+	--rui-primary-foreground: 0 0% 9%;
+	--rui-secondary: 0 0% 14.9%;
+	--rui-secondary-foreground: 0 0% 98%;
+	--rui-muted: 0 0% 14.9%;
+	--rui-muted-foreground: 0 0% 63.9%;
+	--rui-accent: 0 0% 14.9%;
+	--rui-accent-foreground: 0 0% 98%;
+	--rui-destructive: 0 62.8% 30.6%;
+	--rui-destructive-foreground: 0 0% 98%;
+	--rui-border: 0 0% 14.9%;
+	--rui-input: 0 0% 14.9%;
+	--rui-ring: 0 0% 83.1%;
+	--rui-chart-1: 220 70% 50%;
+	--rui-chart-2: 160 60% 45%;
+	--rui-chart-3: 30 80% 55%;
+	--rui-chart-4: 280 65% 60%;
+	--rui-chart-5: 340 75% 55%;
+	--rui-sidebar-background: 240 5.9% 10%;
+	--rui-sidebar-foreground: 240 4.8% 95.9%;
+	--rui-sidebar-primary: 224.3 76.3% 48%;
+	--rui-sidebar-primary-foreground: 0 0% 100%;
+	--rui-sidebar-accent: 240 3.7% 15.9%;
+	--rui-sidebar-accent-foreground: 240 4.8% 95.9%;
+	--rui-sidebar-border: 240 3.7% 15.9%;
+	--rui-sidebar-ring: 217.2 91.2% 59.8%;
 }
