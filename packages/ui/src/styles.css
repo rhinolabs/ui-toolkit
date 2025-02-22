@@ -59,13 +59,9 @@
 	--color-sidebar: hsl(var(--rui-sidebar-background));
 	--color-sidebar-foreground: hsl(var(--rui-sidebar-foreground));
 	--color-sidebar-primary: hsl(var(--rui-sidebar-primary));
-	--color-sidebar-primary-foreground: hsl(
-		var(--rui-sidebar-primary-foreground)
-	);
+	--color-sidebar-primary-foreground: hsl(var(--rui-sidebar-primary-foreground));
 	--color-sidebar-accent: hsl(var(--rui-sidebar-accent));
-	--color-sidebar-accent-foreground: hsl(
-		var(--rui-sidebar-accent-foreground)
-	);
+	--color-sidebar-accent-foreground: hsl(var(--rui-sidebar-accent-foreground));
 	--color-sidebar-border: hsl(var(--rui-sidebar-border));
 	--color-sidebar-ring: hsl(var(--rui-sidebar-ring));
 
