@@ -3,7 +3,7 @@ title: Form
 description: 'Building forms with validation using React Hook Form.'
 ---
 
-import { Form, FormItem, FormLabel, FormControl, FormDescription, FormMessage, FormField } from "@rhinolabs/ui"
+import { Form } from "@rhinolabs/ui"
 
 # Form
 
@@ -13,7 +13,7 @@ A collection of form components that work seamlessly with React Hook Form.
 
 ```tsx
 import { useForm } from "react-hook-form"
-import { Form, FormField, FormItem, FormLabel, FormControl, FormDescription, FormMessage } from "@rhinolabs/ui"
+import { Form } from "@rhinolabs/ui"
 
 export default function FormDemo() {
   const form = useForm()
@@ -21,20 +21,20 @@ export default function FormDemo() {
   return (
     <Form {...form}>
       <form onSubmit={form.handleSubmit(console.log)}>
-        <FormField
+        <Form.Field
           control={form.control}
           name="username"
           render={({ field }) => (
-            <FormItem>
-              <FormLabel>Username</FormLabel>
-              <FormControl>
+            <Form.Item>
+              <Form.Label>Username</Form.Label>
+              <Form.Control>
                 <input {...field} />
-              </FormControl>
-              <FormDescription>
+              </Form.Control>
+              <Form.Description>
                 Enter your username.
-              </FormDescription>
-              <FormMessage />
-            </FormItem>
+              </Form.Description>
+              <Form.Message />
+            </Form.Item>
           )}
         />
       </form>
@@ -67,30 +67,30 @@ function BasicForm() {
   return (
     <Form {...form}>
       <form onSubmit={form.handleSubmit(console.log)} className="space-y-4">
-        <FormField
+        <Form.Field
           control={form.control}
           name="username"
           render={({ field }) => (
-            <FormItem>
-              <FormLabel>Username</FormLabel>
-              <FormControl>
+            <Form.Item>
+              <Form.Label>Username</Form.Label>
+              <Form.Control>
                 <input {...field} />
-              </FormControl>
-              <FormMessage />
-            </FormItem>
+              </Form.Control>
+              <Form.Message />
+            </Form.Item>
           )}
         />
-        <FormField
+        <Form.Field
           control={form.control}
           name="email"
           render={({ field }) => (
-            <FormItem>
-              <FormLabel>Email</FormLabel>
-              <FormControl>
+            <Form.Item>
+              <Form.Label>Email</Form.Label>
+              <Form.Control>
                 <input type="email" {...field} />
-              </FormControl>
-              <FormMessage />
-            </FormItem>
+              </Form.Control>
+              <Form.Message />
+            </Form.Item>
           )}
         />
         <button type="submit">Submit</button>
@@ -107,26 +107,26 @@ Form with custom form controls.
 ```tsx
 <Form {...form}>
   <form onSubmit={form.handleSubmit(console.log)}>
-    <FormField
+    <Form.Field
       control={form.control}
       name="notifications"
       render={({ field }) => (
-        <FormItem className="flex flex-row items-start space-x-3 space-y-0">
-          <FormControl>
+        <Form.Item className="flex flex-row items-start space-x-3 space-y-0">
+          <Form.Control>
             <Checkbox
               checked={field.value}
               onCheckedChange={field.onChange}
             />
-          </FormControl>
+          </Form.Control>
           <div className="space-y-1 leading-none">
-            <FormLabel>
+            <Form.Label>
               Email notifications
-            </FormLabel>
-            <FormDescription>
+            </Form.Label>
+            <Form.Description>
               Receive emails about your account activity.
-            </FormDescription>
+            </Form.Description>
           </div>
-        </FormItem>
+        </Form.Item>
       )}
     />
   </form>

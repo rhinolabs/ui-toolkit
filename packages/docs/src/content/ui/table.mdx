@@ -3,7 +3,7 @@ title: Table
 description: 'A responsive table component for displaying tabular data.'
 ---
 
-import { Table, TableHeader, TableBody, TableFooter, TableHead, TableRow, TableCell, TableCaption } from "@rhinolabs/ui"
+import { Table } from "@rhinolabs/ui"
 
 # Table
 
@@ -12,28 +12,28 @@ A collection of components for displaying data in a tabular format.
 ## Usage
 
 ```tsx
-import { Table, TableHeader, TableBody, TableFooter, TableHead, TableRow, TableCell, TableCaption } from "@rhinolabs/ui"
+import { Table } from "@rhinolabs/ui"
 
 export default function TableDemo() {
   return (
     <Table>
-      <TableCaption>A list of your recent invoices.</TableCaption>
-      <TableHeader>
-        <TableRow>
-          <TableHead>Invoice</TableHead>
-          <TableHead>Status</TableHead>
-          <TableHead>Method</TableHead>
-          <TableHead className="text-right">Amount</TableHead>
-        </TableRow>
-      </TableHeader>
-      <TableBody>
-        <TableRow>
-          <TableCell>INV001</TableCell>
-          <TableCell>Paid</TableCell>
-          <TableCell>Credit Card</TableCell>
-          <TableCell className="text-right">$250.00</TableCell>
-        </TableRow>
-      </TableBody>
+      <Table.Caption>A list of your recent invoices.</Table.Caption>
+      <Table.Header>
+        <Table.Row>
+          <Table.Head>Invoice</Table.Head>
+          <Table.Head>Status</Table.Head>
+          <Table.Head>Method</Table.Head>
+          <Table.Head className="text-right">Amount</Table.Head>
+        </Table.Row>
+      </Table.Header>
+      <Table.Body>
+        <Table.Row>
+          <Table.Cell>INV001</Table.Cell>
+          <Table.Cell>Paid</Table.Cell>
+          <Table.Cell>Credit Card</Table.Cell>
+          <Table.Cell className="text-right">$250.00</Table.Cell>
+        </Table.Row>
+      </Table.Body>
     </Table>
   )
 }
@@ -47,25 +47,25 @@ A simple data table with headers.
 
 ```tsx
 <Table>
-  <TableHeader>
-    <TableRow>
-      <TableHead>Name</TableHead>
-      <TableHead>Email</TableHead>
-      <TableHead>Role</TableHead>
-    </TableRow>
-  </TableHeader>
-  <TableBody>
-    <TableRow>
-      <TableCell>John Doe</TableCell>
-      <TableCell>john@example.com</TableCell>
-      <TableCell>Admin</TableCell>
-    </TableRow>
-    <TableRow>
-      <TableCell>Jane Smith</TableCell>
-      <TableCell>jane@example.com</TableCell>
-      <TableCell>User</TableCell>
-    </TableRow>
-  </TableBody>
+  <Table.Header>
+    <Table.Row>
+      <Table.Head>Name</Table.Head>
+      <Table.Head>Email</Table.Head>
+      <Table.Head>Role</Table.Head>
+    </Table.Row>
+  </Table.Header>
+  <Table.Body>
+    <Table.Row>
+      <Table.Cell>John Doe</Table.Cell>
+      <Table.Cell>john@example.com</Table.Cell>
+      <Table.Cell>Admin</Table.Cell>
+    </Table.Row>
+    <Table.Row>
+      <Table.Cell>Jane Smith</Table.Cell>
+      <Table.Cell>jane@example.com</Table.Cell>
+      <Table.Cell>User</Table.Cell>
+    </Table.Row>
+  </Table.Body>
 </Table>
 ```
 
@@ -75,31 +75,31 @@ Table with summary footer.
 
 ```tsx
 <Table>
-  <TableHeader>
-    <TableRow>
-      <TableHead>Item</TableHead>
-      <TableHead>Quantity</TableHead>
-      <TableHead className="text-right">Price</TableHead>
-    </TableRow>
-  </TableHeader>
-  <TableBody>
-    <TableRow>
-      <TableCell>Product A</TableCell>
-      <TableCell>2</TableCell>
-      <TableCell className="text-right">$100.00</TableCell>
-    </TableRow>
-    <TableRow>
-      <TableCell>Product B</TableCell>
-      <TableCell>1</TableCell>
-      <TableCell className="text-right">$75.00</TableCell>
-    </TableRow>
-  </TableBody>
-  <TableFooter>
-    <TableRow>
-      <TableCell colSpan={2}>Total</TableCell>
-      <TableCell className="text-right">$175.00</TableCell>
-    </TableRow>
-  </TableFooter>
+  <Table.Header>
+    <Table.Row>
+      <Table.Head>Item</Table.Head>
+      <Table.Head>Quantity</Table.Head>
+      <Table.Head className="text-right">Price</Table.Head>
+    </Table.Row>
+  </Table.Header>
+  <Table.Body>
+    <Table.Row>
+      <Table.Cell>Product A</Table.Cell>
+      <Table.Cell>2</Table.Cell>
+      <Table.Cell className="text-right">$100.00</Table.Cell>
+    </Table.Row>
+    <Table.Row>
+      <Table.Cell>Product B</Table.Cell>
+      <Table.Cell>1</Table.Cell>
+      <Table.Cell className="text-right">$75.00</Table.Cell>
+    </Table.Row>
+  </Table.Body>
+  <Table.Footer>
+    <Table.Row>
+      <Table.Cell colSpan={2}>Total</Table.Cell>
+      <Table.Cell className="text-right">$175.00</Table.Cell>
+    </Table.Row>
+  </Table.Footer>
 </Table>
 ```
 

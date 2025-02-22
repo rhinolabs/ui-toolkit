@@ -3,7 +3,7 @@ title: Tooltip
 description: 'A popup that displays information related to an element when the element receives keyboard focus or the mouse hovers over it.'
 ---
 
-import { Tooltip, TooltipTrigger, TooltipContent, TooltipProvider } from "@rhinolabs/ui"
+import { Tooltip } from "@rhinolabs/ui"
 import { Button } from "@rhinolabs/ui"
 
 # Tooltip
@@ -13,18 +13,18 @@ A popup that displays additional information when a user hovers over or focuses 
 ## Usage
 
 ```tsx
-import { Tooltip, TooltipTrigger, TooltipContent, TooltipProvider } from "@rhinolabs/ui"
+import { Tooltip } from "@rhinolabs/ui"
 
 export default function TooltipDemo() {
   return (
-    <TooltipProvider>
+    <Tooltip.Provider>
       <Tooltip>
-        <TooltipTrigger>Hover</TooltipTrigger>
-        <TooltipContent>
+        <Tooltip.Trigger>Hover</Tooltip.Trigger>
+        <Tooltip.Content>
           <p>Add to library</p>
-        </TooltipContent>
+        </Tooltip.Content>
       </Tooltip>
-    </TooltipProvider>
+    </Tooltip.Provider>
   )
 }
 ```
@@ -36,16 +36,16 @@ export default function TooltipDemo() {
 A simple tooltip with text content.
 
 ```tsx
-<TooltipProvider>
+<Tooltip.Provider>
   <Tooltip>
-    <TooltipTrigger asChild>
+    <Tooltip.Trigger asChild>
       <Button variant="outline">Hover me</Button>
-    </TooltipTrigger>
-    <TooltipContent>
+    </Tooltip.Trigger>
+    <Tooltip.Content>
       <p>Add to library</p>
-    </TooltipContent>
+    </Tooltip.Content>
   </Tooltip>
-</TooltipProvider>
+</Tooltip.Provider>
 ```
 
 ### With Custom Positioning
@@ -53,26 +53,26 @@ A simple tooltip with text content.
 Tooltip with custom side and alignment.
 
 ```tsx
-<TooltipProvider>
+<Tooltip.Provider>
   <div className="flex space-x-4">
     <Tooltip>
-      <TooltipTrigger asChild>
+      <Tooltip.Trigger asChild>
         <Button variant="outline">Top</Button>
-      </TooltipTrigger>
-      <TooltipContent side="top">
+      </Tooltip.Trigger>
+      <Tooltip.Content side="top">
         <p>This tooltip appears on top</p>
-      </TooltipContent>
+      </Tooltip.Content>
     </Tooltip>
     <Tooltip>
-      <TooltipTrigger asChild>
+      <Tooltip.Trigger asChild>
         <Button variant="outline">Right</Button>
-      </TooltipTrigger>
-      <TooltipContent side="right">
+      </Tooltip.Trigger>
+      <Tooltip.Content side="right">
         <p>This tooltip appears on the right</p>
-      </TooltipContent>
+      </Tooltip.Content>
     </Tooltip>
   </div>
-</TooltipProvider>
+</Tooltip.Provider>
 ```
 
 ### With Icons
@@ -80,18 +80,18 @@ Tooltip with custom side and alignment.
 Tooltip with icon and text.
 
 ```tsx
-<TooltipProvider>
+<Tooltip.Provider>
   <Tooltip>
-    <TooltipTrigger asChild>
+    <Tooltip.Trigger asChild>
       <Button size="icon" variant="ghost">
         <InfoIcon className="h-4 w-4" />
       </Button>
-    </TooltipTrigger>
-    <TooltipContent>
+    </Tooltip.Trigger>
+    <Tooltip.Content>
       <p>View more information</p>
-    </TooltipContent>
+    </Tooltip.Content>
   </Tooltip>
-</TooltipProvider>
+</Tooltip.Provider>
 ```
 
 ## Props

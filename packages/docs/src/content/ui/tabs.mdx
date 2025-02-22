@@ -3,7 +3,7 @@ title: Tabs
 description: 'A set of layered sections of content that display one panel at a time.'
 ---
 
-import { Tabs, TabsList, TabsTrigger, TabsContent } from "@rhinolabs/ui"
+import { Tabs } from "@rhinolabs/ui"
 
 # Tabs
 
@@ -12,21 +12,21 @@ A set of layered sections of content that are displayed one at a time.
 ## Usage
 
 ```tsx
-import { Tabs, TabsList, TabsTrigger, TabsContent } from "@rhinolabs/ui"
+import { Tabs } from "@rhinolabs/ui"
 
 export default function TabsDemo() {
   return (
     <Tabs defaultValue="account">
-      <TabsList>
-        <TabsTrigger value="account">Account</TabsTrigger>
-        <TabsTrigger value="password">Password</TabsTrigger>
-      </TabsList>
-      <TabsContent value="account">
+      <Tabs.List>
+        <Tabs.Trigger value="account">Account</Tabs.Trigger>
+        <Tabs.Trigger value="password">Password</Tabs.Trigger>
+      </Tabs.List>
+      <Tabs.Content value="account">
         Account settings content
-      </TabsContent>
-      <TabsContent value="password">
+      </Tabs.Content>
+      <Tabs.Content value="password">
         Password settings content
-      </TabsContent>
+      </Tabs.Content>
     </Tabs>
   )
 }
@@ -40,26 +40,26 @@ Simple tabbed interface.
 
 ```tsx
 <Tabs defaultValue="music">
-  <TabsList>
-    <TabsTrigger value="music">Music</TabsTrigger>
-    <TabsTrigger value="podcasts">Podcasts</TabsTrigger>
-    <TabsTrigger value="audiobooks">Audiobooks</TabsTrigger>
-  </TabsList>
-  <TabsContent value="music">
+  <Tabs.List>
+    <Tabs.Trigger value="music">Music</Tabs.Trigger>
+    <Tabs.Trigger value="podcasts">Podcasts</Tabs.Trigger>
+    <Tabs.Trigger value="audiobooks">Audiobooks</Tabs.Trigger>
+  </Tabs.List>
+  <Tabs.Content value="music">
     <p className="text-sm text-muted-foreground">
       Listen to your favorite music tracks and albums.
     </p>
-  </TabsContent>
-  <TabsContent value="podcasts">
+  </Tabs.Content>
+  <Tabs.Content value="podcasts">
     <p className="text-sm text-muted-foreground">
       Catch up on the latest podcast episodes.
     </p>
-  </TabsContent>
-  <TabsContent value="audiobooks">
+  </Tabs.Content>
+  <Tabs.Content value="audiobooks">
     <p className="text-sm text-muted-foreground">
       Explore our collection of audiobooks.
     </p>
-  </TabsContent>
+  </Tabs.Content>
 </Tabs>
 ```
 
@@ -69,11 +69,11 @@ Tabs containing form elements.
 
 ```tsx
 <Tabs defaultValue="account">
-  <TabsList>
-    <TabsTrigger value="account">Account</TabsTrigger>
-    <TabsTrigger value="preferences">Preferences</TabsTrigger>
-  </TabsList>
-  <TabsContent value="account">
+  <Tabs.List>
+    <Tabs.Trigger value="account">Account</Tabs.Trigger>
+    <Tabs.Trigger value="preferences">Preferences</Tabs.Trigger>
+  </Tabs.List>
+  <Tabs.Content value="account">
     <div className="space-y-4">
       <div>
         <label>Name</label>
@@ -84,8 +84,8 @@ Tabs containing form elements.
         <input type="email" />
       </div>
     </div>
-  </TabsContent>
-  <TabsContent value="preferences">
+  </Tabs.Content>
+  <Tabs.Content value="preferences">
     <div className="space-y-4">
       <div>
         <label>Language</label>
@@ -102,7 +102,7 @@ Tabs containing form elements.
         </select>
       </div>
     </div>
-  </TabsContent>
+  </Tabs.Content>
 </Tabs>
 ```
 
