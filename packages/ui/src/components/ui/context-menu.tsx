@@ -233,20 +233,20 @@ function ContextMenuShortcut({
 	);
 }
 
-export {
-	ContextMenu,
-	ContextMenuTrigger,
-	ContextMenuContent,
-	ContextMenuItem,
-	ContextMenuCheckboxItem,
-	ContextMenuRadioItem,
-	ContextMenuLabel,
-	ContextMenuSeparator,
-	ContextMenuShortcut,
-	ContextMenuGroup,
-	ContextMenuPortal,
-	ContextMenuSub,
-	ContextMenuSubContent,
-	ContextMenuSubTrigger,
-	ContextMenuRadioGroup,
-};
+// Attach subcomponents to ContextMenu
+ContextMenu.Trigger = ContextMenuTrigger;
+ContextMenu.Content = ContextMenuContent;
+ContextMenu.Item = ContextMenuItem;
+ContextMenu.CheckboxItem = ContextMenuCheckboxItem;
+ContextMenu.RadioItem = ContextMenuRadioItem;
+ContextMenu.Label = ContextMenuLabel;
+ContextMenu.Separator = ContextMenuSeparator;
+ContextMenu.Shortcut = ContextMenuShortcut;
+ContextMenu.Group = ContextMenuGroup;
+ContextMenu.Portal = ContextMenuPortal;
+ContextMenu.Sub = ContextMenuSub;
+ContextMenu.SubContent = ContextMenuSubContent;
+ContextMenu.SubTrigger = ContextMenuSubTrigger;
+ContextMenu.RadioGroup = ContextMenuRadioGroup;
+
+export { ContextMenu };

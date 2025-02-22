@@ -70,4 +70,7 @@ function ToggleGroupItem({
 	);
 }
 
-export { ToggleGroup, ToggleGroupItem };
+// Attach subcomponents to ToggleGroup
+ToggleGroup.Item = ToggleGroupItem;
+
+export { ToggleGroup };

@@ -63,4 +63,8 @@ function AlertDescription({
 	);
 }
 
-export { Alert, AlertTitle, AlertDescription };
+// Attach subcomponents to Alert
+Alert.Title = AlertTitle;
+Alert.Description = AlertDescription;
+
+export { Alert };

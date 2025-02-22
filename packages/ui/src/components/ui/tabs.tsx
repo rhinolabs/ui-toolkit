@@ -66,4 +66,9 @@ function TabsContent({
 	);
 }
 
-export { Tabs, TabsList, TabsTrigger, TabsContent };
+// Attach subcomponents to Tabs
+Tabs.List = TabsList;
+Tabs.Trigger = TabsTrigger;
+Tabs.Content = TabsContent;
+
+export { Tabs };

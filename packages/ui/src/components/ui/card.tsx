@@ -65,11 +65,11 @@ function CardFooter({ className, ...props }: React.ComponentProps<"div">) {
 	);
 }
 
-export {
-	Card,
-	CardHeader,
-	CardFooter,
-	CardTitle,
-	CardDescription,
-	CardContent,
-};
+// Attach subcomponents to Card
+Card.Header = CardHeader;
+Card.Footer = CardFooter;
+Card.Title = CardTitle;
+Card.Description = CardDescription;
+Card.Content = CardContent;
+
+export { Card };

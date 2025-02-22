@@ -101,12 +101,12 @@ function BreadcrumbEllipsis({
 	);
 }
 
-export {
-	Breadcrumb,
-	BreadcrumbList,
-	BreadcrumbItem,
-	BreadcrumbLink,
-	BreadcrumbPage,
-	BreadcrumbSeparator,
-	BreadcrumbEllipsis,
-};
+// Attach subcomponents to Breadcrumb
+Breadcrumb.List = BreadcrumbList;
+Breadcrumb.Item = BreadcrumbItem;
+Breadcrumb.Link = BreadcrumbLink;
+Breadcrumb.Page = BreadcrumbPage;
+Breadcrumb.Separator = BreadcrumbSeparator;
+Breadcrumb.Ellipsis = BreadcrumbEllipsis;
+
+export { Breadcrumb };

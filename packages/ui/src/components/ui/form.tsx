@@ -16,7 +16,11 @@ import {
 import { cn } from "@/lib/utils";
 import { Label } from "@/components/ui/label";
 
-const Form = FormProvider;
+const FormRoot = FormProvider;
+
+function Form(props: React.ComponentProps<typeof FormProvider>) {
+  return <FormRoot {...props} />;
+}
 
 type FormFieldContextValue<
 	TFieldValues extends FieldValues = FieldValues,
@@ -156,13 +160,13 @@ function FormMessage({ className, ...props }: React.ComponentProps<"p">) {
 	);
 }
 
-export {
-	useFormField,
-	Form,
-	FormItem,
-	FormLabel,
-	FormControl,
-	FormDescription,
-	FormMessage,
-	FormField,
-};
+// Attach subcomponents to Form
+Form.Root = FormRoot;
+Form.Item = FormItem;
+Form.Label = FormLabel;
+Form.Control = FormControl;
+Form.Description = FormDescription;
+Form.Message = FormMessage;
+Form.Field = FormField;
+
+export { useFormField, Form };
