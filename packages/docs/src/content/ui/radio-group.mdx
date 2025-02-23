@@ -10,18 +10,17 @@ A group of radio buttons where only one option can be selected at a time.
 ## Usage
 
 ```tsx
-import { RadioGroup, RadioGroupItem } from "@rhinolabs/ui"
-import { Label } from "@rhinolabs/ui"
+import { RadioGroup, Label } from "@rhinolabs/ui"
 
 export default function RadioGroupDemo() {
   return (
     <RadioGroup defaultValue="option-one">
       <div className="flex items-center space-x-2">
-        <RadioGroupItem value="option-one" id="option-one" />
+        <RadioGroup.Item value="option-one" id="option-one" />
         <Label htmlFor="option-one">Option One</Label>
       </div>
       <div className="flex items-center space-x-2">
-        <RadioGroupItem value="option-two" id="option-two" />
+        <RadioGroup.Item value="option-two" id="option-two" />
         <Label htmlFor="option-two">Option Two</Label>
       </div>
     </RadioGroup>
@@ -39,15 +38,15 @@ A simple group of radio buttons.
 <RadioGroup defaultValue="comfortable">
   <div className="flex flex-col space-y-2">
     <div className="flex items-center space-x-2">
-      <RadioGroupItem value="default" id="default" />
+      <RadioGroup.Item value="default" id="default" />
       <Label htmlFor="default">Default</Label>
     </div>
     <div className="flex items-center space-x-2">
-      <RadioGroupItem value="comfortable" id="comfortable" />
+      <RadioGroup.Item value="comfortable" id="comfortable" />
       <Label htmlFor="comfortable">Comfortable</Label>
     </div>
     <div className="flex items-center space-x-2">
-      <RadioGroupItem value="compact" id="compact" />
+      <RadioGroup.Item value="compact" id="compact" />
       <Label htmlFor="compact">Compact</Label>
     </div>
   </div>
@@ -62,7 +61,7 @@ Radio buttons with additional description text.
 <RadioGroup defaultValue="card">
   <div className="flex flex-col space-y-4">
     <div className="flex items-start space-x-3">
-      <RadioGroupItem value="card" id="card" />
+      <RadioGroup.Item value="card" id="card" />
       <div>
         <Label htmlFor="card">Card Payment</Label>
         <p className="text-sm text-muted-foreground">
@@ -71,7 +70,7 @@ Radio buttons with additional description text.
       </div>
     </div>
     <div className="flex items-start space-x-3">
-      <RadioGroupItem value="paypal" id="paypal" />
+      <RadioGroup.Item value="paypal" id="paypal" />
       <div>
         <Label htmlFor="paypal">PayPal</Label>
         <p className="text-sm text-muted-foreground">

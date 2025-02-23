@@ -50,4 +50,8 @@ function AvatarFallback({
 	);
 }
 
-export { Avatar, AvatarImage, AvatarFallback };
+// Attach subcomponents to Avatar
+Avatar.Image = AvatarImage;
+Avatar.Fallback = AvatarFallback;
+
+export { Avatar };

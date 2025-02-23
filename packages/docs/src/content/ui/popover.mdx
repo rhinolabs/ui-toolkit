@@ -10,15 +10,15 @@ A floating panel that displays contextual information or UI controls.
 ## Usage
 
 ```tsx
-import { Popover, PopoverTrigger, PopoverContent } from "@rhinolabs/ui"
+import { Popover } from "@rhinolabs/ui"
 
 export default function PopoverDemo() {
   return (
     <Popover>
-      <PopoverTrigger>Open Popover</PopoverTrigger>
-      <PopoverContent>
+      <Popover.Trigger>Open Popover</Popover.Trigger>
+      <Popover.Content>
         <p>This is the popover content.</p>
-      </PopoverContent>
+      </Popover.Content>
     </Popover>
   )
 }
@@ -32,10 +32,10 @@ A simple popover with text content.
 
 ```tsx
 <Popover>
-  <PopoverTrigger asChild>
+  <Popover.Trigger asChild>
     <Button variant="outline">Open</Button>
-  </PopoverTrigger>
-  <PopoverContent>
+  </Popover.Trigger>
+  <Popover.Content>
     <div className="grid gap-4">
       <div className="space-y-2">
         <h4 className="font-medium leading-none">Dimensions</h4>
@@ -54,7 +54,7 @@ A simple popover with text content.
         </div>
       </div>
     </div>
-  </PopoverContent>
+  </Popover.Content>
 </Popover>
 ```
 
@@ -64,10 +64,10 @@ Popover with custom alignment and offset.
 
 ```tsx
 <Popover>
-  <PopoverTrigger asChild>
+  <Popover.Trigger asChild>
     <Button>Settings</Button>
-  </PopoverTrigger>
-  <PopoverContent align="end" sideOffset={8}>
+  </Popover.Trigger>
+  <Popover.Content align="end" sideOffset={8}>
     <div className="flex flex-col space-y-2">
       <h4 className="font-medium">Settings</h4>
       <p className="text-sm text-muted-foreground">
@@ -76,7 +76,7 @@ Popover with custom alignment and offset.
       <hr />
       <Button size="sm">View Profile</Button>
     </div>
-  </PopoverContent>
+  </Popover.Content>
 </Popover>
 ```
 

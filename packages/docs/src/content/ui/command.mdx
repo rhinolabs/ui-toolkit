@@ -10,24 +10,24 @@ A command palette interface for searching and executing actions, similar to Spot
 ## Usage
 
 ```tsx
-import { Command, CommandInput, CommandList, CommandEmpty, CommandGroup, CommandItem } from "@rhinolabs/ui"
+import { Command } from "@rhinolabs/ui"
 
 export default function CommandDemo() {
   return (
     <Command>
-      <CommandInput placeholder="Type a command or search..." />
-      <CommandList>
-        <CommandEmpty>No results found.</CommandEmpty>
-        <CommandGroup heading="Suggestions">
-          <CommandItem>
+      <Command.Input placeholder="Type a command or search..." />
+      <Command.List>
+        <Command.Empty>No results found.</Command.Empty>
+        <Command.Group heading="Suggestions">
+          <Command.Item>
             <span>Calendar</span>
-          </CommandItem>
-          <CommandItem>
+          </Command.Item>
+          <Command.Item>
             <span>Search</span>
-            <CommandShortcut>⌘ K</CommandShortcut>
-          </CommandItem>
-        </CommandGroup>
-      </CommandList>
+            <Command.Shortcut>⌘ K</Command.Shortcut>
+          </Command.Item>
+        </Command.Group>
+      </Command.List>
     </Command>
   )
 }
@@ -41,26 +41,26 @@ A simple command menu with groups and items.
 
 ```tsx
 <Command>
-  <CommandInput placeholder="Type a command..." />
-  <CommandList>
-    <CommandEmpty>No results found.</CommandEmpty>
-    <CommandGroup heading="Actions">
-      <CommandItem>
+  <Command.Input placeholder="Type a command..." />
+  <Command.List>
+    <Command.Empty>No results found.</Command.Empty>
+    <Command.Group heading="Actions">
+      <Command.Item>
         <span>New File</span>
-        <CommandShortcut>⌘ N</CommandShortcut>
-      </CommandItem>
-      <CommandItem>
+        <Command.Shortcut>⌘ N</Command.Shortcut>
+      </Command.Item>
+      <Command.Item>
         <span>Save</span>
-        <CommandShortcut>⌘ S</CommandShortcut>
-      </CommandItem>
-    </CommandGroup>
-    <CommandSeparator />
-    <CommandGroup heading="Settings">
-      <CommandItem>
+        <Command.Shortcut>⌘ S</Command.Shortcut>
+      </Command.Item>
+    </Command.Group>
+    <Command.Separator />
+    <Command.Group heading="Settings">
+      <Command.Item>
         <span>Preferences</span>
-      </CommandItem>
-    </CommandGroup>
-  </CommandList>
+      </Command.Item>
+    </Command.Group>
+  </Command.List>
 </Command>
 ```
 
@@ -69,23 +69,23 @@ A simple command menu with groups and items.
 A command menu in a dialog overlay.
 
 ```tsx
-<CommandDialog>
-  <CommandInput placeholder="Search..." />
-  <CommandList>
-    <CommandEmpty>No results found.</CommandEmpty>
-    <CommandGroup heading="Navigation">
-      <CommandItem>
+<Command.Dialog>
+  <Command.Input placeholder="Search..." />
+  <Command.List>
+    <Command.Empty>No results found.</Command.Empty>
+    <Command.Group heading="Navigation">
+      <Command.Item>
         <span>Dashboard</span>
-      </CommandItem>
-      <CommandItem>
+      </Command.Item>
+      <Command.Item>
         <span>Projects</span>
-      </CommandItem>
-      <CommandItem>
+      </Command.Item>
+      <Command.Item>
         <span>Settings</span>
-      </CommandItem>
-    </CommandGroup>
-  </CommandList>
-</CommandDialog>
+      </Command.Item>
+    </Command.Group>
+  </Command.List>
+</Command.Dialog>
 ```
 
 ### With Icons
@@ -94,25 +94,25 @@ Command menu with icons for visual enhancement.
 
 ```tsx
 <Command>
-  <CommandInput placeholder="Search..." />
-  <CommandList>
-    <CommandGroup heading="Actions">
-      <CommandItem>
+  <Command.Input placeholder="Search..." />
+  <Command.List>
+    <Command.Group heading="Actions">
+      <Command.Item>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
           <path d="M12 5v14M5 12h14"/>
         </svg>
         <span>New Item</span>
-      </CommandItem>
-      <CommandItem>
+      </Command.Item>
+      <Command.Item>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
           <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
           <polyline points="7 10 12 15 17 10"/>
           <line x1="12" y1="15" x2="12" y2="3"/>
         </svg>
         <span>Download</span>
-      </CommandItem>
-    </CommandGroup>
-  </CommandList>
+      </Command.Item>
+    </Command.Group>
+  </Command.List>
 </Command>
 ```
 

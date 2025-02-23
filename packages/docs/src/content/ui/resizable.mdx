@@ -10,22 +10,22 @@ A set of components for creating resizable panel layouts.
 ## Usage
 
 ```tsx
-import { ResizablePanelGroup, ResizablePanel, ResizableHandle } from "@rhinolabs/ui"
+import { ResizablePanelGroup } from "@rhinolabs/ui"
 
 export default function ResizableDemo() {
   return (
     <ResizablePanelGroup direction="horizontal" className="min-h-[200px] max-w-md rounded-lg border">
-      <ResizablePanel defaultSize={50}>
+      <ResizablePanelGroup.Panel defaultSize={50}>
         <div className="flex h-full items-center justify-center p-6">
           <span className="font-semibold">Panel 1</span>
         </div>
-      </ResizablePanel>
-      <ResizableHandle />
-      <ResizablePanel defaultSize={50}>
+      </ResizablePanelGroup.Panel>
+      <ResizablePanelGroup.Handle />
+      <ResizablePanelGroup.Panel defaultSize={50}>
         <div className="flex h-full items-center justify-center p-6">
           <span className="font-semibold">Panel 2</span>
         </div>
-      </ResizablePanel>
+      </ResizablePanelGroup.Panel>
     </ResizablePanelGroup>
   )
 }
@@ -39,17 +39,17 @@ A basic horizontal resizable layout.
 
 ```tsx
 <ResizablePanelGroup direction="horizontal" className="min-h-[200px] rounded-lg border">
-  <ResizablePanel defaultSize={25}>
+  <ResizablePanelGroup.Panel defaultSize={25}>
     <div className="flex h-full items-center justify-center p-6">
       <span className="font-semibold">Sidebar</span>
     </div>
-  </ResizablePanel>
-  <ResizableHandle withHandle />
-  <ResizablePanel defaultSize={75}>
+  </ResizablePanelGroup.Panel>
+  <ResizablePanelGroup.Handle withHandle />
+  <ResizablePanelGroup.Panel defaultSize={75}>
     <div className="flex h-full items-center justify-center p-6">
       <span className="font-semibold">Content</span>
     </div>
-  </ResizablePanel>
+  </ResizablePanelGroup.Panel>
 </ResizablePanelGroup>
 ```
 
@@ -59,17 +59,17 @@ A vertical resizable layout.
 
 ```tsx
 <ResizablePanelGroup direction="vertical" className="min-h-[400px] rounded-lg border">
-  <ResizablePanel defaultSize={25}>
+  <ResizablePanelGroup.Panel defaultSize={25}>
     <div className="flex h-full items-center justify-center p-6">
       <span className="font-semibold">Top Panel</span>
     </div>
-  </ResizablePanel>
-  <ResizableHandle withHandle />
-  <ResizablePanel defaultSize={75}>
+  </ResizablePanelGroup.Panel>
+  <ResizablePanelGroup.Handle withHandle />
+  <ResizablePanelGroup.Panel defaultSize={75}>
     <div className="flex h-full items-center justify-center p-6">
       <span className="font-semibold">Bottom Panel</span>
     </div>
-  </ResizablePanel>
+  </ResizablePanelGroup.Panel>
 </ResizablePanelGroup>
 ```
 

@@ -11,13 +11,13 @@ A visual representation of a user or entity, typically displaying a profile pict
 ## Usage
 
 ```tsx
-import { Avatar, AvatarImage, AvatarFallback } from "@rhinolabs/ui"
+import { Avatar } from "@rhinolabs/ui"
 
 export default function AvatarDemo() {
   return (
     <Avatar>
-      <AvatarImage src="https://github.com/shadcn.png" alt="@shadcn" />
-      <AvatarFallback>CN</AvatarFallback>
+      <Avatar.Image src="https://github.com/shadcn.png" alt="@shadcn" />
+      <Avatar.Fallback>CN</Avatar.Fallback>
     </Avatar>
   )
 }
@@ -31,8 +31,8 @@ A simple avatar with an image and fallback text.
 
 ```tsx
 <Avatar>
-  <AvatarImage src="https://github.com/shadcn.png" alt="User" />
-  <AvatarFallback>JD</AvatarFallback>
+  <Avatar.Image src="https://github.com/shadcn.png" alt="User" />
+  <Avatar.Fallback>JD</Avatar.Fallback>
 </Avatar>
 ```
 
@@ -43,13 +43,13 @@ Avatar displaying fallback content when image fails to load.
 ```tsx
 <div className="flex gap-4">
   <Avatar>
-    <AvatarImage src="/broken-image.jpg" alt="User" />
-    <AvatarFallback>JD</AvatarFallback>
+    <Avatar.Image src="/broken-image.jpg" alt="User" />
+    <Avatar.Fallback>JD</Avatar.Fallback>
   </Avatar>
   
   <Avatar>
-    <AvatarImage src="/another-broken-image.jpg" alt="User" />
-    <AvatarFallback>
+    <Avatar.Image src="/another-broken-image.jpg" alt="User" />
+    <Avatar.Fallback>
       <svg
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 24 24"
@@ -63,7 +63,7 @@ Avatar displaying fallback content when image fails to load.
         <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
         <circle cx="12" cy="7" r="4" />
       </svg>
-    </AvatarFallback>
+    </Avatar.Fallback>
   </Avatar>
 </div>
 ```
@@ -75,13 +75,13 @@ Avatars can be sized using CSS classes.
 ```tsx
 <div className="flex gap-4">
   <Avatar className="h-6 w-6">
-    <AvatarImage src="https://github.com/shadcn.png" alt="User" />
-    <AvatarFallback>S</AvatarFallback>
+    <Avatar.Image src="https://github.com/shadcn.png" alt="User" />
+    <Avatar.Fallback>S</Avatar.Fallback>
   </Avatar>
   
   <Avatar className="h-12 w-12">
-    <AvatarImage src="https://github.com/shadcn.png" alt="User" />
-    <AvatarFallback>SM</AvatarFallback>
+    <Avatar.Image src="https://github.com/shadcn.png" alt="User" />
+    <Avatar.Fallback>SM</Avatar.Fallback>
   </Avatar>
 </div>
 ```
