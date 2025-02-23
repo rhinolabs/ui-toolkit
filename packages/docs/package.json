@@ -1,6 +1,6 @@
 {
 	"name": "@rhinolabs/ui-toolkit-docs",
-	"version": "1.0.0",
+	"version": "0.1.0",
 	"description": "A documentation site for Rhino UI Toolkit",
 	"type": "module",
 	"scripts": {
