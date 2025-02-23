@@ -6,7 +6,7 @@
 	"scripts": {
 		"build": "next build && pnpm run build:search",
 		"dev": "next dev",
-		"build:search": "pagefind --site .next/server/app --output-path out/_pagefind",
+		"build:search": "pagefind --site .next/server/app --output-path .next/static/_pagefind",
 		"start": "next start",
 		"lint": "biome format && biome lint",
 		"lint:fix": "biome format --write && biome lint --fix"
