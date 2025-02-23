@@ -71,7 +71,7 @@ jobs:
         run: pnpm install
         
       - name: Build Hooks package
-        run: pnpm --filter @rhinolabs/hooks build
+        run: pnpm --filter @rhinolabs/react-hooks build
         
       - name: Publish Hooks package
         run: cd packages/hooks && npm publish --access public
