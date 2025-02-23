@@ -14,13 +14,13 @@ You can install the libraries individually based on your needs:
 
 ```bash
 # Using npm
-npm install @rhinolabs/ui @rhinolabs/hooks
+npm install @rhinolabs/ui @rhinolabs/react-hooks
 
 # Using pnpm
-pnpm add @rhinolabs/ui @rhinolabs/hooks
+pnpm add @rhinolabs/ui @rhinolabs/react-hooks
 
 # Using yarn
-yarn add @rhinolabs/ui @rhinolabs/hooks
+yarn add @rhinolabs/ui @rhinolabs/react-hooks
 ```
 
 ## Usage
@@ -42,7 +42,7 @@ function App() {
 ### Using Hooks
 
 ```tsx
-import { useToggle } from "@rhinolabs/hooks";
+import { useToggle } from "@rhinolabs/react-hooks";
 
 function App() {
   const [isOpen, toggle] = useToggle(false);
