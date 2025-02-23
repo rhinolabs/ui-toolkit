@@ -5,9 +5,7 @@
 	"main": "index.js",
 	"type": "module",
 	"scripts": {
-		"build:hooks": "pnpm --filter @rhinolabs/react-hooks build",
-		"build:ui": "pnpm --filter @rhinolabs/ui build",
-		"build": "pnpm build:hooks && pnpm build:ui && pnpm recursive run build",
+		"build": "pnpm recursive run build",
 		"lint": "pnpm recursive run lint",
 		"lint:fix": "pnpm recursive run lint:fix"
 	},

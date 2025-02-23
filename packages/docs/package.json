@@ -4,9 +4,9 @@
 	"description": "A documentation site for Rhino UI Toolkit",
 	"type": "module",
 	"scripts": {
-		"build": "next build && pnpm run build:search",
+		"build": "pnpm run build:search && next build",
 		"dev": "next dev",
-		"build:search": "pagefind --site .next/server/app --output-path .next/static/_pagefind",
+		"build:search": "pagefind --site .next/server/app --output-path public/_pagefind",
 		"start": "next start",
 		"lint": "biome format && biome lint",
 		"lint:fix": "biome format --write && biome lint --fix"
