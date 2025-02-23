@@ -20,6 +20,7 @@ jobs:
           
       - name: Get version from release
         id: get_version
+        shell: bash
         run: echo "VERSION=${github.event.release.tag_name#ui@}" >> $GITHUB_OUTPUT
           
       - name: Update package version
@@ -58,6 +59,7 @@ jobs:
           
       - name: Get version from release
         id: get_version
+        shell: bash
         run: echo "VERSION=${github.event.release.tag_name#hooks@}" >> $GITHUB_OUTPUT
           
       - name: Update package version
