@@ -26,13 +26,6 @@ jobs:
         run: |
           cd packages/ui
           npm version ${{ steps.get_version.outputs.VERSION }} --no-git-tag-version
-
-      - uses: stefanzweifel/git-auto-commit-action@v5
-        with:
-          commit_message: "Bump version to ${{ steps.get_version.outputs.VERSION }}"
-          file_pattern: 'packages/ui/package.json'
-          branch: main
-          push_options: '--force'
           
       - name: Install dependencies
         run: pnpm install
@@ -44,6 +37,13 @@ jobs:
         run: cd packages/ui && npm publish --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+      - uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "Bump version to ${{ steps.get_version.outputs.VERSION }}"
+          file_pattern: 'packages/ui/package.json'
+          branch: main
+          push_options: '--force'
 
   publish-hooks:
     if: startsWith(github.event.release.tag_name, 'hooks@')
@@ -66,13 +66,6 @@ jobs:
         run: |
           cd packages/hooks
           npm version ${{ steps.get_version.outputs.VERSION }} --no-git-tag-version
-
-      - uses: stefanzweifel/git-auto-commit-action@v5
-        with:
-          commit_message: "Bump version to ${{ steps.get_version.outputs.VERSION }}"
-          file_pattern: 'packages/hooks/package.json'
-          branch: main
-          push_options: '--force'
           
       - name: Install dependencies
         run: pnpm install
@@ -84,3 +77,10 @@ jobs:
         run: cd packages/hooks && npm publish --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+      - uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "Bump version to ${{ steps.get_version.outputs.VERSION }}"
+          file_pattern: 'packages/hooks/package.json'
+          branch: main
+          push_options: '--force'
