@@ -1,12 +1,12 @@
 {
 	"name": "@rhinolabs/ui-toolkit-docs",
-	"version": "0.1.0",
+	"version": "0.0.1",
 	"description": "A documentation site for Rhino UI Toolkit",
 	"type": "module",
 	"scripts": {
 		"build": "next build && pnpm run build:search",
 		"dev": "next dev",
-		"build:search": "pagefind --site .next/server/app --output-path public/_pagefind",
+		"build:search": "pagefind --site .next/server/app --output-path out/_pagefind",
 		"start": "next start",
 		"lint": "biome format && biome lint",
 		"lint:fix": "biome format --write && biome lint --fix"
