@@ -7,7 +7,7 @@
 	},
 	"files": {
 		"ignoreUnknown": false,
-		"ignore": ["node_modules", "dist", "coverage", ".next", "out"]
+		"ignore": ["node_modules", "dist", "coverage", ".next", "out", "_pagefind"]
 	},
 	"formatter": {
 		"enabled": true,
