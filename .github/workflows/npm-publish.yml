@@ -18,7 +18,7 @@ jobs:
           
       - uses: pnpm/action-setup@v4
           
-      - name: Get version from tag
+      - name: Get version from release
         id: get_version
         run: echo "VERSION=$(echo ${{ github.event.release.tag_name }} | sed 's/ui@//')" >> $GITHUB_OUTPUT
           
@@ -31,6 +31,8 @@ jobs:
         with:
           commit_message: "Bump version to ${{ steps.get_version.outputs.VERSION }}"
           file_pattern: 'packages/ui/package.json'
+          branch: main
+          push_options: '--force'
           
       - name: Install dependencies
         run: pnpm install
@@ -56,7 +58,7 @@ jobs:
           
       - uses: pnpm/action-setup@v4
           
-      - name: Get version from tag
+      - name: Get version from release
         id: get_version
         run: echo "VERSION=$(echo ${{ github.event.release.tag_name }} | sed 's/hooks@//')" >> $GITHUB_OUTPUT
           
@@ -69,6 +71,8 @@ jobs:
         with:
           commit_message: "Bump version to ${{ steps.get_version.outputs.VERSION }}"
           file_pattern: 'packages/hooks/package.json'
+          branch: main
+          push_options: '--force'
           
       - name: Install dependencies
         run: pnpm install
