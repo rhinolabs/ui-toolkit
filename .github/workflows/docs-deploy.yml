@@ -38,10 +38,9 @@ jobs:
           pnpm build
 
       - name: Deploy to Cloudflare Pages
-        uses: cloudflare/wrangler-action@v3
-        with:
-          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          command: pages deploy packages/docs/out --project-name=ui-toolkit
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+        run: npx wrangler pages deploy packages/docs/out --project-name=ui-toolkit
 
       - uses: stefanzweifel/git-auto-commit-action@v5
         with:
