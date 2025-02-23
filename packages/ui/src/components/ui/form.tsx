@@ -19,7 +19,7 @@ import { Label } from "@/components/ui/label";
 const FormRoot = FormProvider;
 
 function Form(props: React.ComponentProps<typeof FormProvider>) {
-  return <FormRoot {...props} />;
+	return <FormRoot {...props} />;
 }
 
 type FormFieldContextValue<
