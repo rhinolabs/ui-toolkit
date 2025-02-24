@@ -30,4 +30,8 @@ function CollapsibleContent({
 	);
 }
 
-export { Collapsible, CollapsibleTrigger, CollapsibleContent };
+// Attach subcomponents to Collapsible
+Collapsible.Trigger = CollapsibleTrigger;
+Collapsible.Content = CollapsibleContent;
+
+export { Collapsible };

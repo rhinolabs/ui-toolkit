@@ -10,21 +10,21 @@ A dropdown component that allows users to select from a list of options.
 ## Usage
 
 ```tsx
-import { Select, SelectGroup, SelectValue, SelectTrigger, SelectContent, SelectItem } from "@rhinolabs/ui"
+import { Select } from "@rhinolabs/ui"
 
 export default function SelectDemo() {
   return (
     <Select>
-      <SelectTrigger className="w-[180px]">
-        <SelectValue placeholder="Select a fruit" />
-      </SelectTrigger>
-      <SelectContent>
-        <SelectGroup>
-          <SelectItem value="apple">Apple</SelectItem>
-          <SelectItem value="banana">Banana</SelectItem>
-          <SelectItem value="orange">Orange</SelectItem>
-        </SelectGroup>
-      </SelectContent>
+      <Select.Trigger className="w-[180px]">
+        <Select.Value placeholder="Select a fruit" />
+      </Select.Trigger>
+      <Select.Content>
+        <Select.Group>
+          <Select.Item value="apple">Apple</Select.Item>
+          <Select.Item value="banana">Banana</Select.Item>
+          <Select.Item value="orange">Orange</Select.Item>
+        </Select.Group>
+      </Select.Content>
     </Select>
   )
 }
@@ -38,23 +38,23 @@ Grouped select options with labels.
 
 ```tsx
 <Select>
-  <SelectTrigger className="w-[200px]">
-    <SelectValue placeholder="Select a timezone" />
-  </SelectTrigger>
-  <SelectContent>
-    <SelectGroup>
-      <SelectLabel>North America</SelectLabel>
-      <SelectItem value="est">Eastern Time</SelectItem>
-      <SelectItem value="cst">Central Time</SelectItem>
-      <SelectItem value="pst">Pacific Time</SelectItem>
-    </SelectGroup>
-    <SelectSeparator />
-    <SelectGroup>
-      <SelectLabel>Europe</SelectLabel>
-      <SelectItem value="gmt">GMT</SelectItem>
-      <SelectItem value="cet">Central European Time</SelectItem>
-    </SelectGroup>
-  </SelectContent>
+  <Select.Trigger className="w-[200px]">
+    <Select.Value placeholder="Select a timezone" />
+  </Select.Trigger>
+  <Select.Content>
+    <Select.Group>
+      <Select.Label>North America</Select.Label>
+      <Select.Item value="est">Eastern Time</Select.Item>
+      <Select.Item value="cst">Central Time</Select.Item>
+      <Select.Item value="pst">Pacific Time</Select.Item>
+    </Select.Group>
+    <Select.Separator />
+    <Select.Group>
+      <Select.Label>Europe</Select.Label>
+      <Select.Item value="gmt">GMT</Select.Item>
+      <Select.Item value="cet">Central European Time</Select.Item>
+    </Select.Group>
+  </Select.Content>
 </Select>
 ```
 
@@ -64,16 +64,16 @@ Select with some disabled options.
 
 ```tsx
 <Select>
-  <SelectTrigger className="w-[180px]">
-    <SelectValue placeholder="Select a plan" />
-  </SelectTrigger>
-  <SelectContent>
-    <SelectItem value="free">Free</SelectItem>
-    <SelectItem value="pro">Pro</SelectItem>
-    <SelectItem value="enterprise" disabled>
+  <Select.Trigger className="w-[180px]">
+    <Select.Value placeholder="Select a plan" />
+  </Select.Trigger>
+  <Select.Content>
+    <Select.Item value="free">Free</Select.Item>
+    <Select.Item value="pro">Pro</Select.Item>
+    <Select.Item value="enterprise" disabled>
       Enterprise
-    </SelectItem>
-  </SelectContent>
+    </Select.Item>
+  </Select.Content>
 </Select>
 ```
 

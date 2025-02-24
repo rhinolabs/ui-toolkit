@@ -101,13 +101,13 @@ function TableCaption({
 	);
 }
 
-export {
-	Table,
-	TableHeader,
-	TableBody,
-	TableFooter,
-	TableHead,
-	TableRow,
-	TableCell,
-	TableCaption,
-};
+// Attach subcomponents to Table
+Table.Header = TableHeader;
+Table.Body = TableBody;
+Table.Footer = TableFooter;
+Table.Head = TableHead;
+Table.Row = TableRow;
+Table.Cell = TableCell;
+Table.Caption = TableCaption;
+
+export { Table };

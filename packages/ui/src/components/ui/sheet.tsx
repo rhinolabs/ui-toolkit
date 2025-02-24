@@ -127,13 +127,13 @@ function SheetDescription({
 	);
 }
 
-export {
-	Sheet,
-	SheetTrigger,
-	SheetClose,
-	SheetContent,
-	SheetHeader,
-	SheetFooter,
-	SheetTitle,
-	SheetDescription,
-};
+// Attach subcomponents to Sheet
+Sheet.Trigger = SheetTrigger;
+Sheet.Close = SheetClose;
+Sheet.Content = SheetContent;
+Sheet.Header = SheetHeader;
+Sheet.Footer = SheetFooter;
+Sheet.Title = SheetTitle;
+Sheet.Description = SheetDescription;
+
+export { Sheet };

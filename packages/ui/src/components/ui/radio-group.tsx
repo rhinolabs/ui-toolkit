@@ -42,4 +42,7 @@ function RadioGroupItem({
 	);
 }
 
-export { RadioGroup, RadioGroupItem };
+// Attach subcomponents to RadioGroup
+RadioGroup.Item = RadioGroupItem;
+
+export { RadioGroup };

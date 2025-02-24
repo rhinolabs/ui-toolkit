@@ -58,4 +58,9 @@ function TooltipContent({
 	);
 }
 
-export { Tooltip, TooltipTrigger, TooltipContent, TooltipProvider };
+// Attach subcomponents to Tooltip
+Tooltip.Provider = TooltipProvider;
+Tooltip.Trigger = TooltipTrigger;
+Tooltip.Content = TooltipContent;
+
+export { Tooltip };

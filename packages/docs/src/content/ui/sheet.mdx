@@ -10,29 +10,29 @@ A panel that slides out from the edge of the screen, useful for displaying addit
 ## Usage
 
 ```tsx
-import { Sheet, SheetTrigger, SheetContent, SheetHeader, SheetTitle, SheetDescription, SheetFooter } from "@rhinolabs/ui"
+import { Sheet } from "@rhinolabs/ui"
 
 export default function SheetDemo() {
   return (
     <Sheet>
-      <SheetTrigger>Open Sheet</SheetTrigger>
-      <SheetContent>
-        <SheetHeader>
-          <SheetTitle>Edit Profile</SheetTitle>
-          <SheetDescription>
+      <Sheet.Trigger>Open Sheet</Sheet.Trigger>
+      <Sheet.Content>
+        <Sheet.Header>
+          <Sheet.Title>Edit Profile</Sheet.Title>
+          <Sheet.Description>
             Make changes to your profile here.
-          </SheetDescription>
-        </SheetHeader>
+          </Sheet.Description>
+        </Sheet.Header>
         <div className="grid gap-4 py-4">
           <div className="grid grid-cols-4 items-center gap-4">
             <label htmlFor="name">Name</label>
             <input id="name" className="col-span-3" />
           </div>
         </div>
-        <SheetFooter>
+        <Sheet.Footer>
           <Button type="submit">Save changes</Button>
-        </SheetFooter>
-      </SheetContent>
+        </Sheet.Footer>
+      </Sheet.Content>
     </Sheet>
   )
 }
@@ -47,30 +47,30 @@ Sheet panels can slide in from different sides.
 ```tsx
 <div className="grid grid-cols-2 gap-2">
   <Sheet>
-    <SheetTrigger asChild>
+    <Sheet.Trigger asChild>
       <Button variant="outline">Left Sheet</Button>
-    </SheetTrigger>
-    <SheetContent side="left">
-      <SheetHeader>
-        <SheetTitle>Left Panel</SheetTitle>
-        <SheetDescription>
+    </Sheet.Trigger>
+    <Sheet.Content side="left">
+      <Sheet.Header>
+        <Sheet.Title>Left Panel</Sheet.Title>
+        <Sheet.Description>
           This panel slides in from the left.
-        </SheetDescription>
-      </SheetHeader>
-    </SheetContent>
+        </Sheet.Description>
+      </Sheet.Header>
+    </Sheet.Content>
   </Sheet>
   <Sheet>
-    <SheetTrigger asChild>
+    <Sheet.Trigger asChild>
       <Button variant="outline">Top Sheet</Button>
-    </SheetTrigger>
-    <SheetContent side="top">
-      <SheetHeader>
-        <SheetTitle>Top Panel</SheetTitle>
-        <SheetDescription>
+    </Sheet.Trigger>
+    <Sheet.Content side="top">
+      <Sheet.Header>
+        <Sheet.Title>Top Panel</Sheet.Title>
+        <Sheet.Description>
           This panel slides in from the top.
-        </SheetDescription>
-      </SheetHeader>
-    </SheetContent>
+        </Sheet.Description>
+      </Sheet.Header>
+    </Sheet.Content>
   </Sheet>
 </div>
 ```
@@ -81,16 +81,16 @@ Sheet containing a form.
 
 ```tsx
 <Sheet>
-  <SheetTrigger asChild>
+  <Sheet.Trigger asChild>
     <Button>Edit Settings</Button>
-  </SheetTrigger>
-  <SheetContent>
-    <SheetHeader>
-      <SheetTitle>Settings</SheetTitle>
-      <SheetDescription>
+  </Sheet.Trigger>
+  <Sheet.Content>
+    <Sheet.Header>
+      <Sheet.Title>Settings</Sheet.Title>
+      <Sheet.Description>
         Configure your preferences.
-      </SheetDescription>
-    </SheetHeader>
+      </Sheet.Description>
+    </Sheet.Header>
     <form className="grid gap-4 py-4">
       <div className="grid grid-cols-4 items-center gap-4">
         <label htmlFor="theme">Theme</label>
@@ -104,10 +104,10 @@ Sheet containing a form.
         <input id="email" type="email" className="col-span-3" />
       </div>
     </form>
-    <SheetFooter>
+    <Sheet.Footer>
       <Button type="submit">Save changes</Button>
-    </SheetFooter>
-  </SheetContent>
+    </Sheet.Footer>
+  </Sheet.Content>
 </Sheet>
 ```
 

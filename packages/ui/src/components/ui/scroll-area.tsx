@@ -55,4 +55,7 @@ function ScrollBar({
 	);
 }
 
-export { ScrollArea, ScrollBar };
+// Attach subcomponents to ScrollArea
+ScrollArea.Bar = ScrollBar;
+
+export { ScrollArea };

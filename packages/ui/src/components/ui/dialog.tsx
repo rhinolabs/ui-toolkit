@@ -124,15 +124,15 @@ function DialogDescription({
 	);
 }
 
-export {
-	Dialog,
-	DialogClose,
-	DialogContent,
-	DialogDescription,
-	DialogFooter,
-	DialogHeader,
-	DialogOverlay,
-	DialogPortal,
-	DialogTitle,
-	DialogTrigger,
-};
+// Attach subcomponents to Dialog
+Dialog.Trigger = DialogTrigger;
+Dialog.Portal = DialogPortal;
+Dialog.Close = DialogClose;
+Dialog.Overlay = DialogOverlay;
+Dialog.Content = DialogContent;
+Dialog.Header = DialogHeader;
+Dialog.Footer = DialogFooter;
+Dialog.Title = DialogTitle;
+Dialog.Description = DialogDescription;
+
+export { Dialog };

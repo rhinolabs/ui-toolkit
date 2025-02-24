@@ -10,22 +10,22 @@ A custom context menu triggered by right-clicking or long-pressing an element.
 ## Usage
 
 ```tsx
-import { ContextMenu, ContextMenuTrigger, ContextMenuContent, ContextMenuItem } from "@rhinolabs/ui"
+import { ContextMenu } from "@rhinolabs/ui"
 
 export default function ContextMenuDemo() {
   return (
     <ContextMenu>
-      <ContextMenuTrigger className="flex h-[150px] w-[300px] items-center justify-center rounded-md border border-dashed text-sm">
+      <ContextMenu.Trigger className="flex h-[150px] w-[300px] items-center justify-center rounded-md border border-dashed text-sm">
         Right click here
-      </ContextMenuTrigger>
-      <ContextMenuContent>
-        <ContextMenuItem>
+      </ContextMenu.Trigger>
+      <ContextMenu.Content>
+        <ContextMenu.Item>
           Profile
-          <ContextMenuShortcut>⌘P</ContextMenuShortcut>
-        </ContextMenuItem>
-        <ContextMenuItem>Settings</ContextMenuItem>
-        <ContextMenuItem>Logout</ContextMenuItem>
-      </ContextMenuContent>
+          <ContextMenu.Shortcut>⌘P</ContextMenu.Shortcut>
+        </ContextMenu.Item>
+        <ContextMenu.Item>Settings</ContextMenu.Item>
+        <ContextMenu.Item>Logout</ContextMenu.Item>
+      </ContextMenu.Content>
     </ContextMenu>
   )
 }
@@ -39,22 +39,22 @@ Context menu with nested options.
 
 ```tsx
 <ContextMenu>
-  <ContextMenuTrigger className="flex h-[150px] w-[300px] items-center justify-center rounded-md border border-dashed text-sm">
+  <ContextMenu.Trigger className="flex h-[150px] w-[300px] items-center justify-center rounded-md border border-dashed text-sm">
     Right click here
-  </ContextMenuTrigger>
-  <ContextMenuContent>
-    <ContextMenuItem>Back</ContextMenuItem>
-    <ContextMenuItem>Forward</ContextMenuItem>
-    <ContextMenuItem>Reload</ContextMenuItem>
-    <ContextMenuSub>
-      <ContextMenuSubTrigger>More Tools</ContextMenuSubTrigger>
-      <ContextMenuSubContent>
-        <ContextMenuItem>Save Page As...</ContextMenuItem>
-        <ContextMenuItem>Create Shortcut...</ContextMenuItem>
-        <ContextMenuItem>Name Window...</ContextMenuItem>
-      </ContextMenuSubContent>
-    </ContextMenuSub>
-  </ContextMenuContent>
+  </ContextMenu.Trigger>
+  <ContextMenu.Content>
+    <ContextMenu.Item>Back</ContextMenu.Item>
+    <ContextMenu.Item>Forward</ContextMenu.Item>
+    <ContextMenu.Item>Reload</ContextMenu.Item>
+    <ContextMenu.Sub>
+      <ContextMenu.SubTrigger>More Tools</ContextMenu.SubTrigger>
+      <ContextMenu.SubContent>
+        <ContextMenu.Item>Save Page As...</ContextMenu.Item>
+        <ContextMenu.Item>Create Shortcut...</ContextMenu.Item>
+        <ContextMenu.Item>Name Window...</ContextMenu.Item>
+      </ContextMenu.SubContent>
+    </ContextMenu.Sub>
+  </ContextMenu.Content>
 </ContextMenu>
 ```
 
@@ -64,19 +64,19 @@ Context menu with selectable options.
 
 ```tsx
 <ContextMenu>
-  <ContextMenuTrigger className="flex h-[150px] w-[300px] items-center justify-center rounded-md border border-dashed text-sm">
+  <ContextMenu.Trigger className="flex h-[150px] w-[300px] items-center justify-center rounded-md border border-dashed text-sm">
     Right click here
-  </ContextMenuTrigger>
-  <ContextMenuContent>
-    <ContextMenuCheckboxItem checked>Show Toolbar</ContextMenuCheckboxItem>
-    <ContextMenuCheckboxItem>Show Bookmarks</ContextMenuCheckboxItem>
-    <ContextMenuSeparator />
-    <ContextMenuRadioGroup value="pedro">
-      <ContextMenuLabel>People</ContextMenuLabel>
-      <ContextMenuRadioItem value="pedro">Pedro</ContextMenuRadioItem>
-      <ContextMenuRadioItem value="colm">Colm</ContextMenuRadioItem>
-    </ContextMenuRadioGroup>
-  </ContextMenuContent>
+  </ContextMenu.Trigger>
+  <ContextMenu.Content>
+    <ContextMenu.CheckboxItem checked>Show Toolbar</ContextMenu.CheckboxItem>
+    <ContextMenu.CheckboxItem>Show Bookmarks</ContextMenu.CheckboxItem>
+    <ContextMenu.Separator />
+    <ContextMenu.RadioGroup value="pedro">
+      <ContextMenu.Label>People</ContextMenu.Label>
+      <ContextMenu.RadioItem value="pedro">Pedro</ContextMenu.RadioItem>
+      <ContextMenu.RadioItem value="colm">Colm</ContextMenu.RadioItem>
+    </ContextMenu.RadioGroup>
+  </ContextMenu.Content>
 </ContextMenu>
 ```
 

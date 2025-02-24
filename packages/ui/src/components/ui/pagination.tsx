@@ -117,12 +117,12 @@ function PaginationEllipsis({
 	);
 }
 
-export {
-	Pagination,
-	PaginationContent,
-	PaginationLink,
-	PaginationItem,
-	PaginationPrevious,
-	PaginationNext,
-	PaginationEllipsis,
-};
+// Attach subcomponents to Pagination
+Pagination.Content = PaginationContent;
+Pagination.Link = PaginationLink;
+Pagination.Item = PaginationItem;
+Pagination.Previous = PaginationPrevious;
+Pagination.Next = PaginationNext;
+Pagination.Ellipsis = PaginationEllipsis;
+
+export { Pagination };

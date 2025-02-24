@@ -10,17 +10,17 @@ A menu that appears when clicking on a trigger element, displaying a list of opt
 ## Usage
 
 ```tsx
-import { DropdownMenu, DropdownMenuTrigger, DropdownMenuContent, DropdownMenuItem } from "@rhinolabs/ui"
+import { DropdownMenu } from "@rhinolabs/ui"
 
 export default function DropdownMenuDemo() {
   return (
     <DropdownMenu>
-      <DropdownMenuTrigger>Open Menu</DropdownMenuTrigger>
-      <DropdownMenuContent>
-        <DropdownMenuItem>Profile</DropdownMenuItem>
-        <DropdownMenuItem>Settings</DropdownMenuItem>
-        <DropdownMenuItem>Logout</DropdownMenuItem>
-      </DropdownMenuContent>
+      <DropdownMenu.Trigger>Open Menu</DropdownMenu.Trigger>
+      <DropdownMenu.Content>
+        <DropdownMenu.Item>Profile</DropdownMenu.Item>
+        <DropdownMenu.Item>Settings</DropdownMenu.Item>
+        <DropdownMenu.Item>Logout</DropdownMenu.Item>
+      </DropdownMenu.Content>
     </DropdownMenu>
   )
 }
@@ -34,23 +34,23 @@ Dropdown menu with nested options.
 
 ```tsx
 <DropdownMenu>
-  <DropdownMenuTrigger asChild>
+  <DropdownMenu.Trigger asChild>
     <Button>Options</Button>
-  </DropdownMenuTrigger>
-  <DropdownMenuContent>
-    <DropdownMenuLabel>My Account</DropdownMenuLabel>
-    <DropdownMenuSeparator />
-    <DropdownMenuItem>Profile</DropdownMenuItem>
-    <DropdownMenuItem>Billing</DropdownMenuItem>
-    <DropdownMenuSeparator />
-    <DropdownMenuSub>
-      <DropdownMenuSubTrigger>More</DropdownMenuSubTrigger>
-      <DropdownMenuSubContent>
-        <DropdownMenuItem>Settings</DropdownMenuItem>
-        <DropdownMenuItem>Help</DropdownMenuItem>
-      </DropdownMenuSubContent>
-    </DropdownMenuSub>
-  </DropdownMenuContent>
+  </DropdownMenu.Trigger>
+  <DropdownMenu.Content>
+    <DropdownMenu.Label>My Account</DropdownMenu.Label>
+    <DropdownMenu.Separator />
+    <DropdownMenu.Item>Profile</DropdownMenu.Item>
+    <DropdownMenu.Item>Billing</DropdownMenu.Item>
+    <DropdownMenu.Separator />
+    <DropdownMenu.Sub>
+      <DropdownMenu.SubTrigger>More</DropdownMenu.SubTrigger>
+      <DropdownMenu.SubContent>
+        <DropdownMenu.Item>Settings</DropdownMenu.Item>
+        <DropdownMenu.Item>Help</DropdownMenu.Item>
+      </DropdownMenu.SubContent>
+    </DropdownMenu.Sub>
+  </DropdownMenu.Content>
 </DropdownMenu>
 ```
 
@@ -60,20 +60,20 @@ Dropdown menu with selectable options.
 
 ```tsx
 <DropdownMenu>
-  <DropdownMenuTrigger asChild>
+  <DropdownMenu.Trigger asChild>
     <Button>View Options</Button>
-  </DropdownMenuTrigger>
-  <DropdownMenuContent>
-    <DropdownMenuCheckboxItem checked>Show Toolbar</DropdownMenuCheckboxItem>
-    <DropdownMenuCheckboxItem>Show Statusbar</DropdownMenuCheckboxItem>
-    <DropdownMenuSeparator />
-    <DropdownMenuRadioGroup value="light">
-      <DropdownMenuLabel>Theme</DropdownMenuLabel>
-      <DropdownMenuRadioItem value="light">Light</DropdownMenuRadioItem>
-      <DropdownMenuRadioItem value="dark">Dark</DropdownMenuRadioItem>
-      <DropdownMenuRadioItem value="system">System</DropdownMenuRadioItem>
-    </DropdownMenuRadioGroup>
-  </DropdownMenuContent>
+  </DropdownMenu.Trigger>
+  <DropdownMenu.Content>
+    <DropdownMenu.CheckboxItem checked>Show Toolbar</DropdownMenu.CheckboxItem>
+    <DropdownMenu.CheckboxItem>Show Statusbar</DropdownMenu.CheckboxItem>
+    <DropdownMenu.Separator />
+    <DropdownMenu.RadioGroup value="light">
+      <DropdownMenu.Label>Theme</DropdownMenu.Label>
+      <DropdownMenu.RadioItem value="light">Light</DropdownMenu.RadioItem>
+      <DropdownMenu.RadioItem value="dark">Dark</DropdownMenu.RadioItem>
+      <DropdownMenu.RadioItem value="system">System</DropdownMenu.RadioItem>
+    </DropdownMenu.RadioGroup>
+  </DropdownMenu.Content>
 </DropdownMenu>
 ```
 

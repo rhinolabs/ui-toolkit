@@ -53,4 +53,8 @@ function ResizableHandle({
 	);
 }
 
-export { ResizablePanelGroup, ResizablePanel, ResizableHandle };
+// Attach subcomponents to ResizablePanelGroup
+ResizablePanelGroup.Panel = ResizablePanel;
+ResizablePanelGroup.Handle = ResizableHandle;
+
+export { ResizablePanelGroup };

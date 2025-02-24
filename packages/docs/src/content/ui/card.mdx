@@ -10,21 +10,21 @@ A container component that groups related content and actions.
 ## Usage
 
 ```tsx
-import { Card, CardHeader, CardFooter, CardTitle, CardDescription, CardContent } from "@rhinolabs/ui"
+import { Card } from "@rhinolabs/ui"
 
 export default function CardDemo() {
   return (
     <Card>
-      <CardHeader>
-        <CardTitle>Card Title</CardTitle>
-        <CardDescription>Card Description</CardDescription>
-      </CardHeader>
-      <CardContent>
+      <Card.Header>
+        <Card.Title>Card Title</Card.Title>
+        <Card.Description>Card Description</Card.Description>
+      </Card.Header>
+      <Card.Content>
         <p>Card Content</p>
-      </CardContent>
-      <CardFooter>
+      </Card.Content>
+      <Card.Footer>
         <p>Card Footer</p>
-      </CardFooter>
+      </Card.Footer>
     </Card>
   )
 }
@@ -38,13 +38,13 @@ A basic card with title and content.
 
 ```tsx
 <Card>
-  <CardHeader>
-    <CardTitle>Create project</CardTitle>
-    <CardDescription>Deploy your new project in one-click.</CardDescription>
-  </CardHeader>
-  <CardContent>
+  <Card.Header>
+    <Card.Title>Create project</Card.Title>
+    <Card.Description>Deploy your new project in one-click.</Card.Description>
+  </Card.Header>
+  <Card.Content>
     <p>Your new project will be created in your workspace.</p>
-  </CardContent>
+  </Card.Content>
 </Card>
 ```
 
@@ -54,17 +54,17 @@ A card with footer actions.
 
 ```tsx
 <Card>
-  <CardHeader>
-    <CardTitle>Team Members</CardTitle>
-    <CardDescription>Invite your team members to collaborate.</CardDescription>
-  </CardHeader>
-  <CardContent>
+  <Card.Header>
+    <Card.Title>Team Members</Card.Title>
+    <Card.Description>Invite your team members to collaborate.</Card.Description>
+  </Card.Header>
+  <Card.Content>
     <p>Current team members will be displayed here.</p>
-  </CardContent>
-  <CardFooter className="flex justify-between">
+  </Card.Content>
+  <Card.Footer className="flex justify-between">
     <button>Cancel</button>
     <button>Invite</button>
-  </CardFooter>
+  </Card.Footer>
 </Card>
 ```
 
@@ -74,16 +74,16 @@ Using the card as an article container.
 
 ```tsx
 <Card>
-  <CardHeader>
-    <CardTitle>Latest Updates</CardTitle>
-    <CardDescription>Posted on January 24, 2024</CardDescription>
-  </CardHeader>
-  <CardContent>
+  <Card.Header>
+    <Card.Title>Latest Updates</Card.Title>
+    <Card.Description>Posted on January 24, 2024</Card.Description>
+  </Card.Header>
+  <Card.Content>
     <p>Read about our latest product updates and news.</p>
-  </CardContent>
-  <CardFooter>
+  </Card.Content>
+  <Card.Footer>
     <p className="text-sm text-muted-foreground">Written by John Doe</p>
-  </CardFooter>
+  </Card.Footer>
 </Card>
 ```
 

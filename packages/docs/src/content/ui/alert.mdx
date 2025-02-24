@@ -10,15 +10,15 @@ A component for displaying important messages, warnings, or feedback to users.
 ## Usage
 
 ```tsx
-import { Alert, AlertTitle, AlertDescription } from "@rhinolabs/ui"
+import { Alert } from "@rhinolabs/ui"
 
 export default function AlertDemo() {
   return (
     <Alert>
-      <AlertTitle>Heads up!</AlertTitle>
-      <AlertDescription>
+      <Alert.Title>Heads up!</Alert.Title>
+      <Alert.Description>
         You can add components to your app using the cli.
-      </AlertDescription>
+      </Alert.Description>
     </Alert>
   )
 }
@@ -33,17 +33,17 @@ Alerts come in different variants to suit different contexts.
 ```tsx
 <div className="flex flex-col gap-4">
   <Alert>
-    <AlertTitle>Default Alert</AlertTitle>
-    <AlertDescription>
+    <Alert.Title>Default Alert</Alert.Title>
+    <Alert.Description>
       This is a default alert - check it out!
-    </AlertDescription>
+    </Alert.Description>
   </Alert>
 
   <Alert variant="destructive">
-    <AlertTitle>Error Alert</AlertTitle>
-    <AlertDescription>
+    <Alert.Title>Error Alert</Alert.Title>
+    <Alert.Description>
       Something went wrong! Please try again.
-    </AlertDescription>
+    </Alert.Description>
   </Alert>
 </div>
 ```
@@ -68,10 +68,10 @@ Alerts can include icons to enhance their visibility and meaning.
     <line x1="12" y1="9" x2="12" y2="13" />
     <line x1="12" y1="17" x2="12.01" y2="17" />
   </svg>
-  <AlertTitle>Warning</AlertTitle>
-  <AlertDescription>
+  <Alert.Title>Warning</Alert.Title>
+  <Alert.Description>
     Your session is about to expire. Please save your work.
-  </AlertDescription>
+  </Alert.Description>
 </Alert>
 ```
 
