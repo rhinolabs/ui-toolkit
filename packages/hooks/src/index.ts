@@ -23,6 +23,7 @@ export * from "./hooks/useNavigatorShare";
 export * from "./hooks/useOffline";
 export * from "./hooks/useOnScreen";
 export * from "./hooks/useOutsideClick";
+export * from "./hooks/usePortal";
 export * from "./hooks/usePrevious";
 export * from "./hooks/useRandomColor";
 export * from "./hooks/useScript";
