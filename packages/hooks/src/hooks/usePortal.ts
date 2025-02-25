@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback, ReactNode } from "react";
+import { useState, useEffect, useCallback, type ReactNode } from "react";
 import { createPortal } from "react-dom";
 
 interface PortalProps {
@@ -10,15 +10,17 @@ export const usePortal = (id: string) => {
 	const [rootElemRef, setRootElemRef] = useState<HTMLElement | null>(null);
 
 	useEffect(() => {
-		const existingParent = document.querySelector(`#${id}`) as HTMLElement | null;
+		const existingParent = document.querySelector(
+			`#${id}`,
+		) as HTMLElement | null;
 		const parentElem = existingParent || createRootElement(id);
-		
+
 		if (!existingParent) {
 			document.body.appendChild(parentElem);
 		}
-		
+
 		setRootElemRef(parentElem);
-		
+
 		return () => {
 			if (!existingParent && parentElem.parentNode) {
 				parentElem.parentNode.removeChild(parentElem);
@@ -32,14 +34,17 @@ export const usePortal = (id: string) => {
 		return rootContainer;
 	};
 
-	const Portal = useCallback(({ children }: PortalProps) => {
-		if (rootElemRef) {
-			setIsRendered(true);
-			return createPortal(children, rootElemRef);
-		}
-		setIsRendered(false);
-		return null;
-	}, [rootElemRef]);
+	const Portal = useCallback(
+		({ children }: PortalProps) => {
+			if (rootElemRef) {
+				setIsRendered(true);
+				return createPortal(children, rootElemRef);
+			}
+			setIsRendered(false);
+			return null;
+		},
+		[rootElemRef],
+	);
 
 	return { Portal, isRendered };
 };
