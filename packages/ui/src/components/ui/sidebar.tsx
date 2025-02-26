@@ -704,29 +704,29 @@ function SidebarMenuSubButton({
 	);
 }
 
-export {
-	Sidebar,
-	SidebarContent,
-	SidebarFooter,
-	SidebarGroup,
-	SidebarGroupAction,
-	SidebarGroupContent,
-	SidebarGroupLabel,
-	SidebarHeader,
-	SidebarInput,
-	SidebarInset,
-	SidebarMenu,
-	SidebarMenuAction,
-	SidebarMenuBadge,
-	SidebarMenuButton,
-	SidebarMenuItem,
-	SidebarMenuSkeleton,
-	SidebarMenuSub,
-	SidebarMenuSubButton,
-	SidebarMenuSubItem,
-	SidebarProvider,
-	SidebarRail,
-	SidebarSeparator,
-	SidebarTrigger,
-	useSidebar,
-};
+// Attach subcomponents to Sidebar
+Sidebar.Content = SidebarContent;
+Sidebar.Footer = SidebarFooter;
+Sidebar.Group = SidebarGroup;
+Sidebar.GroupAction = SidebarGroupAction;
+Sidebar.GroupContent = SidebarGroupContent;
+Sidebar.GroupLabel = SidebarGroupLabel;
+Sidebar.Header = SidebarHeader;
+Sidebar.Input = SidebarInput;
+Sidebar.Inset = SidebarInset;
+Sidebar.Menu = SidebarMenu;
+Sidebar.MenuAction = SidebarMenuAction;
+Sidebar.MenuBadge = SidebarMenuBadge;
+Sidebar.MenuButton = SidebarMenuButton;
+Sidebar.MenuItem = SidebarMenuItem;
+Sidebar.MenuSkeleton = SidebarMenuSkeleton;
+Sidebar.MenuSub = SidebarMenuSub;
+Sidebar.MenuSubButton = SidebarMenuSubButton;
+Sidebar.MenuSubItem = SidebarMenuSubItem;
+Sidebar.Provider = SidebarProvider;
+Sidebar.Rail = SidebarRail;
+Sidebar.Separator = SidebarSeparator;
+Sidebar.Trigger = SidebarTrigger;
+Sidebar.useSidebar = useSidebar;
+
+export { Sidebar };
