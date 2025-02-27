@@ -23,15 +23,15 @@ export function MainCards() {
 
 					<ul className="space-y-2 mb-8">
 						<li className="flex items-center gap-2">
-							<span className="h-1.5 w-1.5 rounded-full bg-primary"></span>
+							<span className="h-1.5 w-1.5 rounded-full bg-primary" />
 							<span>Fully customizable with Tailwind CSS</span>
 						</li>
 						<li className="flex items-center gap-2">
-							<span className="h-1.5 w-1.5 rounded-full bg-primary"></span>
+							<span className="h-1.5 w-1.5 rounded-full bg-primary" />
 							<span>Accessible by default (WAI-ARIA compliant)</span>
 						</li>
 						<li className="flex items-center gap-2">
-							<span className="h-1.5 w-1.5 rounded-full bg-primary"></span>
+							<span className="h-1.5 w-1.5 rounded-full bg-primary" />
 							<span>Responsive and mobile-friendly</span>
 						</li>
 					</ul>
@@ -66,15 +66,15 @@ export function MainCards() {
 
 					<ul className="space-y-2 mb-8">
 						<li className="flex items-center gap-2">
-							<span className="h-1.5 w-1.5 rounded-full bg-primary"></span>
+							<span className="h-1.5 w-1.5 rounded-full bg-primary" />
 							<span>TypeScript ready with comprehensive types</span>
 						</li>
 						<li className="flex items-center gap-2">
-							<span className="h-1.5 w-1.5 rounded-full bg-primary"></span>
+							<span className="h-1.5 w-1.5 rounded-full bg-primary" />
 							<span>Zero dependencies and tree-shakeable</span>
 						</li>
 						<li className="flex items-center gap-2">
-							<span className="h-1.5 w-1.5 rounded-full bg-primary"></span>
+							<span className="h-1.5 w-1.5 rounded-full bg-primary" />
 							<span>Performance optimized for production</span>
 						</li>
 					</ul>
