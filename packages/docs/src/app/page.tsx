@@ -33,14 +33,12 @@ export default function IndexPage() {
 					>
 						<Alert className="text-primary shadow-none cursor-pointer border-primary w-fit p-2">
 							<GitHubIcon />
-							<Alert.Title>
-								Contribute on GitHub
-							</Alert.Title>
+							<Alert.Title>Contribute on GitHub</Alert.Title>
 						</Alert>
 					</a>
 					<h1 className="max-w-4xl text-3xl sm:text-4xl md:text-5xl font-semibold">
-						Rhinolabs UI Toolkit: Fast, Customizable React & Next.js Components &
-						Hooks
+						Rhinolabs UI Toolkit: Fast, Customizable React & Next.js Components
+						& Hooks
 					</h1>
 					<p className="mt-4 max-w-3xl text-xl sm:text-lg md:mt-5 md:text-2xl">
 						Zero-configuration, fully customizable, and open source—build sleek
@@ -56,7 +54,6 @@ export default function IndexPage() {
 						<CopyCommand />
 					</div>
 				</section>
-
 
 				{/* Main Cards Section */}
 				<section>

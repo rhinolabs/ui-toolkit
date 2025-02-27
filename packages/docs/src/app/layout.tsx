@@ -32,11 +32,11 @@ export default async function RootLayout({ children }) {
 					footer={<Footer />}
 					editLink="Edit this page on GitHub"
 					docsRepositoryBase="https://github.com/rhinolabs/ui-toolkit/blob/main/packages/docs"
-					sidebar={{ defaultMenuCollapseLevel: 1 }}
+					sidebar={{ defaultMenuCollapseLevel: 1, toggleButton: false }}
 					pageMap={await getPageMap()}
 					darkMode={false}
-					nextThemes={{ 
-						defaultTheme: "dark" 
+					nextThemes={{
+						defaultTheme: "dark",
 					}}
 				>
 					{children}
