@@ -1,38 +1,29 @@
 "use client";
 
 import { Github } from "lucide-react";
+import { Footer } from "nextra-theme-docs";
 
 export function CustomFooter() {
 	const currentYear = new Date().getFullYear();
 
 	return (
-		<footer className="nx-bg-neutral-900 nx-text-gray-400 print:nx-bg-transparent">
-			<div className="nx-mx-auto nx-flex nx-max-w-[90rem] nx-flex-col nx-items-center nx-justify-between nx-gap-8 nx-py-12 nx-px-8 md:nx-flex-row">
-				<div className="nx-flex nx-flex-col nx-items-center nx-gap-2 md:nx-items-start">
-					<p className="nx-text-sm">
-						© {currentYear} Rhinolabs Agency. All rights reserved.
-					</p>
-					<p className="nx-text-xs nx-max-w-md">
-						Licensed under the MIT License.
-						<br />
-						Permission is hereby granted, free of charge, to any person
-						obtaining a copy of this software and associated documentation
-						files, to deal in the Software without restriction.
-					</p>
-				</div>
-
-				<div className="nx-flex nx-flex-col nx-items-center nx-gap-2 md:nx-items-end">
-					<a
-						href="https://github.com/rhinolabs/ui-toolkit"
-						target="_blank"
-						rel="noreferrer"
-						className="nx-flex nx-items-center nx-gap-1 nx-text-sm nx-text-gray-400 hover:nx-text-gray-100"
-					>
-						<Github size={16} className="nx-mr-1" />
-						Contribute on GitHub
-					</a>
-				</div>
+		<Footer className="flex flex-col items-center justify-center space-y-2 py-8 text-center">
+			<div className="flex items-center justify-center">
+				<span>Made with </span>
+				<span className="mx-1 text-red-500">❤️</span>
+				<span>by Rhinolabs team</span>
 			</div>
-		</footer>
+			<div className="text-sm text-gray-500">
+				<span>© {currentYear} Rhinolabs Agency. </span>
+				<a
+					href="https://github.com/rhinolabs/ui-toolkit/blob/main/LICENSE"
+					target="_blank"
+					rel="noreferrer"
+					className="hover:text-gray-300"
+				>
+					Licensed under MIT
+				</a>
+			</div>
+		</Footer>
 	);
 }

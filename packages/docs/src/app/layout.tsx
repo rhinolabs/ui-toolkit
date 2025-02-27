@@ -1,5 +1,6 @@
 /* eslint-env node */
-import { Footer, Layout, Navbar } from "nextra-theme-docs";
+import { Layout, Navbar } from "nextra-theme-docs";
+import { CustomFooter } from "../components/custom-footer.tsx";
 import { Head } from "nextra/components";
 import { getPageMap } from "nextra/page-map";
 import "nextra-theme-docs/style.css";
@@ -29,7 +30,7 @@ export default async function RootLayout({ children }) {
 			<body>
 				<Layout
 					navbar={navbar}
-					footer={<Footer />}
+					footer={<CustomFooter />}
 					editLink="Edit this page on GitHub"
 					docsRepositoryBase="https://github.com/rhinolabs/ui-toolkit/blob/main/packages/docs"
 					sidebar={{ defaultMenuCollapseLevel: 1, toggleButton: false }}
