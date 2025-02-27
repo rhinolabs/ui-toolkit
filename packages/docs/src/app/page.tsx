@@ -37,13 +37,12 @@ export default function IndexPage() {
 						</Alert>
 					</a>
 					<h1 className="max-w-4xl text-3xl sm:text-4xl md:text-5xl font-semibold">
-						Rhinolabs UI Toolkit: Fast, Customizable React & Next.js Components
-						& Hooks
+						Rhinolabs UI Toolkit: Modern React Components & Hooks
 					</h1>
 					<p className="mt-4 max-w-3xl text-xl sm:text-lg md:mt-5 md:text-2xl">
-						Zero-configuration, fully customizable, and open source—build sleek
-						UIs and robust logic faster with our React components and advanced
-						hooks, seamlessly integrated with Next.js.
+						Eliminate repetition. Build powerful React applications with our
+						open-source toolkit. Focus on creating unique experiences instead of
+						writing boilerplate code.
 					</p>
 					<div className="mt-4 sm:mt-8 flex sm:flex-row flex-col">
 						<a href="/docs/get-started" className="sm:mr-4 my-4 sm:my-0">
