@@ -1,13 +1,13 @@
 import { Alert, Button, Separator } from "@rhinolabs/ui";
 import { GitHubIcon } from "nextra/icons";
 import CopyCommand from "../components/copy-command.tsx";
-import { CollapsibleDemo } from "./demos/collapsible-demo.tsx";
-import { AlertDemo } from "./demos/alert-demo.tsx";
-import { DialogDemo } from "./demos/dialog-demo.tsx";
-import { ResizableDemo } from "./demos/resizable-demo.tsx";
-import { FeatureCard } from "./components/feature-card.tsx";
-import { TableDemo } from "./demos/table-demo.tsx";
-import { ContextMenuDemo } from "./demos/context-menu-demo.tsx";
+import { CollapsibleDemo } from "../demos/collapsible-demo.tsx";
+import { AlertDemo } from "../demos/alert-demo.tsx";
+import { DialogDemo } from "../demos/dialog-demo.tsx";
+import { ResizableDemo } from "../demos/resizable-demo.tsx";
+import { FeatureCard } from "../components/feature-card.tsx";
+import { TableDemo } from "../demos/table-demo.tsx";
+import { ContextMenuDemo } from "../demos/context-menu-demo.tsx";
 
 export const metadata = {
 	title: "Rhinolabs UI Toolkit",
