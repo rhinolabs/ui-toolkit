@@ -5,7 +5,7 @@ import { Terminal } from "lucide-react";
 import { useClipboard } from "@rhinolabs/react-hooks";
 
 export default function CopyCommand() {
-	const command = "pnpm add @rhinolabs/ui-toolkit";
+	const command = "pnpm add @rhinolabs/ui @rhinolabs/react-hooks";
 	const { copiedText, copyToClipboard } = useClipboard();
 
 	const handleCopy = async () => {

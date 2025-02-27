@@ -1,6 +1,6 @@
 /* eslint-env node */
 import { Footer, Layout, Navbar } from "nextra-theme-docs";
-import { Banner, Head } from "nextra/components";
+import { Head } from "nextra/components";
 import { getPageMap } from "nextra/page-map";
 import "nextra-theme-docs/style.css";
 import "./global.css";
@@ -34,6 +34,10 @@ export default async function RootLayout({ children }) {
 					docsRepositoryBase="https://github.com/rhinolabs/ui-toolkit/blob/main/packages/docs"
 					sidebar={{ defaultMenuCollapseLevel: 1 }}
 					pageMap={await getPageMap()}
+					darkMode={false}
+					nextThemes={{ 
+						defaultTheme: "dark" 
+					}}
 				>
 					{children}
 				</Layout>
