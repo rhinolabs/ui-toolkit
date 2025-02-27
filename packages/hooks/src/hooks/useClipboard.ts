@@ -11,6 +11,7 @@ export const useClipboard = () => {
 						.writeText(value)
 						.then(() => {
 							setCopiedText(value);
+							setTimeout(() => setCopiedText(null), 2000);
 							resolve(value);
 						})
 						.catch((e) => {
