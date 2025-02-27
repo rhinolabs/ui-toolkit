@@ -17,7 +17,7 @@ export default async function RootLayout({ children }) {
 		<Navbar
 			logo={
 				<div className="flex">
-					<img src="./logo.png" alt="Rhinolabs logo" className="h-[40px]" />
+					<img src="/logo.png" alt="Rhinolabs logo" className="h-[40px]" />
 					<b className="self-center">UI Toolkit</b>{" "}
 				</div>
 			}
