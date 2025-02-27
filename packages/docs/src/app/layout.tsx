@@ -3,6 +3,7 @@ import { Footer, Layout, Navbar } from "nextra-theme-docs";
 import { Banner, Head } from "nextra/components";
 import { getPageMap } from "nextra/page-map";
 import "nextra-theme-docs/style.css";
+import "./global.css";
 
 export const metadata = {
 	metadataBase: new URL("https://ui-toolkit.rhinolabs.agency"),
@@ -15,8 +16,9 @@ export default async function RootLayout({ children }) {
 	const navbar = (
 		<Navbar
 			logo={
-				<div>
-					<b>UI Toolkit</b>{" "}
+				<div className="flex">
+					<img src="./logo.png" alt="Rhinolabs logo" className="h-[40px]" />
+					<b className="self-center">UI Toolkit</b>{" "}
 				</div>
 			}
 		/>
