@@ -1,6 +1,6 @@
 import { Alert, Button, Separator } from "@rhinolabs/ui";
 import { GitHubIcon } from "nextra/icons";
-import CopyCommand from "./components/copy-command.tsx";
+import CopyCommand from "../components/copy-command.tsx";
 import { CollapsibleDemo } from "./demos/collapsible-demo.tsx";
 import { AlertDemo } from "./demos/alert-demo.tsx";
 import { DialogDemo } from "./demos/dialog-demo.tsx";
