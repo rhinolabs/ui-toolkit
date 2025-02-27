@@ -1,5 +1,6 @@
 import { Alert, Button } from "@rhinolabs/ui";
 import { GitHubIcon } from "nextra/icons";
+import CopyCommand from "../components/copy-command.tsx";
 
 export const metadata = {
 	title: "Rhinolabs UI Toolkit",
