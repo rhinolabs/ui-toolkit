@@ -36,7 +36,7 @@ jobs:
           pnpm --filter @rhinolabs/ui build
         
       - name: Publish UI package
-        run: cd packages/ui && npm publish --access public
+        run: pnpm --filter @rhinolabs/ui publish --access public --no-git-checks
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
@@ -76,7 +76,7 @@ jobs:
         run: pnpm --filter @rhinolabs/react-hooks build
         
       - name: Publish Hooks package
-        run: cd packages/hooks && npm publish --access public
+        run: pnpm --filter @rhinolabs/react-hooks publish --access public --no-git-checks
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
