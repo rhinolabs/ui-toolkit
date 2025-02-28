@@ -31,7 +31,9 @@ jobs:
         run: pnpm install
         
       - name: Build UI package
-        run: pnpm --filter @rhinolabs/ui build
+        run: |
+          pnpm --filter @rhinolabs/react-hooks build
+          pnpm --filter @rhinolabs/ui build
         
       - name: Publish UI package
         run: cd packages/ui && npm publish --access public
