@@ -6,6 +6,14 @@ type TUseSearchParams = <T = Record<string, any>>(
 	opt?: { unique: boolean },
 ) => T;
 
+const safeJSONParse = (value: string): any => {
+	try {
+		return JSON.parse(value);
+	} catch {
+		return value;
+	}
+};
+
 export const useSearchParams: TUseSearchParams = <T>(
 	url = location.href,
 	opt = { unique: true },
@@ -42,5 +50,14 @@ export const useSearchParams: TUseSearchParams = <T>(
 		setParams(newParams);
 	}, [url, opt.unique]);
 
-	return params as T;
+	const parsedParams = Object.fromEntries(
+		Object.entries(params).map(([key, value]) => [
+			key,
+			Array.isArray(value)
+				? value.map((item) => safeJSONParse(item))
+				: safeJSONParse(value),
+		]),
+	);
+
+	return parsedParams as T;
 };
