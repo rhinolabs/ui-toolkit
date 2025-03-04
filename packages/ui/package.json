@@ -6,17 +6,10 @@
 	"main": "./dist/index.js",
 	"module": "dist/index.js",
 	"types": "./dist/index.d.ts",
-	"files": [
-		"dist/"
-	],
-	"sideEffects": [
-		"**/*.css",
-		"dist/index.js"
-	],
+	"files": ["dist"],
+	"sideEffects": ["**/*.css", "dist/index.js"],
 	"scripts": {
-		"build:ts": "tsc",
-		"build:css": "postcss src/styles.css -o dist/styles.css",
-		"build": "pnpm run build:ts && pnpm run build:css",
+		"build": "tsc && postcss src/styles.css -o dist/styles.css",
 		"postbuild": "resolve-tspaths",
 		"lint": "biome format && biome lint",
 		"lint:fix": "biome format --write && biome lint --fix"
@@ -83,18 +76,18 @@
 		"postcss-cli": "^11.0.0",
 		"postcss-loader": "^8.1.1",
 		"@tailwindcss/postcss": "^4.0.0",
-		"@biomejs/biome": "catalog:",
+		"@biomejs/biome": "^1.9.4",
 		"@types/node": "^22.13.1",
-		"@types/react": "catalog:",
+		"@types/react": "^19.0.0",
 		"@types/react-dom": "^19",
 		"react-refresh": "^0.16.0",
 		"resolve-tspaths": "^0.8.23",
 		"ts-node": "^10.9.2",
 		"ts-patch": "^3.3.0",
-		"typescript": "catalog:"
+		"typescript": "^5.7.2"
 	},
 	"peerDependencies": {
-		"react": "catalog:",
-		"react-dom": "catalog:"
+		"react": "^19.0.0",
+		"react-dom": "^19.0.0"
 	}
 }

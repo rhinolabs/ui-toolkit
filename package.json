@@ -5,16 +5,18 @@
 	"main": "index.js",
 	"type": "module",
 	"scripts": {
-		"build": "pnpm recursive run build",
-		"lint": "pnpm recursive run lint",
-		"lint:fix": "pnpm recursive run lint:fix"
+		"build": "cd packages/hooks && bun run build && cd ../ui && bun run build && cd ../docs && bun run build",
+		"lint": "cd packages/ui && bun run lint && cd ../hooks && bun run lint && cd ../docs && bun run lint",
+		"lint:fix": "cd packages/ui && bun run lint:fix && cd ../hooks && bun run lint:fix && cd ../docs && bun run lint:fix"
 	},
+	"workspaces": [
+		"packages/*"
+	],
 	"keywords": [],
 	"author": {
 		"name": "Rhinolabs Agency",
 		"email": "hello@rhinolabs.agency",
 		"url": "https://rhinolabs.agency"
 	},
-	"license": "MIT",
-	"packageManager": "pnpm@9.10.0+sha512.73a29afa36a0d092ece5271de5177ecbf8318d454ecd701343131b8ebc0c1a91c487da46ab77c8e596d6acf1461e3594ced4becedf8921b074fbd8653ed7051c"
+	"license": "MIT"
 }
