@@ -5,40 +5,42 @@ type TUseSearchParams = <T = Record<string, any>>(
 	url?: string,
 	opt?: { unique: boolean },
 ) => T;
+
 export const useSearchParams: TUseSearchParams = <T>(
 	url = location.href,
 	opt = { unique: true },
 ) => {
 	const _urlSearch = new URL(url);
-	const [params, setParams] = useState<Record<string, string | string[]>>(() =>
-		// @ts-ignore
-		Object.fromEntries(_urlSearch.searchParams.entries()),
+	const [params, setParams] = useState<Record<string, string | string[]>>(
+		() => {
+			const initialParams: Record<string, string | string[]> = {};
+
+			_urlSearch.searchParams.forEach((value, key) => {
+				if (opt.unique) {
+					initialParams[key] = value;
+				} else {
+					initialParams[key] = _urlSearch.searchParams.getAll(key);
+				}
+			});
+
+			return initialParams;
+		},
 	);
 
 	useEffect(() => {
-		const len: number = Object.values(params).length;
-		if (!opt || opt.unique || len === _urlSearch.searchParams?.size) return;
-		// @ts-ignore
-		for (const [key, value] of _urlSearch.searchParams) {
-			if (value === params?.[key]) continue;
-			if (
-				Array.isArray(params?.[key]) &&
-				Array.from(params?.[key]).includes(value)
-			)
-				continue;
-			setParams(() => ({
-				...params,
-				[key]: [...(params?.[key] ?? []), value],
-			}));
-		}
-	}, []);
+		const newUrlSearch = new URL(url);
+		const newParams: Record<string, string | string[]> = {};
 
-	return Object.fromEntries(
-		Object.entries(params).map(([key, value]) => [
-			key,
-			!Array.isArray(value)
-				? JSON.parse(value)
-				: value.map((items) => JSON.parse(items)),
-		]),
-	) as T;
+		newUrlSearch.searchParams.forEach((value, key) => {
+			if (opt.unique) {
+				newParams[key] = value;
+			} else {
+				newParams[key] = newUrlSearch.searchParams.getAll(key);
+			}
+		});
+
+		setParams(newParams);
+	}, [url, opt.unique]);
+
+	return params as T;
 };
