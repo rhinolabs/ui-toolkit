@@ -27,10 +27,9 @@ jobs:
         run: |
           bun run --filter @rhinolabs/react-hooks build
           bun run --filter @rhinolabs/ui build
-          ls -la dist
         
       - name: Publish UI package
-        run: bun run --filter @rhinolabs/ui publish --access public --no-git-checks
+        run: bun --filter @rhinolabs/ui publish --access public --no-git-checks
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
@@ -63,7 +62,7 @@ jobs:
         run: bun run --filter @rhinolabs/react-hooks build
         
       - name: Publish Hooks package
-        run: bun run --filter @rhinolabs/react-hooks publish --access public --no-git-checks
+        run: bun --filter @rhinolabs/react-hooks publish --access public --no-git-checks
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
