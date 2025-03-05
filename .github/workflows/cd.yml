@@ -18,9 +18,7 @@ jobs:
         run: echo "VERSION=$(echo ${{ github.event.release.tag_name }} | sed 's/ui@//')" >> $GITHUB_OUTPUT
           
       - name: Update package version
-        run: |
-          cd packages/ui
-          npm version ${{ steps.get_version.outputs.VERSION }} --no-git-tag-version --legacy-peer-deps
+        run: bun run scripts/version.ts ui ${{ steps.get_version.outputs.VERSION }}
           
       - name: Install dependencies
         run: bun install
@@ -56,9 +54,7 @@ jobs:
         run: echo "VERSION=$(echo ${{ github.event.release.tag_name }} | sed 's/hooks@//')" >> $GITHUB_OUTPUT
           
       - name: Update package version
-        run: |
-          cd packages/hooks
-          npm version ${{ steps.get_version.outputs.VERSION }} --no-git-tag-version --legacy-peer-deps
+        run: bun run scripts/version.ts hooks ${{ steps.get_version.outputs.VERSION }}
           
       - name: Install dependencies
         run: bun install
@@ -91,9 +87,7 @@ jobs:
         run: echo "VERSION=$(echo ${{ github.event.release.tag_name }} | sed 's/docs@//')" >> $GITHUB_OUTPUT
           
       - name: Update package version
-        run: |
-          cd packages/docs
-          npm version ${{ steps.get_version.outputs.VERSION }} --no-git-tag-version --legacy-peer-deps
+        run: bun run scripts/version.ts docs ${{ steps.get_version.outputs.VERSION }}
 
       - name: Cloudflare deployment
         run: |
