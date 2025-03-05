@@ -4,7 +4,19 @@ Modern and accessible React components built on shadcn/ui.
 
 ## Installation
 
+> **Note**: Requires React 18 or later
+
 ```bash
+# Using bun
+bun add @rhinolabs/ui
+
+# Using npm
+npm install @rhinolabs/ui
+
+# Using yarn
+yarn add @rhinolabs/ui
+
+# Using pnpm
 pnpm add @rhinolabs/ui
 ```
 
@@ -86,12 +98,12 @@ git clone https://github.com/rhinolabs/ui-toolkit.git
 
 2. Install dependencies:
 ```bash
-pnpm install
+bun install
 ```
 
 3. Build the package:
 ```bash
-pnpm build
+bun run build
 ```
 
 ## Contributing

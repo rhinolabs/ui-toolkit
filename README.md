@@ -43,7 +43,7 @@ The React Hooks package `@rhinolabs/react-hooks` provides a collection of reusab
 
 Contributions to Rhinolabs UI Toolkit are welcome! ✅
 
-Our toolkit uses pnpm—a performant npm package manager integrated into its `pnpm workspace`. This optimizes package installation and dependency management. To install `pnpm`, follow this [guide](https://pnpm.io/installation).
+Our toolkit uses Bun—a fast all-in-one JavaScript runtime & toolkit. This optimizes package installation, dependency management and provides excellent build performance. To install `bun`, follow this [guide](https://bun.sh/docs/installation).
 
 Whether you're fixing a bug or adding a new feature, please see our [Contributing Guidelines](https://github.com/rhinolabs/ui-toolkit/blob/main/CODE_OF_CONDUCT.md) for details on how to contribute and participate in our community.
 
