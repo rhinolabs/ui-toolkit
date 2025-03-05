@@ -4,17 +4,22 @@
 	"description": "An open-source collection of frontend libraries for eliminating repetitive boilerplate in UI development",
 	"main": "index.js",
 	"type": "module",
-	"scripts": {
-		"build": "pnpm recursive run build",
-		"lint": "pnpm recursive run lint",
-		"lint:fix": "pnpm recursive run lint:fix"
-	},
+	"scripts": { 
+		"build": "bun run build:hooks && bun run build:ui && bun run build:docs",
+		"build:hooks": "bun --filter=@rhinolabs/react-hooks run build",
+		"build:ui": "bun --filter=@rhinolabs/ui run build",
+		"build:docs": "bun --filter=@rhinolabs/ui-toolkit-docs run build",
+		"lint": "bun --filter=* run lint", 
+		"lint:fix": "bun --filter=* run lint:fix" 
+	}, 
+	"workspaces": [
+		"packages/*"
+	],
 	"keywords": [],
 	"author": {
 		"name": "Rhinolabs Agency",
 		"email": "hello@rhinolabs.agency",
 		"url": "https://rhinolabs.agency"
 	},
-	"license": "MIT",
-	"packageManager": "pnpm@9.10.0+sha512.73a29afa36a0d092ece5271de5177ecbf8318d454ecd701343131b8ebc0c1a91c487da46ab77c8e596d6acf1461e3594ced4becedf8921b074fbd8653ed7051c"
+	"license": "MIT"
 }

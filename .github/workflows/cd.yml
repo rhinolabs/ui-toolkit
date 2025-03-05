@@ -10,13 +10,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      
-      - uses: actions/setup-node@v4
-        with:
-          node-version: '20.x'
-          registry-url: 'https://registry.npmjs.org'
           
-      - uses: pnpm/action-setup@v4
+      - uses: oven-sh/setup-bun@v2
           
       - name: Get version from release
         id: get_version
@@ -25,25 +20,26 @@ jobs:
       - name: Update package version
         run: |
           cd packages/ui
-          npm version ${{ steps.get_version.outputs.VERSION }} --no-git-tag-version
+          npm version ${{ steps.get_version.outputs.VERSION }} --no-git-tag-version --legacy-peer-deps
           
       - name: Install dependencies
-        run: pnpm install
+        run: bun install
         
       - name: Build UI package
         run: |
-          pnpm --filter @rhinolabs/react-hooks build
-          pnpm --filter @rhinolabs/ui build
+          bun run --filter @rhinolabs/react-hooks build
+          bun run --filter @rhinolabs/ui build
+          ls -la dist
         
       - name: Publish UI package
-        run: pnpm --filter @rhinolabs/ui publish --access public --no-git-checks
+        run: bun run --filter @rhinolabs/ui publish --access public --no-git-checks
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
       - uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: "Bump version to ${{ steps.get_version.outputs.VERSION }}"
-          file_pattern: 'packages/ui/package.json'
+          file_pattern: 'packages/ui/package.json bun.lock'
           branch: main
           push_options: '--force'
 
@@ -52,13 +48,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      
-      - uses: actions/setup-node@v4
-        with:
-          node-version: '20.x'
-          registry-url: 'https://registry.npmjs.org'
           
-      - uses: pnpm/action-setup@v4
+      - uses: oven-sh/setup-bun@v2
           
       - name: Get version from release
         id: get_version
@@ -67,23 +58,23 @@ jobs:
       - name: Update package version
         run: |
           cd packages/hooks
-          npm version ${{ steps.get_version.outputs.VERSION }} --no-git-tag-version
+          npm version ${{ steps.get_version.outputs.VERSION }} --no-git-tag-version --legacy-peer-deps
           
       - name: Install dependencies
-        run: pnpm install
+        run: bun install
         
       - name: Build Hooks package
-        run: pnpm --filter @rhinolabs/react-hooks build
+        run: bun run --filter @rhinolabs/react-hooks build
         
       - name: Publish Hooks package
-        run: pnpm --filter @rhinolabs/react-hooks publish --access public --no-git-checks
+        run: bun run --filter @rhinolabs/react-hooks publish --access public --no-git-checks
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
       - uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: "Bump version to ${{ steps.get_version.outputs.VERSION }}"
-          file_pattern: 'packages/hooks/package.json'
+          file_pattern: 'packages/hooks/package.json bun.lock'
           branch: main
           push_options: '--force'
 
@@ -92,12 +83,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      
-      - uses: actions/setup-node@v4
-        with:
-          node-version: '20.x'
           
-      - uses: pnpm/action-setup@v4
+      - uses: oven-sh/setup-bun@v2
           
       - name: Get version from release
         id: get_version
@@ -106,7 +93,7 @@ jobs:
       - name: Update package version
         run: |
           cd packages/docs
-          npm version ${{ steps.get_version.outputs.VERSION }} --no-git-tag-version
+          npm version ${{ steps.get_version.outputs.VERSION }} --no-git-tag-version --legacy-peer-deps
 
       - name: Cloudflare deployment
         run: |
@@ -115,6 +102,6 @@ jobs:
       - uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: "Bump docs version to ${{ steps.get_version.outputs.VERSION }}"
-          file_pattern: 'packages/docs/package.json'
+          file_pattern: 'packages/docs/package.json bun.lock'
           branch: main
           push_options: '--force'

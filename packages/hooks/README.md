@@ -4,7 +4,19 @@ Collection of React hooks for state management and side effects.
 
 ## Installation
 
+> **Note**: Requires React 18 or later
+
 ```bash
+# Using bun
+bun add @rhinolabs/react-hooks
+
+# Using npm
+npm install @rhinolabs/react-hooks
+
+# Using yarn
+yarn add @rhinolabs/react-hooks
+
+# Using pnpm
 pnpm add @rhinolabs/react-hooks
 ```
 
@@ -124,12 +136,12 @@ git clone https://github.com/rhinolabs/ui-toolkit.git
 
 2. Install dependencies:
 ```bash
-pnpm install
+bun install
 ```
 
 3. Build the package:
 ```bash
-pnpm build
+bun run build
 ```
 
 ## Contributing
