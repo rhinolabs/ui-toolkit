@@ -4,11 +4,14 @@
 	"description": "An open-source collection of frontend libraries for eliminating repetitive boilerplate in UI development",
 	"main": "index.js",
 	"type": "module",
-	"scripts": {
-		"build": "bun --filter=* run build",
-		"lint": "bun --filter=* run lint",
-		"lint:fix": "bun --filter=* run lint:fix"
-	},
+	"scripts": { 
+		"build": "bun run build:hooks && bun run build:ui && bun run build:docs",
+		"build:hooks": "bun --filter=@rhinolabs/react-hooks run build",
+		"build:ui": "bun --filter=@rhinolabs/ui run build",
+		"build:docs": "bun --filter=@rhinolabs/ui-toolkit-docs run build",
+		"lint": "bun --filter=* run lint", 
+		"lint:fix": "bun --filter=* run lint:fix" 
+	}, 
 	"workspaces": [
 		"packages/*"
 	],
