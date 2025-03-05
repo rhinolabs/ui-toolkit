@@ -3,6 +3,7 @@ import "./styles.css";
 export { Alert } from "./components/ui/alert";
 export { Avatar } from "./components/ui/avatar";
 export { Badge } from "./components/ui/badge";
+export { Breadcrumb } from "./components/ui/breadcrumb";
 export { Button } from "./components/ui/button";
 export { Calendar } from "./components/ui/calendar";
 export { Card } from "./components/ui/card";
