@@ -5,9 +5,9 @@
 	"main": "index.js",
 	"type": "module",
 	"scripts": {
-		"build": "cd packages/hooks && bun run build && cd ../ui && bun run build && cd ../docs && bun run build",
-		"lint": "cd packages/ui && bun run lint && cd ../hooks && bun run lint && cd ../docs && bun run lint",
-		"lint:fix": "cd packages/ui && bun run lint:fix && cd ../hooks && bun run lint:fix && cd ../docs && bun run lint:fix"
+		"build": "bun --filter=* run build",
+		"lint": "bun --filter=* run lint",
+		"lint:fix": "bun --filter=* run lint:fix"
 	},
 	"workspaces": [
 		"packages/*"
