@@ -27,6 +27,9 @@ jobs:
         run: |
           bun run --filter @rhinolabs/react-hooks build
           bun run --filter @rhinolabs/ui build
+
+      - name: Fix linting issues
+        run: bun run --filter @rhinolabs/ui lint:fix
         
       - name: Publish UI package
         run: cd packages/ui && bun publish --access public --no-git-checks
@@ -60,6 +63,9 @@ jobs:
         
       - name: Build Hooks package
         run: bun run --filter @rhinolabs/react-hooks build
+
+      - name: Fix linting issues
+        run: bun run --filter @rhinolabs/react-hooks lint:fix
         
       - name: Publish Hooks package
         run: cd packages/hooks && bun publish --access public --no-git-checks
