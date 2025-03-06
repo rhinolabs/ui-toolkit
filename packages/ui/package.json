@@ -1,7 +1,7 @@
 {
 	"name": "@rhinolabs/ui",
 	"version": "1.0.1",
-	"description": "Modern and accessible React components built on shadcn/ui",
+	"description": "Modern and accessible React component library",
 	"type": "module",
 	"main": "./dist/index.js",
 	"module": "dist/index.js",
@@ -14,7 +14,13 @@
 		"lint": "biome format && biome lint",
 		"lint:fix": "biome format --write && biome lint --fix"
 	},
-	"keywords": [],
+	"keywords": [
+  "react",
+  "components",
+  "ui",
+  "typescript",
+  "tailwind"
+],
 	"author": {
 		"name": "Rhinolabs Agency",
 		"email": "hello@rhinolabs.agency",

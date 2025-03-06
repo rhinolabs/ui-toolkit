@@ -1,6 +1,6 @@
 # @rhinolabs/ui
 
-Modern and accessible React components built on shadcn/ui.
+Modern and accessible React component library.
 
 ## Installation
 
@@ -22,7 +22,7 @@ pnpm add @rhinolabs/ui
 
 ## Components
 
-@rhinolabs/ui provides a comprehensive set of React components built on top of [shadcn/ui](https://ui.shadcn.com/). These components are designed to be:
+@rhinolabs/ui provides a comprehensive set of React components designed to be:
 
 - 🎨 **Customizable**: Built with Tailwind CSS
 - ♿️ **Accessible**: Following WCAG guidelines
