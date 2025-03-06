@@ -35,7 +35,7 @@ jobs:
 
       - uses: stefanzweifel/git-auto-commit-action@v5
         with:
-          commit_message: "Bump version to ${{ steps.get_version.outputs.VERSION }}"
+          commit_message: "Bump @rhinolabs/ui version to ${{ steps.get_version.outputs.VERSION }}"
           file_pattern: 'packages/ui/package.json bun.lock'
           branch: main
           push_options: '--force'
@@ -68,7 +68,7 @@ jobs:
 
       - uses: stefanzweifel/git-auto-commit-action@v5
         with:
-          commit_message: "Bump version to ${{ steps.get_version.outputs.VERSION }}"
+          commit_message: "Bump @rhinolabs/react-hooks version to ${{ steps.get_version.outputs.VERSION }}"
           file_pattern: 'packages/hooks/package.json bun.lock'
           branch: main
           push_options: '--force'
