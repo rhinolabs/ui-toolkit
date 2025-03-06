@@ -13,7 +13,7 @@
 		"lint": "biome format && biome lint",
 		"lint:fix": "biome format --write && biome lint --fix"
 	},
-	"keywords": [],
+	"keywords": ["react", "hooks", "react-hooks", "typescript", "utilities"],
 	"author": {
 		"name": "Rhinolabs Agency",
 		"email": "hello@rhinolabs.agency",
