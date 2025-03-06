@@ -33,7 +33,7 @@ Rhinolabs UI Toolkit offers two packages:
 
 #### UI Components
 
-The UI package `@rhinolabs/ui` is a React component library built on top of [shadcn/ui](https://ui.shadcn.com/). It offers a wide range of reusable UI components that eliminate the need for repetitive boilerplate code, accelerating frontend development while maintaining consistency and quality across applications.
+The UI package `@rhinolabs/ui` is a modern React component library that offers a wide range of reusable UI components. These components eliminate the need for repetitive boilerplate code, accelerating frontend development while maintaining consistency and quality across applications.
 
 #### React Hooks
 
