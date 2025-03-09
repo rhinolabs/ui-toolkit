@@ -1,6 +1,6 @@
 {
 	"name": "@rhinolabs/react-hooks",
-	"version": "1.0.2",
+	"version": "1.0.3",
 	"description": "Collection of React hooks for state management and side effects",
 	"type": "module",
 	"main": "./dist/index.js",
