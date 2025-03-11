@@ -66,17 +66,26 @@ For long navigation paths, use ellipsis to save space.
 Use custom separators to match your design.
 
 ```tsx
-<Breadcrumb separator="›">
-  <Breadcrumb.List>
-    <Breadcrumb.Item>
-      <Breadcrumb.Link href="/">Home</Breadcrumb.Link>
-    </Breadcrumb.Item>
-    <Breadcrumb.Separator />
-    <Breadcrumb.Item>
-      <Breadcrumb.Page>Settings</Breadcrumb.Page>
-    </Breadcrumb.Item>
-  </Breadcrumb.List>
-</Breadcrumb>
+import { Breadcrumb } from "@rhinolabs/ui";
+import { Slash } from "lucide-react";
+
+export default function BreadcrumbDemo() {
+  return (
+    <Breadcrumb>
+      <Breadcrumb.List>
+        <Breadcrumb.Item>
+          <Breadcrumb.Link href="/">Home</Breadcrumb.Link>
+        </Breadcrumb.Item>
+        <Breadcrumb.Separator>
+          <Slash />
+        </Breadcrumb.Separator>
+        <Breadcrumb.Item>
+          <Breadcrumb.Page>Settings</Breadcrumb.Page>
+        </Breadcrumb.Item>
+      </Breadcrumb.List>
+    </Breadcrumb>
+  );
+}
 ```
 
 ## Props
