@@ -24,7 +24,11 @@ interface SearchParams {
 }
 
 function SearchResults() {
-  const params = useSearchParams<SearchParams>();
+  const params = useSearchParams<SearchParams>(window.location.href, {
+    unique: false,
+  });
+
+  if (!params?.filters) return null;
 
   return (
     <div>
