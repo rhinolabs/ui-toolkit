@@ -1,4 +1,5 @@
 import "./styles.css";
+import { MultipleSelect } from "./components/ui/multiple-select";
 
 export { Alert } from "./components/ui/alert";
 export { AlertDialog } from "./components/ui/alert-dialog";
@@ -20,6 +21,7 @@ export { Form } from "./components/ui/form";
 export { HoverCard } from "./components/ui/hover-card";
 export { Input } from "./components/ui/input";
 export { Label } from "./components/ui/label";
+export { MultipleSelect } from "./components/ui/multiple-select";
 export { Pagination } from "./components/ui/pagination";
 export { Popover } from "./components/ui/popover";
 export { Progress } from "./components/ui/progress";
