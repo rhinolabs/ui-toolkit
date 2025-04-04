@@ -1,5 +1,4 @@
 import "./styles.css";
-import { MultipleSelect } from "./components/ui/multiple-select";
 
 export { Alert } from "./components/ui/alert";
 export { AlertDialog } from "./components/ui/alert-dialog";
