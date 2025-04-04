@@ -36,16 +36,13 @@ const DualRangeSlider = React.forwardRef<
 		},
 		ref,
 	) => {
+		const changeCallback = onValueChangeProp || onChange;
 		const isControlled = Array.isArray(value);
-		const [internalValues, setInternalValues] = React.useState<
-			[number, number]
-		>(
+		const [internalValue, setInternalValue] = React.useState<[number, number]>(
 			Array.isArray(defaultValue)
 				? (defaultValue as [number, number])
 				: [min, max],
 		);
-
-		const currentValues = isControlled ? (value ?? [min, max]) : internalValues;
 
 		const [editing, setEditing] = React.useState<{
 			index: number | null;
@@ -57,20 +54,33 @@ const DualRangeSlider = React.forwardRef<
 
 		const inputRef = React.useRef<HTMLInputElement>(null);
 
+		const currentValue = isControlled
+			? (value as [number, number])
+			: internalValue;
+
+		React.useEffect(() => {
+			if (isControlled) {
+				setInternalValue(value as [number, number]);
+			}
+		}, [value, isControlled]);
+
 		const handleSliderChange = (val: [number, number]) => {
 			if (!isControlled) {
-				setInternalValues(val);
+				setInternalValue(val);
 			}
-			(onValueChangeProp || onChange)?.(val);
+			changeCallback?.(val);
 		};
 
 		const startEditing = (index: number) => {
 			setEditing({
 				index,
-				value: currentValues[index].toString(),
+				value: currentValue[index].toString(),
 			});
+
 			setTimeout(() => {
-				inputRef.current?.focus();
+				if (inputRef.current) {
+					inputRef.current.focus();
+				}
 			}, 0);
 		};
 
@@ -89,17 +99,17 @@ const DualRangeSlider = React.forwardRef<
 			}
 
 			const idx = editing.index;
-			if (idx === 0 && parsed > currentValues[1]) {
+			if (idx === 0 && parsed > currentValue[1]) {
 				alert("The minimum value cannot be greater than the maximum.");
 				return;
 			}
-			if (idx === 1 && parsed < currentValues[0]) {
+			if (idx === 1 && parsed < currentValue[0]) {
 				alert("The maximum value cannot be less than the minimum.");
 				return;
 			}
 
 			const clamped = Math.min(Math.max(parsed, min), max);
-			const newValues = [...currentValues] as [number, number];
+			const newValues = [...currentValue] as [number, number];
 
 			if (idx === 0 && clamped > newValues[1]) {
 				newValues[idx] = newValues[1];
@@ -110,9 +120,9 @@ const DualRangeSlider = React.forwardRef<
 			}
 
 			if (!isControlled) {
-				setInternalValues(newValues);
+				setInternalValue(newValues);
 			}
-			(onValueChangeProp || onChange)?.(newValues);
+			changeCallback?.(newValues);
 			resetEditing();
 		};
 
@@ -130,9 +140,20 @@ const DualRangeSlider = React.forwardRef<
 			}
 		};
 
+		const handleDivKeyDown = (
+			e: React.KeyboardEvent<HTMLDivElement>,
+			index: number,
+		) => {
+			if (e.key === "Enter" || e.key === " ") {
+				e.preventDefault();
+				e.stopPropagation();
+				startEditing(index);
+			}
+		};
+
 		const verticalOffset = labelPosition === "top" ? "-6px" : "4px";
 
-		const inputBaseStyle = "w-12 h-6 text-center";
+		const inputBaseStyle = "w-12 h-6 text-[10px] mt-5 text-center";
 		const inputEditingStyle =
 			"bg-white border-[0.5px] outline-none focus:ring-1 focus:ring-primary-200";
 		const inputNonEditingStyle =
@@ -142,7 +163,7 @@ const DualRangeSlider = React.forwardRef<
 			const isEditing = editing.index === index;
 			const displayValue = isEditing
 				? editing.value
-				: currentValues[index].toString();
+				: currentValue[index].toString();
 			const posStyle = index === 0 ? { left: "0" } : { right: "0" };
 			const style = {
 				position: "absolute" as const,
@@ -168,12 +189,8 @@ const DualRangeSlider = React.forwardRef<
 						e.stopPropagation();
 						startEditing(index);
 					}}
-					onKeyDown={(e) => {
-						if (e.key === "Enter" || e.key === " ") {
-							e.preventDefault();
-							startEditing(index);
-						}
-					}}
+					onKeyDown={(e) => handleDivKeyDown(e, index)}
+					aria-label={`Edit ${index === 0 ? "minimum" : "maximum"} value`}
 					className={clsx(inputBaseStyle, inputNonEditingStyle, inputClassName)}
 					style={style}
 				>
@@ -194,7 +211,7 @@ const DualRangeSlider = React.forwardRef<
 					ref={ref}
 					min={min}
 					max={max}
-					value={currentValues}
+					value={currentValue}
 					{...rest}
 					onValueChange={handleSliderChange}
 					className={clsx(
@@ -216,9 +233,9 @@ const DualRangeSlider = React.forwardRef<
 						/>
 					</SliderPrimitive.Track>
 
-					{currentValues.map((val, index) => (
+					{currentValue.map((val, index) => (
 						<SliderPrimitive.Thumb
-							key={`thumb-${index}-${val}`}
+							key={`thumb-${index === 0 ? "min" : "max"}`}
 							className={clsx(
 								"relative block h-2 w-[7px] bg-primary-200 ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50",
 								thumbClassName,
