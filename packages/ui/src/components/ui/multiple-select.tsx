@@ -39,7 +39,7 @@ const MultipleSelect: React.FC<MultipleSelectProps> = ({
 	onChange,
 	placeholder = "SELECT",
 	maxDisplay = 1,
-	checkboxPosition = "left",
+	checkboxPosition = "right",
 	className,
 	selectTriggerClassName,
 	selectValueClassName,
@@ -203,7 +203,10 @@ const MultipleSelect: React.FC<MultipleSelectProps> = ({
 													e.stopPropagation();
 													toggleOption(option.value, e as React.MouseEvent);
 												}}
-												className={cn("ml-auto", rightCheckboxClassName)}
+												className={cn(
+													"ml-auto bg-transparent border-0 rounded-none shadow-none data-[state=checked]:bg-transparent",
+													rightCheckboxClassName,
+												)}
 											/>
 										)}
 									</Command.Item>
