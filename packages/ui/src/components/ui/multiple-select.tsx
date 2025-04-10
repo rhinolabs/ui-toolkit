@@ -132,7 +132,7 @@ const MultipleSelect: React.FC<MultipleSelectProps> = ({
 						role="combobox"
 						aria-expanded={open}
 						className={cn(
-							"flex items-center justify-between w-full border border-input bg-transparent px-3 py-2 ring-offset-background placeholder:text-muted-foreground focus:outline-none focus:ring-0",
+							"flex items-center justify-between w-full border border-input rounded bg-transparent px-3 py-2 ring-offset-background placeholder:text-muted-foreground focus:outline-none focus:ring-0",
 							selectTriggerClassName,
 						)}
 						onClick={(e) => {
@@ -174,7 +174,7 @@ const MultipleSelect: React.FC<MultipleSelectProps> = ({
 											toggleOption(currentValue);
 										}}
 										className={cn(
-											"flex items-center p-2 cursor-pointer hover:bg-gray-100 w-full",
+											"flex items-center p-2 cursor-pointer hover:bg-muted w-full",
 											selectItemClassName,
 										)}
 										disabled={false}
