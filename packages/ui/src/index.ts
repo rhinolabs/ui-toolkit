@@ -15,7 +15,6 @@ export { ContextMenu } from "./components/ui/context-menu";
 export { Dialog } from "./components/ui/dialog";
 export { Drawer } from "./components/ui/drawer";
 export { DropdownMenu } from "./components/ui/dropdown-menu";
-export { DualRangeSlider } from "./components/ui/dual-range-slider";
 export { Form } from "./components/ui/form";
 export { HoverCard } from "./components/ui/hover-card";
 export { Input } from "./components/ui/input";
