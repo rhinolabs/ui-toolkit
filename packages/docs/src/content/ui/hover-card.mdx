@@ -1,0 +1,200 @@
+---
+title: HoverCard
+description: 'Displays a card on hover, revealing additional information.'
+---
+
+# Hover Card
+
+The `HoverCard` component displays supplementary information in a small, temporary card that appears when a user hovers over a trigger element. It's useful for providing context, previews, or quick actions without requiring a click.
+
+## Usage
+
+To implement the `HoverCard`, import the component and its `Trigger` and `Content` sub-components:
+
+```tsx
+import { HoverCard } from "@rhinolabs/ui";
+
+export default function HoverCardDemo() {
+  return (
+    <HoverCard>
+      <HoverCard.Trigger>Hover over me</HoverCard.Trigger>
+      <HoverCard.Content>
+        <p>This is the content that appears when you hover.</p>
+      </HoverCard.Content>
+    </HoverCard>
+  );
+}
+```
+
+## Examples
+
+### Basic HoverCard
+
+This example demonstrates the most basic usage of the `HoverCard`.
+
+```tsx
+import { HoverCard } from "@rhinolabs/ui";
+
+export function BasicHoverCardDemo() {
+  return (
+    <HoverCard>
+      <HoverCard.Trigger className="rounded-md bg-muted px-4 py-2 text-sm font-medium hover:bg-accent hover:text-accent-foreground focus:outline-none focus:ring-2 focus:ring-ring focus-offset-2">
+        Hover for Info
+      </HoverCard.Trigger>
+      <HoverCard.Content>
+        <p className="text-sm text-muted-foreground">
+          This card appears on hover. It can contain any relevant information.
+        </p>
+      </HoverCard.Content>
+    </HoverCard>
+  );
+}
+```
+
+### HoverCard with Custom Content
+
+You can include various elements within the `HoverCard.Content`, such as headings, images, or interactive components.
+
+```tsx
+import { HoverCard } from "@rhinolabs/ui";
+
+export function CustomContentHoverCardDemo() {
+  return (
+    <HoverCard>
+      <HoverCard.Trigger className="rounded-md bg-muted px-4 py-2 text-sm font-medium hover:bg-accent hover:text-accent-foreground focus:outline-none focus:ring-2 focus:ring-ring focus-offset-2">
+        Profile Preview
+      </HoverCard.Trigger>
+      <HoverCard.Content className="w-80">
+        <div className="grid gap-4">
+          <div className="relative w-16 h-16 overflow-hidden rounded-full">
+            <img
+              src="[https://via.placeholder.com/64](https://via.placeholder.com/64)"
+              alt="User Avatar"
+              className="object-cover"
+            />
+          </div>
+          <div>
+            <h4 className="font-semibold">John Doe</h4>
+            <p className="text-sm text-muted-foreground">Software Engineer</p>
+            <div className="mt-2 flex items-center space-x-2">
+              <svg
+                xmlns="[http://www.w3.org/2000/svg](http://www.w3.org/2000/svg)"
+                viewBox="0 0 20 20"
+                fill="currentColor"
+                className="h-4 w-4 text-muted-foreground"
+              >
+                <path fillRule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clipRule="evenodd" />
+              </svg>
+              <span className="text-sm text-muted-foreground">johndoe@example.com</span>
+            </div>
+          </div>
+        </div>
+      </HoverCard.Content>
+    </HoverCard>
+  );
+}
+```
+
+### HoverCard with Alignment
+
+You can control the alignment of the `HoverCard.Content` relative to the `HoverCard.Trigger` using the `align` prop.
+
+```tsx
+import { HoverCard } from "@rhinolabs/ui";
+
+export function AlignedHoverCardDemo() {
+  return (
+    <div className="flex space-x-4">
+      <HoverCard>
+        <HoverCard.Trigger className="rounded-md bg-muted px-4 py-2 text-sm font-medium hover:bg-accent hover:text-accent-foreground focus:outline-none focus:ring-2 focus:ring-ring focus-offset-2">
+          Align Left
+        </HoverCard.Trigger>
+        <HoverCard.Content align="start">
+          <p className="text-sm text-muted-foreground">Aligned to the left.</p>
+        </HoverCard.Content>
+      </HoverCard>
+      <HoverCard>
+        <HoverCard.Trigger className="rounded-md bg-muted px-4 py-2 text-sm font-medium hover:bg-accent hover:text-accent-foreground focus:outline-none focus:ring-2 focus:ring-ring focus-offset-2">
+          Align Right
+        </HoverCard.Trigger>
+        <HoverCard.Content align="end">
+          <p className="text-sm text-muted-foreground">Aligned to the right.</p>
+        </HoverCard.Content>
+      </HoverCard>
+    </div>
+  );
+}
+```
+
+### HoverCard with Offset
+
+The `sideOffset` prop allows you to adjust the distance between the trigger and the content.
+
+```tsx
+import { HoverCard } from "@rhinolabs/ui";
+
+export function OffsetHoverCardDemo() {
+  return (
+    <div className="flex space-x-4">
+      <HoverCard>
+        <HoverCard.Trigger className="rounded-md bg-muted px-4 py-2 text-sm font-medium hover:bg-accent hover:text-accent-foreground focus:outline-none focus:ring-2 focus:ring-ring focus-offset-2">
+          Offset: 10px
+        </HoverCard.Trigger>
+        <HoverCard.Content sideOffset={10}>
+          <p className="text-sm text-muted-foreground">Offset by 10 pixels.</p>
+        </HoverCard.Content>
+      </HoverCard>
+      <HoverCard>
+        <HoverCard.Trigger className="rounded-md bg-muted px-4 py-2 text-sm font-medium hover:bg-accent hover:text-accent-foreground focus:outline-none focus:ring-2 focus:ring-ring focus-offset-2">
+          Offset: 20px
+        </HoverCard.Trigger>
+        <HoverCard.Content sideOffset={20}>
+          <p className="text-sm text-muted-foreground">Offset by 20 pixels.</p>
+        </HoverCard.Content>
+      </HoverCard>
+    </div>
+  );
+}
+```
+
+## Props
+
+### HoverCard Props
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `children` | `React.ReactNode` | `-` | The content to be rendered within the HoverCard component. |
+| `...props` | `React.HTMLAttributes<HTMLDivElement>` | `-` | All other standard HTML attributes for the root element. |
+
+
+### HoverCard.Trigger Props
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `children` | `React.ReactNode` | `-` | The content to be rendered within the trigger element. |
+| `className` | `string` | `-` | Additional CSS classes to apply to the trigger element. |
+| `...props` | `React.HTMLAttributes<HTMLDivElement>` | `-` | All other standard HTML attributes for the trigger element. |
+
+### HoverCard.Content Props
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `children` | `React.ReactNode` | `-` | The content to be displayed within the hover card. |
+| `className` | `string` | `-` | Additional CSS classes to apply to the content element. |
+| `align` | `"start" \| "center" \| "end"` | `"center"` | Additional CSS classes to apply to the content element. |
+| `sideOffset` | `number` | `4` | Additional CSS classes to apply to the content element. |
+| `...props` | `React.HTMLAttributes<HTMLDivElement>` | `-` | All other standard HTML attributes for the content element. |
+
+## Design Considerations
+
+- Use `HoverCard` for non-essential information that enhances the user experience without being critical to the main task.
+- Keep the content within the `HoverCard` concise and easy to digest.
+- Ensure the trigger element provides a visual cue that additional information is available on hover.
+- Consider the placement and alignment of the `HoverCard` to avoid obscuring important content.
+- Be mindful of accessibility for users who may not use a mouse (see Accessibility section).
+
+## Accessibility
+
+- The `HoverCard` relies on hover interaction, which may not be accessible to all users, particularly those using touch devices or keyboard navigation.
+- Consider providing alternative ways to access the information displayed in the `HoverCard`, such as displaying it inline or providing a focusable element that reveals the content on focus.
+- Ensure sufficient contrast between the trigger element and its background to indicate interactivity.
