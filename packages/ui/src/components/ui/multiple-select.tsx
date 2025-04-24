@@ -80,8 +80,8 @@ const MultipleSelect: React.FC<MultipleSelectProps> = ({
 
 			setDisplayValue(
 				remainingCount > 0
-					? `${visibleLabels.join(", ").toUpperCase()} +${remainingCount}`
-					: visibleLabels.join(", ").toUpperCase(),
+					? `${visibleLabels.join(", ")} +${remainingCount}`
+					: visibleLabels.join(", "),
 			);
 		}
 	}, [value, maxDisplay, placeholder, getLabelForValue]);
@@ -132,7 +132,7 @@ const MultipleSelect: React.FC<MultipleSelectProps> = ({
 						role="combobox"
 						aria-expanded={open}
 						className={cn(
-							"flex items-center justify-between w-full border border-input rounded bg-transparent px-3 py-2 ring-offset-background placeholder:text-muted-foreground focus:outline-none focus:ring-0",
+							"flex items-center justify-between w-full border border-input rounded bg-transparent px-3 py-2 ring-offset-background placeholder:text-muted-foreground focus:outline-none focus:ring-0 text-sm text-muted-foreground",
 							selectTriggerClassName,
 						)}
 						onClick={(e) => {
@@ -141,7 +141,7 @@ const MultipleSelect: React.FC<MultipleSelectProps> = ({
 						}}
 					>
 						<div className={cn(selectValueClassName)}>{displayValue}</div>
-						<ChevronDown className="ml-2 h-4 w-4 shrink-0" />
+						<ChevronDown className="ml-2 size-4 opacity-50" />
 					</button>
 				</Popover.Trigger>
 				<Popover.Content
@@ -194,7 +194,7 @@ const MultipleSelect: React.FC<MultipleSelectProps> = ({
 												className={cn(leftCheckboxClassName)}
 											/>
 										)}
-										<span className="ml-2">{option.label.toUpperCase()}</span>
+										<span className="ml-2">{option.label}</span>
 										{checkboxPosition === "right" && (
 											<Checkbox
 												checked={value.includes(option.value)}
