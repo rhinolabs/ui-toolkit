@@ -1,20 +1,27 @@
 "use client";
 
-import type * as React from "react";
+import * as React from "react";
 import * as SelectPrimitive from "@radix-ui/react-select";
-import {
-	CheckIcon,
-	ChevronDownIcon,
-	ChevronUpIcon,
-	ChevronsUpDown,
-} from "lucide-react";
+import { CheckIcon, ChevronDownIcon, ChevronUpIcon } from "lucide-react";
 
 import { cn } from "@/lib/utils";
+interface SelectContextValue {
+	showCheckIcon: boolean;
+}
+const SelectContext = React.createContext<SelectContextValue>({
+	showCheckIcon: true,
+});
+interface SelectProps
+	extends React.ComponentProps<typeof SelectPrimitive.Root> {
+	showCheckIcon?: boolean;
+}
 
-function Select({
-	...props
-}: React.ComponentProps<typeof SelectPrimitive.Root>) {
-	return <SelectPrimitive.Root data-slot="select" {...props} />;
+function Select({ showCheckIcon = true, ...props }: SelectProps) {
+	return (
+		<SelectContext.Provider value={{ showCheckIcon }}>
+			<SelectPrimitive.Root data-slot="select" {...props} />
+		</SelectContext.Provider>
+	);
 }
 
 function SelectGroup({
@@ -38,14 +45,14 @@ function SelectTrigger({
 		<SelectPrimitive.Trigger
 			data-slot="select-trigger"
 			className={cn(
-				"border-input data-[placeholder]:text-muted-foreground aria-invalid:border-destructive ring-ring/10 dark:ring-ring/20 dark:outline-ring/40 outline-ring/50 [&_svg:not([class*='text-'])]:text-muted-foreground flex h-9 w-full items-center justify-between rounded-md border bg-transparent px-3 py-2 text-sm shadow-xs transition-[color,box-shadow] focus-visible:ring-4 focus-visible:outline-1 disabled:cursor-not-allowed disabled:opacity-50 aria-invalid:focus-visible:ring-0 *:data-[slot=select-value]:flex *:data-[slot=select-value]:items-center *:data-[slot=select-value]:gap-2 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4 [&>span]:line-clamp-1",
+				"border-input data-[placeholder]:text-muted-foreground aria-invalid:border-destructive ring-ring/10 dark:ring-ring/20 dark:outline-ring/40 outline-ring/50 disabled:cursor-not-allowed disabled:opacity-50 focus-visible:ring-4 focus-visible:outline-1 [&_svg:not([class*='text-'])]:text-muted-foreground flex h-9 w-full items-center justify-between rounded-md border bg-transparent px-3 py-2 text-sm shadow-xs transition-[color,box-shadow] *:data-[slot=select-value]:flex *:data-[slot=select-value]:items-center *:data-[slot=select-value]:gap-2 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4 [&>span]:line-clamp-1",
 				className,
 			)}
 			{...props}
 		>
 			{children}
 			<SelectPrimitive.Icon asChild>
-				<ChevronsUpDown className="size-4 opacity-50" />
+				<ChevronDownIcon className="size-4 opacity-50" />
 			</SelectPrimitive.Icon>
 		</SelectPrimitive.Trigger>
 	);
@@ -104,6 +111,7 @@ function SelectItem({
 	children,
 	...props
 }: React.ComponentProps<typeof SelectPrimitive.Item>) {
+	const { showCheckIcon } = React.useContext(SelectContext);
 	return (
 		<SelectPrimitive.Item
 			data-slot="select-item"
@@ -113,11 +121,13 @@ function SelectItem({
 			)}
 			{...props}
 		>
-			<span className="absolute right-2 flex size-3.5 items-center justify-center">
-				<SelectPrimitive.ItemIndicator>
-					<CheckIcon className="size-4" />
-				</SelectPrimitive.ItemIndicator>
-			</span>
+			{showCheckIcon && (
+				<span className="absolute right-2 flex size-3.5 items-center justify-center">
+					<SelectPrimitive.ItemIndicator>
+						<CheckIcon className="size-4" />
+					</SelectPrimitive.ItemIndicator>
+				</span>
+			)}
 			<SelectPrimitive.ItemText>{children}</SelectPrimitive.ItemText>
 		</SelectPrimitive.Item>
 	);
