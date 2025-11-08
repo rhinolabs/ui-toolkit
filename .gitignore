@@ -4,21 +4,19 @@
 node_modules
 .pnp
 .pnp.js
+bun.lock
 
 # Local env files
 .env
-.env.local
-.env.development.local
-.env.test.local
-.env.production.local
+.env.*
 
 # Testing
 coverage
 
 # Build Outputs
 out/
-build
-dist
+build/
+dist/
 
 # Debug
 npm-debug.log*

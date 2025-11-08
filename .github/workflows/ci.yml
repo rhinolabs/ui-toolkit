@@ -12,13 +12,20 @@ jobs:
       - name: 🛠 Checkout code
         uses: actions/checkout@v3
 
-      - uses: oven-sh/setup-bun@v2
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 10
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+          cache: 'pnpm'
 
       - name: 📦 Install dependencies
-        run: bun install
+        run: pnpm install
 
       - name: ✏️ Lint code
-        run: bun run lint
+        run: pnpm run lint
 
       - name: 🛠️ Build project
-        run: bun run build
+        run: pnpm run build

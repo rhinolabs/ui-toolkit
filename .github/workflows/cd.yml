@@ -10,36 +10,43 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-          
-      - uses: oven-sh/setup-bun@v2
-          
+
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 10
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+          cache: 'pnpm'
+
       - name: Get version from release
         id: get_version
         run: echo "VERSION=$(echo ${{ github.event.release.tag_name }} | sed 's/ui@//')" >> $GITHUB_OUTPUT
-          
+
       - name: Update package version
-        run: bun run scripts/version.ts ui ${{ steps.get_version.outputs.VERSION }}
-          
+        run: pnpm tsx scripts/version.ts ui ${{ steps.get_version.outputs.VERSION }}
+
       - name: Install dependencies
-        run: bun install
-        
+        run: pnpm install
+
       - name: Build UI package
         run: |
-          bun run --filter @rhinolabs/react-hooks build
-          bun run --filter @rhinolabs/ui build
+          pnpm --filter @rhinolabs/react-hooks run build
+          pnpm --filter @rhinolabs/ui run build
 
       - name: Fix linting issues
-        run: bun run --filter @rhinolabs/ui lint:fix
-        
+        run: pnpm --filter @rhinolabs/ui run lint:fix
+
       - name: Publish UI package
-        run: cd packages/ui && bun publish --access public --no-git-checks
+        run: cd packages/ui && npm publish --access public
         env:
-          NPM_CONFIG_TOKEN: ${{ secrets.NPM_TOKEN }}
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
       - uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: "Bump @rhinolabs/ui version to ${{ steps.get_version.outputs.VERSION }}"
-          file_pattern: 'packages/ui/package.json bun.lock'
+          file_pattern: 'packages/ui/package.json pnpm-lock.yaml'
           branch: main
           push_options: '--force'
 
@@ -48,34 +55,41 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-          
-      - uses: oven-sh/setup-bun@v2
-          
+
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 10
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+          cache: 'pnpm'
+
       - name: Get version from release
         id: get_version
         run: echo "VERSION=$(echo ${{ github.event.release.tag_name }} | sed 's/hooks@//')" >> $GITHUB_OUTPUT
-          
+
       - name: Update package version
-        run: bun run scripts/version.ts hooks ${{ steps.get_version.outputs.VERSION }}
-          
+        run: pnpm tsx scripts/version.ts hooks ${{ steps.get_version.outputs.VERSION }}
+
       - name: Install dependencies
-        run: bun install
-        
+        run: pnpm install
+
       - name: Build Hooks package
-        run: bun run --filter @rhinolabs/react-hooks build
+        run: pnpm --filter @rhinolabs/react-hooks run build
 
       - name: Fix linting issues
-        run: bun run --filter @rhinolabs/react-hooks lint:fix
-        
+        run: pnpm --filter @rhinolabs/react-hooks run lint:fix
+
       - name: Publish Hooks package
-        run: cd packages/hooks && bun publish --access public --no-git-checks
+        run: cd packages/hooks && npm publish --access public
         env:
-          NPM_CONFIG_TOKEN: ${{ secrets.NPM_TOKEN }}
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
       - uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: "Bump @rhinolabs/react-hooks version to ${{ steps.get_version.outputs.VERSION }}"
-          file_pattern: 'packages/hooks/package.json bun.lock'
+          file_pattern: 'packages/hooks/package.json pnpm-lock.yaml'
           branch: main
           push_options: '--force'
 
@@ -84,21 +98,28 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-          
-      - uses: oven-sh/setup-bun@v2
-          
+
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 10
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+          cache: 'pnpm'
+
       - name: Get version from release
         id: get_version
         run: echo "VERSION=$(echo ${{ github.event.release.tag_name }} | sed 's/docs@//')" >> $GITHUB_OUTPUT
-          
+
       - name: Install dependencies
-        run: bun install
-      
+        run: pnpm install
+
       - name: Update package version
-        run: bun run scripts/version.ts docs ${{ steps.get_version.outputs.VERSION }}
+        run: pnpm tsx scripts/version.ts docs ${{ steps.get_version.outputs.VERSION }}
 
       - name: Fix linting issues
-        run: bun run --filter @rhinolabs/docs lint:fix
+        run: pnpm --filter @rhinolabs/ui-toolkit-docs run lint:fix
 
       - name: Cloudflare deployment
         run: |
@@ -107,6 +128,6 @@ jobs:
       - uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: "Bump docs version to ${{ steps.get_version.outputs.VERSION }}"
-          file_pattern: 'packages/docs/package.json bun.lock'
+          file_pattern: 'packages/docs/package.json pnpm-lock.yaml'
           branch: main
           push_options: '--force'

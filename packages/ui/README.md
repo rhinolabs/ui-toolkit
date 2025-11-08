@@ -7,17 +7,14 @@ Modern and accessible React component library.
 > **Note**: Requires React 18 or later
 
 ```bash
-# Using bun
-bun add @rhinolabs/ui
+# Using pnpm (recommended)
+pnpm add @rhinolabs/ui
 
 # Using npm
 npm install @rhinolabs/ui
 
 # Using yarn
 yarn add @rhinolabs/ui
-
-# Using pnpm
-pnpm add @rhinolabs/ui
 ```
 
 ## Components
@@ -98,12 +95,12 @@ git clone https://github.com/rhinolabs/ui-toolkit.git
 
 2. Install dependencies:
 ```bash
-bun install
+pnpm install
 ```
 
 3. Build the package:
 ```bash
-bun run build
+pnpm run build
 ```
 
 ## Contributing
