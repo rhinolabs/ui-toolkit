@@ -1,7 +1,7 @@
 "use client";
 
 import { Button } from "@rhinolabs/ui";
-import { BookOpen, Layers, Anchor, Github, ChevronRight } from "lucide-react";
+import { BookOpen, Github, ChevronRight } from "lucide-react";
 
 type QuickLinkProps = {
 	href: string;
@@ -50,7 +50,7 @@ export function QuickLinks() {
 	return (
 		<div className="grid grid-cols-1 md:grid-cols-2 gap-4 my-8">
 			<QuickLink
-				href="/docs/get-started"
+				href="/ui-toolkit/docs/get-started"
 				icon={<BookOpen size={20} />}
 				title="Documentation"
 				description="Read the full documentation and API references"
