@@ -121,6 +121,12 @@ jobs:
       - name: Fix linting issues
         run: pnpm --filter @rhinolabs/ui-toolkit-docs run lint:fix
 
+      - name: Build dependency packages
+        run: |
+          pnpm --filter @rhinolabs/react-hooks run build
+          pnpm --filter @rhinolabs/ui run build
+          pnpm --filter @rhinolabs/ui-toolkit-docs run build
+
       - name: Cloudflare deployment
         run: |
           curl -X POST "https://api.cloudflare.com/client/v4/pages/webhooks/deploy_hooks/be49ff0e-b7cf-4fe1-a186-690b1f554e0f"
