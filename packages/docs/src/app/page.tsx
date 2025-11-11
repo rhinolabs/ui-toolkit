@@ -45,7 +45,7 @@ export default function IndexPage() {
 						writing boilerplate code.
 					</p>
 					<div className="mt-4 sm:mt-8 flex sm:flex-row flex-col">
-						<a href="/ui-toolkit/docs/get-started" className="sm:mr-4 my-4 sm:my-0">
+						<a href="/docs/get-started" className="sm:mr-4 my-4 sm:my-0">
 							<Button className="cursor-pointer w-full" size="lg">
 								Get Started
 							</Button>

@@ -10,7 +10,6 @@ const withNextra = nextra({
 
 export default withNextra({
 	reactStrictMode: true,
-	basePath: "/ui-toolkit",
 	images: {
 		unoptimized: true,
 	},

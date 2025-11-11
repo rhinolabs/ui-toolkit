@@ -7,15 +7,18 @@
 		respond "healthy" 200
 	}
 
-	# Strip /ui-toolkit prefix and serve from root
-	handle_path /ui-toolkit/* {
-		try_files {path} {path}.html {path}/index.html /index.html
-		file_server
-	}
+	# Serve static files from root
+	handle {
+		# Rewrite trailing slash: /path/ -> /path (internal, no redirect)
+		@trailingSlash path_regexp trailing ^(.+)/$
+		rewrite @trailingSlash {http.regexp.trailing.1}
 
-	# Serve /ui-toolkit without trailing slash
-	handle /ui-toolkit {
-		try_files /index.html
+		# Try in order:
+		# 1. Exact file match
+		# 2. Add .html extension
+		# 3. Look for index.html in directory
+		# 4. Fallback to root index.html
+		try_files {path} {path}.html {path}/index.html /index.html
 		file_server
 	}
 

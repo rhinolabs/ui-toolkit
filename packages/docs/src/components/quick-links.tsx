@@ -50,7 +50,7 @@ export function QuickLinks() {
 	return (
 		<div className="grid grid-cols-1 md:grid-cols-2 gap-4 my-8">
 			<QuickLink
-				href="/ui-toolkit/docs/get-started"
+				href="/docs/get-started"
 				icon={<BookOpen size={20} />}
 				title="Documentation"
 				description="Read the full documentation and API references"
