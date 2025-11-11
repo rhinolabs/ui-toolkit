@@ -10,8 +10,4 @@ const withNextra = nextra({
 
 export default withNextra({
 	reactStrictMode: true,
-	images: {
-		unoptimized: true,
-	},
-	output: "export",
 });

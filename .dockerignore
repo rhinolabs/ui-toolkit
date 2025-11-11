@@ -6,3 +6,12 @@ node_modules
 .DS_Store
 .env*.local
 bun.lock
+dist
+out
+.turbo
+.cache
+coverage
+.vscode
+.idea
+*.log
+.pnpm-debug.log
