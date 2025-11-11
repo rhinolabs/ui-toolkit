@@ -7,6 +7,10 @@
 		respond "healthy" 200
 	}
 
+	handle /_pagefind/* {
+		file_server
+	}
+
 	# Serve static files from root
 	handle {
 		# Rewrite trailing slash: /path/ -> /path (internal, no redirect)
