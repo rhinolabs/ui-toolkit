@@ -1,11 +1,9 @@
-FROM alpine:latest
+FROM node:alpine
 
-RUN apk add --no-cache caddy
+RUN npm install -g http-server
 
-COPY Caddyfile /etc/caddy/Caddyfile
-
-COPY packages/docs/out/ /usr/share/caddy
+COPY packages/docs/out/ /usr/share/www
 
 EXPOSE 3000
 
-CMD ["caddy", "run", "--config", "/etc/caddy/Caddyfile", "--adapter", "caddyfile"]
+CMD ["http-server", "/usr/share/www", "-p", "3000", "-g", "--cors", "-c-1", "--ext", "html"]
