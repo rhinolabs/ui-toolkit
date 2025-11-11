@@ -1,11 +1,7 @@
-FROM alpine:latest
+FROM caddy:2-alpine
 
-RUN apk add --no-cache nginx
+COPY Caddyfile /etc/caddy/Caddyfile
 
-COPY nginx.conf /etc/nginx/http.d/default.conf
-
-COPY packages/docs/out/ /usr/share/nginx/html
+COPY packages/docs/out/ /usr/share/caddy
 
 EXPOSE 3000
-
-CMD ["nginx", "-g", "daemon off;"]

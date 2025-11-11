@@ -1,0 +1,34 @@
+:3000 {
+	root * /usr/share/caddy
+	encode gzip
+
+	# Health check
+	handle /health {
+		respond "healthy" 200
+	}
+
+	# Strip /ui-toolkit prefix and serve from root
+	handle_path /ui-toolkit/* {
+		try_files {path} {path}.html {path}/index.html /index.html
+		file_server
+	}
+
+	# Serve /ui-toolkit without trailing slash
+	handle /ui-toolkit {
+		try_files /index.html
+		file_server
+	}
+
+	# Cache static assets
+	@static {
+		path *.css *.js *.jpg *.jpeg *.png *.gif *.ico *.svg *.woff *.woff2 *.ttf *.eot *.webp
+	}
+	header @static Cache-Control "public, max-age=31536000, immutable"
+
+	# Security headers
+	header {
+		X-Frame-Options "SAMEORIGIN"
+		X-Content-Type-Options "nosniff"
+		X-XSS-Protection "1; mode=block"
+	}
+}
