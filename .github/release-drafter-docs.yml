@@ -3,4 +3,4 @@ name-template: docs@$RESOLVED_VERSION
 tag-template: docs@$RESOLVED_VERSION
 tag-prefix: docs@
 include-paths:
-  - "packages/docs/"
+  - "apps/docs/"
