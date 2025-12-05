@@ -325,40 +325,6 @@ a {
   font-size: 0.875rem;
 }
 
-/* Footer */
-.footer {
-  border-top: 1px solid var(--sl-color-hairline);
-  padding: 2rem;
-  margin-top: 4rem;
-}
-
-.footer-content {
-  max-width: 1200px;
-  margin: 0 auto;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: center;
-  gap: 1rem;
-  color: var(--sl-color-gray-3);
-  font-size: 0.875rem;
-}
-
-.footer-left {
-  display: flex;
-  align-items: center;
-  gap: 0.25rem;
-}
-
-.footer-right a {
-  color: var(--sl-color-gray-3);
-  transition: color 0.2s;
-}
-
-.footer-right a:hover {
-  color: var(--sl-color-accent);
-}
-
 /* Responsive */
 @media (max-width: 640px) {
   .nav {

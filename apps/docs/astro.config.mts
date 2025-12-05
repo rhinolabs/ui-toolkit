@@ -12,6 +12,7 @@ export default defineConfig({
       favicon: '/favicon.ico',
       components: {
         ThemeSelect: './src/components/theme-select.astro',
+        Footer: './src/components/footer.astro',
       },
       defaultLocale: 'root',
       locales: {

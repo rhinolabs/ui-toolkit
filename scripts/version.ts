@@ -10,8 +10,9 @@ if (!packageName || !version) {
   process.exit(1);
 }
 
-// Determine package.json path
-const packagePath = `packages/${packageName}/package.json`;
+// Determine package.json path (docs is in apps/, others in packages/)
+const basePath = packageName === 'docs' ? 'apps' : 'packages';
+const packagePath = `${basePath}/${packageName}/package.json`;
 
 const main = async () => {
   try {
