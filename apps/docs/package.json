@@ -16,8 +16,12 @@
   },
   "license": "MIT",
   "dependencies": {
+    "@astrojs/cloudflare": "^12.6.12",
     "@astrojs/starlight": "^0.31.1",
     "astro": "^5.1.1",
     "sharp": "^0.33.5"
+  },
+  "devDependencies": {
+    "wrangler": "^3.99.0"
   }
 }
