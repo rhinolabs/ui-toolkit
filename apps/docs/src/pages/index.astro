@@ -1,0 +1,213 @@
+---
+import '../styles/custom.css';
+import '../styles/home.css';
+---
+
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#10b981" />
+    <title>Rhinolabs UI Toolkit</title>
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  </head>
+  <body>
+    <header>
+      <nav class="nav">
+        <a href="/" class="nav-brand">
+          <img src="/logo.png" alt="Rhinolabs logo" />
+          <span>UI Toolkit</span>
+        </a>
+        <div class="nav-links">
+          <a href="/getting-started/introduction">Documentation</a>
+          <a href="https://github.com/rhinolabs/ui-toolkit" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+              <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
+            </svg>
+          </a>
+        </div>
+      </nav>
+    </header>
+
+    <main class="main">
+      <!-- Hero Section -->
+      <section class="hero">
+        <a href="https://github.com/rhinolabs/ui-toolkit" class="github-badge" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
+          </svg>
+          <span>Contribute on GitHub</span>
+        </a>
+
+        <h1>Rhinolabs UI Toolkit: Modern React Components & Hooks</h1>
+
+        <p>Eliminate repetition. Build powerful React applications with our open-source toolkit. Focus on creating unique experiences instead of writing boilerplate code.</p>
+
+        <div class="hero-actions">
+          <a href="/getting-started/introduction" class="btn-primary">Get Started</a>
+          <button class="btn-code" onclick="copyInstall()">
+            <span class="terminal-prompt">&gt;_</span>
+            <span>pnpm add @rhinolabs/ui @rhinolabs/react-hooks</span>
+          </button>
+        </div>
+      </section>
+
+      <!-- Feature Cards -->
+      <section class="features">
+        <div class="feature-card">
+          <div class="feature-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="3" y="3" width="7" height="7"/>
+              <rect x="14" y="3" width="7" height="7"/>
+              <rect x="14" y="14" width="7" height="7"/>
+              <rect x="3" y="14" width="7" height="7"/>
+            </svg>
+          </div>
+          <h2>UI Components</h2>
+          <p>A comprehensive set of 30+ UI components built with React and Tailwind CSS. From buttons to complex data tables, our UI library has everything you need to build modern interfaces.</p>
+          <ul>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="20 6 9 17 4 12"/>
+              </svg>
+              Fully customizable with Tailwind CSS
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="20 6 9 17 4 12"/>
+              </svg>
+              Accessible by default (WAI-ARIA compliant)
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="20 6 9 17 4 12"/>
+              </svg>
+              Responsive and mobile-friendly
+            </li>
+          </ul>
+          <a href="/components/button" class="feature-link">
+            Explore UI Components
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <line x1="5" y1="12" x2="19" y2="12"/>
+              <polyline points="12 5 19 12 12 19"/>
+            </svg>
+          </a>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="16 18 22 12 16 6"/>
+              <polyline points="8 6 2 12 8 18"/>
+            </svg>
+          </div>
+          <h2>React Hooks</h2>
+          <p>A collection of 30+ production-ready React hooks that solve common web development challenges. These hooks help you manage state, handle side effects, and implement complex functionality with ease.</p>
+          <ul>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="20 6 9 17 4 12"/>
+              </svg>
+              TypeScript ready with comprehensive types
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="20 6 9 17 4 12"/>
+              </svg>
+              Zero dependencies and tree-shakeable
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="20 6 9 17 4 12"/>
+              </svg>
+              Performance optimized for production
+            </li>
+          </ul>
+          <a href="/hooks/use-toggle" class="feature-link">
+            Explore React Hooks
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <line x1="5" y1="12" x2="19" y2="12"/>
+              <polyline points="12 5 19 12 12 19"/>
+            </svg>
+          </a>
+        </div>
+      </section>
+
+      <!-- Explore Section -->
+      <section class="explore">
+        <h2>Explore the Toolkit</h2>
+        <p>Dive deeper into our documentation and code.</p>
+
+        <div class="explore-cards">
+          <a href="/getting-started/introduction" class="explore-card">
+            <div class="explore-card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/>
+                <polyline points="14 2 14 8 20 8"/>
+                <line x1="16" y1="13" x2="8" y2="13"/>
+                <line x1="16" y1="17" x2="8" y2="17"/>
+                <polyline points="10 9 9 9 8 9"/>
+              </svg>
+            </div>
+            <div>
+              <h3>
+                Documentation
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <line x1="7" y1="17" x2="17" y2="7"/>
+                  <polyline points="7 7 17 7 17 17"/>
+                </svg>
+              </h3>
+              <p>Read the full documentation and API references</p>
+            </div>
+          </a>
+
+          <a href="https://github.com/rhinolabs/ui-toolkit" class="explore-card" target="_blank" rel="noopener">
+            <div class="explore-card-icon">
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
+              </svg>
+            </div>
+            <div>
+              <h3>
+                GitHub Repository
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <line x1="7" y1="17" x2="17" y2="7"/>
+                  <polyline points="7 7 17 7 17 17"/>
+                </svg>
+              </h3>
+              <p>Star us on GitHub and contribute to the project</p>
+            </div>
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="footer-content">
+        <div class="footer-left">
+          <span>Made with</span>
+          <span>❤️</span>
+          <span>by Rhinolabs team</span>
+        </div>
+        <div class="footer-right">
+          <span>© 2025 Rhinolabs Agency. </span>
+          <a href="https://github.com/rhinolabs/ui-toolkit/blob/main/LICENSE" target="_blank" rel="noopener">Licensed under MIT</a>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      function copyInstall() {
+        navigator.clipboard.writeText('pnpm add @rhinolabs/ui @rhinolabs/react-hooks');
+        const btn = document.querySelector('.btn-code');
+        const originalText = btn.querySelector('span').textContent;
+        btn.querySelector('span').textContent = 'Copied!';
+        setTimeout(() => {
+          btn.querySelector('span').textContent = originalText;
+        }, 2000);
+      }
+    </script>
+  </body>
+</html>
