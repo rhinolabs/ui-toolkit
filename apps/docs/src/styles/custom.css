@@ -1,0 +1,209 @@
+/* Rhinolabs UI Toolkit - Custom Starlight Theme */
+/* Matching Nextra dark theme */
+
+:root,
+:root[data-theme='dark'] {
+  /* Primary accent color - Emerald green */
+  --sl-color-accent-low: hsl(157 93% 15%);
+  --sl-color-accent: hsl(157 93% 48%);
+  --sl-color-accent-high: hsl(157 93% 70%);
+
+  /* Background colors - Match Nextra's #0a0a0a */
+  --sl-color-bg: #0a0a0a;
+  --sl-color-bg-nav: #0a0a0a;
+  --sl-color-bg-sidebar: #0a0a0a;
+  --sl-color-bg-inline-code: #1a1a1a;
+
+  /* Hairline/border color */
+  --sl-color-hairline: #1f1f1f;
+  --sl-color-hairline-light: #1f1f1f;
+  --sl-color-hairline-shade: #141414;
+
+  /* Text colors */
+  --sl-color-white: #ffffff;
+  --sl-color-gray-1: #ededed;
+  --sl-color-gray-2: #cccccc;
+  --sl-color-gray-3: #a3a3a3;
+  --sl-color-gray-4: #737373;
+  --sl-color-gray-5: #333333;
+  --sl-color-gray-6: #1a1a1a;
+  --sl-color-black: #0a0a0a;
+}
+
+:root[data-theme='light'] {
+  --sl-color-accent-low: hsl(157 93% 90%);
+  --sl-color-accent: hsl(157 93% 35%);
+  --sl-color-accent-high: hsl(157 93% 20%);
+}
+
+/* Page background - Nextra black */
+html {
+  background-color: #0a0a0a;
+}
+
+body {
+  background-color: #0a0a0a;
+}
+
+/* Main content wrapper */
+.page {
+  background: #0a0a0a;
+}
+
+/* Hero section */
+.hero {
+  background: #0a0a0a !important;
+  border-bottom: 1px solid #1f1f1f;
+}
+
+/* Feature cards - Match Nextra style */
+.card {
+  background: #141414 !important;
+  border: 1px solid #1f1f1f !important;
+  border-radius: 8px;
+}
+
+.sl-link-card {
+  background: #141414 !important;
+  border: 1px solid #1f1f1f !important;
+}
+
+/* Card grid */
+.card-grid {
+  background: transparent;
+}
+
+.card-grid > * {
+  background: #141414 !important;
+  border: 1px solid #1f1f1f !important;
+}
+
+/* Sidebar */
+nav.sidebar,
+.sidebar {
+  background: #0a0a0a !important;
+  border-right: 1px solid #1f1f1f;
+}
+
+/* Header/Nav - No border like Nextra */
+header.header,
+.header {
+  background: #0a0a0a !important;
+  border-bottom: none !important;
+}
+
+/* Site title - White like Nextra */
+.site-title,
+.site-title span,
+a[href="/"] span {
+  color: #ffffff !important;
+}
+
+/* Remove text decoration from links */
+a:not(.action) {
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--sl-color-accent);
+}
+
+/* Sidebar active item */
+.sidebar-content a[aria-current='page'],
+[aria-current='page'] {
+  background: var(--sl-color-accent-low);
+  color: var(--sl-color-accent-high);
+}
+
+/* Code blocks */
+.expressive-code .frame,
+pre {
+  background: #141414 !important;
+  border: 1px solid #1f1f1f;
+}
+
+/* Primary button - Green */
+.action.primary {
+  background: var(--sl-color-accent) !important;
+  color: #0a0a0a !important;
+  border: none !important;
+}
+
+.action.primary:hover {
+  background: var(--sl-color-accent-high) !important;
+}
+
+/* Secondary button */
+.action:not(.primary) {
+  background: transparent;
+  border: 1px solid #333333 !important;
+  color: #ededed;
+}
+
+.action:not(.primary):hover {
+  border-color: var(--sl-color-accent) !important;
+  color: var(--sl-color-accent);
+}
+
+/* Search */
+site-search button,
+.search-input {
+  background: #141414 !important;
+  border: 1px solid #1f1f1f !important;
+}
+
+/* Content panels */
+.content-panel,
+.main-pane {
+  background: #0a0a0a !important;
+}
+
+/* Right sidebar / TOC */
+.right-sidebar,
+starlight-toc {
+  background: #0a0a0a !important;
+}
+
+/* Mobile menu */
+starlight-menu-button + nav,
+dialog {
+  background: #0a0a0a !important;
+}
+
+/* Footer */
+footer {
+  background: #0a0a0a !important;
+  border-top: 1px solid #1f1f1f;
+}
+
+/* Pagination */
+.pagination-links a {
+  background: #141414 !important;
+  border: 1px solid #1f1f1f !important;
+}
+
+/* Tables */
+table {
+  background: #0a0a0a;
+}
+
+th, td {
+  border-color: #1f1f1f;
+}
+
+/* Blockquotes */
+blockquote {
+  background: #141414;
+  border-left-color: var(--sl-color-accent);
+}
+
+/* Horizontal rules */
+hr {
+  border-color: #1f1f1f;
+}
+
+/* Selection */
+::selection {
+  background: var(--sl-color-accent-low);
+  color: var(--sl-color-white);
+}
