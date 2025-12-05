@@ -1,0 +1,99 @@
+---
+title: "useVideo"
+---
+
+
+A hook that provides complete control over an HTML video element. Perfect for implementing custom video players with playback controls, volume management, time tracking, and fullscreen support.
+
+## Parameters
+
+- `ref`: `RefObject<HTMLVideoElement>` - Reference to the video element to control
+
+## Returns
+
+### State
+- `isPaused`: `boolean` - Whether the video is currently paused
+- `isMuted`: `boolean` - Whether the video is currently muted
+- `currentVolume`: `number` - Current volume (0-100)
+- `currentTime`: `number` - Current playback position in seconds
+
+### Playback Controls
+- `play`: `() => void` - Start playback
+- `pause`: `() => void` - Pause playback
+- `togglePause`: `() => void` - Toggle play/pause state
+
+### Volume Controls
+- `increaseVolume`: `(increase?: number) => void` - Increase volume by amount (default: 5)
+- `decreaseVolume`: `(decrease?: number) => void` - Decrease volume by amount (default: 5)
+- `mute`: `() => void` - Mute the video
+- `unmute`: `() => void` - Unmute the video
+- `toggleMute`: `() => void` - Toggle mute state
+
+### Time Controls
+- `forward`: `(increase?: number) => void` - Skip forward by seconds (default: 5)
+- `back`: `(decrease?: number) => void` - Skip backward by seconds (default: 5)
+
+### Display Controls
+- `toggleFullscreen`: `() => void` - Toggle fullscreen mode
+
+## Usage
+
+```typescript
+import { useVideo } from '@rhinolabs/react-hooks';
+import { useRef } from 'react';
+
+function VideoPlayer() {
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const {
+    isPaused,
+    isMuted,
+    currentVolume,
+    currentTime,
+    togglePause,
+    toggleMute,
+    forward,
+    back,
+    toggleFullscreen
+  } = useVideo(videoRef);
+
+  return (
+    <div>
+      <video
+        ref={videoRef}
+        src="/path/to/video.mp4"
+      />
+      
+      <div>
+        <button onClick={togglePause}>
+          {isPaused ? 'Play' : 'Pause'}
+        </button>
+        
+        <button onClick={toggleMute}>
+          {isMuted ? 'Unmute' : 'Mute'}
+        </button>
+        
+        <button onClick={() => back()}>-5s</button>
+        <button onClick={() => forward()}>+5s</button>
+        
+        <button onClick={toggleFullscreen}>
+          Fullscreen
+        </button>
+        
+        <div>Volume: {currentVolume}%</div>
+        <div>Time: {currentTime}s</div>
+      </div>
+    </div>
+  );
+}
+```
+
+## Notes
+
+- Automatically syncs with video element state
+- Handles event listeners cleanup
+- Provides granular volume control
+- Supports time seeking
+- Includes fullscreen support
+- Maintains video state
+- Safe volume boundaries
+- Cleans up on unmount

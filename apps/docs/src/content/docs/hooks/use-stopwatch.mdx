@@ -1,0 +1,67 @@
+---
+title: "useStopwatch"
+---
+
+
+A hook that provides stopwatch functionality with pause, play, and reset controls. Perfect for implementing time tracking, activity duration, and elapsed time features.
+
+## Parameters
+
+This hook doesn't take any parameters.
+
+## Returns
+
+- `current`: `string` - Current time in "DD:HH:MM:SS" format
+- `isPaused`: `boolean` - Whether the stopwatch is paused
+- `isOver`: `boolean` - Whether the stopwatch has been stopped
+- `currentDays`: `number` - Current elapsed days
+- `currentHours`: `number` - Current elapsed hours
+- `currentMinutes`: `number` - Current elapsed minutes
+- `currentSeconds`: `number` - Current elapsed seconds
+- `elapsedSeconds`: `number` - Total elapsed seconds
+- `pause`: `() => void` - Function to pause the stopwatch
+- `play`: `() => void` - Function to start/resume the stopwatch
+- `reset`: `() => void` - Function to reset to zero
+- `togglePause`: `() => void` - Function to toggle pause state
+
+## Usage
+
+```typescript
+import { useStopwatch } from '@rhinolabs/react-hooks';
+
+function ActivityTimer() {
+  const { 
+    current, 
+    isPaused,
+    togglePause,
+    reset,
+    elapsedSeconds
+  } = useStopwatch();
+
+  return (
+    <div>
+      <h2>Time Elapsed: {current}</h2>
+      
+      <button onClick={togglePause}>
+        {isPaused ? 'Resume' : 'Pause'}
+      </button>
+      
+      <button onClick={reset}>
+        Reset
+      </button>
+
+      <p>Total seconds: {elapsedSeconds}</p>
+    </div>
+  );
+}
+```
+
+## Notes
+
+- Starts from 00:00:00:00
+- Updates every second
+- Provides formatted and parsed time values
+- Includes pause/play/reset controls
+- Tracks elapsed time in multiple formats
+- Auto-cleanup on unmount
+- Handles days overflow

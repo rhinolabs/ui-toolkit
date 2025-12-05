@@ -1,0 +1,180 @@
+---
+title: AlertDialog
+description: 'A modal dialog that interrupts the user with important or critical information, requiring a response.'
+---
+
+
+The `AlertDialog` component is a modal dialog that appears on top of the application content to present critical information or require a confirmation from the user. It typically includes a title, an optional description, and action buttons.
+
+## Usage
+
+To implement an `AlertDialog`, import the component and its sub-components. You'll need a state variable to control the visibility of the dialog.
+
+```tsx
+import { AlertDialog } from "@rhinolabs/ui";
+import { useState } from "react";
+
+export default function AlertDialogDemo() {
+  const [open, setOpen] = useState(false);
+
+  return (
+    <AlertDialog open={open} onOpenChange={setOpen}>
+      <AlertDialog.Trigger asChild>
+        <button className="rounded-md bg-destructive px-4 py-2 text-sm font-medium text-destructive-foreground hover:bg-destructive/90 focus:outline-none focus:ring-2 focus:ring-ring focus-offset-2">
+          Delete Account
+        </button>
+      </AlertDialog.Trigger>
+      <AlertDialog.Portal>
+        <AlertDialog.Overlay />
+        <AlertDialog.Content>
+          <AlertDialog.Header>
+            <AlertDialog.Title>Are you absolutely sure?</AlertDialog.Title>
+            <AlertDialog.Description>
+              This action cannot be undone. This will permanently delete your account
+              and remove your data from our servers.
+            </AlertDialog.Description>
+          </AlertDialog.Header>
+          <AlertDialog.Footer>
+            <AlertDialog.Cancel asChild>
+              <button className="rounded-md border border-input bg-background px-4 py-2 text-sm font-medium shadow-sm transition-colors hover:bg-accent hover:text-accent-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50">
+                Cancel
+              </button>
+            </AlertDialog.Cancel>
+            <AlertDialog.Action asChild>
+              <button className="inline-flex items-center justify-center rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-destructive text-destructive-foreground hover:bg-destructive/90">
+                Continue
+              </button>
+            </AlertDialog.Action>
+          </AlertDialog.Footer>
+        </AlertDialog.Content>
+      </AlertDialog.Portal>
+    </AlertDialog>
+  );
+}
+```
+
+## Examples
+
+### Basic AlertDialog
+
+This example demonstrates a simple alert dialog with a title, description, cancel, and confirm action.
+
+```tsx
+import { AlertDialog } from "@rhinolabs/ui";
+import { useState } from "react";
+
+export function SingleActionAlertDialogDemo() {
+  const [open, setOpen] = useState(false);
+
+  return (
+    <AlertDialog open={open} onOpenChange={setOpen}>
+      <AlertDialog.Trigger asChild>
+        <button className="rounded-md bg-muted px-4 py-2 text-sm font-medium hover:bg-accent hover:text-accent-foreground focus:outline-none focus:ring-2 focus:ring-ring focus-offset-2">
+          Show Alert
+        </button>
+      </AlertDialog.Trigger>
+      <AlertDialog.Portal>
+        <AlertDialog.Overlay />
+        <AlertDialog.Content>
+          <AlertDialog.Header>
+            <AlertDialog.Title>Information</AlertDialog.Title>
+            <AlertDialog.Description>This is an important message for you.</AlertDialog.Description>
+          </AlertDialog.Header>
+          <AlertDialog.Footer>
+            <AlertDialog.Action asChild>
+              <button className="inline-flex items-center justify-center rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90">
+                Okay
+              </button>
+            </AlertDialog.Action>
+          </AlertDialog.Footer>
+        </AlertDialog.Content>
+      </AlertDialog.Portal>
+    </AlertDialog>
+  );
+}
+```
+
+## Props
+
+### AlertDialog Props
+
+| Prop             | Type                                | Default | Description                                                               |
+| ---------------- | ----------------------------------- | ------- | ------------------------------------------------------------------------- |
+| `open`           | `boolean`                           | `false` | Controls the visibility state of the alert dialog.                        |
+| `onOpenChange`   | `(open: boolean) => void`           | -       | Callback function called when the open state changes.                     |
+| `children`       | `React.ReactNode`                   | -       | The content to be rendered within the `AlertDialog` component.            |
+| `...props`       | `React.HTMLAttributes<HTMLDivElement>` | -       | All other standard HTML attributes for the root element.                  |
+
+### AlertDialog.Trigger Props
+
+| Prop         | Type                                | Default | Description                                                               |
+| ------------ | ----------------------------------- | ------- | ------------------------------------------------------------------------- |
+| `asChild`    | `boolean`                           | `false` | Renders the trigger as a child of the `AlertDialog.Trigger` component.    |
+| `children`   | `React.ReactNode`                   | -       | The element that will trigger the dialog.                                 |
+| `...props`   | `React.HTMLAttributes<HTMLElement>`  | -       | All other standard HTML attributes for the trigger element.               |
+
+### AlertDialog.Portal Props
+
+| Prop        | Type                                | Default | Description                                                               |
+| ----------- | ----------------------------------- | ------- | ------------------------------------------------------------------------- |
+| `children`  | `React.ReactNode`                   | -       | The content to be rendered within the portal.                             |
+| `...props`  | `React.HTMLAttributes<HTMLDivElement>` | -       | All other standard HTML attributes for the portal container.              |
+
+### AlertDialog.Overlay Props
+
+| Prop        | Type                                | Default | Description                                                               |
+| ----------- | ----------------------------------- | ------- | ------------------------------------------------------------------------- |
+| `className` | `string`                            | -       | Additional CSS classes to apply to the overlay.                           |
+| `...props`  | `React.HTMLAttributes<HTMLDivElement>` | -       | All other standard HTML attributes for the overlay.                       |
+
+### AlertDialog.Content Props
+
+| Prop        | Type                                | Default | Description                                                               |
+| ----------- | ----------------------------------- | ------- | ------------------------------------------------------------------------- |
+| `className` | `string`                            | -       | Additional CSS classes to apply to the content container.                 |
+| `...props`  | `React.HTMLAttributes<HTMLDivElement>` | -       | All other standard HTML attributes for the content container.             |
+
+### AlertDialog.Header Props
+
+| Prop        | Type                                | Default | Description                                                               |
+| ----------- | ----------------------------------- | ------- | ------------------------------------------------------------------------- |
+| `className` | `string`                            | -       | Additional CSS classes to apply to the header container.                  |
+| `...props`  | `React.HTMLAttributes<HTMLDivElement>` | -       | All other standard HTML attributes for the header container.              |
+
+### AlertDialog.Footer Props
+
+| Prop        | Type                                | Default | Description                                                               |
+| ----------- | ----------------------------------- | ------- | ------------------------------------------------------------------------- |
+| `className` | `string`                            | -       | Additional CSS classes to apply to the footer container.                  |
+| `...props`  | `React.HTMLAttributes<HTMLDivElement>` | -       | All other standard HTML attributes for the footer container.              |
+
+### AlertDialog.Title Props
+
+| Prop        | Type                                    | Default | Description                                                               |
+| ----------- | --------------------------------------- | ------- | ------------------------------------------------------------------------- |
+| `className` | `string`                                | -       | Additional CSS classes to apply to the title element.                     |
+| `...props`  | `React.HTMLAttributes<HTMLHeadingElement>` | -       | All other standard HTML attributes for the title element.                 |
+
+### AlertDialog.Description Props
+
+| Prop        | Type                                    | Default | Description                                                               |
+| ----------- | --------------------------------------- | ------- | ------------------------------------------------------------------------- |
+| `className` | `string`                                | -       | Additional CSS classes to apply to the description element.               |
+| `...props`  | `React.HTMLAttributes<HTMLParagraphElement>` | -       | All other standard HTML attributes for the description element.           |
+
+
+## Design Considerations
+
+- Use `AlertDialog` for critical actions that users need to acknowledge or confirm.
+- Keep the title clear and concise, explaining the purpose of the dialog.
+- Provide a descriptive message to give users enough context to make a decision.
+- Clearly label action buttons to indicate their outcome.
+- Ensure the primary action is visually distinct.
+- Avoid using alert dialogs for non-critical information or as a primary means of navigation.
+
+## Accessibility
+
+- The `AlertDialog` component uses the appropriate ARIA roles (`role="alertdialog"`, `aria-modal="true"`) to identify it as an alert dialog.
+- Focus is managed automatically, typically being placed on the first interactive element within the dialog.
+- Users can typically close the dialog using the Escape key.
+- Ensure that the title and description are programmatically associated with the dialog using `aria-labelledby` and `aria-describedby`.

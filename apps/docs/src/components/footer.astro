@@ -1,0 +1,61 @@
+---
+// Custom footer component for Starlight docs
+---
+
+<footer class="docs-footer">
+  <div class="footer-content">
+    <div class="footer-left">
+      <span>Made with</span>
+      <span>❤️</span>
+      <span>by Rhinolabs team</span>
+    </div>
+    <div class="footer-right">
+      <span>© 2025 Rhinolabs Agency. </span>
+      <a href="https://github.com/rhinolabs/ui-toolkit/blob/main/LICENSE" target="_blank" rel="noopener">Licensed under MIT</a>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .docs-footer {
+    border-top: 1px solid var(--custom-border);
+    padding: 2rem;
+    margin-top: 2rem;
+    background: var(--sl-color-bg);
+  }
+
+  .footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    color: var(--sl-color-gray-3);
+    font-size: 0.875rem;
+  }
+
+  .footer-left {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+  }
+
+  .footer-right a {
+    color: var(--sl-color-gray-3);
+    transition: color 0.2s;
+    text-decoration: none;
+  }
+
+  .footer-right a:hover {
+    color: var(--sl-color-accent);
+  }
+
+  @media (max-width: 640px) {
+    .footer-content {
+      flex-direction: column;
+      text-align: center;
+    }
+  }
+</style>

@@ -1,0 +1,104 @@
+---
+title: Switch
+description: 'A toggle switch component for boolean inputs.'
+---
+
+
+A control that allows users to toggle between two states: on and off.
+
+## Usage
+
+```tsx
+import { Switch } from "@rhinolabs/ui"
+import { Label } from "@rhinolabs/ui"
+
+export default function SwitchDemo() {
+  return (
+    <div className="flex items-center space-x-2">
+      <Switch id="airplane-mode" />
+      <Label htmlFor="airplane-mode">Airplane Mode</Label>
+    </div>
+  )
+}
+```
+
+## Examples
+
+### Basic Switch
+
+A simple toggle switch with label.
+
+```tsx
+<div className="flex items-center space-x-2">
+  <Switch id="notifications" />
+  <Label htmlFor="notifications">Enable notifications</Label>
+</div>
+```
+
+### With Form
+
+Switch used in a form context.
+
+```tsx
+<form>
+  <div className="space-y-4">
+    <div className="flex items-center space-x-2">
+      <Switch id="emails" defaultChecked />
+      <Label htmlFor="emails">Email notifications</Label>
+    </div>
+    <div className="flex items-center space-x-2">
+      <Switch id="marketing" />
+      <Label htmlFor="marketing">Marketing emails</Label>
+    </div>
+    <div className="flex items-center space-x-2">
+      <Switch id="offers" disabled />
+      <Label htmlFor="offers" className="text-muted-foreground">
+        Special offers (disabled)
+      </Label>
+    </div>
+  </div>
+</form>
+```
+
+### With Description
+
+Switch with additional description text.
+
+```tsx
+<div className="grid gap-1.5">
+  <div className="flex items-center space-x-2">
+    <Switch id="theme" />
+    <Label htmlFor="theme">Dark Mode</Label>
+  </div>
+  <p className="text-sm text-muted-foreground pl-[36px]">
+    Turn on dark mode to reduce eye strain in low light conditions.
+  </p>
+</div>
+```
+
+## Props
+
+| Prop | Type | Description |
+|------|------|-------------|
+| `checked` | `boolean` | The controlled checked state |
+| `defaultChecked` | `boolean` | The default checked state |
+| `onCheckedChange` | `(checked: boolean) => void` | Change handler |
+| `disabled` | `boolean` | Whether the switch is disabled |
+
+The Switch component also accepts all HTML button attributes.
+
+## Design Considerations
+
+- Use clear labels
+- Provide visual feedback
+- Consider mobile touch targets
+- Show state changes clearly
+- Handle disabled states
+
+## Accessibility
+
+- Supports keyboard navigation
+- Maintains focus states
+- Provides ARIA labels
+- Announces state changes
+- Uses semantic markup

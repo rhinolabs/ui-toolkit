@@ -1,0 +1,350 @@
+/* Home page styles - uses Starlight CSS variables from custom.css */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+  background: var(--sl-color-bg);
+  color: var(--sl-color-gray-1);
+  line-height: 1.6;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* Navigation */
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.nav-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.nav-brand img {
+  height: 40px;
+  width: auto;
+}
+
+.nav-brand span {
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.nav-links a {
+  color: var(--sl-color-gray-3);
+  transition: color 0.2s;
+}
+
+.nav-links a:hover {
+  color: var(--sl-color-gray-1);
+}
+
+/* GitHub icon - white, no hover change */
+.nav-links a:has(svg),
+.nav-links a svg {
+  color: var(--sl-color-white);
+}
+
+.nav-links a:has(svg):hover,
+.nav-links a:has(svg):hover svg {
+  color: var(--sl-color-white);
+}
+
+/* Main Content */
+.main {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+/* Hero Section */
+.hero {
+  text-align: center;
+  padding: 4rem 0;
+}
+
+.github-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--sl-color-bg-card);
+  border: 1px solid var(--sl-color-hairline);
+  border-radius: 9999px;
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
+  margin-bottom: 2rem;
+  transition: border-color 0.2s;
+}
+
+.github-badge:hover {
+  border-color: var(--sl-color-accent);
+}
+
+.github-badge svg {
+  width: 16px;
+  height: 16px;
+}
+
+.hero h1 {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 1.5rem;
+  background: linear-gradient(to bottom right, #fff, #a3a3a3);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.hero p {
+  font-size: 1.125rem;
+  color: var(--sl-color-gray-3);
+  max-width: 600px;
+  margin: 0 auto 2rem;
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--sl-color-accent);
+  color: var(--sl-color-bg);
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  font-weight: 500;
+}
+
+.btn-primary:hover {
+  color: var(--sl-color-bg);
+}
+
+.btn-code {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: #ffffff;
+  color: var(--sl-color-bg);
+  border: none;
+  padding: 0.75rem 1.25rem;
+  border-radius: 8px;
+  font-family: 'SF Mono', 'Fira Code', monospace;
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.btn-code:hover {
+  opacity: 0.9;
+}
+
+.btn-code .terminal-prompt {
+  color: #666;
+  font-weight: 500;
+}
+
+/* Feature Cards */
+.features {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin: 4rem 0;
+}
+
+.feature-card {
+  background: var(--sl-color-bg-card);
+  border: 1px solid var(--sl-color-hairline);
+  border-radius: 12px;
+  padding: 1.5rem;
+}
+
+.feature-icon {
+  width: 48px;
+  height: 48px;
+  background: var(--sl-color-accent-low);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+.feature-icon svg {
+  width: 24px;
+  height: 24px;
+  color: var(--sl-color-accent);
+}
+
+.feature-card h2 {
+  font-size: 1.25rem;
+  margin-bottom: 0.75rem;
+}
+
+.feature-card p {
+  color: var(--sl-color-gray-3);
+  font-size: 0.95rem;
+  margin-bottom: 1rem;
+}
+
+.feature-card ul {
+  list-style: none;
+  margin-bottom: 1.5rem;
+}
+
+.feature-card li {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--sl-color-gray-3);
+  font-size: 0.875rem;
+  margin-bottom: 0.5rem;
+}
+
+.feature-card li svg {
+  width: 16px;
+  height: 16px;
+  color: var(--sl-color-accent);
+  flex-shrink: 0;
+}
+
+.feature-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--sl-color-accent);
+  font-weight: 500;
+  transition: gap 0.2s;
+}
+
+.feature-link:hover {
+  gap: 0.75rem;
+}
+
+.feature-link svg {
+  width: 16px;
+  height: 16px;
+}
+
+/* Explore Section */
+.explore {
+  text-align: center;
+  margin: 4rem 0;
+}
+
+.explore h2 {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.explore > p {
+  color: var(--sl-color-gray-3);
+  margin-bottom: 2rem;
+}
+
+.explore-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1rem;
+}
+
+.explore-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  background: var(--sl-color-bg-card);
+  border: 1px solid var(--sl-color-hairline);
+  border-radius: 12px;
+  padding: 1.5rem;
+  text-align: left;
+  transition: border-color 0.2s;
+}
+
+.explore-card:hover {
+  border-color: var(--sl-color-accent);
+}
+
+.explore-card-icon {
+  width: 40px;
+  height: 40px;
+  background: var(--sl-color-accent-low);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.explore-card-icon svg {
+  width: 20px;
+  height: 20px;
+  color: var(--sl-color-accent);
+}
+
+.explore-card h3 {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1rem;
+  margin-bottom: 0.25rem;
+}
+
+.explore-card h3 svg {
+  width: 14px;
+  height: 14px;
+  color: var(--sl-color-gray-3);
+}
+
+.explore-card p {
+  color: var(--sl-color-gray-3);
+  font-size: 0.875rem;
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  .nav {
+    padding: 1rem;
+  }
+
+  .main {
+    padding: 1rem;
+  }
+
+  .hero {
+    padding: 2rem 0;
+  }
+
+  .hero-actions {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .btn-code {
+    font-size: 0.75rem;
+  }
+}

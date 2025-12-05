@@ -1,0 +1,276 @@
+/* ========================================
+   DARK THEME (only)
+   ======================================== */
+:root {
+  /* Primary accent color - Emerald green */
+  --sl-color-accent-low: hsl(157 93% 15%);
+  --sl-color-accent: hsl(157 93% 48%);
+  --sl-color-accent-high: hsl(157 93% 70%);
+
+  /* Background colors */
+  --sl-color-bg: #0a0a0a;
+  --sl-color-bg-nav: #0a0a0a;
+  --sl-color-bg-sidebar: #0a0a0a;
+  --sl-color-bg-inline-code: #1a1a1a;
+
+  /* Custom vars for cards/elements */
+  --custom-bg-card: #141414;
+  --custom-border: #1f1f1f;
+  --custom-text-primary: #ffffff;
+  --custom-text-secondary: #a3a3a3;
+
+  /* Hairline/border color */
+  --sl-color-hairline: #1f1f1f;
+  --sl-color-hairline-light: #1f1f1f;
+  --sl-color-hairline-shade: #141414;
+
+  /* Text colors */
+  --sl-color-white: #ffffff;
+  --sl-color-gray-1: #ededed;
+  --sl-color-gray-2: #cccccc;
+  --sl-color-gray-3: #a3a3a3;
+  --sl-color-gray-4: #737373;
+  --sl-color-gray-5: #333333;
+  --sl-color-gray-6: #1a1a1a;
+  --sl-color-black: #0a0a0a;
+}
+
+/* ========================================
+   GLOBAL STYLES
+   ======================================== */
+
+/* Page background */
+html,
+body,
+.page {
+  background-color: var(--sl-color-bg);
+}
+
+/* Site title */
+.site-title,
+.site-title span,
+a[href="/"] span {
+  color: var(--custom-text-primary) !important;
+  font-size: 1.1rem !important;
+  font-weight: 600 !important;
+}
+
+/* Logo size - 40px height */
+.site-title img,
+header img[alt*="logo" i],
+header img[alt*="Rhinolabs" i] {
+  height: 40px !important;
+  width: auto !important;
+}
+
+/* Remove text decoration from links */
+a:not(.action) {
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--sl-color-accent);
+}
+
+/* Sidebar active item */
+.sidebar-content a[aria-current='page'],
+[aria-current='page'] {
+  background: var(--sl-color-accent-low);
+  color: var(--sl-color-accent-high);
+}
+
+/* ========================================
+   CARDS & CONTAINERS
+   ======================================== */
+
+/* Feature cards */
+.card,
+.sl-link-card {
+  background: var(--custom-bg-card) !important;
+  border: 1px solid var(--custom-border) !important;
+  border-radius: 8px;
+}
+
+/* Card grid */
+.card-grid {
+  background: transparent;
+}
+
+.card-grid > * {
+  background: var(--custom-bg-card) !important;
+  border: 1px solid var(--custom-border) !important;
+}
+
+/* ========================================
+   LAYOUT ELEMENTS
+   ======================================== */
+
+/* Sidebar */
+nav.sidebar,
+.sidebar,
+.sidebar-pane {
+  background: var(--sl-color-bg-sidebar) !important;
+  border-right: none !important;
+  border-inline-end: none !important;
+}
+
+/* Header/Nav */
+header.header,
+.header {
+  background: var(--sl-color-bg-nav) !important;
+  border-bottom: none !important;
+}
+
+/* Content panels */
+.content-panel,
+.main-pane {
+  background: var(--sl-color-bg) !important;
+}
+
+/* Right sidebar / TOC */
+.right-sidebar,
+starlight-toc {
+  background: var(--sl-color-bg) !important;
+  border-left: none !important;
+}
+
+/* Remove all layout dividers */
+.main-frame,
+.content-panel {
+  border: none !important;
+}
+
+/* Remove border between header and content */
+.header ~ *,
+header ~ * {
+  border-top: none !important;
+}
+
+/* Remove mobile sidebar borders */
+starlight-menu-button + nav {
+  border: none !important;
+}
+
+/* Mobile menu */
+starlight-menu-button + nav,
+dialog {
+  background: var(--sl-color-bg) !important;
+}
+
+/* Footer */
+footer {
+  background: var(--sl-color-bg) !important;
+  border-top: 1px solid var(--custom-border);
+}
+
+/* ========================================
+   CODE BLOCKS
+   ======================================== */
+
+.expressive-code .frame,
+pre {
+  background: var(--custom-bg-card) !important;
+  border: 1px solid var(--custom-border);
+}
+
+/* ========================================
+   BUTTONS
+   ======================================== */
+
+/* Primary button - Green */
+.action.primary {
+  background: var(--sl-color-accent) !important;
+  color: #ffffff !important;
+  border: none !important;
+}
+
+.action.primary:hover {
+  background: var(--sl-color-accent-high) !important;
+}
+
+/* Secondary button */
+.action:not(.primary) {
+  background: transparent;
+  border: 1px solid var(--custom-border) !important;
+  color: var(--custom-text-primary);
+}
+
+.action:not(.primary):hover {
+  border-color: var(--sl-color-accent) !important;
+  color: var(--sl-color-accent);
+}
+
+/* ========================================
+   SEARCH
+   ======================================== */
+
+site-search button,
+.search-input {
+  background: var(--custom-bg-card) !important;
+  border: 1px solid var(--custom-border) !important;
+}
+
+/* ========================================
+   OTHER ELEMENTS
+   ======================================== */
+
+/* Pagination */
+.pagination-links a {
+  background: var(--custom-bg-card) !important;
+  border: 1px solid var(--custom-border) !important;
+}
+
+/* Tables */
+table {
+  background: var(--sl-color-bg);
+}
+
+th, td {
+  border-color: var(--custom-border);
+}
+
+/* Blockquotes */
+blockquote {
+  background: var(--custom-bg-card);
+  border-left-color: var(--sl-color-accent);
+}
+
+/* Horizontal rules */
+hr {
+  border-color: var(--custom-border);
+}
+
+/* Selection */
+::selection {
+  background: var(--sl-color-accent-low);
+  color: var(--custom-text-primary);
+}
+
+/* GitHub icon in header */
+.social-icons a,
+.social-icons a svg,
+a[href*="github.com"] svg {
+  color: var(--custom-text-primary) !important;
+}
+
+.social-icons a:hover,
+.social-icons a:hover svg,
+a[href*="github.com"]:hover svg {
+  color: var(--sl-color-accent) !important;
+}
+
+/* Remove separator line next to social icons */
+.social-icons::after,
+.social-icons + *::before,
+header .right-group > *:not(:last-child)::after {
+  display: none !important;
+  border: none !important;
+}
+
+.right-group {
+  border: none !important;
+}
+
+.right-group > * {
+  border: none !important;
+}

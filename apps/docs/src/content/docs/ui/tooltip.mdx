@@ -1,0 +1,120 @@
+---
+title: Tooltip
+description: 'A popup that displays information related to an element when the element receives keyboard focus or the mouse hovers over it.'
+---
+
+
+A popup that displays additional information when a user hovers over or focuses an element.
+
+## Usage
+
+```tsx
+import { Tooltip } from "@rhinolabs/ui"
+
+export default function TooltipDemo() {
+  return (
+    <Tooltip.Provider>
+      <Tooltip>
+        <Tooltip.Trigger>Hover</Tooltip.Trigger>
+        <Tooltip.Content>
+          <p>Add to library</p>
+        </Tooltip.Content>
+      </Tooltip>
+    </Tooltip.Provider>
+  )
+}
+```
+
+## Examples
+
+### Basic Tooltip
+
+A simple tooltip with text content.
+
+```tsx
+<Tooltip.Provider>
+  <Tooltip>
+    <Tooltip.Trigger asChild>
+      <Button variant="outline">Hover me</Button>
+    </Tooltip.Trigger>
+    <Tooltip.Content>
+      <p>Add to library</p>
+    </Tooltip.Content>
+  </Tooltip>
+</Tooltip.Provider>
+```
+
+### With Custom Positioning
+
+Tooltip with custom side and alignment.
+
+```tsx
+<Tooltip.Provider>
+  <div className="flex space-x-4">
+    <Tooltip>
+      <Tooltip.Trigger asChild>
+        <Button variant="outline">Top</Button>
+      </Tooltip.Trigger>
+      <Tooltip.Content side="top">
+        <p>This tooltip appears on top</p>
+      </Tooltip.Content>
+    </Tooltip>
+    <Tooltip>
+      <Tooltip.Trigger asChild>
+        <Button variant="outline">Right</Button>
+      </Tooltip.Trigger>
+      <Tooltip.Content side="right">
+        <p>This tooltip appears on the right</p>
+      </Tooltip.Content>
+    </Tooltip>
+  </div>
+</Tooltip.Provider>
+```
+
+### With Icons
+
+Tooltip with icon and text.
+
+```tsx
+<Tooltip.Provider>
+  <Tooltip>
+    <Tooltip.Trigger asChild>
+      <Button size="icon" variant="ghost">
+        <InfoIcon className="h-4 w-4" />
+      </Button>
+    </Tooltip.Trigger>
+    <Tooltip.Content>
+      <p>View more information</p>
+    </Tooltip.Content>
+  </Tooltip>
+</Tooltip.Provider>
+```
+
+## Props
+
+### TooltipContent
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `side` | `"top" \| "right" \| "bottom" \| "left"` | `"top"` | Preferred side |
+| `sideOffset` | `number` | `4` | Distance from trigger |
+| `align` | `"start" \| "center" \| "end"` | `"center"` | Preferred alignment |
+| `alignOffset` | `number` | - | Alignment offset |
+
+All components accept their respective Radix UI Tooltip primitive props.
+
+## Design Considerations
+
+- Keep content concise
+- Position logically
+- Use appropriate delays
+- Consider mobile usage
+- Maintain readability
+
+## Accessibility
+
+- Supports keyboard focus
+- Manages hover states
+- Provides ARIA labels
+- Handles screen readers
+- Times out appropriately

@@ -1,0 +1,117 @@
+---
+title: Context Menu
+description: 'A right-click menu component that displays a list of actions and options.'
+---
+
+
+A custom context menu triggered by right-clicking or long-pressing an element.
+
+## Usage
+
+```tsx
+import { ContextMenu } from "@rhinolabs/ui"
+
+export default function ContextMenuDemo() {
+  return (
+    <ContextMenu>
+      <ContextMenu.Trigger className="flex h-[150px] w-[300px] items-center justify-center rounded-md border border-dashed text-sm">
+        Right click here
+      </ContextMenu.Trigger>
+      <ContextMenu.Content>
+        <ContextMenu.Item>
+          Profile
+          <ContextMenu.Shortcut>⌘P</ContextMenu.Shortcut>
+        </ContextMenu.Item>
+        <ContextMenu.Item>Settings</ContextMenu.Item>
+        <ContextMenu.Item>Logout</ContextMenu.Item>
+      </ContextMenu.Content>
+    </ContextMenu>
+  )
+}
+```
+
+## Examples
+
+### With Submenus
+
+Context menu with nested options.
+
+```tsx
+<ContextMenu>
+  <ContextMenu.Trigger className="flex h-[150px] w-[300px] items-center justify-center rounded-md border border-dashed text-sm">
+    Right click here
+  </ContextMenu.Trigger>
+  <ContextMenu.Content>
+    <ContextMenu.Item>Back</ContextMenu.Item>
+    <ContextMenu.Item>Forward</ContextMenu.Item>
+    <ContextMenu.Item>Reload</ContextMenu.Item>
+    <ContextMenu.Sub>
+      <ContextMenu.SubTrigger>More Tools</ContextMenu.SubTrigger>
+      <ContextMenu.SubContent>
+        <ContextMenu.Item>Save Page As...</ContextMenu.Item>
+        <ContextMenu.Item>Create Shortcut...</ContextMenu.Item>
+        <ContextMenu.Item>Name Window...</ContextMenu.Item>
+      </ContextMenu.SubContent>
+    </ContextMenu.Sub>
+  </ContextMenu.Content>
+</ContextMenu>
+```
+
+### With Checkbox and Radio Items
+
+Context menu with selectable options.
+
+```tsx
+<ContextMenu>
+  <ContextMenu.Trigger className="flex h-[150px] w-[300px] items-center justify-center rounded-md border border-dashed text-sm">
+    Right click here
+  </ContextMenu.Trigger>
+  <ContextMenu.Content>
+    <ContextMenu.CheckboxItem checked>Show Toolbar</ContextMenu.CheckboxItem>
+    <ContextMenu.CheckboxItem>Show Bookmarks</ContextMenu.CheckboxItem>
+    <ContextMenu.Separator />
+    <ContextMenu.RadioGroup value="pedro">
+      <ContextMenu.Label>People</ContextMenu.Label>
+      <ContextMenu.RadioItem value="pedro">Pedro</ContextMenu.RadioItem>
+      <ContextMenu.RadioItem value="colm">Colm</ContextMenu.RadioItem>
+    </ContextMenu.RadioGroup>
+  </ContextMenu.Content>
+</ContextMenu>
+```
+
+## Props
+
+### ContextMenu
+
+The root component that accepts all standard div attributes.
+
+### ContextMenuItem
+
+| Prop | Type | Description |
+|------|------|-------------|
+| `inset` | `boolean` | Whether to inset the item content |
+| `disabled` | `boolean` | Whether the item is disabled |
+| `onSelect` | `(event: Event) => void` | Selection callback |
+
+### ContextMenuCheckboxItem
+
+| Prop | Type | Description |
+|------|------|-------------|
+| `checked` | `boolean` | The checked state |
+| `onCheckedChange` | `(checked: boolean) => void` | Checked state change callback |
+
+## Design Considerations
+
+- Keep menu items organized logically
+- Use separators to group related items
+- Include keyboard shortcuts when applicable
+- Maintain consistent styling
+- Consider touch device interactions
+
+## Accessibility
+
+- Supports keyboard navigation
+- Provides ARIA labels
+- Maintains focus management
+- Handles screen reader announcements
+- Supports keyboard shortcuts

@@ -1,0 +1,27 @@
+{
+  "name": "@rhinolabs/ui-toolkit-docs",
+  "type": "module",
+  "version": "1.1.1",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "author": {
+    "name": "Rhinolabs Agency",
+    "email": "hello@rhinolabs.agency",
+    "url": "https://rhinolabs.agency"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "@astrojs/cloudflare": "^12.6.12",
+    "@astrojs/starlight": "^0.31.1",
+    "astro": "^5.1.1",
+    "sharp": "^0.33.5"
+  },
+  "devDependencies": {
+    "wrangler": "^3.99.0"
+  }
+}

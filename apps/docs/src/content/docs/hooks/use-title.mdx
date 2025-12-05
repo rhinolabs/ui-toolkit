@@ -1,0 +1,42 @@
+---
+title: "useTitle"
+---
+
+
+A hook for managing the document title dynamically. It provides a way to read and update the page title in React components.
+
+## Parameters
+
+This hook doesn't take any parameters.
+
+## Returns
+
+- `title`: `string` - The current document title
+- `changeTitle`: `(newTitle: string) => void` - Function to update the document title
+
+## Usage
+
+```typescript
+import { useTitle } from '@rhinolabs/react-hooks';
+
+function PageTitle() {
+  const { title, changeTitle } = useTitle();
+
+  return (
+    <div>
+      <p>Current page title: {title}</p>
+      <button onClick={() => changeTitle('New Page Title')}>
+        Update Title
+      </button>
+    </div>
+  );
+}
+```
+
+## Notes
+
+- Synchronizes state with document.title bidirectionally
+- Maintains state consistency across multiple components
+- Handles initial document title as default value
+- Provides atomic updates to prevent state/DOM mismatches
+- Implements safe concurrent access in React components

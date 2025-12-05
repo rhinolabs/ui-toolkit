@@ -1,0 +1,47 @@
+---
+title: "useToggle"
+---
+
+
+A hook that manages a boolean toggle state. Perfect for implementing switches, checkboxes, expandable sections, or any UI element that needs to toggle between two states.
+
+## Parameters
+
+- `initialValue`: `boolean` - Initial toggle state
+
+## Returns
+
+- `current`: `boolean` - Current toggle state
+- `handleToggle`: `() => void` - Function to toggle the state
+
+## Usage
+
+```typescript
+import { useToggle } from '@rhinolabs/react-hooks';
+
+function ExpandableSection() {
+  const { current: isExpanded, handleToggle } = useToggle(false);
+
+  return (
+    <div>
+      <button onClick={handleToggle}>
+        {isExpanded ? 'Collapse' : 'Expand'}
+      </button>
+      
+      {isExpanded && (
+        <div className="content">
+          This content is expandable!
+        </div>
+      )}
+    </div>
+  );
+}
+```
+
+## Notes
+
+- Implements type-safe boolean state management
+- Provides functional updates with predictable behavior
+- Optimizes performance by preventing unnecessary re-renders
+- Handles state transitions with efficient toggle mechanism
+- Maintains consistent state through proper state updates

@@ -1,0 +1,82 @@
+---
+title: Components
+description: Pre-built components that you can use to build your user interface.
+sidebar:
+  hidden: true
+---
+
+Our component library provides a comprehensive set of modern, accessible, and highly customizable UI components built with React and Tailwind CSS. These components are designed to help you create robust and consistent user interfaces with minimal effort while following best practices in web development.
+
+## Installation
+
+Install the UI components package via your package manager:
+
+```bash
+# npm
+npm install @rhinolabs/ui
+
+pnpm add @rhinolabs/ui
+
+yarn add @rhinolabs/ui
+```
+
+Then you can import and use any component in your React application:
+
+```tsx
+import { Button, Input, Card } from "@rhinolabs/ui"
+
+export default function App() {
+  return (
+    <Card>
+      <Input placeholder="Enter your name" />
+      <Button>Submit</Button>
+    </Card>
+  )
+}
+```
+
+## Component Categories
+
+### User Input
+- [Button](/ui/button) - Interactive buttons for triggering actions
+- [Input](/ui/input) - Text input fields for data entry
+- [Textarea](/ui/textarea) - Multi-line text input areas
+- [Select](/ui/select) - Dropdown selection menus
+- [Checkbox](/ui/checkbox) - Single or multiple option selectors
+- [Radio Group](/ui/radio-group) - Exclusive option selectors
+- [Switch](/ui/switch) - Toggle switches for binary choices
+- [Toggle](/ui/toggle) - Two-state buttons for toggling options
+- [Toggle Group](/ui/toggle-group) - Groups of toggle buttons
+
+### Layout & Structure
+- [Card](/ui/card) - Contained content blocks
+- [Separator](/ui/separator) - Visual dividers between content
+- [Sheet](/ui/sheet) - Slide-out panels and drawers
+- [Collapsible](/ui/collapsible) - Expandable/collapsible sections
+- [Resizable](/ui/resizable) - Adjustable-size containers
+- [Scroll Area](/ui/scroll-area) - Custom scrollable containers
+
+### Navigation & Wayfinding
+- [Breadcrumb](/ui/breadcrumb) - Hierarchical navigation paths
+- [Pagination](/ui/pagination) - Page navigation controls
+- [Tabs](/ui/tabs) - Content section organizers
+- [Sidebar](/ui/sidebar) - Side navigation panels
+
+### Data Presentation
+- [Table](/ui/table) - Structured data displays
+- [Calendar](/ui/calendar) - Date and time displays
+- [Avatar](/ui/avatar) - User or entity representations
+- [Badge](/ui/badge) - Status and notification indicators
+
+### Interactive Overlays
+- [Dialog](/ui/dialog) - Modal windows for focused tasks
+- [Popover](/ui/popover) - Contextual floating content
+- [Tooltip](/ui/tooltip) - Helpful hover information
+- [Dropdown Menu](/ui/dropdown-menu) - Contextual action menus
+- [Context Menu](/ui/context-menu) - Right-click action menus
+- [Command](/ui/command) - Command palettes and search interfaces
+
+### User Feedback
+- [Alert](/ui/alert) - Important message displays
+- [Toast](/ui/sonner) - Temporary notifications
+- [Skeleton](/ui/skeleton) - Loading state placeholders

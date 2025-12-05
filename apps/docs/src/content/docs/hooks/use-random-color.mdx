@@ -1,0 +1,54 @@
+---
+title: "useRandomColor"
+---
+
+
+A hook that generates random hexadecimal color values. Perfect for creating dynamic color schemes, placeholder backgrounds, or visual effects.
+
+## Parameters
+
+- `initialColor?`: `string` - Optional initial color in hexadecimal format (e.g., "#000000")
+
+## Returns
+
+- `color`: `string` - Current color in hexadecimal format
+- `generateColor`: `() => string` - Function to generate and set a new random color
+
+## Usage
+
+```typescript
+import { useRandomColor } from '@rhinolabs/react-hooks';
+
+function ColorBox() {
+  const { color, generateColor } = useRandomColor('#ff0000');
+
+  return (
+    <div>
+      <div
+        style={{
+          width: '100px',
+          height: '100px',
+          backgroundColor: color,
+          margin: '20px'
+        }}
+      />
+      
+      <button onClick={generateColor}>
+        Generate New Color
+      </button>
+      
+      <div>Current Color: {color}</div>
+    </div>
+  );
+}
+```
+
+## Notes
+
+- Generates valid hex colors
+- Supports initial color value
+- Returns consistent format
+- Zero-padded hex values
+- Full color spectrum
+- Maintains color state
+- Returns new color value

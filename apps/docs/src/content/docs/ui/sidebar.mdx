@@ -1,0 +1,145 @@
+---
+title: Sidebar
+description: 'A responsive navigation sidebar with collapsible states and mobile support.'
+---
+
+
+A responsive navigation component that supports collapsible states, mobile views, and keyboard shortcuts.
+
+## Usage
+
+```tsx
+import { Sidebar } from "@rhinolabs/ui";
+
+export default function SidebarDemo() {
+  return (
+    <Sidebar.Provider>
+      <Sidebar>
+        <Sidebar.Header>
+          <h2 className="px-2 text-lg font-semibold">My App</h2>
+        </Sidebar.Header>
+        <Sidebar.Content>
+          <Sidebar.Menu>
+            <Sidebar.MenuItem>
+              <Sidebar.MenuButton>Dashboard</Sidebar.MenuButton>
+            </Sidebar.MenuItem>
+            <Sidebar.MenuItem>
+              <Sidebar.MenuButton>Settings</Sidebar.MenuButton>
+            </Sidebar.MenuItem>
+          </Sidebar.Menu>
+        </Sidebar.Content>
+      </Sidebar>
+    </Sidebar.Provider>
+  );
+}
+```
+
+## Examples
+
+### With Groups
+
+Sidebar with grouped navigation items.
+
+```tsx
+import { Sidebar } from "@rhinolabs/ui";
+export default function SidebarDemo() {
+  return (
+    <Sidebar.Provider>
+      <Sidebar>
+        <Sidebar.Content>
+          <Sidebar.Group>
+            <Sidebar.GroupLabel>Main Navigation</Sidebar.GroupLabel>
+            <Sidebar.Menu>
+              <Sidebar.MenuItem>
+                <Sidebar.MenuButton>Home</Sidebar.MenuButton>
+              </Sidebar.MenuItem>
+              <Sidebar.MenuItem>
+                <Sidebar.MenuButton>Profile</Sidebar.MenuButton>
+              </Sidebar.MenuItem>
+            </Sidebar.Menu>
+          </Sidebar.Group>
+          <Sidebar.Group>
+            <Sidebar.GroupLabel>Settings</Sidebar.GroupLabel>
+            <Sidebar.Menu>
+              <Sidebar.MenuItem>
+                <Sidebar.MenuButton>Account</Sidebar.MenuButton>
+              </Sidebar.MenuItem>
+              <Sidebar.MenuItem>
+                <Sidebar.MenuButton>Preferences</Sidebar.MenuButton>
+              </Sidebar.MenuItem>
+            </Sidebar.Menu>
+          </Sidebar.Group>
+        </Sidebar.Content>
+      </Sidebar>
+    </Sidebar.Provider>
+  );
+}
+```
+
+### With Variants
+
+Different sidebar variants.
+
+```tsx
+import { Sidebar } from "@rhinolabs/ui";
+import { HomeIcon, SettingsIcon } from "lucide-react";
+
+export default function SidebarDemo() {
+  return (
+    <Sidebar.Provider>
+      <Sidebar variant="floating" collapsible="icon">
+        <Sidebar.Content>
+          <Sidebar.Menu>
+            <Sidebar.MenuItem>
+              <Sidebar.MenuButton tooltip="Dashboard">
+                <HomeIcon />
+                <span>Dashboard</span>
+              </Sidebar.MenuButton>
+            </Sidebar.MenuItem>
+            <Sidebar.MenuItem>
+              <Sidebar.MenuButton tooltip="Settings">
+                <SettingsIcon />
+                <span>Settings</span>
+              </Sidebar.MenuButton>
+            </Sidebar.MenuItem>
+          </Sidebar.Menu>
+        </Sidebar.Content>
+      </Sidebar>
+    </Sidebar.Provider>
+  );
+}
+```
+
+## Props
+
+### Sidebar
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `variant` | `"sidebar" \| "floating" \| "inset"` | `"sidebar"` | Visual variant |
+| `side` | `"left" \| "right"` | `"left"` | Side placement |
+| `collapsible` | `"offcanvas" \| "icon" \| "none"` | `"offcanvas"` | Collapse behavior |
+
+### SidebarProvider
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `defaultOpen` | `boolean` | `true` | Initial open state |
+| `open` | `boolean` | - | Controlled open state |
+| `onOpenChange` | `(open: boolean) => void` | - | Open state change handler |
+
+## Design Considerations
+
+- Choose appropriate variant
+- Consider mobile experience
+- Organize navigation logically
+- Use clear visual hierarchy
+- Handle responsive states
+
+## Accessibility
+
+- Supports keyboard shortcuts
+- Maintains focus management
+- Provides ARIA labels
+- Handles screen readers
+- Supports mobile interactions
