@@ -1,0 +1,49 @@
+---
+title: "useScroll"
+---
+
+
+A hook that tracks window scroll position and provides scrolling functionality. Perfect for implementing scroll-based features and animations.
+
+## Parameters
+
+This hook doesn't take any parameters.
+
+## Returns
+
+- `position`: `{ x: number; y: number }` - Current scroll position coordinates
+- `scrollTo`: `(x: number, y: number) => void` - Function to scroll to specific coordinates
+
+## Usage
+
+```typescript
+import { useScroll } from '@rhinolabs/react-hooks';
+
+function ScrollTracker() {
+  const { position, scrollTo } = useScroll();
+
+  return (
+    <div>
+      <div>
+        Scroll Position:
+        X: {position.x}px,
+        Y: {position.y}px
+      </div>
+      
+      <button onClick={() => scrollTo(0, 0)}>
+        Scroll to Top
+      </button>
+    </div>
+  );
+}
+```
+
+## Notes
+
+- Uses useLayoutEffect for smooth updates
+- Automatically handles scroll event cleanup
+- Provides current X and Y coordinates
+- Includes native scrollTo function
+- Updates in real-time while scrolling
+- Zero setup required
+- Efficient scroll tracking

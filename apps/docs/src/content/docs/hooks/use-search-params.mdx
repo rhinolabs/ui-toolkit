@@ -1,0 +1,64 @@
+---
+title: "useSearchParams"
+---
+
+
+A hook that parses URL search parameters into a typed object. Perfect for handling query parameters, filtering, and URL-based state management.
+
+## Parameters
+
+- `url?`: `string` - URL to parse (defaults to current location)
+- `opt?`: `{ unique: boolean }` - Options for parameter handling
+  - `unique`: Whether to treat duplicate parameters as unique (defaults to true)
+
+## Returns
+
+- `T` - Object containing parsed search parameters, where T is the expected type
+
+## Usage
+
+```typescript
+import { useSearchParams } from '@rhinolabs/react-hooks';
+
+interface SearchParams {
+  query: string;
+  page: number;
+  filters: string[];
+}
+
+function SearchResults() {
+  const params = useSearchParams<SearchParams>(window.location.href, {
+    unique: false,
+  });
+
+  if (!params?.filters) return null;
+
+  return (
+    <div>
+      <h2>Search Results for: {params.query}</h2>
+      <p>Page: {params.page}</p>
+      <div>
+        Active Filters:
+        {params.filters.map(filter => (
+          <span key={filter} className="filter-tag">
+            {filter}
+          </span>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+// URL: /?query=react&page=1&filters=new&filters=popular
+```
+
+## Notes
+
+- Automatically parses JSON values
+- Handles array parameters
+- Type-safe with generics
+- Supports custom URLs
+- Parses on mount
+- Handles duplicate parameters
+- URL-safe parsing
+- Returns typed object

@@ -1,0 +1,135 @@
+---
+title: Multiple Select
+description: 'Allows users to select multiple options from a list.'
+---
+
+
+The `MultipleSelect` component provides a user-friendly way to select multiple items from a list of options. It features a dropdown-like interface with checkboxes for each option and displays a summary of the selected items.
+
+## Usage
+
+To use the `MultipleSelect` component, provide an array of `options`, a `value` array to manage the selected options, and an `onChange` function to handle changes in the selection.
+
+```tsx
+import { MultipleSelect } from "@rhinolabs/ui";
+import { useState } from "react";
+
+const availableOptions = ["Option A", "Option B", "Option C", "Option D", "Option E"];
+
+export default function MultipleSelectDemo() {
+  const [selectedOptions, setSelectedOptions] = useState<string[]>([]);
+
+  return (
+    <MultipleSelect
+      options={availableOptions}
+      value={selectedOptions}
+      onChange={setSelectedOptions}
+      placeholder="Select Options"
+    />
+  );
+}
+```
+
+## Examples
+
+### Basic Multiple Select
+
+This example demonstrates a basic multiple select component with a placeholder.
+
+```tsx
+import { MultipleSelect } from "@rhinolabs/ui";
+import { useState } from "react";
+
+const basicOptions = ["Apple", "Banana", "Cherry"];
+
+export function BasicMultipleSelectDemo() {
+  const [selected, setSelected] = useState<string[]>([]);
+  return (
+    <MultipleSelect
+      options={basicOptions}
+      value={selected}
+      onChange={setSelected}
+      placeholder="Select Fruits"
+    />
+  );
+}
+```
+
+### Multiple Select with Custom Selected List Rendering
+
+The `renderSelectedList` prop allows you to customize how the selected items are displayed below the component.
+
+```tsx
+import { MultipleSelect } from "@rhinolabs/ui";
+import { useState } from "react";
+
+const customListOptions = ["Item X", "Item Y", "Item Z"];
+
+export function CustomSelectedListMultipleSelectDemo() {
+  const [selectedCustom, setSelectedCustom] = useState<string[]>([]);
+
+  const renderSelected = (selected: string[], removeItem: (item: string) => void) => (
+    <div className="flex flex-wrap gap-2">
+      {selected.map((item) => (
+        <div key={item} className="rounded-full bg-muted px-2 py-1 text-xs">
+          {item.toUpperCase()}
+          <button className="ml-1 text-gray-500 hover:text-gray-700" onClick={() => removeItem(item)}>
+            &times;
+          </button>
+        </div>
+      ))}
+    </div>
+  );
+
+  return (
+    <MultipleSelect
+      options={customListOptions}
+      value={selectedCustom}
+      onChange={setSelectedCustom}
+      placeholder="Select Items"
+      renderSelectedList={renderSelected}
+      renderSelectedListContainerClassName="mt-2"
+    />
+  );
+}
+```
+
+## Props
+
+### MultipleSelect Props
+
+| Prop                                         | Type                                    | Default            | Description                                                                 |
+| -------------------------------------------- | --------------------------------------- | ------------------ | --------------------------------------------------------------------------- |
+| `options`                                    | `string[] \| OptionOption[]`            | `[]`               | An array of available options.                                               |
+| `value`                                      | `string[]`                              | `[]`               | An array of currently selected option values.                                |
+| `onChange`                                   | `(selected: string[]) => void`          | -                  | Callback function called when the selected options change.                   |
+| `placeholder`                                | `string`                                | `"SELECT"`         | The placeholder text displayed when no options are selected.                 |
+| `maxDisplay`                                 | `number`                                | `1`                | The maximum number of selected items to display in the trigger.              |
+| `checkboxPosition`                           | `"left" \| "right"`                     | `"right"`          | Position of the checkbox (left or right).                                    |
+| `className`                                  | `string`                                | -                  | Additional CSS classes to apply to the root container.                       |
+| `selectTriggerClassName`                     | `string`                                | -                  | Additional CSS classes to apply to the trigger button.                       |
+| `selectValueClassName`                       | `string`                                | -                  | Additional CSS classes to apply to the displayed selected value(s) in the trigger. |
+| `selectContentClassName`                     | `string`                                | -                  | Additional CSS classes to apply to the popover content.                      |
+| `selectGroupClassName`                       | `string`                                | -                  | Additional CSS classes to apply to the command group.                        |
+| `selectItemClassName`                        | `string`                                | -                  | Additional CSS classes to apply to each command item (option).               |
+| `leftCheckboxClassName`                      | `string`                                | -                  | Additional CSS classes to apply to the checkbox when checkboxPosition is `"left"`. |
+| `rightCheckboxClassName`                     | `string`                                | -                  | Additional CSS classes to apply to the checkbox when checkboxPosition is `"right"`. |
+| `renderSelectedListContainerClassName`       | `string`                                | -                  | Additional CSS classes to apply to the container of the rendered selected list. |
+| `renderSelectedList`                         | `(selected: string[], removeItem: (item: string) => void) => React.ReactNode` | - | A custom render function for displaying the selected items below the component. |
+| `closeOnSelect`                              | `boolean`                               | `false`            | If true, the dropdown will close after an option is selected or unselected.  |
+
+## Design Considerations
+
+- Use `MultipleSelect` when users need to choose more than one option from a predefined list.
+- Provide a clear placeholder to guide users.
+- Consider the `maxDisplay` prop for lists with many selected items to keep the trigger concise.
+- The `renderSelectedList` prop offers flexibility in displaying selected items outside the dropdown.
+- Ensure sufficient contrast for text and checkboxes for accessibility.
+
+## Accessibility
+
+- The component uses appropriate ARIA attributes (`role="combobox"`, `aria-expanded`) to indicate its interactive nature.
+- Keyboard navigation is supported within the dropdown using the arrow keys.
+- Each option within the dropdown is focusable.
+- The checkbox elements are accessible via keyboard and screen readers.
+- Ensure the placeholder and labels provide clear context for screen reader users.

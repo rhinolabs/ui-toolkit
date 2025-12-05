@@ -1,0 +1,91 @@
+---
+title: "useLocalStorage"
+---
+
+
+A hook that provides persistent storage with localStorage, including cross-tab synchronization. Perfect for implementing persistent state, user preferences, or any data that needs to survive page reloads.
+
+## Parameters
+
+- `key`: `string` - The localStorage key to store the value under
+- `initialValue`: `T` - Initial value (can be any serializable type)
+
+## Returns
+
+- `current`: `T` - Current stored value
+- `setItemValue`: `(value: T | ((prevState: T) => T)) => void` - Function to update the stored value
+- `removeItem`: `() => void` - Function to remove the item from localStorage
+
+## Usage
+
+```typescript
+import { useLocalStorage } from '@rhinolabs/react-hooks';
+
+function ThemeSelector() {
+  const { current: theme, setItemValue: setTheme } = useLocalStorage('theme', 'light');
+
+  return (
+    <div>
+      <select
+        value={theme}
+        onChange={(e) => setTheme(e.target.value)}
+      >
+        <option value="light">Light</option>
+        <option value="dark">Dark</option>
+      </select>
+    </div>
+  );
+}
+```
+
+## Advanced Usage
+
+```typescript
+interface UserPreferences {
+  theme: 'light' | 'dark';
+  fontSize: number;
+  notifications: boolean;
+}
+
+function PreferencesManager() {
+  const { 
+    current: preferences, 
+    setItemValue: setPreferences,
+    removeItem: resetPreferences 
+  } = useLocalStorage<UserPreferences>('preferences', {
+    theme: 'light',
+    fontSize: 16,
+    notifications: true
+  });
+
+  const updateFontSize = (size: number) => {
+    setPreferences(prev => ({
+      ...prev,
+      fontSize: size
+    }));
+  };
+
+  return (
+    <div>
+      <h2>Preferences</h2>
+      <button onClick={() => updateFontSize(preferences.fontSize + 1)}>
+        Increase Font Size
+      </button>
+      <button onClick={resetPreferences}>
+        Reset All Preferences
+      </button>
+    </div>
+  );
+}
+```
+
+## Notes
+
+- Persists across page reloads
+- Syncs across browser tabs
+- Type-safe generic storage
+- JSON serialization
+- Functional updates
+- Error handling
+- Automatic initialization
+- Cross-tab communication

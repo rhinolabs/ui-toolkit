@@ -1,0 +1,270 @@
+---
+title: Drawer
+description: 'A panel that slides in from the edge of the screen to reveal additional content.'
+---
+
+
+A component for displaying supplementary content that slides in from the side, top, or bottom of the screen. Drawers are useful for navigation menus, settings panels, or displaying detailed information without navigating away from the current page.
+
+## Usage
+
+```tsx
+import { Drawer } from "@rhinolabs/ui";
+
+export default function DrawerDemo() {
+  const [open, setOpen] = React.useState(false);
+
+  return (
+    <>
+      <Drawer.Trigger asChild>
+        <button className="rounded-md bg-muted px-4 py-2 text-sm font-medium hover:bg-accent hover:text-accent-foreground focus:outline-none focus:ring-2 focus:ring-ring focus-offset-2">
+          Open Drawer
+        </button>
+      </Drawer.Trigger>
+      <Drawer open={open} onOpenChange={setOpen}>
+        <Drawer.Content>
+          <Drawer.Header>
+            <Drawer.Title>Settings</Drawer.Title>
+            <Drawer.Description>Manage your account preferences.</Drawer.Description>
+          </Drawer.Header>
+          <div className="p-4">
+            {/* Drawer content goes here */}
+            <p>This is the content of the drawer.</p>
+          </div>
+          <Drawer.Footer>
+            <button className="rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground shadow-sm hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-primary focus-offset-2">
+              Save changes
+            </button>
+            <Drawer.Close asChild>
+              <button className="rounded-md text-sm font-medium hover:underline focus:outline-none focus:ring-2 focus:ring-ring focus-offset-2">
+                Cancel
+              </button>
+            </Drawer.Close>
+          </Drawer.Footer>
+        </Drawer.Content>
+      </Drawer>
+    </>
+  );
+}
+```
+
+## Examples
+
+### Basic Drawer
+
+This example demonstrates a simple drawer that opens from the right side when the trigger button is clicked.
+
+```tsx
+import { Drawer } from "@rhinolabs/ui";
+import { useState } from "react";
+
+export function BasicDrawerDemo() {
+  const [open, setOpen] = useState(false);
+
+  return (
+    <>
+      <Drawer.Trigger asChild>
+        <button className="rounded-md bg-muted px-4 py-2 text-sm font-medium hover:bg-accent hover:text-accent-foreground focus:outline-none focus:ring-2 focus:ring-ring focus-offset-2">
+          Open Basic Drawer
+        </button>
+      </Drawer.Trigger>
+      <Drawer open={open} onOpenChange={setOpen}>
+        <Drawer.Content>
+          <Drawer.Header>
+            <Drawer.Title>Information</Drawer.Title>
+            <Drawer.Description>Some basic information here.</Drawer.Description>
+          </Drawer.Header>
+          <div className="p-4">
+            <p>This is some content inside the basic drawer.</p>
+          </div>
+        </Drawer.Content>
+      </Drawer>
+    </>
+  );
+}
+```
+
+### Drawer with Different Directions
+
+You can control the direction from which the drawer appears using the `direction` prop.
+
+```tsx
+import { Drawer } from "@rhinolabs/ui";
+import { useState } from "react";
+
+export function DirectionalDrawerDemo() {
+  const [topOpen, setTopOpen] = useState(false);
+  const [bottomOpen, setBottomOpen] = useState(false);
+  const [leftOpen, setLeftOpen] = useState(false);
+  const [rightOpen, setRightOpen] = useState(false);
+
+  return (
+    <div className="flex flex-col gap-4">
+      <div>
+        <Drawer.Trigger asChild>
+          <button className="rounded-md bg-muted px-4 py-2 text-sm font-medium hover:bg-accent hover:text-accent-foreground focus:outline-none focus:ring-2 focus:ring-ring focus-offset-2">
+            Open Top Drawer
+          </button>
+        </Drawer.Trigger>
+        <Drawer open={topOpen} onOpenChange={setTopOpen} direction="top">
+          <Drawer.Content>
+            <div className="p-4">Content from the top.</div>
+          </Drawer.Content>
+        </Drawer>
+      </div>
+      <div>
+        <Drawer.Trigger asChild>
+          <button className="rounded-md bg-muted px-4 py-2 text-sm font-medium hover:bg-accent hover:text-accent-foreground focus:outline-none focus:ring-2 focus:ring-ring focus-offset-2">
+            Open Bottom Drawer
+          </button>
+        </Drawer.Trigger>
+        <Drawer open={bottomOpen} onOpenChange={setBottomOpen} direction="bottom">
+          <Drawer.Content>
+            <Drawer.Header>
+              <Drawer.Title>Bottom Panel</Drawer.Title>
+              <Drawer.Description>Content appearing from the bottom.</Drawer.Description>
+            </Drawer.Header>
+            <div className="p-4">More content here.</div>
+          </Drawer.Content>
+        </Drawer>
+      </div>
+      <div>
+        <Drawer.Trigger asChild>
+          <button className="rounded-md bg-muted px-4 py-2 text-sm font-medium hover:bg-accent hover:text-accent-foreground focus:outline-none focus:ring-2 focus:ring-ring focus-offset-2">
+            Open Left Drawer
+          </button>
+        </Drawer.Trigger>
+        <Drawer open={leftOpen} onOpenChange={setLeftOpen} direction="left">
+          <Drawer.Content>
+            <div className="p-4">Content sliding in from the left.</div>
+          </Drawer.Content>
+        </Drawer>
+      </div>
+      <div>
+        <Drawer.Trigger asChild>
+          <button className="rounded-md bg-muted px-4 py-2 text-sm font-medium hover:bg-accent hover:text-accent-foreground focus:outline-none focus:ring-2 focus:ring-ring focus-offset-2">
+            Open Right Drawer
+          </button>
+        </Drawer.Trigger>
+        <Drawer open={rightOpen} onOpenChange={setRightOpen} direction="right">
+          <Drawer.Content>
+            <Drawer.Header>
+              <Drawer.Title>Right Sidebar</Drawer.Title>
+            </Drawer.Header>
+            <div className="p-4">Content from the right side.</div>
+          </Drawer.Content>
+        </Drawer>
+      </div>
+    </div>
+  );
+}
+```
+
+## Props
+
+### Drawer Props
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `open` | `boolean` | `false` | Controls the visibility state of the drawer. |
+| `onOpenChange` | `(open: boolean) => void` | `-` | Controls the visibility state of the drawer. |
+| `direction` | `"top"`  \|	`"bottom"` \|	`"left"` \|	`"right"` | `-` | Controls the direction where the drawer will slide. |
+| `shouldScaleBackground` | `boolean` | `false` | Whether the background content should scale down when the drawer is open. |
+| `children` | `React.ReactNode` | `-` | The content to be rendered within the `Drawer` component. |
+| `className` | `string` | `-` | Additional CSS classes to apply to the root element. |
+| `data-*` | `string` | `-` | Any data attributes to be passed to the root element. |
+| `aria-*` | `string` | `-` | Any aria attributes to be passed to the root element. |
+
+The `Drawer` component also accepts all standard HTML `div` attributes.
+
+### Drawer.Trigger Props
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `asChild` | `boolean` | `false` | Renders the trigger as a child of the `Drawer.Trigger` component. |
+| `children` | `React.ReactNode` | `-` | The element that will trigger the drawer to open. |
+| `className` | `string` | `-` | Additional CSS classes to apply to the trigger element. |
+| `data-*` | `string` | `-` | Any data attributes to be passed to the root element. |
+| `aria-*` | `string` | `-` | Any aria attributes to be passed to the root element. |
+| `ref` | `React.Ref<any>` | `-` | A ref to the underlying trigger element. |
+| `...props` | `React.HTMLAttributes<HTMLDivElement>` | `-` | All other standard HTML attributes for the trigger element. |
+
+### Drawer.Portal Props
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `children` | `React.ReactNode` | `-` | The content to be rendered within the portal. |
+| `className` | `string` | `-` | Additional CSS classes to apply to the portal container. |
+| `...props` | `React.HTMLAttributes<HTMLDivElement>` | `-` | All other standard HTML attributes for the portal container. |
+
+### Drawer.Overlay Props
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `className` | `string` | `-` | Additional CSS classes to apply to the overlay. |
+| `...props` | `React.HTMLAttributes<HTMLDivElement>` | `-` | All other standard HTML attributes for the overlay. |
+
+### Drawer.Content Props
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `children` | `React.ReactNode` | `-` | The main content of the drawer. |
+| `className` | `string` | `-` | Additional CSS classes to apply to the content container. |
+| `...props` | `React.HTMLAttributes<HTMLDivElement>` | `-` | All other standard HTML attributes for the content container. |
+
+### Drawer.Header Props
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `children` | `React.ReactNode` | `-` | Content to be placed in the drawer header. |
+| `className` | `string` | `-` | Additional CSS classes to apply to the header container. |
+| `...props` | `React.HTMLAttributes<HTMLDivElement>` | `-` | All other standard HTML attributes for the header container. |
+
+### Drawer.Footer Props
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `children` | `React.ReactNode` | `-` | Content to be placed in the drawer footer. |
+| `className` | `string` | `-` | Additional CSS classes to apply to the footer container. |
+| `...props` | `React.HTMLAttributes<HTMLDivElement>` | `-` | All other standard HTML attributes for the footer container. |
+
+### Drawer.Title Props
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `className` | `string` | `-` | Additional CSS classes to apply to the title element. |
+| `...props` | `React.HTMLAttributes<HTMLDivElement>` | `-` | All other standard HTML attributes for the title element. |
+
+### Drawer.Description Props
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `children` | `React.ReactNode` | `-` | Content to be placed in the drawer description. |
+| `className` | `string` | `-` | Additional CSS classes to apply to the description element. |
+| `...props` | `React.HTMLAttributes<HTMLDivElement>` | `-` | All other standard HTML attributes for the description element. |
+
+### Drawer.Close Props
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `asChild` | `boolean` | `false` | Renders the close button as a child of the `Drawer.Close` component. |
+| `children` | `React.ReactNode` | `-` | The element that will act as the close button. |
+| `className` | `string` | `-` | Additional CSS classes to apply to the close button element. |
+| `...props` | `React.HTMLAttributes<HTMLDivElement>` | `-` | All other standard HTML attributes for the close button element. |
+
+## Design Considerations
+
+- Choose an appropriate `direction` based on the context and expected user flow.
+- Keep the content within the drawer concise and focused.
+- Use Drawer.Title` and `Drawer.Description` to provide clear context.
+- Consider using `Drawer.Header` and `Drawer.Footer` for actions and additional information.
+- Ensure the trigger element is clearly identifiable.
+- Provide a clear way to close the drawer using `Drawer.Close`.
+
+## Accessibility
+
+- Uses semantic `role="dialog"` and varia-modal="true"` attributes on the Drawer.Content.
+- Manages focus appropriately when the drawer opens and closes.
+- Ensures that the content within the drawer is navigable using the keyboard.
+- Provides an accessible label for the drawer using `aria-labelledby` referencing the `Drawer.Title`.
+- The `Drawer.Overlay` provides a visual backdrop and can be used to close the drawer on click.

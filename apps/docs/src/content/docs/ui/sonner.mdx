@@ -1,0 +1,112 @@
+---
+title: Sonner
+description: 'A toast notification component with theme support.'
+---
+
+
+A toast notification component that provides themed notifications with support for different types of messages.
+
+## Usage
+
+```tsx
+import { Toaster, Button } from "@rhinolabs/ui"
+import { toast } from "sonner"
+
+export default function ToasterDemo() {
+  return (
+    <div>
+      <Button onClick={() => toast("Event has been created")}>
+        Show Toast
+      </Button>
+      <Toaster />
+    </div>
+  )
+}
+```
+
+## Examples
+
+### Basic Toast
+
+Simple notification message.
+
+```tsx
+<div className="flex gap-2">
+  <Button onClick={() => toast("Event has been created")}>
+    Default Toast
+  </Button>
+  <Button onClick={() => toast.success("Profile updated successfully")}>
+    Success Toast
+  </Button>
+  <Button onClick={() => toast.error("Failed to save changes")}>
+    Error Toast
+  </Button>
+</div>
+```
+
+### With Description
+
+Toast with additional description text.
+
+```tsx
+<Button
+  onClick={() =>
+    toast("Profile updated", {
+      description: "Your changes have been saved successfully.",
+    })
+  }
+>
+  Show Toast with Description
+</Button>
+```
+
+### With Action
+
+Toast with action buttons.
+
+```tsx
+<Button
+  onClick={() =>
+    toast("Changes saved", {
+      description: "Your document has been saved.",
+      action: {
+        label: "Undo",
+        onClick: () => console.log("Undo"),
+      },
+      cancel: {
+        label: "Cancel",
+        onClick: () => console.log("Cancel"),
+      },
+    })
+  }
+>
+  Show Toast with Actions
+</Button>
+```
+
+## Props
+
+The Toaster component extends all props from Sonner's Toaster component.
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `theme` | `"light" \| "dark" \| "system"` | `"system"` | Theme for the toasts |
+| `position` | `"top-left" \| "top-right" \| "bottom-left" \| "bottom-right"` | `"bottom-right"` | Position of toasts |
+| `expand` | `boolean` | `false` | Whether toasts expand to fill width |
+| `duration` | `number` | `4000` | Duration in milliseconds |
+
+## Design Considerations
+
+- Choose appropriate position
+- Set suitable duration
+- Use clear messages
+- Consider mobile views
+- Maintain consistency
+
+## Accessibility
+
+- Supports keyboard navigation
+- Provides ARIA labels
+- Maintains focus management
+- Handles screen readers
+- Times out appropriately

@@ -1,0 +1,131 @@
+---
+title: Pagination
+description: 'A component for navigating through multiple pages of content.'
+---
+
+
+A set of components for building pagination interfaces.
+
+## Usage
+
+```tsx
+import { Pagination } from "@rhinolabs/ui"
+
+export default function PaginationDemo() {
+  return (
+    <Pagination>
+      <Pagination.Content>
+        <Pagination.Item>
+          <Pagination.Previous href="#" />
+        </Pagination.Item>
+        <Pagination.Item>
+          <Pagination.Link href="#" isActive>1</Pagination.Link>
+        </Pagination.Item>
+        <Pagination.Item>
+          <Pagination.Link href="#">2</Pagination.Link>
+        </Pagination.Item>
+        <Pagination.Item>
+          <Pagination.Link href="#">3</Pagination.Link>
+        </Pagination.Item>
+        <Pagination.Item>
+          <Pagination.Next href="#" />
+        </Pagination.Item>
+      </Pagination.Content>
+    </Pagination>
+  )
+}
+```
+
+## Examples
+
+### Basic Pagination
+
+A simple pagination with numbered pages.
+
+```tsx
+<Pagination>
+  <Pagination.Content>
+    <Pagination.Item>
+      <Pagination.Previous href="#" />
+    </Pagination.Item>
+    <Pagination.Item>
+      <Pagination.Link href="#">1</Pagination.Link>
+    </Pagination.Item>
+    <Pagination.Item>
+      <Pagination.Link href="#" isActive>2</Pagination.Link>
+    </Pagination.Item>
+    <Pagination.Item>
+      <Pagination.Link href="#">3</Pagination.Link>
+    </Pagination.Item>
+    <Pagination.Item>
+      <Pagination.Next href="#" />
+    </Pagination.Item>
+  </Pagination.Content>
+</Pagination>
+```
+
+### With Ellipsis
+
+Pagination with ellipsis for many pages.
+
+```tsx
+<Pagination>
+  <Pagination.Content>
+    <Pagination.Item>
+      <Pagination.Previous href="#" />
+    </Pagination.Item>
+    <Pagination.Item>
+      <Pagination.Link href="#">1</Pagination.Link>
+    </Pagination.Item>
+    <Pagination.Item>
+      <Pagination.Ellipsis />
+    </Pagination.Item>
+    <Pagination.Item>
+      <Pagination.Link href="#">4</Pagination.Link>
+    </Pagination.Item>
+    <Pagination.Item>
+      <Pagination.Link href="#" isActive>5</Pagination.Link>
+    </Pagination.Item>
+    <Pagination.Item>
+      <Pagination.Link href="#">6</Pagination.Link>
+    </Pagination.Item>
+    <Pagination.Item>
+      <Pagination.Ellipsis />
+    </Pagination.Item>
+    <Pagination.Item>
+      <Pagination.Link href="#">10</Pagination.Link>
+    </Pagination.Item>
+    <Pagination.Item>
+      <Pagination.Next href="#" />
+    </Pagination.Item>
+  </Pagination.Content>
+</Pagination>
+```
+
+## Props
+
+### PaginationLink
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `isActive` | `boolean` | `false` | Whether the page is currently active |
+| `href` | `string` | - | The URL for the page |
+| `size` | `"default" \| "icon"` | `"icon"` | The size of the link |
+
+All other components accept standard HTML attributes for their respective elements.
+
+## Design Considerations
+
+- Show appropriate number of pages
+- Indicate current page clearly
+- Use consistent spacing
+- Consider mobile layouts
+- Handle edge cases
+
+## Accessibility
+
+- Uses semantic navigation markup
+- Provides ARIA labels
+- Maintains keyboard navigation
+- Indicates current page
+- Supports screen readers

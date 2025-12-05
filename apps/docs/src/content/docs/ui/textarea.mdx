@@ -1,0 +1,96 @@
+---
+title: Textarea
+description: 'A multi-line text input component.'
+---
+
+
+A multi-line text input field that allows users to enter longer form content.
+
+## Usage
+
+```tsx
+import { Textarea } from "@rhinolabs/ui"
+
+export default function TextareaDemo() {
+  return (
+    <Textarea placeholder="Type your message here." />
+  )
+}
+```
+
+## Examples
+
+### Basic Textarea
+
+A simple textarea with a label.
+
+```tsx
+<div className="grid w-full gap-1.5">
+  <Label htmlFor="message">Your message</Label>
+  <Textarea id="message" placeholder="Type your message here." />
+</div>
+```
+
+### With Form
+
+Textarea used in a form context.
+
+```tsx
+<form>
+  <div className="grid w-full gap-4">
+    <div className="grid gap-1.5">
+      <Label htmlFor="subject">Subject</Label>
+      <Textarea
+        id="subject"
+        placeholder="Brief description of your inquiry"
+      />
+    </div>
+    <div className="grid gap-1.5">
+      <Label htmlFor="details">Details</Label>
+      <Textarea
+        id="details"
+        placeholder="Provide more details about your request..."
+        className="min-h-[120px]"
+      />
+    </div>
+  </div>
+</form>
+```
+
+### Disabled State
+
+A disabled textarea input.
+
+```tsx
+<Textarea
+  disabled
+  placeholder="You cannot edit this textarea."
+/>
+```
+
+## Props
+
+The Textarea component accepts all standard HTML textarea attributes.
+
+| Prop | Type | Description |
+|------|------|-------------|
+| `placeholder` | `string` | Placeholder text |
+| `disabled` | `boolean` | Whether the textarea is disabled |
+| `rows` | `number` | Number of visible text lines |
+| `className` | `string` | Additional CSS classes |
+
+## Design Considerations
+
+- Set appropriate height
+- Show clear focus states
+- Handle overflow content
+- Consider mobile input
+- Maintain consistent styling
+
+## Accessibility
+
+- Uses semantic markup
+- Supports keyboard input
+- Maintains focus states
+- Provides clear labels
+- Handles disabled states

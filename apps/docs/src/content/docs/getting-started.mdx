@@ -1,0 +1,88 @@
+---
+title: Getting Started
+description: How to install and set up the Rhinolabs UI Toolkit in your React application.
+---
+
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+
+This guide will help you set up and start using the Rhinolabs UI Toolkit in your React application.
+
+## Prerequisites
+
+- Node.js 18 or later
+- React 18 or later
+- TypeScript 4.5 or later (recommended)
+
+## Installation
+
+You can install the libraries individually based on your needs:
+
+<Tabs>
+  <TabItem label="pnpm">
+    ```bash
+    pnpm add @rhinolabs/ui @rhinolabs/react-hooks
+    ```
+  </TabItem>
+  <TabItem label="npm">
+    ```bash
+    npm install @rhinolabs/ui @rhinolabs/react-hooks
+    ```
+  </TabItem>
+  <TabItem label="yarn">
+    ```bash
+    yarn add @rhinolabs/ui @rhinolabs/react-hooks
+    ```
+  </TabItem>
+  <TabItem label="bun">
+    ```bash
+    bun add @rhinolabs/ui @rhinolabs/react-hooks
+    ```
+  </TabItem>
+</Tabs>
+
+## Usage
+
+### Using UI Components
+
+```tsx
+import { Button } from "@rhinolabs/ui";
+
+function App() {
+  return (
+    <Button variant="default">
+      Click me
+    </Button>
+  );
+}
+```
+
+### Using Hooks
+
+```tsx
+import { useToggle } from "@rhinolabs/react-hooks";
+
+function App() {
+  const [isOpen, toggle] = useToggle(false);
+
+  return (
+    <div>
+      <button onClick={toggle}>
+        {isOpen ? "Close" : "Open"}
+      </button>
+    </div>
+  );
+}
+```
+
+## Next Steps
+
+- Explore [UI Components](/ui) documentation for detailed component APIs
+- Check out [Hooks](/hooks) documentation for available hooks
+
+## Troubleshooting
+
+If you encounter any issues during installation or setup:
+
+1. Ensure all peer dependencies are installed correctly
+2. Check that your project meets the minimum version requirements
+3. Visit our [GitHub repository](https://github.com/rhinolabs/ui-toolkit) for known issues or to report new ones

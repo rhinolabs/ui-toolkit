@@ -1,8 +1,0 @@
-/.next/
-/out/
-/build
-*.tsbuildinfo
-next-env.d.ts
-/out/
-.wrangler/
-public/_pagefind/

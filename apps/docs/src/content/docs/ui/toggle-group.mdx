@@ -1,0 +1,128 @@
+---
+title: Toggle Group
+description: 'A group of two-state toggle buttons that can be toggled on or off.'
+---
+
+
+A set of two-state buttons that can be toggled on or off, where only one button can be pressed at a time.
+
+## Usage
+
+```tsx
+import { ToggleGroup } from "@rhinolabs/ui"
+import { Bold, Italic, Underline } from "lucide-react"
+
+export default function ToggleGroupDemo() {
+  return (
+    <ToggleGroup type="single">
+      <ToggleGroup.Item value="bold" aria-label="Toggle bold">
+        <Bold className="h-4 w-4" />
+      </ToggleGroup.Item>
+      <ToggleGroup.Item value="italic" aria-label="Toggle italic">
+        <Italic className="h-4 w-4" />
+      </ToggleGroup.Item>
+      <ToggleGroup.Item value="underline" aria-label="Toggle underline">
+        <Underline className="h-4 w-4" />
+      </ToggleGroup.Item>
+    </ToggleGroup>
+  )
+}
+```
+
+## Examples
+
+### Single Selection
+
+Toggle group with single selection mode.
+
+```tsx
+<ToggleGroup type="single" defaultValue="center">
+  <ToggleGroup.Item value="left" aria-label="Align left">
+    <AlignLeft className="h-4 w-4" />
+  </ToggleGroup.Item>
+  <ToggleGroup.Item value="center" aria-label="Align center">
+    <AlignCenter className="h-4 w-4" />
+  </ToggleGroup.Item>
+  <ToggleGroup.Item value="right" aria-label="Align right">
+    <AlignRight className="h-4 w-4" />
+  </ToggleGroup.Item>
+</ToggleGroup>
+```
+
+### Multiple Selection
+
+Toggle group with multiple selection mode.
+
+```tsx
+<ToggleGroup type="multiple">
+  <ToggleGroup.Item value="bold" aria-label="Toggle bold">
+    <Bold className="h-4 w-4" />
+  </ToggleGroup.Item>
+  <ToggleGroup.Item value="italic" aria-label="Toggle italic">
+    <Italic className="h-4 w-4" />
+  </ToggleGroup.Item>
+  <ToggleGroup.Item value="underline" aria-label="Toggle underline">
+    <Underline className="h-4 w-4" />
+  </ToggleGroup.Item>
+</ToggleGroup>
+```
+
+### With Variants
+
+Different toggle group variants and sizes.
+
+```tsx
+<div className="space-y-2">
+  <ToggleGroup variant="default" type="single">
+    <ToggleGroup.Item value="a">A</ToggleGroup.Item>
+    <ToggleGroup.Item value="b">B</ToggleGroup.Item>
+    <ToggleGroup.Item value="c">C</ToggleGroup.Item>
+  </ToggleGroup>
+  <ToggleGroup variant="outline" type="single">
+    <ToggleGroup.Item value="a">A</ToggleGroup.Item>
+    <ToggleGroup.Item value="b">B</ToggleGroup.Item>
+    <ToggleGroup.Item value="c">C</ToggleGroup.Item>
+  </ToggleGroup>
+  <ToggleGroup size="lg" type="single">
+    <ToggleGroup.Item value="a">A</ToggleGroup.Item>
+    <ToggleGroup.Item value="b">B</ToggleGroup.Item>
+    <ToggleGroup.Item value="c">C</ToggleGroup.Item>
+  </ToggleGroup>
+</div>
+```
+
+## Props
+
+### ToggleGroup
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `type` | `"single" \| "multiple"` | - | Selection mode |
+| `value` | `string \| string[]` | - | Controlled value(s) |
+| `defaultValue` | `string \| string[]` | - | Default value(s) |
+| `onValueChange` | `(value: string \| string[]) => void` | - | Value change handler |
+| `variant` | `"default" \| "outline"` | `"default"` | Visual style variant |
+| `size` | `"default" \| "sm" \| "lg"` | `"default"` | Size of the toggles |
+
+### ToggleGroupItem
+
+| Prop | Type | Description |
+|------|------|-------------|
+| `value` | `string` | The value of the item |
+| `disabled` | `boolean` | Whether the item is disabled |
+
+## Design Considerations
+
+- Use clear visual states
+- Group related options
+- Consider mobile touch targets
+- Show active states clearly
+- Maintain consistent spacing
+
+## Accessibility
+
+- Supports keyboard navigation
+- Maintains focus management
+- Provides ARIA labels
+- Announces selection changes
+- Handles disabled states

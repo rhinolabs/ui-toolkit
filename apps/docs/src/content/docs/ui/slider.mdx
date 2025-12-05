@@ -1,0 +1,102 @@
+---
+title: Slider
+description: 'An input control that allows users to select a value or a range of values along a continuous scale.'
+---
+
+
+The `Slider` component enables users to interactively select a single value or a range of values within a defined minimum and maximum.
+
+## Usage
+
+To use the `Slider` component, import it and provide the necessary props such as `value` or `defaultValue`, `min`, and `max`.
+
+```tsx
+import { Slider } from "@rhinolabs/ui";
+import { useState } from "react";
+
+export default function SliderDemo() {
+  const [volume, setVolume] = useState([50]);
+
+  const handleChange = (newValue: number[]) => {
+    setVolume(newValue);
+  };
+
+  return (
+    <div className="space-y-4">
+      <Slider value={volume} onValueChange={handleChange} />
+      <p className="text-sm text-muted-foreground">Volume: {volume[0]}</p>
+    </div>
+  );
+}
+```
+
+## Examples
+
+### Single Value Slider
+
+This example demonstrates a slider for selecting a single value.
+
+```tsx
+import { Slider } from "@rhinolabs/ui";
+import { useState } from "react";
+
+export function SingleValueSliderDemo() {
+  const [brightness, setBrightness] = useState([70]);
+
+  return (
+    <div className="space-y-2">
+      <Slider value={brightness} onValueChange={setBrightness} />
+      <p className="text-sm text-muted-foreground">Brightness: {brightness[0]}%</p>
+    </div>
+  );
+}
+```
+
+### Vertical Slider
+
+The Slider component can be oriented vertically by adding the `orientation="vertical"` prop.
+
+```tsx
+import { Slider } from "@rhinolabs/ui";
+import { useState } from "react";
+
+export function VerticalSliderDemo() {
+  const [level, setLevel] = useState([30]);
+
+  return (
+    <div className="h-48">
+      <Slider orientation="vertical" value={level} onValueChange={setLevel} />
+      <p className="mt-2 text-sm text-muted-foreground">Level: {level[0]}%</p>
+    </div>
+  );
+}
+```
+
+## Props
+
+### Slider Props
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `value` | `number[]` | `-` | 	The controlled value of the slider. An array for range selection. |
+| `defaultValue` | `number[]` | `-` | 	The initial value of the slider when it is first rendered. |
+| `onValueChange` | `(value: number[]) => void` | `-` | 	Callback function called when the slider's value changes. |
+| `className` | `string` | `-` | Additional CSS classes to apply to the root slider element. |
+| `orientation` | `"horizontal" \| "vertical"` | `"horizontal"` | 	The slider orientation. |
+| `...props` | `React.HTMLAttributes<HTMLDivElement>` | `-` | All other standard HTML attributes for the root slider element. |
+
+## Design Considerations
+
+- Use sliders for continuous data where users need to select a specific point or range.
+- Provide clear labels indicating the purpose and range of the slider.
+- Ensure sufficient visual contrast for the track and thumb elements.
+- Consider using tooltips or value indicators for precise selection.
+
+## Accessibility
+
+- The `Slider` component uses the appropriate ARIA roles and attributes (`role="slider"`, `aria-valuenow`, `aria-valuemin`, `aria-valuemax`) to ensure accessibility.
+- It supports keyboard navigation:
+  - Arrow keys (Left/Right for horizontal, Up/Down for vertical) increment/decrement the value.
+  - Home key sets the value to the minimum.
+  - End key sets the value to the maximum.
+- Ensure that the slider has a discernible label using `aria-labelledby` or `aria-label`.

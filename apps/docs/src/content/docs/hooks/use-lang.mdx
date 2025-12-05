@@ -1,0 +1,50 @@
+---
+title: "useLang"
+---
+
+
+A hook that provides access to the user's browser language preference and monitors for changes. Perfect for implementing language-based features and dynamic localization.
+
+## Parameters
+
+This hook doesn't take any parameters.
+
+## Returns
+
+- `string` - The current browser language code (e.g., 'en-US', 'es-ES')
+
+## Usage
+
+```typescript
+import { useLang } from '@rhinolabs/react-hooks';
+
+function LanguageDisplay() {
+  const language = useLang();
+
+  return (
+    <div>
+      <p>Current Language: {language}</p>
+      <p>
+        {language.startsWith('en') ? (
+          'Hello, welcome!'
+        ) : language.startsWith('es') ? (
+          '¡Hola, bienvenido!'
+        ) : (
+          'Welcome!'
+        )}
+      </p>
+    </div>
+  );
+}
+```
+
+## Notes
+
+- Uses navigator.language API
+- Updates on language changes
+- Syncs with system changes
+- Returns BCP 47 language tags
+- Real-time language detection
+- Automatic cleanup
+- Uses useSyncExternalStore
+- Efficient event handling

@@ -1,0 +1,50 @@
+---
+title: "useIsTouchDevice"
+---
+
+
+A hook that detects whether the current device supports touch input. Perfect for implementing touch-specific features and responsive interactions.
+
+## Parameters
+
+This hook doesn't take any parameters.
+
+## Returns
+
+- `boolean` - True if the device supports touch input, false otherwise
+
+## Usage
+
+```typescript
+import { useIsTouchDevice } from '@rhinolabs/react-hooks';
+
+function InteractiveComponent() {
+  const isTouchDevice = useIsTouchDevice();
+
+  return (
+    <div>
+      {isTouchDevice ? (
+        <div className="touch-controls">
+          <button>Tap to Interact</button>
+        </div>
+      ) : (
+        <div className="mouse-controls">
+          <button>Click to Interact</button>
+          <div className="hover-tooltip">Hover for more info</div>
+        </div>
+      )}
+    </div>
+  );
+}
+```
+
+## Notes
+
+- Detects touch capability reliably
+- Updates on window resize
+- Checks multiple touch APIs
+- Handles device changes
+- Cleans up event listeners
+- Works across browsers
+- Real-time detection
+- Efficient resize handling

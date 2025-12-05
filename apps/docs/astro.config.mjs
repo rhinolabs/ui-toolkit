@@ -19,16 +19,11 @@ export default defineConfig({
       },
       customCss: ['./src/styles/custom.css'],
       sidebar: [
-        {
-          label: 'Getting Started',
-          items: [
-            { label: 'Introduction', slug: 'getting-started/introduction' },
-            { label: 'Installation', slug: 'getting-started/installation' },
-          ],
-        },
+        { label: 'Introduction', slug: 'introduction' },
+        { label: 'Getting Started', slug: 'getting-started' },
         {
           label: 'Components',
-          autogenerate: { directory: 'components' },
+          autogenerate: { directory: 'ui' },
         },
         {
           label: 'Hooks',

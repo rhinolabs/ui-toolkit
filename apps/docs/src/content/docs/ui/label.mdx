@@ -1,0 +1,87 @@
+---
+title: Label
+description: 'An accessible label component for form controls.'
+---
+
+
+A text label component that can be associated with form controls.
+
+## Usage
+
+```tsx
+import { Label } from "@rhinolabs/ui"
+
+export default function LabelDemo() {
+  return (
+    <div>
+      <Label htmlFor="email">Email</Label>
+      <input id="email" type="email" />
+    </div>
+  )
+}
+```
+
+## Examples
+
+### Basic Label
+
+A simple label for an input field.
+
+```tsx
+<div className="grid gap-1.5">
+  <Label htmlFor="name">Name</Label>
+  <input id="name" type="text" />
+</div>
+```
+
+### Required Field
+
+Label indicating a required field.
+
+```tsx
+<div className="grid gap-1.5">
+  <Label htmlFor="email" className="after:content-['*'] after:ml-0.5 after:text-red-500">
+    Email
+  </Label>
+  <input id="email" type="email" required />
+</div>
+```
+
+### With Description
+
+Label with additional description text.
+
+```tsx
+<div className="grid gap-1.5">
+  <Label htmlFor="picture">Profile Picture</Label>
+  <span className="text-sm text-muted-foreground">
+    Upload a picture to personalize your profile.
+  </span>
+  <input id="picture" type="file" accept="image/*" />
+</div>
+```
+
+## Props
+
+The Label component extends the HTML label element props.
+
+| Prop | Type | Description |
+|------|------|-------------|
+| `htmlFor` | `string` | ID of the associated form control |
+| `className` | `string` | Additional CSS classes |
+
+## Design Considerations
+
+- Use clear and concise text
+- Maintain consistent styling
+- Position labels appropriately
+- Consider field requirements
+- Use proper text contrast
+
+## Accessibility
+
+- Associates with form controls
+- Supports screen readers
+- Maintains proper contrast
+- Uses semantic markup
+- Handles disabled states

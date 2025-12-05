@@ -1,0 +1,52 @@
+---
+title: "useFirstRender"
+---
+
+
+A hook that detects whether a component is in its first render cycle. Perfect for skipping effects or conditionally rendering content only after the initial mount.
+
+## Parameters
+
+This hook doesn't take any parameters.
+
+## Returns
+
+- `boolean` - True during the component's first render, false afterward
+
+## Usage
+
+```typescript
+import { useFirstRender } from '@rhinolabs/react-hooks';
+import { useEffect } from 'react';
+
+function DataLoader() {
+  const isFirstRender = useFirstRender();
+  const [data, setData] = useState(null);
+
+  useEffect(() => {
+    // Skip effect on first render
+    if (isFirstRender) return;
+
+    // Run data fetching only after first render
+    fetchData().then(setData);
+  }, [someDepedency]);
+
+  return (
+    <div>
+      {isFirstRender ? (
+        <div>Initial Setup...</div>
+      ) : (
+        <div>Data: {data}</div>
+      )}
+    </div>
+  );
+}
+```
+
+## Notes
+
+- Implements persistent state using React refs
+- Detects component lifecycle and mount status
+- Optimizes effects and prevents unnecessary re-renders
+- Controls render behavior based on mount state
+- Manages mount-specific logic with effect synchronization

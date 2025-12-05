@@ -1,0 +1,89 @@
+---
+title: Input
+description: 'A text input field for collecting user input.'
+---
+
+
+A styled input component that extends the HTML input element.
+
+## Usage
+
+```tsx
+import { Input } from "@rhinolabs/ui"
+
+export default function InputDemo() {
+  return <Input type="text" placeholder="Enter your name" />
+}
+```
+
+## Examples
+
+### Basic Input
+
+A simple text input field.
+
+```tsx
+<Input placeholder="Email" type="email" />
+```
+
+### With Labels
+
+Input with associated label.
+
+```tsx
+<div className="grid w-full max-w-sm items-center gap-1.5">
+  <label htmlFor="email">Email</label>
+  <Input type="email" id="email" placeholder="Email" />
+</div>
+```
+
+### Input Types
+
+Different input types for various data types.
+
+```tsx
+<div className="flex w-full max-w-sm flex-col gap-4">
+  <Input type="email" placeholder="Email" />
+  <Input type="password" placeholder="Password" />
+  <Input type="date" />
+  <Input type="file" />
+  <Input type="number" placeholder="Age" />
+  <Input type="tel" placeholder="Phone number" />
+  <Input type="url" placeholder="URL" />
+  <Input type="search" placeholder="Search..." />
+</div>
+```
+
+### Disabled State
+
+Input in disabled state.
+
+```tsx
+<Input disabled type="email" placeholder="Email" />
+```
+
+## Props
+
+The Input component extends the HTML input element props.
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `type` | `string` | `"text"` | HTML input type |
+| `disabled` | `boolean` | `false` | Whether the input is disabled |
+| `placeholder` | `string` | - | Placeholder text |
+
+## Design Considerations
+
+- Use appropriate input types
+- Provide clear placeholder text
+- Include descriptive labels
+- Show validation states
+- Consider mobile input methods
+
+## Accessibility
+
+- Associates with labels
+- Supports keyboard navigation
+- Provides clear focus states
+- Includes ARIA attributes
+- Handles error states
