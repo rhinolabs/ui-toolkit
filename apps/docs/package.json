@@ -1,7 +1,7 @@
 {
-  "name": "@rhinolabs/docs",
+  "name": "@rhinolabs/ui-toolkit-docs",
   "type": "module",
-  "version": "0.0.1",
+  "version": "1.1.1",
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
@@ -9,6 +9,12 @@
     "preview": "astro preview",
     "astro": "astro"
   },
+  "author": {
+    "name": "Rhinolabs Agency",
+    "email": "hello@rhinolabs.agency",
+    "url": "https://rhinolabs.agency"
+  },
+  "license": "MIT",
   "dependencies": {
     "@astrojs/starlight": "^0.31.1",
     "astro": "^5.1.1",

@@ -10,6 +10,9 @@ export default defineConfig({
         alt: 'Rhinolabs UI Toolkit',
       },
       favicon: '/favicon.ico',
+      components: {
+        ThemeSelect: './src/components/theme-select.astro',
+      },
       defaultLocale: 'root',
       locales: {
         root: { label: 'English', lang: 'en' },
@@ -37,14 +40,6 @@ export default defineConfig({
             name: 'theme-color',
             content: '#10b981',
           },
-        },
-        {
-          tag: 'script',
-          content: `
-            // Force dark theme
-            document.documentElement.dataset.theme = 'dark';
-            localStorage.setItem('starlight-theme', 'dark');
-          `,
         },
       ],
     }),

@@ -1,5 +1,7 @@
-:root,
-:root[data-theme='dark'] {
+/* ========================================
+   DARK THEME (only)
+   ======================================== */
+:root {
   /* Primary accent color - Emerald green */
   --sl-color-accent-low: hsl(157 93% 15%);
   --sl-color-accent: hsl(157 93% 48%);
@@ -10,7 +12,12 @@
   --sl-color-bg-nav: #0a0a0a;
   --sl-color-bg-sidebar: #0a0a0a;
   --sl-color-bg-inline-code: #1a1a1a;
-  --sl-color-bg-card: #141414;
+
+  /* Custom vars for cards/elements */
+  --custom-bg-card: #141414;
+  --custom-border: #1f1f1f;
+  --custom-text-primary: #ffffff;
+  --custom-text-secondary: #a3a3a3;
 
   /* Hairline/border color */
   --sl-color-hairline: #1f1f1f;
@@ -28,75 +35,22 @@
   --sl-color-black: #0a0a0a;
 }
 
-:root[data-theme='light'] {
-  --sl-color-accent-low: hsl(157 93% 90%);
-  --sl-color-accent: hsl(157 93% 35%);
-  --sl-color-accent-high: hsl(157 93% 20%);
-}
+/* ========================================
+   GLOBAL STYLES
+   ======================================== */
 
 /* Page background */
-html {
-  background-color: #0a0a0a;
-}
-
-body {
-  background-color: #0a0a0a;
-}
-
-/* Main content wrapper */
+html,
+body,
 .page {
-  background: #0a0a0a;
-}
-
-/* Hero section */
-.hero {
-  background: #0a0a0a !important;
-  border-bottom: 1px solid #1f1f1f;
-}
-
-/* Feature cards */
-.card {
-  background: #141414 !important;
-  border: 1px solid #1f1f1f !important;
-  border-radius: 8px;
-}
-
-.sl-link-card {
-  background: #141414 !important;
-  border: 1px solid #1f1f1f !important;
-}
-
-/* Card grid */
-.card-grid {
-  background: transparent;
-}
-
-.card-grid > * {
-  background: #141414 !important;
-  border: 1px solid #1f1f1f !important;
-}
-
-/* Sidebar */
-nav.sidebar,
-.sidebar,
-.sidebar-pane {
-  background: #0a0a0a !important;
-  border-right: none !important;
-  border-inline-end: none !important;
-}
-
-/* Header/Nav */
-header.header,
-.header {
-  background: #0a0a0a !important;
-  border-bottom: none !important;
+  background-color: var(--sl-color-bg);
 }
 
 /* Site title */
 .site-title,
 .site-title span,
 a[href="/"] span {
-  color: #ffffff !important;
+  color: var(--custom-text-primary) !important;
   font-size: 1.1rem !important;
   font-weight: 600 !important;
 }
@@ -125,53 +79,58 @@ a:hover {
   color: var(--sl-color-accent-high);
 }
 
-/* Code blocks */
-.expressive-code .frame,
-pre {
-  background: #141414 !important;
-  border: 1px solid #1f1f1f;
+/* ========================================
+   CARDS & CONTAINERS
+   ======================================== */
+
+/* Feature cards */
+.card,
+.sl-link-card {
+  background: var(--custom-bg-card) !important;
+  border: 1px solid var(--custom-border) !important;
+  border-radius: 8px;
 }
 
-/* Primary button - Green */
-.action.primary {
-  background: var(--sl-color-accent) !important;
-  color: #0a0a0a !important;
-  border: none !important;
-}
-
-.action.primary:hover {
-  background: var(--sl-color-accent-high) !important;
-}
-
-/* Secondary button */
-.action:not(.primary) {
+/* Card grid */
+.card-grid {
   background: transparent;
-  border: 1px solid #333333 !important;
-  color: #ededed;
 }
 
-.action:not(.primary):hover {
-  border-color: var(--sl-color-accent) !important;
-  color: var(--sl-color-accent);
+.card-grid > * {
+  background: var(--custom-bg-card) !important;
+  border: 1px solid var(--custom-border) !important;
 }
 
-/* Search */
-site-search button,
-.search-input {
-  background: #141414 !important;
-  border: 1px solid #1f1f1f !important;
+/* ========================================
+   LAYOUT ELEMENTS
+   ======================================== */
+
+/* Sidebar */
+nav.sidebar,
+.sidebar,
+.sidebar-pane {
+  background: var(--sl-color-bg-sidebar) !important;
+  border-right: none !important;
+  border-inline-end: none !important;
+}
+
+/* Header/Nav */
+header.header,
+.header {
+  background: var(--sl-color-bg-nav) !important;
+  border-bottom: none !important;
 }
 
 /* Content panels */
 .content-panel,
 .main-pane {
-  background: #0a0a0a !important;
+  background: var(--sl-color-bg) !important;
 }
 
 /* Right sidebar / TOC */
 .right-sidebar,
 starlight-toc {
-  background: #0a0a0a !important;
+  background: var(--sl-color-bg) !important;
   border-left: none !important;
 }
 
@@ -195,56 +154,123 @@ starlight-menu-button + nav {
 /* Mobile menu */
 starlight-menu-button + nav,
 dialog {
-  background: #0a0a0a !important;
+  background: var(--sl-color-bg) !important;
 }
 
 /* Footer */
 footer {
-  background: #0a0a0a !important;
-  border-top: 1px solid #1f1f1f;
+  background: var(--sl-color-bg) !important;
+  border-top: 1px solid var(--custom-border);
 }
+
+/* ========================================
+   CODE BLOCKS
+   ======================================== */
+
+.expressive-code .frame,
+pre {
+  background: var(--custom-bg-card) !important;
+  border: 1px solid var(--custom-border);
+}
+
+/* ========================================
+   BUTTONS
+   ======================================== */
+
+/* Primary button - Green */
+.action.primary {
+  background: var(--sl-color-accent) !important;
+  color: #ffffff !important;
+  border: none !important;
+}
+
+.action.primary:hover {
+  background: var(--sl-color-accent-high) !important;
+}
+
+/* Secondary button */
+.action:not(.primary) {
+  background: transparent;
+  border: 1px solid var(--custom-border) !important;
+  color: var(--custom-text-primary);
+}
+
+.action:not(.primary):hover {
+  border-color: var(--sl-color-accent) !important;
+  color: var(--sl-color-accent);
+}
+
+/* ========================================
+   SEARCH
+   ======================================== */
+
+site-search button,
+.search-input {
+  background: var(--custom-bg-card) !important;
+  border: 1px solid var(--custom-border) !important;
+}
+
+/* ========================================
+   OTHER ELEMENTS
+   ======================================== */
 
 /* Pagination */
 .pagination-links a {
-  background: #141414 !important;
-  border: 1px solid #1f1f1f !important;
+  background: var(--custom-bg-card) !important;
+  border: 1px solid var(--custom-border) !important;
 }
 
 /* Tables */
 table {
-  background: #0a0a0a;
+  background: var(--sl-color-bg);
 }
 
 th, td {
-  border-color: #1f1f1f;
+  border-color: var(--custom-border);
 }
 
 /* Blockquotes */
 blockquote {
-  background: #141414;
+  background: var(--custom-bg-card);
   border-left-color: var(--sl-color-accent);
 }
 
 /* Horizontal rules */
 hr {
-  border-color: #1f1f1f;
+  border-color: var(--custom-border);
 }
 
 /* Selection */
 ::selection {
   background: var(--sl-color-accent-low);
-  color: var(--sl-color-white);
+  color: var(--custom-text-primary);
 }
 
-/* GitHub icon in header - white, no hover */
+/* GitHub icon in header */
 .social-icons a,
 .social-icons a svg,
 a[href*="github.com"] svg {
-  color: var(--sl-color-white) !important;
+  color: var(--custom-text-primary) !important;
 }
 
 .social-icons a:hover,
 .social-icons a:hover svg,
 a[href*="github.com"]:hover svg {
-  color: var(--sl-color-white) !important;
+  color: var(--sl-color-accent) !important;
+}
+
+/* Remove separator line next to social icons */
+.social-icons::after,
+.social-icons + *::before,
+header .right-group > *:not(:last-child)::after {
+  display: none !important;
+  border: none !important;
+}
+
+.right-group {
+  border: none !important;
+}
+
+.right-group > * {
+  border: none !important;
 }
