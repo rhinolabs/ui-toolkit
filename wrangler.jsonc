@@ -1,4 +1,5 @@
 {
+  "main": "apps/docs/dist/_worker.js/index.js",
   "name": "ui-toolkit-docs",
   "compatibility_date": "2025-12-02",
   "compatibility_flags": [
