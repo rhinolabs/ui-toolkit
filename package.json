@@ -13,9 +13,6 @@
 		"lint": "pnpm --filter=* run lint",
 		"lint:fix": "pnpm --filter=* run lint:fix"
 	},
-	"workspaces": [
-		"packages/*"
-	],
 	"keywords": [],
 	"author": {
 		"name": "Rhinolabs Agency",
