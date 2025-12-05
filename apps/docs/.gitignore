@@ -29,3 +29,5 @@ pnpm-debug.log*
 
 # Starlight search index
 pagefind/
+
+.wrangler
