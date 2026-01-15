@@ -40,3 +40,4 @@ export { Textarea } from "./components/ui/textarea";
 export { ToggleGroup } from "./components/ui/toggle-group";
 export { Toggle } from "./components/ui/toggle";
 export { Tooltip } from "./components/ui/tooltip";
+export { Typography } from "./components/ui/typography";
