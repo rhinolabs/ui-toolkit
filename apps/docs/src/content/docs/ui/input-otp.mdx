@@ -1,0 +1,76 @@
+---
+title: Input OTP
+description: A component for entering One-Time Passwords (OTP).
+---
+
+The `InputOTP` component provides a user-friendly interface for entering one-time passwords with individual slots and automatic focus management.
+
+## Usage
+
+```tsx
+import { InputOTP } from "@rhinolabs/ui";
+
+export default function InputOTPDemo() {
+  const [otp, setOtp] = useState("");
+
+  return (
+    <InputOTP maxLength={6} value={otp} onChange={setOtp}>
+      <InputOTP.Group>
+        <InputOTP.Slot index={0} />
+        <InputOTP.Slot index={1} />
+        <InputOTP.Slot index={2} />
+        <InputOTP.Slot index={3} />
+        <InputOTP.Slot index={4} />
+        <InputOTP.Slot index={5} />
+      </InputOTP.Group>
+    </InputOTP>
+  );
+}
+```
+
+## Examples
+
+### 6-Digit OTP
+
+```tsx
+<InputOTP maxLength={6} value={otp} onChange={setOtp}>
+  <InputOTP.Group>
+    {Array.from({ length: 6 }).map((_, i) => (
+      <InputOTP.Slot key={i} index={i} />
+    ))}
+  </InputOTP.Group>
+</InputOTP>
+```
+
+### With Separator
+
+```tsx
+<InputOTP maxLength={6} value={otp} onChange={setOtp}>
+  <InputOTP.Group>
+    <InputOTP.Slot index={0} />
+    <InputOTP.Slot index={1} />
+    <InputOTP.Slot index={2} />
+  </InputOTP.Group>
+  <InputOTP.Separator />
+  <InputOTP.Group>
+    <InputOTP.Slot index={3} />
+    <InputOTP.Slot index={4} />
+    <InputOTP.Slot index={5} />
+  </InputOTP.Group>
+</InputOTP>
+```
+
+## Props
+
+### InputOTP Props
+
+| Prop            | Type              | Default | Description              |
+| --------------- | ----------------- | ------- | ------------------------ |
+| `maxLength`     | `number`          | -       | Maximum OTP length.      |
+| `value`         | `string`          | -       | Current OTP value.       |
+| `onChange`      | `(value: string) => void` | -  | Change handler.          |
+| `containerClassName` | `string`     | -       | Container CSS class.     |
+
+## Accessibility
+
+The `InputOTP` component supports keyboard navigation and provides proper ARIA labels for screen readers.

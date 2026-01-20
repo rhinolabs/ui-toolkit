@@ -1,0 +1,135 @@
+---
+title: Accordion
+description: 'A vertically stacked set of interactive panels that can be expanded or collapsed to show or hide content.'
+---
+
+The `Accordion` component is a vertically stacked set of interactive panels that can be expanded or collapsed. It allows you to present information in organized, collapsible sections that users can toggle open and close. Each panel typically includes a trigger (header) and content area, making it ideal for FAQs, menus, or any content that benefits from progressive disclosure.
+
+## Usage
+
+To implement an `Accordion`, import the component and its sub-components. You'll need to define the `type` prop to control whether single or multiple panels can be open simultaneously.
+
+```tsx
+import { Accordion } from "@rhinolabs/ui";
+
+export default function AccordionDemo() {
+  return (
+    <Accordion type="single" collapsible>
+      <Accordion.Item value="item-1">
+        <Accordion.Trigger>What is an accordion?</Accordion.Trigger>
+        <Accordion.Content>
+          An accordion is a component that allows you to expand and collapse content sections.
+        </Accordion.Content>
+      </Accordion.Item>
+      <Accordion.Item value="item-2">
+        <Accordion.Trigger>What is it for?</Accordion.Trigger>
+        <Accordion.Content>
+          It is used to display information in a compact and organized way.
+        </Accordion.Content>
+      </Accordion.Item>
+    </Accordion>
+  );
+}
+```
+
+# Examples
+
+### Basic Accordion
+
+This example demonstrates a basic accordion with a single collapsible item.
+
+```tsx
+import { Accordion } from "@rhinolabs/ui";
+
+export function SingleAccordion() {
+  return (
+    <Accordion type="single" collapsible>
+      <Accordion.Item value="item-1">
+        <Accordion.Trigger>Is it accessible?</Accordion.Trigger>
+        <Accordion.Content>
+          Yes. It adheres to the WAI-ARIA design pattern.
+        </Accordion.Content>
+      </Accordion.Item>
+    </Accordion>
+  );
+}
+```
+
+### Multiple Accordions
+
+This example demonstrates an accordion with multiple panels that can be open at the same time.
+
+```tsx
+import { Accordion } from "@rhinolabs/ui";
+
+export function MultipleAccordion() {
+  return (
+    <Accordion type="multiple">
+      <Accordion.Item value="item-1">
+        <Accordion.Trigger>Section 1</Accordion.Trigger>
+        <Accordion.Content>
+          Content for section 1 goes here.
+        </Accordion.Content>
+      </Accordion.Item>
+      <Accordion.Item value="item-2">
+        <Accordion.Trigger>Section 2</Accordion.Trigger>
+        <Accordion.Content>
+          Content for section 2 goes here.
+        </Accordion.Content>
+      </Accordion.Item>
+      <Accordion.Item value="item-3">
+        <Accordion.Trigger>Section 3</Accordion.Trigger>
+        <Accordion.Content>
+          Content for section 3 goes here.
+        </Accordion.Content>
+      </Accordion.Item>
+    </Accordion>
+  );
+}
+```
+
+## Props
+
+### Accordion Props
+
+| Prop             | Type                        | Default     | Description                                                             |
+| ---------------- | --------------------------- | ----------- | ----------------------------------------------------------------------- |
+| `type`           | `"single" \| "multiple"`    | `"single"`  | Determines if one or multiple panels can be open at the same time.      |
+| `collapsible`    | `boolean`                   | `false`     | Allows all panels to be closed if `true`.                               |
+| `value`          | `string \| string[]`        | -           | Controlled value of the open accordion item(s).                         |
+| `defaultValue`   | `string \| string[]`        | -           | Default value of the open accordion item(s).                            |
+| `onValueChange`  | `(value: string \| string[]) => void` | -  | Callback function called when the open state changes.                   |
+| `disabled`       | `boolean`                   | `false`     | Disables all accordion items when `true`.                               |
+| `className`      | `string`                    | -           | Custom CSS class for the root element.                                  |
+
+### Accordion.Item Props
+
+| Prop           | Type      | Default | Description                                      |
+| -------------- | --------- | ------- | ------------------------------------------------ |
+| `value`        | `string`  | -       | Unique identifier for the accordion item.        |
+| `disabled`     | `boolean` | `false` | Disables this specific accordion item.           |
+| `className`    | `string`  | -       | Custom CSS class for the item element.           |
+
+### Accordion.Trigger Props
+
+| Prop        | Type      | Default | Description                                      |
+| ----------- | --------- | ------- | ------------------------------------------------ |
+| `disabled`  | `boolean` | `false` | Disables the trigger button.                     |
+| `className` | `string`  | -       | Custom CSS class for the trigger element.        |
+| `children`  | `ReactNode` | -     | Content of the trigger (usually a string).       |
+
+### Accordion.Content Props
+
+| Prop        | Type      | Default | Description                                      |
+| ----------- | --------- | ------- | ------------------------------------------------ |
+| `className` | `string`  | -       | Custom CSS class for the content element.        |
+| `children`  | `ReactNode` | -     | Content to display when the panel is open.       |
+
+## Accessibility
+
+This component uses [Radix UI Accordion](https://www.radix-ui.com/docs/primitives/components/accordion) primitives, ensuring it adheres to the WAI-ARIA design pattern for disclosure widgets. It supports:
+
+- Keyboard navigation (Arrow Up/Down, Home/End)
+- Screen reader announcements
+- Proper focus management
+- ARIA attributes for state management

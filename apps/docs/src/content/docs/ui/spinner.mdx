@@ -1,0 +1,63 @@
+---
+title: Spinner
+description: A loading spinner component.
+---
+
+The `Spinner` component displays an animated loading indicator to show that content is loading.
+
+## Usage
+
+```tsx
+import { Spinner } from "@rhinolabs/ui";
+
+export default function SpinnerDemo() {
+  return (
+    <div className="flex items-center gap-2">
+      <Spinner />
+      <span>Loading...</span>
+    </div>
+  );
+}
+```
+
+## Examples
+
+### Default Spinner
+
+```tsx
+<Spinner />
+```
+
+### Custom Size
+
+```tsx
+<Spinner className="size-8" />
+```
+
+### With Text
+
+```tsx
+<div className="flex items-center gap-2">
+  <Spinner />
+  <p>Processing your request...</p>
+</div>
+```
+
+### In Button
+
+```tsx
+<Button disabled>
+  <Spinner />
+  Loading...
+</Button>
+```
+
+## Props
+
+| Prop       | Type     | Default | Description       |
+| ---------- | -------- | ------- | ----------------- |
+| `className`| `string` | -       | Custom CSS class. |
+
+## Accessibility
+
+The `Spinner` component includes proper ARIA attributes and is hidden from screen readers with alternative text.

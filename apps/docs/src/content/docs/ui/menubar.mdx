@@ -1,0 +1,77 @@
+---
+title: Menubar
+description: A menubar component with dropdown menus.
+---
+
+The `Menubar` component provides a horizontal menu bar with submenu support, similar to native application menubars.
+
+## Usage
+
+```tsx
+import { Menubar } from "@rhinolabs/ui";
+
+export default function MenubarDemo() {
+  return (
+    <Menubar>
+      <Menubar.Menu>
+        <Menubar.Trigger>File</Menubar.Trigger>
+        <Menubar.Content>
+          <Menubar.Item>New</Menubar.Item>
+          <Menubar.Item>Open</Menubar.Item>
+          <Menubar.Separator />
+          <Menubar.Item>Exit</Menubar.Item>
+        </Menubar.Content>
+      </Menubar.Menu>
+      <Menubar.Menu>
+        <Menubar.Trigger>Edit</Menubar.Trigger>
+        <Menubar.Content>
+          <Menubar.Item>Undo</Menubar.Item>
+          <Menubar.Item>Redo</Menubar.Item>
+        </Menubar.Content>
+      </Menubar.Menu>
+    </Menubar>
+  );
+}
+```
+
+## Examples
+
+### Basic Menubar
+
+```tsx
+<Menubar>
+  <Menubar.Menu>
+    <Menubar.Trigger>File</Menubar.Trigger>
+    <Menubar.Content>
+      <Menubar.Item>New File</Menubar.Item>
+      <Menubar.Item>Open...</Menubar.Item>
+      <Menubar.Item>Save</Menubar.Item>
+    </Menubar.Content>
+  </Menubar.Menu>
+</Menubar>
+```
+
+### With Separators and Labels
+
+```tsx
+<Menubar.Content>
+  <Menubar.Label>Recent</Menubar.Label>
+  <Menubar.Item>Document 1</Menubar.Item>
+  <Menubar.Item>Document 2</Menubar.Item>
+  <Menubar.Separator />
+  <Menubar.Item>Clear Recent</Menubar.Item>
+</Menubar.Content>
+```
+
+## Props
+
+### Menubar Props
+
+| Prop       | Type              | Default | Description     |
+| ---------- | ----------------- | ------- | --------------- |
+| `className`| `string`          | -       | Custom CSS class|
+| `children` | `React.ReactNode` | -       | Menu content    |
+
+## Accessibility
+
+The `Menubar` component supports keyboard navigation with arrow keys and provides proper ARIA attributes.

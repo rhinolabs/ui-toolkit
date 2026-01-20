@@ -1,0 +1,77 @@
+---
+title: Input Group
+description: Group input controls with optional addons and buttons.
+---
+
+The `InputGroup` component allows you to attach buttons, text, and other controls to input fields for a unified user experience.
+
+## Usage
+
+```tsx
+import { InputGroup } from "@rhinolabs/ui";
+import { Button } from "@rhinolabs/ui";
+import { SearchIcon } from "lucide-react";
+
+export default function InputGroupDemo() {
+  return (
+    <InputGroup>
+      <InputGroup.Addon>
+        <SearchIcon className="size-4" />
+      </InputGroup.Addon>
+      <InputGroup.Input placeholder="Search..." />
+      <InputGroup.Button>Search</InputGroup.Button>
+    </InputGroup>
+  );
+}
+```
+
+## Examples
+
+### With Icon Addon
+
+```tsx
+<InputGroup>
+  <InputGroup.Addon>
+    <MailIcon />
+  </InputGroup.Addon>
+  <InputGroup.Input type="email" placeholder="Email" />
+</InputGroup>
+```
+
+### With Text Addon
+
+```tsx
+<InputGroup>
+  <InputGroup.Addon>$</InputGroup.Addon>
+  <InputGroup.Input type="number" placeholder="0.00" />
+  <InputGroup.Addon>.00</InputGroup.Addon>
+</InputGroup>
+```
+
+### With Button
+
+```tsx
+<InputGroup>
+  <InputGroup.Input placeholder="Enter text..." />
+  <InputGroup.Button>Copy</InputGroup.Button>
+</InputGroup>
+```
+
+## Props
+
+### InputGroup Props
+
+| Prop       | Type              | Default | Description           |
+| ---------- | ----------------- | ------- | --------------------- |
+| `className`| `string`          | -       | Custom CSS class.     |
+| `children` | `React.ReactNode` | -       | Addon/input controls. |
+
+### InputGroupAddon Props
+
+| Prop   | Type                          | Default         | Description          |
+| ------ | ----------------------------- | --------------- | -------------------- |
+| `align`| `"inline-start" \| "inline-end" \| "block-start" \| "block-end"` | `"inline-start"` | Addon position.      |
+
+## Accessibility
+
+The `InputGroup` component properly structures controls for accessibility.

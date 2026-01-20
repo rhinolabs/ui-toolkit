@@ -1,0 +1,75 @@
+---
+title: Navigation Menu
+description: A navigation menu component with sub-menus and indicators.
+---
+
+The `NavigationMenu` component displays a navigation menu with dropdowns, sub-menus, and visual indicators for the current page.
+
+## Usage
+
+```tsx
+import { NavigationMenu } from "@rhinolabs/ui";
+
+export default function NavigationMenuDemo() {
+  return (
+    <NavigationMenu>
+      <NavigationMenu.List>
+        <NavigationMenu.Item>
+          <NavigationMenu.Trigger>Products</NavigationMenu.Trigger>
+          <NavigationMenu.Content>
+            <NavigationMenu.Link>Documentation</NavigationMenu.Link>
+            <NavigationMenu.Link>API Reference</NavigationMenu.Link>
+          </NavigationMenu.Content>
+        </NavigationMenu.Item>
+      </NavigationMenu.List>
+    </NavigationMenu>
+  );
+}
+```
+
+## Examples
+
+### Basic Navigation Menu
+
+```tsx
+<NavigationMenu>
+  <NavigationMenu.List>
+    <NavigationMenu.Item>
+      <NavigationMenu.Link href="/">Home</NavigationMenu.Link>
+    </NavigationMenu.Item>
+    <NavigationMenu.Item>
+      <NavigationMenu.Link href="/about">About</NavigationMenu.Link>
+    </NavigationMenu.Item>
+  </NavigationMenu.List>
+</NavigationMenu>
+```
+
+### With Dropdown
+
+```tsx
+<NavigationMenu>
+  <NavigationMenu.List>
+    <NavigationMenu.Item>
+      <NavigationMenu.Trigger>Services</NavigationMenu.Trigger>
+      <NavigationMenu.Content>
+        <NavigationMenu.Link href="/design">Design</NavigationMenu.Link>
+        <NavigationMenu.Link href="/development">Development</NavigationMenu.Link>
+      </NavigationMenu.Content>
+    </NavigationMenu.Item>
+  </NavigationMenu.List>
+</NavigationMenu>
+```
+
+## Props
+
+### NavigationMenu Props
+
+| Prop       | Type              | Default | Description              |
+| ---------- | ----------------- | ------- | ------------------------ |
+| `viewport` | `boolean`         | `true`  | Show viewport indicator. |
+| `className`| `string`          | -       | Custom CSS class.        |
+| `children` | `React.ReactNode` | -       | Menu content.            |
+
+## Accessibility
+
+The `NavigationMenu` component supports keyboard navigation and provides proper ARIA attributes for screen readers.
