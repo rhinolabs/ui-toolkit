@@ -45,6 +45,14 @@ export default defineConfig({
             content: '#10b981',
           },
         },
+        {
+          tag: 'script',
+          attrs: {
+            defer: true,
+            src: 'https://cloud.umami.is/script.js',
+            'data-website-id': '8b7e8cab-0f61-4e2b-84d0-265791684ede',
+          },
+        },
       ],
     }),
   ],
