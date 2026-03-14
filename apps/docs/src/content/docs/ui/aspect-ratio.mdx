@@ -1,0 +1,67 @@
+---
+title: Aspect Ratio
+description: Enforce a specific aspect ratio for content.
+---
+
+The `AspectRatio` component maintains a specific aspect ratio for its child content, useful for images, videos, and responsive layouts.
+
+## Usage
+
+```tsx
+import { AspectRatio } from "@rhinolabs/ui";
+
+export default function AspectRatioDemo() {
+  return (
+    <AspectRatio ratio={16 / 9}>
+      <img
+        src="https://images.unsplash.com/photo-1500000000000-000000000000"
+        alt="Mountain"
+        className="size-full object-cover"
+      />
+    </AspectRatio>
+  );
+}
+```
+
+## Examples
+
+### 1:1 Aspect Ratio (Square)
+
+```tsx
+<AspectRatio ratio={1}>
+  <img src="image.jpg" alt="Square" className="size-full object-cover" />
+</AspectRatio>
+```
+
+### 16:9 Aspect Ratio (Widescreen)
+
+```tsx
+<AspectRatio ratio={16 / 9}>
+  <video controls className="size-full">
+    <source src="video.mp4" type="video/mp4" />
+  </video>
+</AspectRatio>
+```
+
+### 4:3 Aspect Ratio (Traditional)
+
+```tsx
+<AspectRatio ratio={4 / 3}>
+  <iframe
+    src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+    className="size-full"
+    allowFullScreen
+  />
+</AspectRatio>
+```
+
+## Props
+
+| Prop      | Type             | Default | Description                              |
+| --------- | ---------------- | ------- | ---------------------------------------- |
+| `ratio`   | `number`         | -       | The aspect ratio (width / height).       |
+| `children`| `React.ReactNode`| -       | Content to maintain the aspect ratio.    |
+
+## Accessibility
+
+The `AspectRatio` component is a purely presentational wrapper that maintains dimensions. Ensure your content inside is accessible.

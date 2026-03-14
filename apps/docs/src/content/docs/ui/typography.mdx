@@ -1,0 +1,74 @@
+---
+title: Typography
+description: 'A set of reusable components for headings, paragraphs, and text elements, providing consistent typography and accessibility.'
+---
+
+
+Reusable components for headings, paragraphs, and other text elements, following the `Typography.H1`, `Typography.P`, etc. naming convention.
+
+## Usage
+
+```tsx
+import { Typography } from "@rhinolabs/ui"
+
+export default function TypographyDemo() {
+  return (
+    <Typography.H1>Main Heading</Typography.H1>
+    <Typography.P>This is a sample paragraph.</Typography.P>
+  )
+}
+```
+
+## Available Components
+
+- `Typography.H1`
+- `Typography.H2`
+- `Typography.H3`
+- `Typography.H4`
+- `Typography.H5`
+- `Typography.H6`
+- `Typography.P`
+- `Typography.Blockquote`
+- `Typography.List`
+- `Typography.InlineCode`
+- `Typography.Lead`
+- `Typography.Large`
+- `Typography.Small`
+- `Typography.Muted`
+
+### More Examples
+
+```tsx
+<Typography.H1>H1 Title</Typography.H1>
+<Typography.H2>H2 Title</Typography.H2>
+
+<Typography.P>
+  A paragraph with <Typography.InlineCode>inline code</Typography.InlineCode>.
+</Typography.P>
+
+<Typography.Blockquote>A highlighted quote.</Typography.Blockquote>
+
+<Typography.List>
+  <Typography.ListItem>Item 1</Typography.ListItem>
+  <Typography.ListItem>Item 2</Typography.ListItem>
+</Typography.List>
+```
+
+## Props
+
+All components accept the `className` prop for additional customization.
+
+## Design Considerations
+
+- Use semantic HTML elements for headings and paragraphs
+- Maintain a clear hierarchy and structure
+- Ensure text is readable and accessible
+- Support responsive design and scaling
+- Allow customization for different use cases
+
+## Accessibility
+
+- Uses semantic tags for better screen reader support
+- Supports ARIA attributes where necessary
+- Ensures sufficient color contrast
+- Allows keyboard navigation

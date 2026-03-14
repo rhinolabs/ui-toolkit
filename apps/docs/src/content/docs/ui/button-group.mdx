@@ -1,0 +1,73 @@
+---
+title: Button Group
+description: Group buttons together with optional separators and text.
+---
+
+The `ButtonGroup` component groups related buttons together, providing a cohesive visual and semantic structure with support for both horizontal and vertical orientations.
+
+## Usage
+
+```tsx
+import { Button } from "@rhinolabs/ui";
+import { ButtonGroup } from "@rhinolabs/ui";
+
+export default function ButtonGroupDemo() {
+  return (
+    <ButtonGroup>
+      <Button variant="outline">Left</Button>
+      <Button variant="outline">Center</Button>
+      <Button variant="outline">Right</Button>
+    </ButtonGroup>
+  );
+}
+```
+
+## Examples
+
+### Horizontal Button Group
+
+```tsx
+<ButtonGroup orientation="horizontal">
+  <Button variant="outline">Save</Button>
+  <Button variant="outline">Draft</Button>
+  <Button variant="outline">Delete</Button>
+</ButtonGroup>
+```
+
+### Vertical Button Group
+
+```tsx
+<ButtonGroup orientation="vertical">
+  <Button variant="outline">Option 1</Button>
+  <Button variant="outline">Option 2</Button>
+  <Button variant="outline">Option 3</Button>
+</ButtonGroup>
+```
+
+### With Text and Separator
+
+```tsx
+<ButtonGroup>
+  <Button variant="outline">Small</Button>
+  <ButtonGroup.Separator />
+  <ButtonGroup.Text>
+    <span>or</span>
+  </ButtonGroup.Text>
+  <ButtonGroup.Separator />
+  <Button variant="outline">Large</Button>
+</ButtonGroup>
+```
+
+## Props
+
+### ButtonGroup Props
+
+| Prop          | Type                      | Default        | Description                                     |
+| ------------- | ------------------------- | -------------- | ----------------------------------------------- |
+| `orientation` | `"horizontal" \| "vertical"`| `"horizontal"` | Direction of button group.                      |
+| `className`   | `string`                  | -              | Custom CSS class.                               |
+| `children`    | `React.ReactNode`         | -              | Button elements to group.                       |
+
+## Accessibility
+
+The `ButtonGroup` component uses proper ARIA roles to group buttons together semantically.

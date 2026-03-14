@@ -1,0 +1,72 @@
+---
+title: Carousel
+description: A carousel component for displaying multiple items in a rotating container.
+---
+
+The `Carousel` component displays a series of items in a rotating container with previous/next navigation controls and keyboard support.
+
+## Usage
+
+```tsx
+import { Carousel } from "@rhinolabs/ui";
+
+export default function CarouselDemo() {
+  return (
+    <Carousel>
+      <Carousel.Content>
+        <Carousel.Item>Slide 1</Carousel.Item>
+        <Carousel.Item>Slide 2</Carousel.Item>
+        <Carousel.Item>Slide 3</Carousel.Item>
+      </Carousel.Content>
+      <Carousel.Previous />
+      <Carousel.Next />
+    </Carousel>
+  );
+}
+```
+
+## Examples
+
+### Basic Carousel
+
+```tsx
+<Carousel>
+  <Carousel.Content>
+    <Carousel.Item>Item 1</Carousel.Item>
+    <Carousel.Item>Item 2</Carousel.Item>
+    <Carousel.Item>Item 3</Carousel.Item>
+  </Carousel.Content>
+  <Carousel.Previous />
+  <Carousel.Next />
+</Carousel>
+```
+
+### Vertical Carousel
+
+```tsx
+<Carousel orientation="vertical">
+  <Carousel.Content>
+    <Carousel.Item>Vertical 1</Carousel.Item>
+    <Carousel.Item>Vertical 2</Carousel.Item>
+    <Carousel.Item>Vertical 3</Carousel.Item>
+  </Carousel.Content>
+  <Carousel.Previous />
+  <Carousel.Next />
+</Carousel>
+```
+
+## Props
+
+### Carousel Props
+
+| Prop          | Type                     | Default        | Description                                     |
+| ------------- | ------------------------ | -------------- | ----------------------------------------------- |
+| `orientation` | `"horizontal" \| "vertical"`| `"horizontal"` | Direction of carousel movement.                 |
+| `opts`        | `CarouselOptions`        | -              | Embla carousel options.                         |
+| `plugins`     | `CarouselPlugin`         | -              | Embla carousel plugins.                         |
+| `setApi`      | `(api: CarouselApi) => void` | -           | Callback to get carousel API.                   |
+| `children`    | `React.ReactNode`        | -              | Carousel content.                               |
+
+## Accessibility
+
+The `Carousel` component supports keyboard navigation with Arrow keys and provides proper ARIA attributes for screen readers.

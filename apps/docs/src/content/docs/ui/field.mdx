@@ -1,0 +1,85 @@
+---
+title: Field
+description: A flexible field component for form layouts with labels, descriptions, and validation.
+---
+
+The `Field` component provides a flexible, composable system for creating form fields with support for labels, descriptions, errors, and different orientations.
+
+## Usage
+
+```tsx
+import { Field } from "@rhinolabs/ui";
+import { Input } from "@rhinolabs/ui";
+
+export default function FieldDemo() {
+  const [value, setValue] = useState("");
+
+  return (
+    <Field orientation="vertical">
+      <Field.Label>Email</Field.Label>
+      <Field.Content>
+        <Input
+          type="email"
+          value={value}
+          onChange={(e) => setValue(e.target.value)}
+          placeholder="you@example.com"
+        />
+      </Field.Content>
+      <Field.Description>
+        We'll never share your email with anyone else.
+      </Field.Description>
+    </Field>
+  );
+}
+```
+
+## Examples
+
+### Vertical Field
+
+```tsx
+<Field orientation="vertical">
+  <Field.Label>Name</Field.Label>
+  <Field.Content>
+    <Input placeholder="Enter your name" />
+  </Field.Content>
+  <Field.Description>Your full name.</Field.Description>
+</Field>
+```
+
+### Horizontal Field
+
+```tsx
+<Field orientation="horizontal">
+  <Field.Label>Subscribe</Field.Label>
+  <Field.Content>
+    <Switch />
+  </Field.Content>
+</Field>
+```
+
+### Field with Error
+
+```tsx
+<Field orientation="vertical">
+  <Field.Label>Password</Field.Label>
+  <Field.Content>
+    <Input type="password" aria-invalid="true" />
+  </Field.Content>
+  <Field.Error>Password is required.</Field.Error>
+</Field>
+```
+
+## Props
+
+### Field Props
+
+| Prop          | Type                          | Default      | Description                         |
+| ------------- | ----------------------------- | ------------ | ----------------------------------- |
+| `orientation` | `"vertical" \| "horizontal"` | `"vertical"` | Field layout orientation.           |
+| `className`   | `string`                      | -            | Custom CSS class.                   |
+| `children`    | `React.ReactNode`             | -            | Field content.                      |
+
+## Accessibility
+
+The `Field` component properly associates labels with inputs and provides proper ARIA attributes for error states.

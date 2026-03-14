@@ -1,0 +1,58 @@
+---
+title: Kbd
+description: Display keyboard key and shortcut notation.
+---
+
+The `Kbd` component displays keyboard key representations and keyboard shortcuts in a visually distinct way.
+
+## Usage
+
+```tsx
+import { Kbd } from "@rhinolabs/ui";
+
+export default function KbdDemo() {
+  return (
+    <div>
+      <p>
+        Press <Kbd>Ctrl</Kbd> + <Kbd>K</Kbd> to open search
+      </p>
+      <p>
+        <Kbd.Group>
+          <Kbd>⌘</Kbd>
+          <Kbd>K</Kbd>
+        </Kbd.Group>
+      </p>
+    </div>
+  );
+}
+```
+
+## Examples
+
+### Single Key
+
+```tsx
+<Kbd>Enter</Kbd>
+```
+
+### Key Combination
+
+```tsx
+<Kbd.Group>
+  <Kbd>Shift</Kbd>
+  <Kbd>+</Kbd>
+  <Kbd>P</Kbd>
+</Kbd.Group>
+```
+
+### With Icons
+
+```tsx
+<Kbd>
+  <CommandIcon className="size-3" />
+</Kbd>
+```
+
+## Accessibility
+
+The `Kbd` component displays keyboard shortcuts in an accessible way.

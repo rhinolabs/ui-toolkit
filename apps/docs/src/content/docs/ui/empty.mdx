@@ -1,0 +1,83 @@
+---
+title: Empty
+description: Display an empty state with icon, title, and description.
+---
+
+The `Empty` component provides a consistent way to display empty states in your application with icon, title, and description.
+
+## Usage
+
+```tsx
+import { Empty } from "@rhinolabs/ui";
+import { InboxIcon } from "lucide-react";
+
+export default function EmptyDemo() {
+  return (
+    <Empty>
+      <Empty.Content>
+        <Empty.Header>
+          <Empty.Media variant="icon">
+            <InboxIcon />
+          </Empty.Media>
+          <Empty.Title>No items</Empty.Title>
+        </Empty.Header>
+        <Empty.Description>
+          You don't have any items yet. Create one to get started.
+        </Empty.Description>
+      </Empty.Content>
+    </Empty>
+  );
+}
+```
+
+## Examples
+
+### Basic Empty State
+
+```tsx
+<Empty>
+  <Empty.Content>
+    <Empty.Header>
+      <Empty.Media variant="icon">
+        <SearchIcon />
+      </Empty.Media>
+      <Empty.Title>No results found</Empty.Title>
+    </Empty.Header>
+    <Empty.Description>
+      Try adjusting your search criteria.
+    </Empty.Description>
+  </Empty.Content>
+</Empty>
+```
+
+### Empty with Action
+
+```tsx
+<Empty>
+  <Empty.Content>
+    <Empty.Header>
+      <Empty.Media variant="icon">
+        <PlusIcon />
+      </Empty.Media>
+      <Empty.Title>Create your first item</Empty.Title>
+    </Empty.Header>
+    <Empty.Description>
+      Get started by creating a new item to add to your list.
+    </Empty.Description>
+    <Button>Create Item</Button>
+  </Empty.Content>
+</Empty>
+```
+
+## Props
+
+### EmptyMedia Props
+
+| Prop      | Type                      | Default    | Description                      |
+| --------- | ------------------------- | ---------- | -------------------------------- |
+| `variant` | `"default" \| "icon"`     | `"default"`| Display variant for media.       |
+| `children`| `React.ReactNode`         | -          | Icon or content.                 |
+
+## Accessibility
+
+The `Empty` component properly structures empty state content for accessibility with semantic HTML elements.

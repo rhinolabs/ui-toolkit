@@ -1,0 +1,72 @@
+---
+title: Native Select
+description: A native HTML select element with enhanced styling.
+---
+
+The `NativeSelect` component provides a styled wrapper around the native HTML select element with consistent appearance across browsers.
+
+## Usage
+
+```tsx
+import { NativeSelect } from "@rhinolabs/ui";
+
+export default function NativeSelectDemo() {
+  return (
+    <NativeSelect>
+      <NativeSelect.Option value="">Select an option</NativeSelect.Option>
+      <NativeSelect.Option value="option1">Option 1</NativeSelect.Option>
+      <NativeSelect.Option value="option2">Option 2</NativeSelect.Option>
+      <NativeSelect.Option value="option3">Option 3</NativeSelect.Option>
+    </NativeSelect>
+  );
+}
+```
+
+## Examples
+
+### Basic Select
+
+```tsx
+<NativeSelect>
+  <NativeSelect.Option value="">Choose</NativeSelect.Option>
+  <NativeSelect.Option value="1">First</NativeSelect.Option>
+  <NativeSelect.Option value="2">Second</NativeSelect.Option>
+</NativeSelect>
+```
+
+### With Option Groups
+
+```tsx
+<NativeSelect>
+  <NativeSelect.OptGroup label="Fruits">
+    <NativeSelect.Option value="apple">Apple</NativeSelect.Option>
+    <NativeSelect.Option value="banana">Banana</NativeSelect.Option>
+  </NativeSelect.OptGroup>
+  <NativeSelect.OptGroup label="Vegetables">
+    <NativeSelect.Option value="carrot">Carrot</NativeSelect.Option>
+    <NativeSelect.Option value="lettuce">Lettuce</NativeSelect.Option>
+  </NativeSelect.OptGroup>
+</NativeSelect>
+```
+
+### Small Size
+
+```tsx
+<NativeSelect size="sm">
+  <NativeSelect.Option value="">Select</NativeSelect.Option>
+  <NativeSelect.Option value="option1">Option 1</NativeSelect.Option>
+</NativeSelect>
+```
+
+## Props
+
+### NativeSelect Props
+
+| Prop       | Type              | Default     | Description        |
+| ---------- | ----------------- | ----------- | ------------------ |
+| `size`     | `"sm" \| "default"`| `"default"` | Select size.       |
+| `className`| `string`          | -           | Custom CSS class.  |
+
+## Accessibility
+
+The `NativeSelect` component uses the native HTML select element, ensuring full accessibility and keyboard support.

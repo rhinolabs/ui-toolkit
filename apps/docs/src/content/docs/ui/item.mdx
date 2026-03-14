@@ -1,0 +1,86 @@
+---
+title: Item
+description: A flexible component for displaying list items with media, content, and actions.
+---
+
+The `Item` component provides a flexible, composable system for creating list items with media, titles, descriptions, and action buttons.
+
+## Usage
+
+```tsx
+import { Item } from "@rhinolabs/ui";
+import { Button } from "@rhinolabs/ui";
+
+export default function ItemDemo() {
+  return (
+    <Item.Group>
+      <Item>
+        <Item.Media variant="icon">
+          <UserIcon />
+        </Item.Media>
+        <Item.Content>
+          <Item.Title>John Doe</Item.Title>
+          <Item.Description>john@example.com</Item.Description>
+        </Item.Content>
+        <Item.Actions>
+          <Button variant="ghost" size="sm">Edit</Button>
+        </Item.Actions>
+      </Item>
+    </Item.Group>
+  );
+}
+```
+
+## Examples
+
+### Basic Item
+
+```tsx
+<Item>
+  <ItemContent>
+    <ItemTitle>Item Title</ItemTitle>
+    <ItemDescription>Item description</ItemDescription>
+  </ItemContent>
+</Item>
+```
+
+### Item with Icon
+
+```tsx
+<Item>
+  <Item.Media variant="icon">
+    <StarIcon />
+  </Item.Media>
+  <Item.Content>
+    <Item.Title>Favorite</Item.Title>
+    <Item.Description>Mark as favorite</Item.Description>
+  </Item.Content>
+  <Item.Actions>
+    <Button size="sm" variant="ghost">Add</Button>
+  </Item.Actions>
+</Item>
+```
+
+### Item Group
+
+```tsx
+<Item.Group>
+  <Item>Item 1</Item>
+  <Item.Separator />
+  <Item>Item 2</Item>
+</Item.Group>
+```
+
+## Props
+
+### Item Props
+
+| Prop      | Type                                  | Default   | Description          |
+| --------- | ------------------------------------- | --------- | -------------------- |
+| `variant` | `"default" \| "outline" \| "muted"`   | `"default"` | Item style variant.  |
+| `size`    | `"default" \| "sm"`                   | `"default"` | Item size.           |
+| `asChild` | `boolean`                             | `false`   | Render as child.     |
+
+## Accessibility
+
+The `Item` component uses semantic HTML and ARIA attributes for proper accessibility.
