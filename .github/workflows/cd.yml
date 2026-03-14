@@ -20,15 +20,15 @@ jobs:
           node-version: '24'
           cache: 'pnpm'
 
+      - name: Install dependencies
+        run: pnpm install
+
       - name: Get version from release
         id: get_version
         run: echo "VERSION=$(echo ${{ github.event.release.tag_name }} | sed 's/ui@//')" >> $GITHUB_OUTPUT
 
       - name: Update package version
         run: pnpm tsx scripts/version.ts ui ${{ steps.get_version.outputs.VERSION }}
-
-      - name: Install dependencies
-        run: pnpm install
 
       - name: Build UI package
         run: |
@@ -65,15 +65,15 @@ jobs:
           node-version: '24'
           cache: 'pnpm'
 
+      - name: Install dependencies
+        run: pnpm install
+
       - name: Get version from release
         id: get_version
         run: echo "VERSION=$(echo ${{ github.event.release.tag_name }} | sed 's/hooks@//')" >> $GITHUB_OUTPUT
 
       - name: Update package version
         run: pnpm tsx scripts/version.ts hooks ${{ steps.get_version.outputs.VERSION }}
-
-      - name: Install dependencies
-        run: pnpm install
 
       - name: Build Hooks package
         run: pnpm --filter @rhinolabs/react-hooks run build
