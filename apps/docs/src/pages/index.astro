@@ -48,13 +48,10 @@ import Footer from '../components/footer.astro';
 
         <div class="hero-actions">
           <a href="/introduction" class="btn-primary">Get Started</a>
-          <div class="btn-code-wrapper">
-            <button class="btn-code" onclick="copyInstall()">
-              <span class="terminal-prompt">&gt;_</span>
-              <span>pnpm add @rhinolabs/ui @rhinolabs/react-hooks</span>
-            </button>
-            <span class="copy-tooltip" id="copy-tooltip">Copied!</span>
-          </div>
+          <button class="btn-code" onclick="copyInstall()">
+            <span class="terminal-prompt">&gt;_</span>
+            <span>pnpm add @rhinolabs/ui @rhinolabs/react-hooks</span>
+          </button>
         </div>
       </section>
 
@@ -193,13 +190,12 @@ import Footer from '../components/footer.astro';
     <script>
       function copyInstall() {
         navigator.clipboard.writeText('pnpm add @rhinolabs/ui @rhinolabs/react-hooks');
-        const tooltip = document.getElementById('copy-tooltip');
-        if (tooltip) {
-          tooltip.classList.add('visible');
-          setTimeout(() => {
-            tooltip.classList.remove('visible');
-          }, 2000);
-        }
+        const btn = document.querySelector('.btn-code');
+        const originalText = btn.querySelector('span').textContent;
+        btn.querySelector('span').textContent = 'Copied!';
+        setTimeout(() => {
+          btn.querySelector('span').textContent = originalText;
+        }, 2000);
       }
     </script>
   </body>
