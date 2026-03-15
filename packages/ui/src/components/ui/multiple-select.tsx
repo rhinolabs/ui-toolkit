@@ -127,8 +127,6 @@ const MultipleSelect: React.FC<MultipleSelectProps> = ({
 					<button
 						ref={triggerRef}
 						type="button"
-						// biome-ignore lint/a11y/useSemanticElements: <explanation>
-						// biome-ignore lint/a11y/useAriaPropsForRole: <explanation>
 						role="combobox"
 						aria-expanded={open}
 						className={cn(

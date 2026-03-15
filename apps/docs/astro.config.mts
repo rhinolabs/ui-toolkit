@@ -21,9 +21,9 @@ export default defineConfig({
       locales: {
         root: { label: 'English', lang: 'en' },
       },
-      social: {
-        github: 'https://github.com/rhinolabs/ui-toolkit',
-      },
+      social: [
+        { icon: 'github', label: 'GitHub', href: 'https://github.com/rhinolabs/ui-toolkit' },
+      ],
       customCss: ['./src/styles/custom.css'],
       sidebar: [
         { label: 'Introduction', slug: 'introduction' },
