@@ -3,7 +3,7 @@ import starlight from '@astrojs/starlight';
 import cloudflare from '@astrojs/cloudflare';
 
 export default defineConfig({
-  output: 'server',
+  output: 'static',
   adapter: cloudflare(),
   integrations: [
     starlight({
