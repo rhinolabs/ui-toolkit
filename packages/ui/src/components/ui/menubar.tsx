@@ -69,22 +69,27 @@ MenubarTrigger.displayName = "MenubarTrigger";
 const MenubarContent = React.forwardRef<
 	React.ComponentRef<typeof MenubarPrimitive.Content>,
 	React.ComponentProps<typeof MenubarPrimitive.Content>
->(({ className, align = "start", alignOffset = -4, sideOffset = 8, ...props }, ref) => (
-	<MenubarPortal>
-		<MenubarPrimitive.Content
-			ref={ref}
-			data-slot="menubar-content"
-			align={align}
-			alignOffset={alignOffset}
-			sideOffset={sideOffset}
-			className={cn(
-				"bg-popover text-popover-foreground data-[state=open]:animate-in data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2 z-50 min-w-48 origin-(--radix-menubar-content-transform-origin) overflow-hidden rounded-md border p-1 shadow-md",
-				className,
-			)}
-			{...props}
-		/>
-	</MenubarPortal>
-));
+>(
+	(
+		{ className, align = "start", alignOffset = -4, sideOffset = 8, ...props },
+		ref,
+	) => (
+		<MenubarPortal>
+			<MenubarPrimitive.Content
+				ref={ref}
+				data-slot="menubar-content"
+				align={align}
+				alignOffset={alignOffset}
+				sideOffset={sideOffset}
+				className={cn(
+					"bg-popover text-popover-foreground data-[state=open]:animate-in data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2 z-50 min-w-48 origin-(--radix-menubar-content-transform-origin) overflow-hidden rounded-md border p-1 shadow-md",
+					className,
+				)}
+				{...props}
+			/>
+		</MenubarPortal>
+	),
+);
 MenubarContent.displayName = "MenubarContent";
 
 const MenubarItem = React.forwardRef<
@@ -165,10 +170,7 @@ const MenubarLabel = React.forwardRef<
 		ref={ref}
 		data-slot="menubar-label"
 		data-inset={inset}
-		className={cn(
-			"px-2 py-1.5 text-sm font-medium data-inset:pl-8",
-			className,
-		)}
+		className={cn("px-2 py-1.5 text-sm font-medium data-inset:pl-8", className)}
 		{...props}
 	/>
 ));
