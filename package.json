@@ -10,7 +10,15 @@
 		"build:ui": "pnpm --filter=@rhinolabs/ui run build",
 		"build:docs": "pnpm --filter=@rhinolabs/ui-toolkit-docs run build",
 		"lint": "pnpm --filter=* run lint",
-		"lint:fix": "pnpm --filter=* run lint:fix"
+		"lint:fix": "pnpm --filter=* run lint:fix",
+		"test:consumers": "pnpm run build:hooks && pnpm run build:ui && pnpm run test:consumers:pack && pnpm run test:consumers:install && pnpm run test:consumers:run",
+		"test:consumers:pack": "mkdir -p test-consumers/.tarballs && cd packages/hooks && pnpm pack --pack-destination ../../test-consumers/.tarballs && cd ../ui && pnpm pack --pack-destination ../../test-consumers/.tarballs",
+		"test:consumers:install": "cd test-consumers/vite-r18 && pnpm install && cd ../vite-r19 && pnpm install && cd ../next-r18 && pnpm install && cd ../next-r19 && pnpm install",
+		"test:consumers:run": "cd test-consumers/vite-r18 && pnpm test; cd ../vite-r19 && pnpm test; cd ../next-r18 && pnpm test; cd ../next-r19 && pnpm test",
+		"test:consumer:vite-r18": "cd test-consumers/vite-r18 && pnpm test",
+		"test:consumer:vite-r19": "cd test-consumers/vite-r19 && pnpm test",
+		"test:consumer:next-r18": "cd test-consumers/next-r18 && pnpm test",
+		"test:consumer:next-r19": "cd test-consumers/next-r19 && pnpm test"
 	},
 	"keywords": [],
 	"author": {
