@@ -1,5 +1,5 @@
 {
-	"$schema": "https://biomejs.dev/schemas/1.9.4/schema.json",
+	"$schema": "https://biomejs.dev/schemas/2.4.7/schema.json",
 	"vcs": {
 		"enabled": false,
 		"clientKind": "git",
@@ -7,14 +7,24 @@
 	},
 	"files": {
 		"ignoreUnknown": false,
-		"ignore": ["node_modules", "dist", "coverage", ".next", "out", "_pagefind"]
+		"includes": ["**", "!node_modules/**", "!dist/**", "!coverage/**", "!.next/**", "!out/**", "!_pagefind/**", "!**/*.css"]
+	},
+	"css": {
+		"parser": {
+			"cssModules": true,
+			"tailwindDirectives": true
+		}
 	},
 	"formatter": {
 		"enabled": true,
 		"indentStyle": "tab"
 	},
-	"organizeImports": {
-		"enabled": true
+	"assist": {
+		"actions": {
+			"source": {
+				"organizeImports": "on"
+			}
+		}
 	},
 	"linter": {
 		"enabled": true,
@@ -22,13 +32,23 @@
 			"recommended": true,
 			"suspicious": {
 				"noAssignInExpressions": "off",
-				"noExplicitAny": "off"
+				"noExplicitAny": "off",
+				"noDocumentCookie": "off",
+				"noArrayIndexKey": "off",
+				"noShadowRestrictedNames": "off"
 			},
 			"correctness": {
 				"useExhaustiveDependencies": "off"
 			},
-			"complexity": {
-				"noBannedTypes": "off"
+			"a11y": {
+				"useSemanticElements": "off",
+				"useAriaPropsSupportedByRole": "off",
+				"useKeyWithClickEvents": "off",
+				"useFocusableInteractive": "off",
+				"noRedundantRoles": "off"
+			},
+			"style": {
+				"noNonNullAssertion": "off"
 			}
 		}
 	}

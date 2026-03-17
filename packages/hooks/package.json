@@ -6,7 +6,9 @@
 	"main": "./dist/index.js",
 	"module": "dist/index.js",
 	"types": "./dist/index.d.ts",
-	"files": ["dist"],
+	"files": [
+		"dist"
+	],
 	"sideEffects": false,
 	"scripts": {
 		"build": "tsc",
@@ -14,7 +16,13 @@
 		"lint": "biome format && biome lint",
 		"lint:fix": "biome format --write && biome lint --fix"
 	},
-	"keywords": ["react", "hooks", "react-hooks", "typescript", "utilities"],
+	"keywords": [
+		"react",
+		"hooks",
+		"react-hooks",
+		"typescript",
+		"utilities"
+	],
 	"author": {
 		"name": "Rhinolabs Agency",
 		"email": "hello@rhinolabs.agency",
@@ -22,15 +30,16 @@
 	},
 	"license": "MIT",
 	"devDependencies": {
-		"@biomejs/biome": "^1.9.4",
-		"@types/react": "^18.0.0",
-		"@types/react-dom": "^18.0.0",
-		"react-dom": "^18.0.0",
+		"@biomejs/biome": "^2.4.7",
+		"@types/react": "^19.0.0",
+		"@types/react-dom": "^19.0.0",
+		"react": "^19.0.0",
+		"react-dom": "^19.0.0",
 		"resolve-tspaths": "^0.8.23",
-		"typescript": "^5.7.2"
+		"typescript": "^5.9.0"
 	},
 	"peerDependencies": {
-		"react": "^18.0.0",
-		"react-dom": "^18.0.0"
+		"react": "^18.0.0 || ^19.0.0",
+		"react-dom": "^18.0.0 || ^19.0.0"
 	}
 }

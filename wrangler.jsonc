@@ -1,5 +1,5 @@
 {
-  "main": "apps/docs/dist/_worker.js/index.js",
+  "main": "apps/docs/dist/server/entry.mjs",
   "name": "ui-toolkit",
   "compatibility_date": "2025-12-02",
   "compatibility_flags": [
@@ -8,7 +8,7 @@
   ],
   "assets": {
     "binding": "ASSETS",
-    "directory": "./apps/docs/dist"
+    "directory": "./apps/docs/dist/client"
   },
   "observability": {
     "enabled": true
