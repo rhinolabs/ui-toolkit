@@ -18,7 +18,11 @@
 		"test:consumer:vite-r18": "cd test-consumers/vite-r18 && pnpm test",
 		"test:consumer:vite-r19": "cd test-consumers/vite-r19 && pnpm test",
 		"test:consumer:next-r18": "cd test-consumers/next-r18 && pnpm test",
-		"test:consumer:next-r19": "cd test-consumers/next-r19 && pnpm test"
+		"test:consumer:next-r19": "cd test-consumers/next-r19 && pnpm test",
+		"playground:vite-r18": "cd test-consumers/vite-r18 && pnpm dev",
+		"playground:vite-r19": "cd test-consumers/vite-r19 && pnpm dev",
+		"playground:next-r18": "cd test-consumers/next-r18 && pnpm dev",
+		"playground:next-r19": "cd test-consumers/next-r19 && pnpm dev"
 	},
 	"keywords": [],
 	"author": {

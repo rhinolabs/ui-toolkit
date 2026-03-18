@@ -94,25 +94,107 @@ Use the `test-branch.sh` script to test any branch in isolation via git worktree
 
 Worktrees are created in `.worktrees/` (gitignored). Each one has its own `node_modules`, so switching between branches never contaminates dependencies.
 
+## Visual Playground
+
+Each consumer app includes a visual playground that renders all 55 components grouped by category on a single page. This provides a quick way to visually smoke-test components across all framework and React version combinations.
+
+### Prerequisites
+
+Before launching a playground, the libraries must be built and installed as tarballs in the consumer apps. If you have already run `pnpm test:consumers`, this is already done. Otherwise:
+
+```bash
+pnpm run build:hooks && pnpm run build:ui
+pnpm test:consumers:pack
+pnpm test:consumers:install
+```
+
+### Launch a Playground
+
+From the project root, use the convenience scripts:
+
+```bash
+pnpm playground:vite-r18    # http://localhost:5180
+pnpm playground:vite-r19    # http://localhost:5190
+pnpm playground:next-r18    # http://localhost:3018
+pnpm playground:next-r19    # http://localhost:3019
+```
+
+### Port Assignments
+
+| App        | Port | Mnemonic               |
+| ---------- | ---- | ---------------------- |
+| `vite-r18` | 5180 | 51 + **80** (React 18) |
+| `vite-r19` | 5190 | 51 + **90** (React 19) |
+| `next-r18` | 3018 | 30 + **18** (React 18) |
+| `next-r19` | 3019 | 30 + **19** (React 19) |
+
+### Side-by-Side Comparison
+
+Run two playgrounds simultaneously to compare rendering across frameworks or React versions:
+
+```bash
+# Terminal 1
+pnpm playground:vite-r18
+
+# Terminal 2
+pnpm playground:vite-r19
+```
+
+Then open both URLs in browser tabs and compare side by side.
+
+For comparing the same app across git worktrees, each worktree runs its own dev server process. If both worktrees target the same app (and thus the same port), override the port in one of them:
+
+```bash
+# In worktree B
+cd test-consumers/vite-r18 && pnpm vite --port 5181
+```
+
 ## What Gets Tested
 
-- **55 components** — Render smoke tests with minimal props, sub-component verification
-- **37 hooks** — Invocation tests, return type validation
-- **Skipped** (by design): Form (needs react-hook-form), Sidebar (needs SidebarProvider), Typography (namespace only), Toaster (Vite apps only — needs ThemeProvider)
+### Automated Tests (per app)
+
+| File                  | Tests | What it validates                                                 |
+| --------------------- | ----- | ----------------------------------------------------------------- |
+| `components.test.tsx` | ~326  | Exports exist, render without crashing, sub-components accessible |
+| `hooks.test.tsx`      | 61    | All hooks invocable, return expected types                        |
+| `behavior.test.tsx`   | 18    | Interactive behavior: clicks, typing, toggling, dialog open/close |
+| `findings.test.tsx`   | ~4    | Known issues documented as executable tests                       |
+
+**Skipped** (by design): Form (needs react-hook-form), Sidebar (needs SidebarProvider), Typography (namespace only).
+
+### Visual Playground (manual)
+
+All 55 components rendered in a real browser with interactive props — buttons fire alerts, selects have options, toggles change state.
+
+## Findings
+
+Known issues discovered during testing are documented in `findings/`:
+
+```
+findings/
+├── calendar-visually-broken.md   # Calendar layout broken (CSS issue from PR #84)
+└── sidebar-ssr-crash.md          # Sidebar crashes Next.js (useWindowSize accesses window)
+```
+
+Each finding has a corresponding automated test in `*/src/findings.test.tsx`.
 
 ## Project Structure
 
 ```
 test-consumers/
 ├── .tarballs/              # Build artifacts (gitignored)
-├── shared-utils/           # Shared test logic (registries, mocks, types)
+├── findings/               # Documented issues found during testing
+├── shared-utils/           # Shared test logic
 │   └── src/
 │       ├── components/
-│       │   └── component-registry.ts   # 55 component entries
+│       │   └── component-registry.ts   # 55 component entries with categories
 │       ├── hooks/
 │       │   └── hook-registry.ts        # 37 hook entries
 │       ├── helpers/
 │       │   └── browser-mocks.ts        # IntersectionObserver, ResizeObserver, etc.
+│       ├── playground/
+│       │   ├── PlaygroundRenderer.tsx   # Visual playground component
+│       │   └── playground-registry.ts  # Render hints per component
 │       ├── types.ts
 │       └── index.ts
 ├── vite-r18/               # Vite + React 18
@@ -125,13 +207,23 @@ Each app has:
 
 - `package.json` — Dependencies with tarball references
 - `vitest.config.ts` — Vitest + happy-dom + PostCSS config
-- `src/components.test.tsx` — Component render tests
+- `src/components.test.tsx` — Component smoke tests
 - `src/hooks.test.tsx` — Hook invocation tests
+- `src/behavior.test.tsx` — Interactive behavior tests
+- `src/findings.test.tsx` — Known issues as executable tests
 - `src/setup.ts` — Browser API mocks
 - `src/styles.css` — Imports `@rhinolabs/ui/styles.css`
+
+Vite apps also have: `index.html`, `src/main.tsx`, `src/App.tsx`, `vite.config.ts` (playground entry points).
+
+Next.js apps also have: `next.config.mjs`, `app/layout.tsx`, `app/page.tsx`, `app/playground-client.tsx` (playground entry points with SSR workaround).
 
 ## Philosophy
 
 - A failing test is a **successful detection**, not a problem to hide
 - NEVER adjust tests to force a green suite
 - If a change breaks a consumer, the test MUST fail and surface the error clearly
+
+## Findings
+
+All findings are documented in `findings/` with full root cause analysis and evidence. Each finding also has corresponding automated tests in `*/src/findings.test.tsx`.

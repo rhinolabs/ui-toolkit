@@ -4,25 +4,27 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
+    "dev": "vite --port 5190",
     "test": "vitest run"
   },
   "dependencies": {
-    "@rhinolabs/ui": "file:../.tarballs/rhinolabs-ui-1.2.1.tgz",
     "@rhinolabs/react-hooks": "file:../.tarballs/rhinolabs-react-hooks-1.0.3.tgz",
+    "@rhinolabs/ui": "file:../.tarballs/rhinolabs-ui-1.2.1.tgz",
     "react": "^19.0.0",
     "react-dom": "^19.0.0"
   },
   "devDependencies": {
-    "@testing-library/react": "^16.1.0",
-    "@testing-library/jest-dom": "^6.6.3",
-    "@vitejs/plugin-react": "^4.3.4",
     "@tailwindcss/postcss": "^4.0.0",
-    "postcss": "^8.4.49",
-    "happy-dom": "^16.6.0",
-    "vitest": "^3.0.0",
-    "typescript": "^5.7.2",
+    "@testing-library/jest-dom": "^6.6.3",
+    "@testing-library/react": "^16.1.0",
+    "@testing-library/user-event": "^14.6.1",
     "@types/react": "^19.0.0",
-    "@types/react-dom": "^19.0.0"
+    "@types/react-dom": "^19.0.0",
+    "@vitejs/plugin-react": "^4.3.4",
+    "happy-dom": "^16.6.0",
+    "postcss": "^8.4.49",
+    "typescript": "^5.7.2",
+    "vitest": "^3.0.0"
   },
   "pnpm": {
     "overrides": {

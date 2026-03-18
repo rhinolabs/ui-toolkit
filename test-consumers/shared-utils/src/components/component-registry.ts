@@ -1,4 +1,4 @@
-import type { ComponentRegistryEntry } from "../types";
+import type { ComponentCategory, ComponentRegistryEntry } from "../types";
 
 /**
  * Complete registry of all 55 component exports from @rhinolabs/ui.
@@ -16,7 +16,8 @@ export const componentRegistry: ComponentRegistryEntry[] = [
     subComponentNames: [],
     requiresProvider: false,
     requiresThemeProvider: false,
-    minimalProps: { children: "Test alert" },
+    minimalProps: { children: "Test alert", variant: "default" },
+    category: "display",
   },
   {
     name: "Badge",
@@ -24,7 +25,8 @@ export const componentRegistry: ComponentRegistryEntry[] = [
     subComponentNames: [],
     requiresProvider: false,
     requiresThemeProvider: false,
-    minimalProps: { children: "Test" },
+    minimalProps: { children: "New Badge" },
+    category: "display",
   },
   {
     name: "Card",
@@ -33,6 +35,7 @@ export const componentRegistry: ComponentRegistryEntry[] = [
     requiresProvider: false,
     requiresThemeProvider: false,
     minimalProps: { children: "Card content" },
+    category: "display",
   },
   {
     name: "Empty",
@@ -41,6 +44,7 @@ export const componentRegistry: ComponentRegistryEntry[] = [
     requiresProvider: false,
     requiresThemeProvider: false,
     minimalProps: { children: "Nothing here" },
+    category: "display",
   },
   {
     name: "Item",
@@ -49,6 +53,7 @@ export const componentRegistry: ComponentRegistryEntry[] = [
     requiresProvider: false,
     requiresThemeProvider: false,
     minimalProps: { children: "Item content" },
+    category: "display",
   },
   {
     name: "Kbd",
@@ -57,6 +62,7 @@ export const componentRegistry: ComponentRegistryEntry[] = [
     requiresProvider: false,
     requiresThemeProvider: false,
     minimalProps: { children: "Ctrl+C" },
+    category: "display",
   },
   {
     name: "Skeleton",
@@ -65,6 +71,7 @@ export const componentRegistry: ComponentRegistryEntry[] = [
     requiresProvider: false,
     requiresThemeProvider: false,
     minimalProps: {},
+    category: "display",
   },
   {
     name: "Spinner",
@@ -73,6 +80,7 @@ export const componentRegistry: ComponentRegistryEntry[] = [
     requiresProvider: false,
     requiresThemeProvider: false,
     minimalProps: {},
+    category: "display",
   },
   {
     name: "Typography",
@@ -97,6 +105,7 @@ export const componentRegistry: ComponentRegistryEntry[] = [
     requiresProvider: true, // Not a renderable component — namespace object only
     requiresThemeProvider: false,
     minimalProps: {},
+    category: "display",
   },
   {
     name: "Avatar",
@@ -105,6 +114,7 @@ export const componentRegistry: ComponentRegistryEntry[] = [
     requiresProvider: false,
     requiresThemeProvider: false,
     minimalProps: {},
+    category: "display",
   },
   {
     name: "Progress",
@@ -113,6 +123,7 @@ export const componentRegistry: ComponentRegistryEntry[] = [
     requiresProvider: false,
     requiresThemeProvider: false,
     minimalProps: { value: 50 },
+    category: "display",
   },
   {
     name: "Table",
@@ -129,6 +140,7 @@ export const componentRegistry: ComponentRegistryEntry[] = [
     requiresProvider: false,
     requiresThemeProvider: false,
     minimalProps: {},
+    category: "display",
   },
 
   // ─── Layout ────────────────────────────────────────────────────────────────
@@ -140,6 +152,7 @@ export const componentRegistry: ComponentRegistryEntry[] = [
     requiresProvider: false,
     requiresThemeProvider: false,
     minimalProps: { ratio: 16 / 9 },
+    category: "layout",
   },
   {
     name: "ButtonGroup",
@@ -148,6 +161,7 @@ export const componentRegistry: ComponentRegistryEntry[] = [
     requiresProvider: false,
     requiresThemeProvider: false,
     minimalProps: {},
+    category: "layout",
   },
   {
     name: "ScrollArea",
@@ -156,6 +170,7 @@ export const componentRegistry: ComponentRegistryEntry[] = [
     requiresProvider: false,
     requiresThemeProvider: false,
     minimalProps: { style: { height: 100 } },
+    category: "layout",
   },
   {
     name: "Separator",
@@ -164,6 +179,7 @@ export const componentRegistry: ComponentRegistryEntry[] = [
     requiresProvider: false,
     requiresThemeProvider: false,
     minimalProps: {},
+    category: "layout",
   },
 
   // ─── Form (simple) ────────────────────────────────────────────────────────
@@ -175,6 +191,7 @@ export const componentRegistry: ComponentRegistryEntry[] = [
     requiresProvider: false,
     requiresThemeProvider: false,
     minimalProps: { placeholder: "test" },
+    category: "form",
   },
   {
     name: "Textarea",
@@ -183,6 +200,7 @@ export const componentRegistry: ComponentRegistryEntry[] = [
     requiresProvider: false,
     requiresThemeProvider: false,
     minimalProps: { placeholder: "test" },
+    category: "form",
   },
   {
     name: "Label",
@@ -191,14 +209,16 @@ export const componentRegistry: ComponentRegistryEntry[] = [
     requiresProvider: false,
     requiresThemeProvider: false,
     minimalProps: { children: "Test label" },
+    category: "form",
   },
   {
     name: "NativeSelect",
-    hasSubComponents: false,
-    subComponentNames: [],
+    hasSubComponents: true,
+    subComponentNames: ["Option", "OptGroup"],
     requiresProvider: false,
     requiresThemeProvider: false,
     minimalProps: {},
+    category: "form",
   },
   {
     name: "InputGroup",
@@ -207,6 +227,7 @@ export const componentRegistry: ComponentRegistryEntry[] = [
     requiresProvider: false,
     requiresThemeProvider: false,
     minimalProps: {},
+    category: "form",
   },
   {
     name: "Field",
@@ -225,6 +246,7 @@ export const componentRegistry: ComponentRegistryEntry[] = [
     requiresProvider: false,
     requiresThemeProvider: false,
     minimalProps: {},
+    category: "form",
   },
   {
     name: "Checkbox",
@@ -233,6 +255,7 @@ export const componentRegistry: ComponentRegistryEntry[] = [
     requiresProvider: false,
     requiresThemeProvider: false,
     minimalProps: {},
+    category: "form",
   },
   {
     name: "Switch",
@@ -241,6 +264,7 @@ export const componentRegistry: ComponentRegistryEntry[] = [
     requiresProvider: false,
     requiresThemeProvider: false,
     minimalProps: {},
+    category: "form",
   },
   {
     name: "Slider",
@@ -249,6 +273,7 @@ export const componentRegistry: ComponentRegistryEntry[] = [
     requiresProvider: false,
     requiresThemeProvider: false,
     minimalProps: { defaultValue: [50] },
+    category: "form",
   },
   {
     name: "RadioGroup",
@@ -257,6 +282,7 @@ export const componentRegistry: ComponentRegistryEntry[] = [
     requiresProvider: false,
     requiresThemeProvider: false,
     minimalProps: { defaultValue: "a" },
+    category: "form",
   },
   {
     name: "Select",
@@ -275,6 +301,7 @@ export const componentRegistry: ComponentRegistryEntry[] = [
     requiresProvider: false,
     requiresThemeProvider: false,
     minimalProps: {},
+    category: "form",
   },
   {
     name: "MultipleSelect",
@@ -283,10 +310,16 @@ export const componentRegistry: ComponentRegistryEntry[] = [
     requiresProvider: false,
     requiresThemeProvider: false,
     minimalProps: {
-      options: [{ label: "A", value: "a" }],
-      value: [],
+      options: [
+        { label: "Apple", value: "apple" },
+        { label: "Banana", value: "banana" },
+        { label: "Cherry", value: "cherry" },
+        { label: "Date", value: "date" },
+      ],
+      value: ["apple"],
       onChange: "NOOP_FN",
     },
+    category: "form",
   },
   {
     name: "InputOTP",
@@ -295,14 +328,19 @@ export const componentRegistry: ComponentRegistryEntry[] = [
     requiresProvider: false,
     requiresThemeProvider: false,
     minimalProps: { maxLength: 4 },
+    category: "form",
   },
   {
+    // KNOWN BUG (PR #84): Calendar is broken with React 18. The component code
+    // was rewritten for react-day-picker v9 API, but v9 requires React 19.
+    // Do NOT attempt to fix here — the component itself needs to be updated.
     name: "Calendar",
     hasSubComponents: false,
     subComponentNames: [],
     requiresProvider: false,
     requiresThemeProvider: false,
     minimalProps: {},
+    category: "form",
   },
 
   // ─── Interactive ───────────────────────────────────────────────────────────
@@ -313,7 +351,8 @@ export const componentRegistry: ComponentRegistryEntry[] = [
     subComponentNames: [],
     requiresProvider: false,
     requiresThemeProvider: false,
-    minimalProps: { children: "Click me" },
+    minimalProps: { children: "Click me", onClick: "ALERT_FN" },
+    category: "interactive",
   },
   {
     name: "Toggle",
@@ -322,6 +361,7 @@ export const componentRegistry: ComponentRegistryEntry[] = [
     requiresProvider: false,
     requiresThemeProvider: false,
     minimalProps: { children: "T" },
+    category: "interactive",
   },
   {
     name: "ToggleGroup",
@@ -330,6 +370,7 @@ export const componentRegistry: ComponentRegistryEntry[] = [
     requiresProvider: false,
     requiresThemeProvider: false,
     minimalProps: { type: "single" },
+    category: "interactive",
   },
   {
     name: "Accordion",
@@ -338,6 +379,7 @@ export const componentRegistry: ComponentRegistryEntry[] = [
     requiresProvider: false,
     requiresThemeProvider: false,
     minimalProps: { type: "single", collapsible: true },
+    category: "interactive",
   },
   {
     name: "Collapsible",
@@ -346,6 +388,7 @@ export const componentRegistry: ComponentRegistryEntry[] = [
     requiresProvider: false,
     requiresThemeProvider: false,
     minimalProps: {},
+    category: "interactive",
   },
   {
     name: "Tabs",
@@ -354,6 +397,7 @@ export const componentRegistry: ComponentRegistryEntry[] = [
     requiresProvider: false,
     requiresThemeProvider: false,
     minimalProps: { defaultValue: "a" },
+    category: "interactive",
   },
   {
     name: "Carousel",
@@ -362,6 +406,7 @@ export const componentRegistry: ComponentRegistryEntry[] = [
     requiresProvider: false,
     requiresThemeProvider: false,
     minimalProps: {},
+    category: "interactive",
   },
   {
     name: "ResizablePanelGroup",
@@ -370,6 +415,7 @@ export const componentRegistry: ComponentRegistryEntry[] = [
     requiresProvider: false,
     requiresThemeProvider: false,
     minimalProps: { direction: "horizontal" },
+    category: "interactive",
   },
 
   // ─── Overlay ───────────────────────────────────────────────────────────────
@@ -391,6 +437,7 @@ export const componentRegistry: ComponentRegistryEntry[] = [
     requiresProvider: false,
     requiresThemeProvider: false,
     minimalProps: {},
+    category: "overlay",
   },
   {
     name: "AlertDialog",
@@ -408,6 +455,7 @@ export const componentRegistry: ComponentRegistryEntry[] = [
     requiresProvider: false,
     requiresThemeProvider: false,
     minimalProps: {},
+    category: "overlay",
   },
   {
     name: "Sheet",
@@ -424,6 +472,7 @@ export const componentRegistry: ComponentRegistryEntry[] = [
     requiresProvider: false,
     requiresThemeProvider: false,
     minimalProps: {},
+    category: "overlay",
   },
   {
     name: "Drawer",
@@ -442,6 +491,7 @@ export const componentRegistry: ComponentRegistryEntry[] = [
     requiresProvider: false,
     requiresThemeProvider: false,
     minimalProps: {},
+    category: "overlay",
   },
   {
     name: "Popover",
@@ -450,6 +500,7 @@ export const componentRegistry: ComponentRegistryEntry[] = [
     requiresProvider: false,
     requiresThemeProvider: false,
     minimalProps: {},
+    category: "overlay",
   },
   {
     name: "HoverCard",
@@ -458,6 +509,7 @@ export const componentRegistry: ComponentRegistryEntry[] = [
     requiresProvider: false,
     requiresThemeProvider: false,
     minimalProps: {},
+    category: "overlay",
   },
   {
     name: "Tooltip",
@@ -466,6 +518,7 @@ export const componentRegistry: ComponentRegistryEntry[] = [
     requiresProvider: false,
     requiresThemeProvider: false,
     minimalProps: {},
+    category: "overlay",
   },
   {
     name: "DropdownMenu",
@@ -488,6 +541,7 @@ export const componentRegistry: ComponentRegistryEntry[] = [
     requiresProvider: false,
     requiresThemeProvider: false,
     minimalProps: {},
+    category: "overlay",
   },
   {
     name: "ContextMenu",
@@ -510,6 +564,7 @@ export const componentRegistry: ComponentRegistryEntry[] = [
     requiresProvider: false,
     requiresThemeProvider: false,
     minimalProps: {},
+    category: "overlay",
   },
 
   // ─── Navigation ────────────────────────────────────────────────────────────
@@ -528,6 +583,7 @@ export const componentRegistry: ComponentRegistryEntry[] = [
     requiresProvider: false,
     requiresThemeProvider: false,
     minimalProps: {},
+    category: "navigation",
   },
   {
     name: "Pagination",
@@ -543,6 +599,7 @@ export const componentRegistry: ComponentRegistryEntry[] = [
     requiresProvider: false,
     requiresThemeProvider: false,
     minimalProps: {},
+    category: "navigation",
   },
   {
     name: "Menubar",
@@ -566,6 +623,7 @@ export const componentRegistry: ComponentRegistryEntry[] = [
     requiresProvider: false,
     requiresThemeProvider: false,
     minimalProps: {},
+    category: "navigation",
   },
   {
     name: "NavigationMenu",
@@ -582,6 +640,7 @@ export const componentRegistry: ComponentRegistryEntry[] = [
     requiresProvider: false,
     requiresThemeProvider: false,
     minimalProps: {},
+    category: "navigation",
   },
   {
     name: "Command",
@@ -599,6 +658,7 @@ export const componentRegistry: ComponentRegistryEntry[] = [
     requiresProvider: false,
     requiresThemeProvider: false,
     minimalProps: {},
+    category: "navigation",
   },
   {
     name: "Sidebar",
@@ -630,6 +690,7 @@ export const componentRegistry: ComponentRegistryEntry[] = [
     requiresProvider: true,
     requiresThemeProvider: false,
     minimalProps: {},
+    category: "navigation",
   },
 
   // ─── Form (complex — requires react-hook-form context) ────────────────────
@@ -649,6 +710,7 @@ export const componentRegistry: ComponentRegistryEntry[] = [
     requiresProvider: true,
     requiresThemeProvider: false,
     minimalProps: {},
+    category: "form",
   },
 
   // ─── Feedback (requires next-themes ThemeProvider) ─────────────────────────
@@ -660,5 +722,6 @@ export const componentRegistry: ComponentRegistryEntry[] = [
     requiresProvider: false,
     requiresThemeProvider: true,
     minimalProps: {},
+    category: "feedback",
   },
 ];
