@@ -23,6 +23,30 @@ test.describe("Visual regression", () => {
 		// Navigate to playground (all apps serve it at root)
 		await page.goto("/");
 		await page.waitForLoadState("networkidle");
+
+		// Wait for Vite's CSS injection via JS to complete
+		await page.waitForFunction(() => {
+			const button = document.querySelector('[data-testid="Button"] button');
+			if (!button) return false;
+			const styles = window.getComputedStyle(button);
+			return styles.backgroundColor !== "rgba(0, 0, 0, 0)" && styles.backgroundColor !== "transparent";
+		}, { timeout: 10000 });
+
+		// Remove the Sidebar and its Provider wrapper to prevent layout interference
+		// The SidebarProvider creates a flex container that clips other components
+		await page.evaluate(() => {
+			// Hide all sidebar-related elements
+			document.querySelectorAll('[data-sidebar]').forEach((el) => {
+				(el as HTMLElement).style.display = 'none';
+			});
+			// Reset the SidebarProvider wrapper's flex layout so content gets full width
+			const wrapper = document.querySelector('[style*="--sidebar-width"]');
+			if (wrapper) {
+				(wrapper as HTMLElement).style.display = 'block';
+				(wrapper as HTMLElement).style.paddingLeft = '0';
+				(wrapper as HTMLElement).style.marginLeft = '0';
+			}
+		});
 	});
 
 	for (const entry of componentRegistry) {
