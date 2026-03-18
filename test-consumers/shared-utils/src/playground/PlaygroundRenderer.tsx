@@ -821,6 +821,7 @@ export function PlaygroundRenderer({
 							"div",
 							{
 								key: entry.name,
+								"data-testid": entry.name,
 								style: {
 									marginBottom: "16px",
 									padding: "8px",
@@ -841,6 +842,7 @@ export function PlaygroundRenderer({
 							"div",
 							{
 								key: entry.name,
+								"data-testid": entry.name,
 								style: {
 									marginBottom: "16px",
 									padding: "8px",
@@ -873,7 +875,7 @@ export function PlaygroundRenderer({
 					if (hint?.renderSubComponents) {
 						return React.createElement(
 							"div",
-							{ key: entry.name, style: { marginBottom: "24px" } },
+							{ key: entry.name, "data-testid": entry.name, style: { marginBottom: "24px" } },
 							React.createElement(
 								"h3",
 								{
@@ -916,7 +918,7 @@ export function PlaygroundRenderer({
 					if (hint?.triggerMode) {
 						return React.createElement(
 							"div",
-							{ key: entry.name, style: { marginBottom: "24px" } },
+							{ key: entry.name, "data-testid": entry.name, style: { marginBottom: "24px" } },
 							React.createElement(
 								"h3",
 								{
@@ -962,7 +964,7 @@ export function PlaygroundRenderer({
 
 					return React.createElement(
 						"div",
-						{ key: entry.name, style: { marginBottom: "24px" } },
+						{ key: entry.name, "data-testid": entry.name, style: { marginBottom: "24px" } },
 						React.createElement(
 							"h3",
 							{

@@ -157,10 +157,29 @@ cd test-consumers/vite-r18 && pnpm vite --port 5181
 | --------------------- | ----- | ----------------------------------------------------------------- |
 | `components.test.tsx` | ~326  | Exports exist, render without crashing, sub-components accessible |
 | `hooks.test.tsx`      | 61    | All hooks invocable, return expected types                        |
-| `behavior.test.tsx`   | 18    | Interactive behavior: clicks, typing, toggling, dialog open/close |
+| `behavior.test.tsx`   | 18-19 | Interactive behavior: clicks, typing, toggling, dialog open/close |
 | `findings.test.tsx`   | ~4    | Known issues documented as executable tests                       |
+| `visual/components.spec.ts` | ~54 | Per-component screenshots in Chromium (Playwright)           |
 
 **Skipped** (by design): Form (needs react-hook-form), Sidebar (needs SidebarProvider), Typography (namespace only).
+
+### Visual Regression Tests (Playwright)
+
+Per-component screenshots in a real Chromium browser across all 4 apps (~214 tests). Detects CSS/layout regressions that happy-dom cannot catch.
+
+```bash
+# Run all visual tests (generates baselines on first run)
+pnpm test:visual
+
+# Run per app
+pnpm test:visual:vite-r18
+pnpm test:visual:next-r19
+
+# Update baselines after intentional visual changes
+pnpm test:visual:update
+```
+
+Baselines are committed to git in `__screenshots__/` directories. Each worktree carries its own baselines.
 
 ### Visual Playground (manual)
 
@@ -172,7 +191,6 @@ Known issues discovered during testing are documented in `findings/`:
 
 ```
 findings/
-├── calendar-visually-broken.md   # Calendar layout broken (CSS issue from PR #84)
 └── sidebar-ssr-crash.md          # Sidebar crashes Next.js (useWindowSize accesses window)
 ```
 

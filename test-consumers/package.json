@@ -1,0 +1,15 @@
+{
+  "name": "test-consumers-visual",
+  "private": true,
+  "devDependencies": {
+    "@playwright/test": "^1.52.0"
+  },
+  "scripts": {
+    "test:visual": "playwright test",
+    "test:visual:vite-r18": "playwright test --project=vite-r18",
+    "test:visual:vite-r19": "playwright test --project=vite-r19",
+    "test:visual:next-r18": "playwright test --project=next-r18",
+    "test:visual:next-r19": "playwright test --project=next-r19",
+    "test:visual:update": "playwright test --update-snapshots"
+  }
+}

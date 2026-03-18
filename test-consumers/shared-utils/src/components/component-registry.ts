@@ -331,15 +331,12 @@ export const componentRegistry: ComponentRegistryEntry[] = [
     category: "form",
   },
   {
-    // KNOWN BUG (PR #84): Calendar is broken with React 18. The component code
-    // was rewritten for react-day-picker v9 API, but v9 requires React 19.
-    // Do NOT attempt to fix here — the component itself needs to be updated.
     name: "Calendar",
     hasSubComponents: false,
     subComponentNames: [],
     requiresProvider: false,
     requiresThemeProvider: false,
-    minimalProps: {},
+    minimalProps: { mode: "single", className: "rounded-md border" },
     category: "form",
   },
 

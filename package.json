@@ -22,7 +22,13 @@
 		"playground:vite-r18": "cd test-consumers/vite-r18 && pnpm dev",
 		"playground:vite-r19": "cd test-consumers/vite-r19 && pnpm dev",
 		"playground:next-r18": "cd test-consumers/next-r18 && pnpm dev",
-		"playground:next-r19": "cd test-consumers/next-r19 && pnpm dev"
+		"playground:next-r19": "cd test-consumers/next-r19 && pnpm dev",
+		"test:visual": "cd test-consumers && pnpm test:visual",
+		"test:visual:vite-r18": "cd test-consumers && pnpm test:visual:vite-r18",
+		"test:visual:vite-r19": "cd test-consumers && pnpm test:visual:vite-r19",
+		"test:visual:next-r18": "cd test-consumers && pnpm test:visual:next-r18",
+		"test:visual:next-r19": "cd test-consumers && pnpm test:visual:next-r19",
+		"test:visual:update": "cd test-consumers && pnpm test:visual:update"
 	},
 	"keywords": [],
 	"author": {
