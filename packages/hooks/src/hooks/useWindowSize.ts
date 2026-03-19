@@ -12,6 +12,10 @@ const MOBILE_BREAKPOINT = 768;
 const TABLET_BREAKPOINT = 1024;
 
 export const useWindowSize = (): WindowSize => {
+	if (typeof globalThis === "undefined" || !globalThis.window) {
+		throw new Error("useWindowSize can only be used in a client-side. Try using \"use client\" in your Next.js app");
+	}
+
 	const [windowSize, setWindowSize] = useState<WindowSize>({
 		width: window.innerWidth,
 		height: window.innerHeight,
