@@ -11,6 +11,12 @@ export default defineConfig({
   site: 'https://ui.rhinolabs.agency',
   vite: {
     plugins: [tailwindcss()],
+    resolve: {
+      dedupe: ['react', 'react-dom', 'react/jsx-runtime', 'react/jsx-dev-runtime'],
+    },
+    ssr: {
+      noExternal: ['@rhinolabs/ui', '@rhinolabs/react-hooks'],
+    },
   },
   integrations: [
     react(),

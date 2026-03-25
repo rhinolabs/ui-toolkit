@@ -22,6 +22,7 @@
     "@astrojs/sitemap": "^3.7.1",
     "@rhinolabs/react-hooks": "workspace:^",
     "@rhinolabs/ui": "workspace:^",
+    "@tailwindcss/typography": "^0.5.19",
     "@tailwindcss/vite": "^4.2.1",
     "astro": "^6.0.4",
     "lucide-react": "^0.577.0",

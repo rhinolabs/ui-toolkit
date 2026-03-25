@@ -17,13 +17,13 @@ import ButtonWithIconSource from '../../../components/demos/ui/button-with-icon.
 
 A versatile button component that supports different styles, sizes, and behaviors.
 
-<ComponentPreview code={ButtonDemoSource} client:load>
-  <ButtonDemo client:load />
+<ComponentPreview code={ButtonDemoSource} client:only="react">
+  <ButtonDemo client:only="react" />
 </ComponentPreview>
 
 ## Installation
 
-<InstallTabs packages="@rhinolabs/ui" client:load />
+<InstallTabs packages="@rhinolabs/ui" client:only="react" />
 
 ## Usage
 
@@ -41,24 +41,24 @@ export default function Example() {
 
 Buttons come in different variants to suit different contexts.
 
-<ComponentPreview code={ButtonVariantsSource} client:load>
-  <ButtonVariants client:load />
+<ComponentPreview code={ButtonVariantsSource} client:only="react">
+  <ButtonVariants client:only="react" />
 </ComponentPreview>
 
 ### Sizes
 
 Buttons are available in different sizes to fit your design needs.
 
-<ComponentPreview code={ButtonSizesSource} client:load>
-  <ButtonSizes client:load />
+<ComponentPreview code={ButtonSizesSource} client:only="react">
+  <ButtonSizes client:only="react" />
 </ComponentPreview>
 
 ### With Icons
 
 Buttons can include icons alongside text.
 
-<ComponentPreview code={ButtonWithIconSource} client:load>
-  <ButtonWithIcon client:load />
+<ComponentPreview code={ButtonWithIconSource} client:only="react">
+  <ButtonWithIcon client:only="react" />
 </ComponentPreview>
 
 ## API Reference
@@ -69,7 +69,7 @@ Buttons can include icons alongside text.
     { name: "size", type: '"default" | "sm" | "lg" | "icon"', default: '"default"', description: "The size of the button" },
     { name: "asChild", type: "boolean", default: "false", description: "Render as child component using Radix Slot" },
   ]}
-  client:load
+  client:only="react"
 />
 
 The button component also accepts all standard HTML button attributes.

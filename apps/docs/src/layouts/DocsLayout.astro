@@ -21,8 +21,8 @@ const currentPath = Astro.url.pathname.replace(/\/$/, '') || '/';
 
     <div class="flex-1 flex">
       <!-- Desktop Sidebar -->
-      <aside class="hidden lg:block w-64 shrink-0 border-r border-border sticky top-14 h-[calc(100vh-3.5rem)] overflow-hidden">
-        <Sidebar currentPath={currentPath} client:load />
+      <aside class="hidden md:block w-64 shrink-0 border-r border-border sticky top-14 h-[calc(100vh-3.5rem)] overflow-hidden">
+        <Sidebar currentPath={currentPath} client:only="react" />
       </aside>
 
       <!-- Main Content -->
@@ -41,7 +41,7 @@ const currentPath = Astro.url.pathname.replace(/\/$/, '') || '/';
             prose-h3:text-xl prose-h3:mt-8 prose-h3:mb-3
             prose-p:text-muted-foreground prose-p:leading-7
             prose-a:text-foreground prose-a:underline prose-a:underline-offset-4 hover:prose-a:text-foreground/80
-            prose-code:bg-muted prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded-md prose-code:text-sm prose-code:font-[JetBrains_Mono,monospace]
+            prose-code:bg-muted prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded-md prose-code:text-sm prose-code:font-[JetBrains_Mono,monospace] prose-code:before:content-none prose-code:after:content-none
             prose-pre:bg-muted prose-pre:border prose-pre:border-border prose-pre:rounded-lg
             prose-table:border prose-table:border-border
             prose-th:border prose-th:border-border prose-th:px-4 prose-th:py-2 prose-th:bg-muted
@@ -57,7 +57,7 @@ const currentPath = Astro.url.pathname.replace(/\/$/, '') || '/';
       <!-- Table of Contents -->
       {headings.length > 0 && (
         <aside class="hidden xl:block w-56 shrink-0 sticky top-14 h-[calc(100vh-3.5rem)] overflow-y-auto py-10 pr-4">
-          <TableOfContents headings={headings} client:visible />
+          <TableOfContents headings={headings} client:only="react" />
         </aside>
       )}
     </div>
