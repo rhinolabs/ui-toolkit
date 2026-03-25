@@ -6,6 +6,13 @@
     "nodejs_compat",
     "global_fetch_strictly_public"
   ],
+  "no_bundle": true,
+  "build": {
+    "command": "pnpm run build"
+  },
+  "rules": [
+    { "type": "ESModule", "globs": ["**/*.js", "**/*.mjs"] }
+  ],
   "assets": {
     "binding": "ASSETS",
     "directory": "./apps/docs/dist/client"
