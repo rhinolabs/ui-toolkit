@@ -1,59 +1,20 @@
 import { defineConfig } from 'astro/config';
-import starlight from '@astrojs/starlight';
+import react from '@astrojs/react';
+import mdx from '@astrojs/mdx';
+import sitemap from '@astrojs/sitemap';
 import cloudflare from '@astrojs/cloudflare';
+import tailwindcss from '@tailwindcss/vite';
 
 export default defineConfig({
   output: 'static',
   adapter: cloudflare(),
+  site: 'https://ui.rhinolabs.agency',
+  vite: {
+    plugins: [tailwindcss()],
+  },
   integrations: [
-    starlight({
-      title: 'UI Toolkit',
-      logo: {
-        src: './public/logo.png',
-        alt: 'Rhinolabs UI Toolkit',
-      },
-      favicon: '/favicon.ico',
-      components: {
-        ThemeSelect: './src/components/theme-select.astro',
-        Footer: './src/components/footer.astro',
-      },
-      defaultLocale: 'root',
-      locales: {
-        root: { label: 'English', lang: 'en' },
-      },
-      social: [
-        { icon: 'github', label: 'GitHub', href: 'https://github.com/rhinolabs/ui-toolkit' },
-      ],
-      customCss: ['./src/styles/custom.css'],
-      sidebar: [
-        { label: 'Introduction', slug: 'introduction' },
-        { label: 'Getting Started', slug: 'getting-started' },
-        {
-          label: 'Components',
-          autogenerate: { directory: 'ui' },
-        },
-        {
-          label: 'Hooks',
-          autogenerate: { directory: 'hooks' },
-        },
-      ],
-      head: [
-        {
-          tag: 'meta',
-          attrs: {
-            name: 'theme-color',
-            content: '#10b981',
-          },
-        },
-        {
-          tag: 'script',
-          attrs: {
-            defer: true,
-            src: 'https://cloud.umami.is/script.js',
-            'data-website-id': '8b7e8cab-0f61-4e2b-84d0-265791684ede',
-          },
-        },
-      ],
-    }),
+    react(),
+    mdx(),
+    sitemap(),
   ],
 });
